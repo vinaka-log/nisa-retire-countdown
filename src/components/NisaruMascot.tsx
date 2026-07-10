@@ -1,0 +1,122 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { TarumiCharacter } from "./TarumiCharacter";
+import type { MascotMood } from "./TarumiCharacter";
+
+export type { MascotMood } from "./TarumiCharacter";
+
+type Props = {
+  mood: MascotMood;
+  progressPercent: number;
+  yearsLeft: number;
+};
+
+const DIALOGUE: Record<MascotMood, string[]> = {
+  start: [
+    "はじめまして♡ うち、たるみちゃん。資産もスタイルもキレイにしよ？",
+    "積立スタート？その決断、うちのタイプかも…♡",
+  ],
+  focus: [
+    "今は種まき期間。毎月コツコツが、未来のうちをエロかわにするのよ。",
+    "見ててあげるから。積立、サボったら…ちょっと寂しいかも？",
+  ],
+  cheer: [
+    "いい感じじゃん♡ その積立、うちのハートに直撃なんだけど。",
+    "進捗伸びてきた〜。もっと見せて？…って、数字の話ね？",
+  ],
+  happy: [
+    "やばっ、ゴール見えてきた！うち、ドキドキ止まんない。",
+    "神ペースすぎ。自由な生活、もうすぐキスできる距離じゃん。",
+  ],
+  celebrate: [
+    "きたぁぁ！目標達成コース♡ ご褒美に、もっと応援しちゃう？",
+    "最高すぎ。あとは一緒に、最高の引退ライフいこ？",
+  ],
+};
+
+const PET_LINES = [
+  "ちょ、タッチ攻撃…照れるじゃん♡ もう一回はアリ？",
+  "なでなでされたら、応援パワー上がるのよ〜",
+  "え、うちのこと好き？…積立も続けてね？",
+  "ドキッ…♡ その調子で、資産もうちも育てて？",
+];
+
+function pickLine(mood: MascotMood, progressPercent: number): string {
+  const lines = DIALOGUE[mood];
+  const idx = Math.floor(progressPercent / 25) % lines.length;
+  return lines[idx] ?? lines[0];
+}
+
+export function NisaruMascot({ mood, progressPercent, yearsLeft }: Props) {
+  const [petCount, setPetCount] = useState(0);
+  const [wiggle, setWiggle] = useState(false);
+  const [petLine, setPetLine] = useState<string | null>(null);
+
+  const line = useMemo(
+    () => petLine ?? pickLine(mood, progressPercent),
+    [mood, progressPercent, petLine],
+  );
+  const level = Math.min(99, Math.max(1, Math.floor(progressPercent / 5) + 1));
+
+  function handlePet() {
+    setPetCount((c) => c + 1);
+    setWiggle(true);
+    setPetLine(PET_LINES[petCount % PET_LINES.length]);
+    window.setTimeout(() => setWiggle(false), 500);
+    window.setTimeout(() => setPetLine(null), 2800);
+  }
+
+  return (
+    <div className="companion-panel gyaru-panel">
+      <div className="companion-stage gyaru-stage">
+        {petCount > 0 && (
+          <div className="heart-pop" key={petCount}>
+            ♡
+          </div>
+        )}
+        <span className="gyaru-sparkle gyaru-sparkle-a">✦</span>
+        <span className="gyaru-sparkle gyaru-sparkle-b">♡</span>
+        <button
+          type="button"
+          className={`companion-tap gyaru-tap ${wiggle ? "wiggle" : ""} ${mood === "celebrate" ? "celebrate" : ""}`}
+          onClick={handlePet}
+          aria-label="たるみちゃんをなでる"
+        >
+          <TarumiCharacter
+            mood={mood}
+            size={112}
+            alluring={wiggle}
+            className={wiggle ? "tarumi-petting" : ""}
+          />
+        </button>
+        <div className="companion-shadow" />
+      </div>
+
+      <div className="companion-info">
+        <div className="companion-name-row">
+          <span className="companion-badge gyaru-badge">推しギャル</span>
+          <h2 className="companion-name gyaru-name">たるみちゃん</h2>
+          <span className="companion-level gyaru-level">Lv.{level}</span>
+        </div>
+        <p className="companion-dialogue gyaru-dialogue">{line}</p>
+        <p className="companion-hint">
+          {yearsLeft > 0
+            ? `あと ${yearsLeft} 年。タップして、うちと距離縮めよ♡`
+            : "ゴール目前！タップして、ご褒美の祝福ちょうだい？"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function moodFromProgress(
+  progressPercent: number,
+  targetReached: boolean,
+): MascotMood {
+  if (targetReached) return "celebrate";
+  if (progressPercent >= 70) return "happy";
+  if (progressPercent >= 40) return "cheer";
+  if (progressPercent >= 15) return "focus";
+  return "start";
+}
