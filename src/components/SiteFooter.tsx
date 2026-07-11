@@ -6,7 +6,13 @@ import {
   hasConfiguredAffiliatePartners,
   SIMULATION_DISCLAIMER,
 } from "@/lib/affiliates";
-import { LEGAL_NAV_LINKS, SITE_NAME } from "@/lib/site";
+import {
+  getContactEmail,
+  getOperatorName,
+  isContactEmailConfigured,
+  LEGAL_NAV_LINKS,
+  SITE_NAME,
+} from "@/lib/site";
 
 const AFFILIATE_DISCLOSURE_GENERAL =
   "当サイトには、アフィリエイト広告（第三者の商品・サービスの紹介リンク）が含まれる場合があります。リンク経由で申し込みが行われた場合、運営者が報酬を受け取ることがあります。";
@@ -14,6 +20,9 @@ const AFFILIATE_DISCLOSURE_GENERAL =
 export function SiteFooter() {
   const partnersConfigured = hasConfiguredAffiliatePartners();
   const year = new Date().getFullYear();
+  const operatorName = getOperatorName();
+  const contactEmail = getContactEmail();
+  const emailConfigured = isContactEmailConfigured();
 
   return (
     <footer className="mt-auto border-t border-zinc-200 bg-white">
@@ -56,6 +65,26 @@ export function SiteFooter() {
             ))}
           </p>
         ) : null}
+
+        <p className="text-xs leading-relaxed text-zinc-500">
+          運営: {operatorName}
+          {" · "}
+          {emailConfigured ? (
+            <a
+              href={`mailto:${contactEmail}`}
+              className="text-emerald-700 underline-offset-2 hover:underline"
+            >
+              {contactEmail}
+            </a>
+          ) : (
+            <Link
+              href="/contact"
+              className="text-emerald-700 underline-offset-2 hover:underline"
+            >
+              お問い合わせ
+            </Link>
+          )}
+        </p>
 
         <p className="text-xs text-zinc-400">
           © {year} {SITE_NAME}

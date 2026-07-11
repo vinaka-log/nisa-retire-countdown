@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { getGithubNewIssueUrl } from "@/lib/site-config";
 
 type ContactFormProps = {
   contactEmail: string;
@@ -19,13 +20,6 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
     event.preventDefault();
     setStatus(null);
 
-    if (!hasEmail) {
-      setStatus(
-        "お問い合わせ先メールアドレスが未設定です。サイト運営者が NEXT_PUBLIC_CONTACT_EMAIL を設定するまで、フォームからの送信はできません。",
-      );
-      return;
-    }
-
     if (!message.trim()) {
       setStatus("お問い合わせ内容を入力してください。");
       return;
@@ -34,16 +28,28 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
     const mailSubject =
       subject.trim() || "つみたてNISAシミュレーターへのお問い合わせ";
     const body = [
-      `お名前: ${name.trim() || "（未記入）"}`,
-      `返信先メール: ${email.trim() || "（未記入）"}`,
+      `お名前: ${name.trim() || "（任意・未入力）"}`,
+      `返信先メール: ${email.trim() || "（任意・未入力）"}`,
       "",
       message.trim(),
     ].join("\n");
 
-    const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    if (hasEmail) {
+      const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+      setStatus(
+        "メールアプリが開きます。送信が完了しない場合は、表示のメールアドレスへ直接ご連絡ください。",
+      );
+      return;
+    }
+
+    const issueUrl = getGithubNewIssueUrl({
+      title: mailSubject,
+      body,
+    });
+    window.open(issueUrl, "_blank", "noopener,noreferrer");
     setStatus(
-      "メールアプリが開きます。送信が完了しない場合は、表示のメールアドレスへ直接ご連絡ください。",
+      "GitHub Issues の新規作成画面を開きました。内容を確認のうえ「Submit new issue」で投稿してください。",
     );
   }
 
@@ -104,7 +110,7 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         type="submit"
         className="inline-flex items-center justify-center rounded-lg border border-emerald-700 bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800"
       >
-        メールで送信する
+        {hasEmail ? "メールで送信する" : "問い合わせを送信する"}
       </button>
 
       {status ? (
@@ -114,7 +120,9 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
       ) : null}
 
       <p className="text-xs leading-relaxed text-zinc-500">
-        送信ボタンを押すと、ご利用端末のメールアプリが開きます。サーバーへの直接送信は行いません。
+        {hasEmail
+          ? "送信ボタンを押すと、ご利用端末のメールアプリが開きます。サーバーへの直接送信は行いません。"
+          : "送信ボタンを押すと GitHub Issues の新規作成画面が開きます。投稿には GitHub アカウントが必要です。"}
       </p>
     </form>
   );

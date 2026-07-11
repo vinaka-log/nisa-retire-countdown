@@ -3,11 +3,10 @@ import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import {
   getContactEmail,
-  getContactEmailDisplay,
   getOperatorAddress,
   getOperatorName,
+  hasOperatorAddress,
   isContactEmailConfigured,
-  OPERATOR_PLACEHOLDER,
   SITE_NAME,
   SITE_TITLE,
 } from "@/lib/site";
@@ -22,8 +21,8 @@ export default function AboutPage() {
   const operatorName = getOperatorName();
   const operatorAddress = getOperatorAddress();
   const contactEmail = getContactEmail();
-  const contactDisplay = getContactEmailDisplay();
   const emailConfigured = isContactEmailConfigured();
+  const showAddress = hasOperatorAddress();
 
   return (
     <ContentPage
@@ -46,10 +45,14 @@ export default function AboutPage() {
             <dt className="text-xs font-medium text-zinc-500">運営者名</dt>
             <dd className="mt-1 font-medium text-zinc-900">{operatorName}</dd>
           </div>
-          <div>
-            <dt className="text-xs font-medium text-zinc-500">所在地</dt>
-            <dd className="mt-1 font-medium text-zinc-900">{operatorAddress}</dd>
-          </div>
+          {showAddress ? (
+            <div>
+              <dt className="text-xs font-medium text-zinc-500">所在地</dt>
+              <dd className="mt-1 font-medium text-zinc-900">
+                {operatorAddress}
+              </dd>
+            </div>
+          ) : null}
           <div>
             <dt className="text-xs font-medium text-zinc-500">お問い合わせ</dt>
             <dd className="mt-1">
@@ -58,33 +61,50 @@ export default function AboutPage() {
                   href={`mailto:${contactEmail}`}
                   className="font-medium text-emerald-700 underline-offset-2 hover:underline"
                 >
-                  {contactDisplay}
+                  {contactEmail}
                 </a>
               ) : (
-                <span className="font-medium text-zinc-900">{contactDisplay}</span>
-              )}
-              <span className="mt-1 block text-zinc-600">
-                または{" "}
                 <Link
                   href="/contact"
-                  className="text-emerald-700 underline-offset-2 hover:underline"
+                  className="font-medium text-emerald-700 underline-offset-2 hover:underline"
                 >
                   お問い合わせフォーム
                 </Link>
-              </span>
+              )}
+              {emailConfigured ? (
+                <span className="mt-1 block text-zinc-600">
+                  または{" "}
+                  <Link
+                    href="/contact"
+                    className="text-emerald-700 underline-offset-2 hover:underline"
+                  >
+                    お問い合わせフォーム
+                  </Link>
+                </span>
+              ) : (
+                <span className="mt-1 block text-sm text-zinc-600">
+                  ご質問・ご意見はお問い合わせページからご連絡ください。
+                </span>
+              )}
             </dd>
           </div>
         </dl>
-        {(operatorName === OPERATOR_PLACEHOLDER ||
-          operatorAddress === OPERATOR_PLACEHOLDER ||
-          !emailConfigured) && (
-          <p className="mt-3 text-xs text-zinc-500">
-            「{OPERATOR_PLACEHOLDER}」と表示されている項目は、公開前に環境変数（
-            NEXT_PUBLIC_OPERATOR_NAME / NEXT_PUBLIC_OPERATOR_ADDRESS /
-            NEXT_PUBLIC_CONTACT_EMAIL）へ実情報を設定してください。
-          </p>
-        )}
       </ContentSection>
+
+      {!showAddress ? (
+        <ContentSection title="所在地について">
+          <p>
+            当サイトはオンラインで提供する無料のシミュレーションサービスです。所在地の掲載が必要な場合は、運営者情報に追記します。お問い合わせは
+            <Link
+              href="/contact"
+              className="mx-1 text-emerald-700 underline-offset-2 hover:underline"
+            >
+              お問い合わせページ
+            </Link>
+            をご利用ください。
+          </p>
+        </ContentSection>
+      ) : null}
 
       <ContentSection title="関連ページ">
         <ul className="list-disc space-y-1 pl-5">
