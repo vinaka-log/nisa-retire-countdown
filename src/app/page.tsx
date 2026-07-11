@@ -1,16 +1,9 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { AffiliateLink } from "@/components/AffiliateLink";
 import { moodFromProgress, NisaruMascot } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
 import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
-import {
-  AFFILIATE_DISCLOSURE,
-  getConfiguredAffiliatePartners,
-  hasConfiguredAffiliatePartners,
-  SIMULATION_DISCLAIMER,
-} from "@/lib/affiliates";
 
 type Simulation = {
   yearsToTarget: number;
@@ -152,7 +145,7 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-5xl px-6 py-10">
+    <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
       <section className="mb-8">
         <p className="mb-2 text-sm font-semibold tracking-wide text-emerald-700">
           つみたてNISA
@@ -325,28 +318,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="mt-8 space-y-3 rounded-xl border border-zinc-200 bg-white p-4 text-sm text-zinc-600">
-        {hasConfiguredAffiliatePartners() ? (
-          <p className="text-xs text-zinc-500">{AFFILIATE_DISCLOSURE}</p>
-        ) : null}
-        <p className="leading-relaxed">{SIMULATION_DISCLAIMER}</p>
-        {hasConfiguredAffiliatePartners() ? (
-          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="text-zinc-500">準備の参考:</span>
-            {getConfiguredAffiliatePartners().map((partner) => (
-              <AffiliateLink
-                key={partner.id}
-                partner={partner.id}
-                placement="footer"
-                className="text-emerald-700 underline-offset-2 hover:underline"
-              >
-                {partner.shortLabel}
-              </AffiliateLink>
-            ))}
-          </p>
-        ) : null}
-      </footer>
     </main>
   );
 }
