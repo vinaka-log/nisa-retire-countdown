@@ -1,8 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { AffiliateLink } from "@/components/AffiliateLink";
 import { moodFromProgress, NisaruMascot } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
+import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
+import {
+  AFFILIATE_DISCLOSURE,
+  getConfiguredAffiliatePartners,
+  hasConfiguredAffiliatePartners,
+  SIMULATION_DISCLAIMER,
+} from "@/lib/affiliates";
 
 type Simulation = {
   yearsToTarget: number;
@@ -34,10 +42,13 @@ function simulateRetirePlan(
   }
 
   const amountAtRetire = Math.round(amount);
+  const safeTarget = Math.max(targetAmount, 1);
   const targetReached = amountAtRetire >= targetAmount;
   const gapAmount = Math.max(targetAmount - amountAtRetire, 0);
-  const progressRatio = Math.min(currentAmount / Math.max(targetAmount, 1), 1);
-  const monthlyPassiveIncome = Math.round(amountAtRetire * 0.04 / 12);
+  // Projected retirement assets vs target — so age / contribution / return
+  // all move progress, journey, and mascot in realtime.
+  const progressRatio = Math.min(amountAtRetire / safeTarget, 1);
+  const monthlyPassiveIncome = Math.round((amountAtRetire * 0.04) / 12);
 
   let requiredMonthlyContribution = 0;
   if (months > 0) {
@@ -69,28 +80,47 @@ function simulateRetirePlan(
 
 const yen = new Intl.NumberFormat("ja-JP");
 
-export default function Home() {
-  const [currentAge, setCurrentAge] = useState("32");
-  const [retireAge, setRetireAge] = useState("60");
-  const [currentAmount, setCurrentAmount] = useState("1200000");
-  const [monthlyContribution, setMonthlyContribution] = useState("100000");
-  const [annualReturnPercent, setAnnualReturnPercent] = useState("5");
-  const [targetAmount, setTargetAmount] = useState("40000000");
+/** Parse input text; empty/invalid keeps the previous valid number (no zero flash). */
+function parseKeepingLast(raw: string, lastValid: number): number {
+  const trimmed = raw.trim();
+  if (trimmed === "") return lastValid;
+  const n = Number(trimmed);
+  return Number.isFinite(n) ? n : lastValid;
+}
 
-  const toNumber = (value: string): number => {
-    const n = Number(value);
-    return Number.isFinite(n) ? n : 0;
-  };
+function useNumericInput(initial: string) {
+  const [raw, setRaw] = useState(initial);
+  const lastValidRef = useRef(Number(initial));
+  const trimmed = raw.trim();
+  if (trimmed !== "") {
+    const n = Number(trimmed);
+    if (Number.isFinite(n)) lastValidRef.current = n;
+  }
+  const value = parseKeepingLast(raw, lastValidRef.current);
+  return [raw, setRaw, value] as const;
+}
+
+export default function Home() {
+  const [currentAgeRaw, setCurrentAge, currentAge] = useNumericInput("32");
+  const [retireAgeRaw, setRetireAge, retireAge] = useNumericInput("60");
+  const [currentAmountRaw, setCurrentAmount, currentAmount] =
+    useNumericInput("1200000");
+  const [monthlyContributionRaw, setMonthlyContribution, monthlyContribution] =
+    useNumericInput("100000");
+  const [annualReturnPercentRaw, setAnnualReturnPercent, annualReturnPercent] =
+    useNumericInput("5");
+  const [targetAmountRaw, setTargetAmount, targetAmount] =
+    useNumericInput("40000000");
 
   const result = useMemo(
     () =>
       simulateRetirePlan(
-        toNumber(currentAge),
-        toNumber(retireAge),
-        toNumber(currentAmount),
-        toNumber(monthlyContribution),
-        toNumber(annualReturnPercent),
-        toNumber(targetAmount),
+        currentAge,
+        retireAge,
+        currentAmount,
+        monthlyContribution,
+        annualReturnPercent,
+        targetAmount,
       ),
     [
       annualReturnPercent,
@@ -105,8 +135,8 @@ export default function Home() {
   const progressPercent = Math.round(result.progressRatio * 100);
   const milestoneStep = 5_000_000;
   const nextMilestone =
-    Math.ceil((toNumber(currentAmount) + 1) / milestoneStep) * milestoneStep;
-  const milestoneLeft = Math.max(nextMilestone - toNumber(currentAmount), 0);
+    Math.ceil((currentAmount + 1) / milestoneStep) * milestoneStep;
+  const milestoneLeft = Math.max(nextMilestone - currentAmount, 0);
 
   const momentumMessage = (() => {
     if (result.targetReached) return "達成コース！このままいこう。";
@@ -118,8 +148,7 @@ export default function Home() {
   const mood = moodFromProgress(progressPercent, result.targetReached);
 
   function boostContribution(step: number) {
-    const current = toNumber(monthlyContribution);
-    setMonthlyContribution(String(current + step));
+    setMonthlyContribution(String(monthlyContribution + step));
   }
 
   return (
@@ -129,7 +158,7 @@ export default function Home() {
           つみたてNISA
         </p>
         <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
-          あと何年で、引退？
+          つみたてNISAで、引退は何年後？
         </h1>
         <p className="mt-3 text-lg font-medium text-amber-700">{momentumMessage}</p>
       </section>
@@ -151,18 +180,22 @@ export default function Home() {
         <article className="rounded-2xl border border-zinc-200 bg-white p-4">
           <p className="text-sm text-zinc-500">引退時の想定取り崩し（月4%ルール）</p>
           <p className="text-3xl font-bold">¥{yen.format(result.monthlyPassiveIncome)}</p>
-          <p className="text-sm text-zinc-600">年換算: ¥{yen.format(result.monthlyPassiveIncome * 12)}</p>
+          <p className="text-sm text-zinc-600">
+            年換算: ¥{yen.format(result.monthlyPassiveIncome * 12)}
+          </p>
         </article>
       </section>
 
       <section className="mb-6">
         <ProgressJourney
           progressPercent={progressPercent}
-          currentAmount={toNumber(currentAmount)}
-          targetAmount={toNumber(targetAmount)}
+          currentAmount={result.amountAtRetire}
+          targetAmount={targetAmount}
           targetReached={result.targetReached}
         />
       </section>
+
+      <SoftAffiliateCta placement="result_summary" className="mb-6" />
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
@@ -173,7 +206,7 @@ export default function Home() {
               <input
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
-                value={currentAge}
+                value={currentAgeRaw}
                 onChange={(e) => setCurrentAge(e.target.value)}
               />
             </label>
@@ -183,7 +216,7 @@ export default function Home() {
               <input
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
-                value={retireAge}
+                value={retireAgeRaw}
                 onChange={(e) => setRetireAge(e.target.value)}
               />
             </label>
@@ -193,7 +226,7 @@ export default function Home() {
               <input
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
-                value={currentAmount}
+                value={currentAmountRaw}
                 onChange={(e) => setCurrentAmount(e.target.value)}
               />
             </label>
@@ -203,7 +236,7 @@ export default function Home() {
               <input
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
-                value={monthlyContribution}
+                value={monthlyContributionRaw}
                 onChange={(e) => setMonthlyContribution(e.target.value)}
               />
             </label>
@@ -214,7 +247,7 @@ export default function Home() {
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
                 step="0.1"
-                value={annualReturnPercent}
+                value={annualReturnPercentRaw}
                 onChange={(e) => setAnnualReturnPercent(e.target.value)}
               />
             </label>
@@ -224,7 +257,7 @@ export default function Home() {
               <input
                 className="rounded-lg border border-zinc-300 px-3 py-2"
                 type="number"
-                value={targetAmount}
+                value={targetAmountRaw}
                 onChange={(e) => setTargetAmount(e.target.value)}
               />
             </label>
@@ -236,7 +269,7 @@ export default function Home() {
           <div className="space-y-4">
             <div className="rounded-xl bg-white p-4">
               <p className="text-sm text-zinc-500">現在資産</p>
-              <p className="text-2xl font-bold">¥{yen.format(toNumber(currentAmount))}</p>
+              <p className="text-2xl font-bold">¥{yen.format(currentAmount)}</p>
             </div>
             <div className="rounded-xl bg-white p-4">
               <p className="text-sm text-zinc-500">次のマイルストーン</p>
@@ -287,13 +320,33 @@ export default function Home() {
                 </>
               )}
             </div>
+
+            <SoftAffiliateCta placement="motivation_board" />
           </div>
         </div>
       </section>
 
-      <section className="mt-8 rounded-xl border border-zinc-200 bg-white p-4 text-sm text-zinc-600">
-        収益化向け次ステップ: 日次チェックイン、目標達成バッジ、Proで詳細分析・税引後シミュレーション。
-      </section>
+      <footer className="mt-8 space-y-3 rounded-xl border border-zinc-200 bg-white p-4 text-sm text-zinc-600">
+        {hasConfiguredAffiliatePartners() ? (
+          <p className="text-xs text-zinc-500">{AFFILIATE_DISCLOSURE}</p>
+        ) : null}
+        <p className="leading-relaxed">{SIMULATION_DISCLAIMER}</p>
+        {hasConfiguredAffiliatePartners() ? (
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="text-zinc-500">準備の参考:</span>
+            {getConfiguredAffiliatePartners().map((partner) => (
+              <AffiliateLink
+                key={partner.id}
+                partner={partner.id}
+                placement="footer"
+                className="text-emerald-700 underline-offset-2 hover:underline"
+              >
+                {partner.shortLabel}
+              </AffiliateLink>
+            ))}
+          </p>
+        ) : null}
+      </footer>
     </main>
   );
 }

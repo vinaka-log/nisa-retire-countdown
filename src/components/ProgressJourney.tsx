@@ -27,11 +27,14 @@ export function ProgressJourney({
   targetAmount,
   targetReached,
 }: Props) {
-  const { totalKm, traveledKm, remainingKm } = journeyDistances(currentAmount, targetAmount);
+  const { totalKm, traveledKm, remainingKm } = journeyDistances(
+    currentAmount,
+    targetAmount,
+  );
   const clampedPercent = Math.min(Math.max(progressPercent, 0), 100);
   const [runFrame, setRunFrame] = useState<0 | 1>(0);
   const [displayPercent, setDisplayPercent] = useState(clampedPercent);
-  const prevPercent = useRef(clampedPercent);
+  const displayPercentRef = useRef(clampedPercent);
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -41,21 +44,29 @@ export function ProgressJourney({
   }, []);
 
   useEffect(() => {
-    if (prevPercent.current === clampedPercent) return;
-    const start = prevPercent.current;
+    const start = displayPercentRef.current;
     const end = clampedPercent;
+    if (start === end) return;
+
     const duration = 900;
     const startTime = performance.now();
+    let raf = 0;
 
     function tick(now: number) {
       const t = Math.min((now - startTime) / duration, 1);
       const eased = 1 - (1 - t) ** 3;
-      setDisplayPercent(Math.round(start + (end - start) * eased));
-      if (t < 1) requestAnimationFrame(tick);
-      else prevPercent.current = end;
+      const next = Math.round(start + (end - start) * eased);
+      displayPercentRef.current = next;
+      setDisplayPercent(next);
+      if (t < 1) raf = requestAnimationFrame(tick);
+      else {
+        displayPercentRef.current = end;
+        setDisplayPercent(end);
+      }
     }
 
-    requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [clampedPercent]);
 
   const milestones = [25, 50, 75];
@@ -66,7 +77,7 @@ export function ProgressJourney({
       <div className="progress-journey-header">
         <div>
           <p className="progress-journey-label">目標進捗</p>
-          <p className="progress-journey-percent">{clampedPercent}%</p>
+          <p className="progress-journey-percent">{displayPercent}%</p>
         </div>
         <div className="progress-journey-distance">
           <p className="progress-journey-label">ゴールまで</p>
@@ -92,10 +103,16 @@ export function ProgressJourney({
           </div>
 
           <div className="progress-track">
-            <div className="progress-track-done" style={{ width: `${displayPercent}%` }} />
+            <div
+              className="progress-track-done"
+              style={{ width: `${displayPercent}%` }}
+            />
             <div
               className="progress-track-remaining"
-              style={{ left: `${displayPercent}%`, width: `${100 - displayPercent}%` }}
+              style={{
+                left: `${displayPercent}%`,
+                width: `${100 - displayPercent}%`,
+              }}
             />
 
             {milestones.map((m) => (
@@ -112,14 +129,16 @@ export function ProgressJourney({
 
             <div
               className={`progress-runner ${targetReached ? "arrived" : "running"}`}
-              style={{ left: `calc(${displayPercent}% - 34px)` }}
+              style={{ left: `calc(${displayPercent}% - 24px)` }}
             >
               <div className="runner-dust" />
               <TarumiCharacter
                 mood={runMood}
                 pose={targetReached ? "idle" : "run"}
                 runFrame={runFrame}
-                size={68}
+                size={48}
+                fill
+                className="tarumi-runner-face"
               />
               <div className="runner-shadow" />
             </div>
@@ -131,8 +150,8 @@ export function ProgressJourney({
 
       <p className="progress-journey-caption">
         {targetReached
-          ? "たるみちゃん、ゴール到着！マジ神。"
-          : "たるみちゃんが資産ロード走ってる〜。積立続けると近づくよ。"}
+          ? "みつき、ゴール到着！マジ神すぎ。"
+          : "みつきが資産ロード走ってるわ。積立続けると近づくよ。"}
       </p>
     </article>
   );

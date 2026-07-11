@@ -14,32 +14,32 @@ type Props = {
 
 const DIALOGUE: Record<MascotMood, string[]> = {
   start: [
-    "はじめまして♡ うち、たるみちゃん。資産もスタイルもキレイにしよ？",
-    "積立スタート？その決断、うちのタイプかも…♡",
+    "はじめまして♡ みつきよ。資産もスタイルも、一緒に磨いていこ？",
+    "積立スタート？その決断、お姉さん好みかも…♡",
   ],
   focus: [
-    "今は種まき期間。毎月コツコツが、未来のうちをエロかわにするのよ。",
-    "見ててあげるから。積立、サボったら…ちょっと寂しいかも？",
+    "今は種まき期間よ。毎月コツコツが、未来のあなたをエロかわにするの。",
+    "見ててあげるから。積立サボったら…ちょっと寂しいかも？",
   ],
   cheer: [
-    "いい感じじゃん♡ その積立、うちのハートに直撃なんだけど。",
-    "進捗伸びてきた〜。もっと見せて？…って、数字の話ね？",
+    "いい感じじゃん♡ その積立、お姉さんハートに直撃なんだけど。",
+    "進捗伸びてきたわね。もっと見せて？…って、数字の話よ？",
   ],
   happy: [
-    "やばっ、ゴール見えてきた！うち、ドキドキ止まんない。",
+    "やばっ、ゴール見えてきた。お姉さん、ドキドキ止まんないわ。",
     "神ペースすぎ。自由な生活、もうすぐキスできる距離じゃん。",
   ],
   celebrate: [
-    "きたぁぁ！目標達成コース♡ ご褒美に、もっと応援しちゃう？",
+    "きたぁ！目標達成コース♡ ご褒美に、もっと応援しちゃう？",
     "最高すぎ。あとは一緒に、最高の引退ライフいこ？",
   ],
 };
 
 const PET_LINES = [
-  "ちょ、タッチ攻撃…照れるじゃん♡ もう一回はアリ？",
+  "ちょ、タッチ攻撃…照れるじゃん♡ もう一回はアリよ？",
   "なでなでされたら、応援パワー上がるのよ〜",
-  "え、うちのこと好き？…積立も続けてね？",
-  "ドキッ…♡ その調子で、資産もうちも育てて？",
+  "え、お姉さんのこと好き？…積立も続けてね？",
+  "ドキッ…♡ その調子で、資産もお姉さんも育てて？",
 ];
 
 function pickLine(mood: MascotMood, progressPercent: number): string {
@@ -81,11 +81,12 @@ export function NisaruMascot({ mood, progressPercent, yearsLeft }: Props) {
           type="button"
           className={`companion-tap gyaru-tap ${wiggle ? "wiggle" : ""} ${mood === "celebrate" ? "celebrate" : ""}`}
           onClick={handlePet}
-          aria-label="たるみちゃんをなでる"
+          aria-label="みつきをなでる"
         >
           <TarumiCharacter
             mood={mood}
-            size={112}
+            size={132}
+            fill
             alluring={wiggle}
             className={wiggle ? "tarumi-petting" : ""}
           />
@@ -95,14 +96,14 @@ export function NisaruMascot({ mood, progressPercent, yearsLeft }: Props) {
 
       <div className="companion-info">
         <div className="companion-name-row">
-          <span className="companion-badge gyaru-badge">推しギャル</span>
-          <h2 className="companion-name gyaru-name">たるみちゃん</h2>
+          <span className="companion-badge gyaru-badge">お姉さんギャル</span>
+          <h2 className="companion-name gyaru-name">みつき</h2>
           <span className="companion-level gyaru-level">Lv.{level}</span>
         </div>
         <p className="companion-dialogue gyaru-dialogue">{line}</p>
         <p className="companion-hint">
           {yearsLeft > 0
-            ? `あと ${yearsLeft} 年。タップして、うちと距離縮めよ♡`
+            ? `あと ${yearsLeft} 年。タップして、お姉さんと距離縮めよ♡`
             : "ゴール目前！タップして、ご褒美の祝福ちょうだい？"}
         </p>
       </div>
