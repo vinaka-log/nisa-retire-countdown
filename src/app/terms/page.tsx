@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import {
   getContactEmailDisplay,
-  getOperatorName,
   isContactEmailConfigured,
   SITE_NAME,
 } from "@/lib/site";
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const operatorName = getOperatorName();
   const contactEmail = getContactEmailDisplay();
   const emailConfigured = isContactEmailConfigured();
 
@@ -96,9 +94,7 @@ export default function TermsPage() {
           <Link href="/contact" className="text-emerald-700 hover:underline">
             お問い合わせページ
           </Link>
-          {emailConfigured
-            ? `、または ${contactEmail}（運営: ${operatorName}）`
-            : `（運営: ${operatorName}）`}
+          {emailConfigured ? `、または ${contactEmail}` : ""}
           までご連絡ください。
         </p>
       </ContentSection>

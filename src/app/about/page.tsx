@@ -4,7 +4,6 @@ import { ContentPage, ContentSection } from "@/components/ContentPage";
 import {
   getContactEmail,
   getOperatorAddress,
-  getOperatorName,
   hasOperatorAddress,
   isContactEmailConfigured,
   SITE_NAME,
@@ -18,7 +17,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const operatorName = getOperatorName();
   const operatorAddress = getOperatorAddress();
   const contactEmail = getContactEmail();
   const emailConfigured = isContactEmailConfigured();
@@ -35,95 +33,94 @@ export default function AboutPage() {
         </p>
       </ContentSection>
 
-      <ContentSection title="運営者">
-        <dl className="space-y-3 rounded-2xl border border-zinc-200 bg-white p-5">
-          <div>
-            <dt className="text-xs font-medium text-zinc-500">サービス名</dt>
-            <dd className="mt-1 font-medium text-zinc-900">{SITE_NAME}</dd>
-          </div>
-          <div>
-            <dt className="text-xs font-medium text-zinc-500">運営者名</dt>
-            <dd className="mt-1 font-medium text-zinc-900">{operatorName}</dd>
-          </div>
-          {showAddress ? (
-            <div>
-              <dt className="text-xs font-medium text-zinc-500">所在地</dt>
-              <dd className="mt-1 font-medium text-zinc-900">
-                {operatorAddress}
+      <ContentSection title="サービス情報">
+        <div className="content-info-list">
+          <dl>
+            <div className="content-info-row">
+              <dt>サービス名</dt>
+              <dd className="font-semibold text-zinc-900">{SITE_NAME}</dd>
+            </div>
+            <div className="content-info-row">
+              <dt>所在地</dt>
+              <dd
+                className={
+                  showAddress
+                    ? "font-semibold text-zinc-900"
+                    : "font-medium text-zinc-500"
+                }
+              >
+                {showAddress
+                  ? operatorAddress
+                  : "オンライン提供のため、掲載なし"}
               </dd>
             </div>
-          ) : null}
-          <div>
-            <dt className="text-xs font-medium text-zinc-500">お問い合わせ</dt>
-            <dd className="mt-1">
-              {emailConfigured ? (
-                <a
-                  href={`mailto:${contactEmail}`}
-                  className="font-medium text-emerald-700 underline-offset-2 hover:underline"
-                >
-                  {contactEmail}
-                </a>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="font-medium text-emerald-700 underline-offset-2 hover:underline"
-                >
-                  お問い合わせフォーム
-                </Link>
-              )}
-              {emailConfigured ? (
-                <span className="mt-1 block text-zinc-600">
-                  または{" "}
-                  <Link
-                    href="/contact"
-                    className="text-emerald-700 underline-offset-2 hover:underline"
-                  >
-                    お問い合わせフォーム
-                  </Link>
-                </span>
-              ) : (
-                <span className="mt-1 block text-sm text-zinc-600">
-                  ご質問・ご意見はお問い合わせページからご連絡ください。
-                </span>
-              )}
-            </dd>
-          </div>
-        </dl>
+            <div className="content-info-row">
+              <dt>お問い合わせ</dt>
+              <dd className="font-semibold text-zinc-900">
+                {emailConfigured ? (
+                  <>
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="break-all font-medium text-emerald-700 underline-offset-2 hover:underline"
+                    >
+                      {contactEmail}
+                    </a>
+                    <span className="mt-1 block text-sm font-normal text-zinc-600">
+                      または{" "}
+                      <Link
+                        href="/contact"
+                        className="text-emerald-700 underline-offset-2 hover:underline"
+                      >
+                        お問い合わせフォーム
+                      </Link>
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/contact"
+                      className="font-medium text-emerald-700 underline-offset-2 hover:underline"
+                    >
+                      お問い合わせページ
+                    </Link>
+                    <span className="mt-1 block text-sm font-normal text-zinc-600">
+                      メールでのお問い合わせ受付を準備しています。
+                    </span>
+                  </>
+                )}
+              </dd>
+            </div>
+          </dl>
+        </div>
       </ContentSection>
 
-      {!showAddress ? (
-        <ContentSection title="所在地について">
-          <p>
-            当サイトはオンラインで提供する無料のシミュレーションサービスです。所在地の掲載が必要な場合は、運営者情報に追記します。お問い合わせは
-            <Link
-              href="/contact"
-              className="mx-1 text-emerald-700 underline-offset-2 hover:underline"
-            >
-              お問い合わせページ
-            </Link>
-            をご利用ください。
-          </p>
-        </ContentSection>
-      ) : null}
-
       <ContentSection title="関連ページ">
-        <ul className="list-disc space-y-1 pl-5">
-          <li>
-            <Link href="/contact" className="text-emerald-700 hover:underline">
-              お問い合わせ
-            </Link>
-          </li>
-          <li>
-            <Link href="/privacy" className="text-emerald-700 hover:underline">
-              プライバシーポリシー
-            </Link>
-          </li>
-          <li>
-            <Link href="/disclaimer" className="text-emerald-700 hover:underline">
-              免責事項
-            </Link>
-          </li>
-        </ul>
+        <nav aria-label="関連ページ" className="content-related">
+          <Link
+            href="/contact"
+            className="text-emerald-700 underline-offset-2 hover:underline"
+          >
+            お問い合わせ
+          </Link>
+          <Link
+            href="/privacy"
+            className="text-emerald-700 underline-offset-2 hover:underline"
+          >
+            プライバシーポリシー
+          </Link>
+          <Link
+            href="/terms"
+            className="text-emerald-700 underline-offset-2 hover:underline"
+          >
+            利用規約
+          </Link>
+          <Link
+            href="/disclaimer"
+            className="text-emerald-700 underline-offset-2 hover:underline"
+          >
+            免責事項
+          </Link>
+        </nav>
       </ContentSection>
     </ContentPage>
   );

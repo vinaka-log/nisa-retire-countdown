@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { moodFromProgress, NisaruMascot } from "@/components/NisaruMascot";
+import { GapHero } from "@/components/GapHero";
+import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
 import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
+import { StickyGapBar } from "@/components/StickyGapBar";
 
 type Simulation = {
   yearsToTarget: number;
@@ -99,7 +101,7 @@ export default function Home() {
   const [currentAmountRaw, setCurrentAmount, currentAmount] =
     useNumericInput("1200000");
   const [monthlyContributionRaw, setMonthlyContribution, monthlyContribution] =
-    useNumericInput("100000");
+    useNumericInput("33000");
   const [annualReturnPercentRaw, setAnnualReturnPercent, annualReturnPercent] =
     useNumericInput("5");
   const [targetAmountRaw, setTargetAmount, targetAmount] =
@@ -145,179 +147,220 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
-      <section className="mb-8">
-        <p className="mb-2 text-sm font-semibold tracking-wide text-emerald-700">
-          つみたてNISA
-        </p>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
-          つみたてNISAで、引退は何年後？
-        </h1>
-        <p className="mt-3 text-lg font-medium text-amber-700">{momentumMessage}</p>
-      </section>
+    <>
+      <StickyGapBar
+        gapAmount={result.gapAmount}
+        targetReached={result.targetReached}
+        progressPercent={progressPercent}
+        yearsToTarget={result.yearsToTarget}
+        onBoost={boostContribution}
+      />
 
-      <section className="mb-6">
-        <NisaruMascot
-          mood={mood}
-          progressPercent={progressPercent}
-          yearsLeft={result.yearsToTarget}
-        />
-      </section>
+      <main className="home-main mx-auto w-full max-w-3xl flex-1 px-5 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
+        {/* Hero: brand + gap as one composition (no section chrome) */}
+        <div id="gap" className="home-block home-block-hero">
+          <GapHero
+            amountAtRetire={result.amountAtRetire}
+            targetAmount={targetAmount}
+            gapAmount={result.gapAmount}
+            targetReached={result.targetReached}
+            progressPercent={progressPercent}
+            yearsToTarget={result.yearsToTarget}
+            momentumMessage={momentumMessage}
+            mood={mood}
+          />
+        </div>
 
-      <section className="mb-6 grid gap-4 md:grid-cols-2">
-        <article className="rounded-2xl border border-zinc-200 bg-white p-4">
-          <p className="text-sm text-zinc-500">引退まで</p>
-          <p className="text-3xl font-bold">{result.yearsToTarget} 年</p>
-          <p className="text-sm text-zinc-600">{result.monthsToTarget} ヶ月</p>
-        </article>
-        <article className="rounded-2xl border border-zinc-200 bg-white p-4">
-          <p className="text-sm text-zinc-500">引退時の想定取り崩し（月4%ルール）</p>
-          <p className="text-3xl font-bold">¥{yen.format(result.monthlyPassiveIncome)}</p>
-          <p className="text-sm text-zinc-600">
-            年換算: ¥{yen.format(result.monthlyPassiveIncome * 12)}
+        <section
+          id="journey"
+          className="home-block home-block-journey"
+          aria-labelledby="journey-heading"
+        >
+          <p className="section-anchor" id="journey-heading">
+            <span className="section-anchor-num">01</span>
+            道のり
           </p>
-        </article>
-      </section>
+          <ProgressJourney
+            progressPercent={progressPercent}
+            currentAmount={result.amountAtRetire}
+            targetAmount={targetAmount}
+            targetReached={result.targetReached}
+          />
+        </section>
 
-      <section className="mb-6">
-        <ProgressJourney
-          progressPercent={progressPercent}
-          currentAmount={result.amountAtRetire}
-          targetAmount={targetAmount}
-          targetReached={result.targetReached}
-        />
-      </section>
-
-      <SoftAffiliateCta placement="result_summary" className="mb-6" />
-
-      <section className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold">入力</h2>
-          <div className="grid gap-4">
-            <label className="grid gap-1 text-sm">
-              <span>現在の年齢</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                value={currentAgeRaw}
-                onChange={(e) => setCurrentAge(e.target.value)}
-              />
-            </label>
-
-            <label className="grid gap-1 text-sm">
-              <span>引退したい年齢</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                value={retireAgeRaw}
-                onChange={(e) => setRetireAge(e.target.value)}
-              />
-            </label>
-
-            <label className="grid gap-1 text-sm">
-              <span>現在の運用資産（円）</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                value={currentAmountRaw}
-                onChange={(e) => setCurrentAmount(e.target.value)}
-              />
-            </label>
-
-            <label className="grid gap-1 text-sm">
-              <span>毎月の積立額（円）</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                value={monthlyContributionRaw}
-                onChange={(e) => setMonthlyContribution(e.target.value)}
-              />
-            </label>
-
-            <label className="grid gap-1 text-sm">
-              <span>想定年利（%）</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                step="0.1"
-                value={annualReturnPercentRaw}
-                onChange={(e) => setAnnualReturnPercent(e.target.value)}
-              />
-            </label>
-
-            <label className="grid gap-1 text-sm">
-              <span>目標資産額（円）</span>
-              <input
-                className="rounded-lg border border-zinc-300 px-3 py-2"
-                type="number"
-                value={targetAmountRaw}
-                onChange={(e) => setTargetAmount(e.target.value)}
-              />
-            </label>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h2 className="mb-4 text-lg font-semibold">モチベーションボード</h2>
-          <div className="space-y-4">
-            <div className="rounded-xl bg-white p-4">
-              <p className="text-sm text-zinc-500">現在資産</p>
-              <p className="text-2xl font-bold">¥{yen.format(currentAmount)}</p>
-            </div>
-            <div className="rounded-xl bg-white p-4">
-              <p className="text-sm text-zinc-500">次のマイルストーン</p>
-              <p className="text-2xl font-bold">¥{yen.format(nextMilestone)}</p>
-              <p className="text-sm text-zinc-700">
-                あと ¥{yen.format(milestoneLeft)}
+        <section
+          id="act"
+          className="home-block home-block-act"
+          aria-labelledby="motivation-heading"
+        >
+          <p className="section-anchor">
+            <span className="section-anchor-num">02</span>
+            アクション
+          </p>
+          <div className="motivation-board">
+            <div className="motivation-board-header">
+              <h2 id="motivation-heading" className="motivation-board-title">
+                ギャップを縮める
+              </h2>
+              <p className="motivation-board-lead">
+                積立を少し増やすと、差がリアルタイムで縮む。
               </p>
             </div>
-            <div className="rounded-xl bg-white p-4">
-              <p className="text-sm text-zinc-500">この目標に必要な毎月積立</p>
-              <p className="text-2xl font-bold">
-                ¥{yen.format(result.requiredMonthlyContribution)}
+
+            {result.targetReached ? (
+              <p className="motivation-reached">
+                目標達成見込みです（{result.ageAtTarget}歳）
               </p>
-            </div>
-            <div className="rounded-xl bg-white p-4">
-              {result.targetReached ? (
-                <p className="font-semibold text-emerald-700">
-                  目標達成見込みです（{result.ageAtTarget}歳）
+            ) : (
+              <>
+                <p className="motivation-need">
+                  達成に必要な毎月積立{" "}
+                  <strong>
+                    ¥{yen.format(result.requiredMonthlyContribution)}
+                  </strong>
+                  <span className="motivation-need-now">
+                    （いま ¥{yen.format(monthlyContribution)}）
+                  </span>
                 </p>
-              ) : (
-                <>
-                  <p className="font-semibold text-amber-700">
-                    目標まであと ¥{yen.format(result.gapAmount)}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      className="rounded-md border border-zinc-300 px-3 py-1 text-sm hover:bg-zinc-100"
-                      onClick={() => boostContribution(5000)}
-                    >
-                      積立 +5,000円
-                    </button>
-                    <button
-                      type="button"
-                      className="rounded-md border border-zinc-300 px-3 py-1 text-sm hover:bg-zinc-100"
-                      onClick={() => boostContribution(10000)}
-                    >
-                      積立 +10,000円
-                    </button>
-                    <button
-                      type="button"
-                      className="rounded-md border border-zinc-300 px-3 py-1 text-sm hover:bg-zinc-100"
-                      onClick={() => boostContribution(20000)}
-                    >
-                      積立 +20,000円
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
+                <div className="boost-row">
+                  <button
+                    type="button"
+                    className="boost-btn"
+                    onClick={() => boostContribution(5000)}
+                  >
+                    +5,000円
+                  </button>
+                  <button
+                    type="button"
+                    className="boost-btn"
+                    onClick={() => boostContribution(10000)}
+                  >
+                    +10,000円
+                  </button>
+                  <button
+                    type="button"
+                    className="boost-btn boost-btn-strong"
+                    onClick={() => boostContribution(20000)}
+                  >
+                    +20,000円
+                  </button>
+                </div>
+              </>
+            )}
 
-            <SoftAffiliateCta placement="motivation_board" />
+            <dl className="motivation-stats">
+              <div>
+                <dt>現在の運用資産</dt>
+                <dd>¥{yen.format(currentAmount)}</dd>
+                <span className="motivation-stat-sub">
+                  次まで あと ¥{yen.format(milestoneLeft)}
+                </span>
+              </div>
+              <div>
+                <dt>想定取り崩し（月・4%）</dt>
+                <dd>¥{yen.format(result.monthlyPassiveIncome)}</dd>
+                <span className="motivation-stat-sub">
+                  年 ¥{yen.format(result.monthlyPassiveIncome * 12)}
+                </span>
+              </div>
+              <div>
+                <dt>引退まで</dt>
+                <dd>{result.yearsToTarget} 年</dd>
+                <span className="motivation-stat-sub">
+                  {result.monthsToTarget} ヶ月 · {result.ageAtTarget}歳
+                </span>
+              </div>
+            </dl>
+
+            <SoftAffiliateCta placement="motivation_board" className="mt-4" />
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        <section
+          id="inputs"
+          className="home-block home-block-inputs"
+          aria-labelledby="inputs-heading"
+        >
+          <p className="section-anchor">
+            <span className="section-anchor-num">03</span>
+            条件
+          </p>
+          <details className="inputs-disclosure">
+            <summary className="inputs-disclosure-summary">
+              <span id="inputs-heading" className="inputs-disclosure-title">
+                条件を変える
+              </span>
+              <span className="inputs-disclosure-hint">
+                年齢・積立・目標など
+              </span>
+            </summary>
+            <div className="inputs-disclosure-body">
+              <div className="inputs-grid">
+                <label className="input-field">
+                  <span>現在の年齢</span>
+                  <input
+                    type="number"
+                    value={currentAgeRaw}
+                    onChange={(e) => setCurrentAge(e.target.value)}
+                  />
+                </label>
+
+                <label className="input-field">
+                  <span>引退したい年齢</span>
+                  <input
+                    type="number"
+                    value={retireAgeRaw}
+                    onChange={(e) => setRetireAge(e.target.value)}
+                  />
+                </label>
+
+                <label className="input-field">
+                  <span>現在の運用資産（円）</span>
+                  <input
+                    type="number"
+                    value={currentAmountRaw}
+                    onChange={(e) => setCurrentAmount(e.target.value)}
+                  />
+                </label>
+
+                <label className="input-field">
+                  <span>毎月の積立額（円）</span>
+                  <input
+                    type="number"
+                    value={monthlyContributionRaw}
+                    onChange={(e) => setMonthlyContribution(e.target.value)}
+                  />
+                </label>
+
+                <label className="input-field">
+                  <span>想定年利（%）</span>
+                  <input
+                    type="number"
+                    step="0.1"
+                    value={annualReturnPercentRaw}
+                    onChange={(e) => setAnnualReturnPercent(e.target.value)}
+                  />
+                </label>
+
+                <label className="input-field">
+                  <span>目標資産額（円）</span>
+                  <input
+                    type="number"
+                    value={targetAmountRaw}
+                    onChange={(e) => setTargetAmount(e.target.value)}
+                  />
+                </label>
+              </div>
+              <p className="inputs-note">
+                数値はすぐにギャップと道のりへ反映されます。進捗は「引退時の想定資産
+                ÷ 目標」です（現在資産そのものではありません）。
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <SoftAffiliateCta placement="result_summary" className="home-block" />
+      </main>
+    </>
   );
 }

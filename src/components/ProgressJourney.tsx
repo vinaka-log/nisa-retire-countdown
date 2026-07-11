@@ -75,19 +75,19 @@ export function ProgressJourney({
   return (
     <article className="progress-journey">
       <div className="progress-journey-header">
-        <div>
-          <p className="progress-journey-label">目標進捗</p>
-          <p className="progress-journey-percent">{displayPercent}%</p>
-        </div>
-        <div className="progress-journey-distance">
-          <p className="progress-journey-label">ゴールまで</p>
+        <p className="progress-journey-label">引退時想定 → 目標</p>
+        <div className="progress-journey-metrics">
+          <p className="progress-journey-percent">
+            <span className="progress-journey-percent-num">{displayPercent}</span>
+            <span className="progress-journey-percent-unit">%</span>
+          </p>
           <p className="progress-journey-km">
-            {targetReached ? "到達！" : `あと ${remainingKm} km`}
-          </p>
-          <p className="progress-journey-sub">
-            {traveledKm} / {totalKm} km 走破
+            {targetReached ? "ゴール到達" : `あと ${remainingKm} km`}
           </p>
         </div>
+        <p className="progress-journey-sub">
+          {traveledKm} / {totalKm} km（1km ≒ 100万円）
+        </p>
       </div>
 
       <div className="progress-scene" aria-hidden>
@@ -99,7 +99,7 @@ export function ProgressJourney({
         <div className="progress-track-wrap">
           <div className="progress-track-labels">
             <span>スタート</span>
-            <span>ゴール 🏁</span>
+            <span>ゴール</span>
           </div>
 
           <div className="progress-track">
@@ -136,22 +136,24 @@ export function ProgressJourney({
                 mood={runMood}
                 pose={targetReached ? "idle" : "run"}
                 runFrame={runFrame}
-                size={48}
+                size={44}
                 fill
                 className="tarumi-runner-face"
               />
               <div className="runner-shadow" />
             </div>
 
-            <div className="progress-goal-flag">🏁</div>
+            <div className="progress-goal-flag" aria-hidden>
+              🏁
+            </div>
           </div>
         </div>
       </div>
 
       <p className="progress-journey-caption">
         {targetReached
-          ? "みつき、ゴール到着！マジ神すぎ。"
-          : "みつきが資産ロード走ってるわ。積立続けると近づくよ。"}
+          ? "みつき、ゴール到着。引退時想定で目標達成コース。"
+          : "進捗は「引退時の想定資産 ÷ 目標」。積立を増やすと、みつきが近づく。"}
       </p>
     </article>
   );

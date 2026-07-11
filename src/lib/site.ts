@@ -9,31 +9,27 @@ export function getSiteUrl(): string {
   return DEFAULT_SITE_URL;
 }
 
-export const SITE_NAME = "つみたてNISAシミュレーター";
-export const SITE_TITLE = "つみたてNISAで、引退は何年後？";
+/** Unique product brand (avoid generic「つみたてNISAシミュレーター」). */
+export const SITE_NAME = "みつきリタイア";
+export const SITE_TITLE = "みつきリタイア｜つみたてNISAで引退は何年後？";
 export const SITE_DESCRIPTION =
-  "つみたてNISAの積立額・想定利回り・目標金額から、引退まで何年かかるかをかんたんにシミュレーション。老後資金の目安をすぐに確認できます。";
+  "みつきリタイアは、つみたてNISAの積立・利回り・目標から引退までのギャップを見える化する無料ツール。現状と目標の差を把握して、積立のモチベーションにつなげます。";
 export const SITE_KEYWORDS = [
+  "みつきリタイア",
   "つみたてNISA",
   "NISA",
-  "シミュレーター",
+  "引退シミュレーション",
   "積立投資",
   "老後資金",
-  "引退",
   "資産形成",
-  "投資シミュレーション",
   "新NISA",
+  "FIRE",
 ];
 
 export {
-  DEFAULT_OPERATOR_NAME,
-  GITHUB_REPO_URL,
   getContactEmail,
   getContactEmailDisplay,
-  getGithubIssuesUrl,
-  getGithubNewIssueUrl,
   getOperatorAddress,
-  getOperatorName,
   hasOperatorAddress,
   isContactEmailConfigured,
 } from "@/lib/site-config";

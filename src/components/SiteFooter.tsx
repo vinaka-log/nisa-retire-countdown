@@ -8,7 +8,6 @@ import {
 } from "@/lib/affiliates";
 import {
   getContactEmail,
-  getOperatorName,
   isContactEmailConfigured,
   LEGAL_NAV_LINKS,
   SITE_NAME,
@@ -20,45 +19,37 @@ const AFFILIATE_DISCLOSURE_GENERAL =
 export function SiteFooter() {
   const partnersConfigured = hasConfiguredAffiliatePartners();
   const year = new Date().getFullYear();
-  const operatorName = getOperatorName();
   const contactEmail = getContactEmail();
   const emailConfigured = isContactEmailConfigured();
 
   return (
-    <footer className="mt-auto border-t border-zinc-200 bg-white">
-      <div className="mx-auto w-full max-w-5xl space-y-4 px-6 py-8 text-sm text-zinc-600">
-        <nav
-          aria-label="フッターナビゲーション"
-          className="flex flex-wrap gap-x-4 gap-y-2"
-        >
+    <footer className="site-footer">
+      <div className="site-footer-inner">
+        <nav aria-label="フッターナビゲーション" className="site-footer-nav">
           {LEGAL_NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-zinc-700 underline-offset-2 hover:text-emerald-800 hover:underline"
-            >
+            <Link key={link.href} href={link.href}>
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <p className="text-xs leading-relaxed text-zinc-500">
+        <p className="site-footer-note">
           {partnersConfigured
             ? AFFILIATE_DISCLOSURE
             : AFFILIATE_DISCLOSURE_GENERAL}
         </p>
 
-        <p className="leading-relaxed">{SIMULATION_DISCLAIMER}</p>
+        <p className="site-footer-body">{SIMULATION_DISCLAIMER}</p>
 
         {partnersConfigured ? (
-          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="text-zinc-500">準備の参考:</span>
+          <p className="site-footer-partners">
+            <span className="site-footer-partners-label">準備の参考:</span>
             {getConfiguredAffiliatePartners().map((partner) => (
               <AffiliateLink
                 key={partner.id}
                 partner={partner.id}
                 placement="footer"
-                className="text-emerald-700 underline-offset-2 hover:underline"
+                className="site-footer-link"
               >
                 {partner.shortLabel}
               </AffiliateLink>
@@ -66,27 +57,20 @@ export function SiteFooter() {
           </p>
         ) : null}
 
-        <p className="text-xs leading-relaxed text-zinc-500">
-          運営: {operatorName}
-          {" · "}
+        <p className="site-footer-note">
+          お問い合わせ:{" "}
           {emailConfigured ? (
-            <a
-              href={`mailto:${contactEmail}`}
-              className="text-emerald-700 underline-offset-2 hover:underline"
-            >
+            <a href={`mailto:${contactEmail}`} className="site-footer-link">
               {contactEmail}
             </a>
           ) : (
-            <Link
-              href="/contact"
-              className="text-emerald-700 underline-offset-2 hover:underline"
-            >
-              お問い合わせ
+            <Link href="/contact" className="site-footer-link">
+              お問い合わせフォーム
             </Link>
           )}
         </p>
 
-        <p className="text-xs text-zinc-400">
+        <p className="site-footer-copy">
           © {year} {SITE_NAME}
         </p>
       </div>

@@ -29,7 +29,7 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE_TITLE} | ${SITE_NAME}`,
+    default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: siteUrl,
     siteName: SITE_NAME,
-    title: `${SITE_TITLE} | ${SITE_NAME}`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary",
-    title: `${SITE_TITLE} | ${SITE_NAME}`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   alternates: {
