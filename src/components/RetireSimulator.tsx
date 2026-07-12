@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { GapHero } from "@/components/GapHero";
 import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
@@ -100,6 +100,7 @@ type RetireSimulatorProps = {
 };
 
 export function RetireSimulator({ children }: RetireSimulatorProps) {
+  const inputsDetailsRef = useRef<HTMLDetailsElement>(null);
   const [currentAgeRaw, setCurrentAge, currentAge] = useNumericInput("32");
   const [retireAgeRaw, setRetireAge, retireAge] = useNumericInput("60");
   const [currentAmountRaw, setCurrentAmount, currentAmount] =
@@ -110,6 +111,35 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
     useNumericInput("5");
   const [targetAmountRaw, setTargetAmount, targetAmount] =
     useNumericInput("40000000");
+
+  function openInputsPanel() {
+    const details = inputsDetailsRef.current;
+    if (details) details.open = true;
+    const section = document.getElementById("inputs");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.location.hash !== "#inputs") {
+      window.history.replaceState(null, "", "#inputs");
+    }
+  }
+
+  useEffect(() => {
+    function syncFromHash() {
+      if (window.location.hash !== "#inputs") return;
+      const details = inputsDetailsRef.current;
+      if (details) details.open = true;
+      document
+        .getElementById("inputs")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // Wait a tick so layout/spacer are ready on first paint.
+    const timer = window.setTimeout(syncFromHash, 0);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
 
   const result = useMemo(
     () =>
@@ -172,6 +202,7 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
             yearsToTarget={result.yearsToTarget}
             momentumMessage={momentumMessage}
             mood={mood}
+            onTryConditions={openInputsPanel}
           />
         </div>
 
@@ -289,7 +320,11 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
             <span className="section-anchor-num">03</span>
             条件
           </h2>
-          <details className="inputs-disclosure">
+          <details
+            id="inputs-disclosure"
+            ref={inputsDetailsRef}
+            className="inputs-disclosure"
+          >
             <summary className="inputs-disclosure-summary">
               <span className="inputs-disclosure-title">条件を変える</span>
               <span className="inputs-disclosure-hint">
