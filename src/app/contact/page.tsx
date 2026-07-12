@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
+import { pageMetadata } from "@/lib/page-metadata";
 import {
   getContactEmail,
   isContactEmailConfigured,
   SITE_NAME,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "お問い合わせ",
   description: `${SITE_NAME}へのお問い合わせ方法です。ご質問・ご意見はメールにて受け付けています。`,
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const contactEmail = getContactEmail();

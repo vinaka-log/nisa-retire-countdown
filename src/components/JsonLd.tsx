@@ -12,6 +12,16 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: SITE_NAME,
+        url: siteUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/characters/tarumi-idle.png`,
+        },
+      },
+      {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
@@ -19,7 +29,7 @@ export function JsonLd() {
         description: SITE_DESCRIPTION,
         inLanguage: "ja",
         publisher: {
-          "@id": `${siteUrl}/#app`,
+          "@id": `${siteUrl}/#organization`,
         },
       },
       {
@@ -36,6 +46,9 @@ export function JsonLd() {
           "@type": "Offer",
           price: "0",
           priceCurrency: "JPY",
+        },
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
         },
       },
     ],

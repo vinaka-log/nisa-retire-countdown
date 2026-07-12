@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
+import { pageMetadata } from "@/lib/page-metadata";
 import { SITE_NAME } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "免責事項",
   description: `${SITE_NAME}のシミュレーション・投資情報・アフィリエイトに関する免責事項です。`,
-  alternates: { canonical: "/disclaimer" },
-};
+  path: "/disclaimer",
+});
 
 export default function DisclaimerPage() {
   return (

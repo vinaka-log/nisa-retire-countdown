@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
+import { pageMetadata } from "@/lib/page-metadata";
 import {
   getContactEmailDisplay,
   isContactEmailConfigured,
   SITE_NAME,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "プライバシーポリシー",
   description: `${SITE_NAME}における個人情報・アクセス情報の取り扱いについて説明します。`,
-  alternates: { canonical: "/privacy" },
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   const contactEmail = getContactEmailDisplay();

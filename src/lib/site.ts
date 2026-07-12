@@ -36,6 +36,7 @@ export {
 
 export const LEGAL_NAV_LINKS = [
   { href: "/about", label: "運営者情報" },
+  { href: "/guides", label: "ガイド" },
   { href: "/faq", label: "FAQ・ヘルプ" },
   { href: "/contact", label: "お問い合わせ" },
   { href: "/privacy", label: "プライバシーポリシー" },
@@ -45,6 +46,7 @@ export const LEGAL_NAV_LINKS = [
 
 export const HEADER_NAV_LINKS = [
   { href: "/", label: "ホーム" },
+  { href: "/guides", label: "ガイド" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "お問い合わせ" },
   { href: "/about", label: "運営者情報" },
@@ -52,6 +54,10 @@ export const HEADER_NAV_LINKS = [
 
 export const SITEMAP_PATHS = [
   "/",
+  "/guides",
+  "/guides/retirement-funds",
+  "/guides/nisa-simulation",
+  "/guides/4-percent-rule",
   "/about",
   "/faq",
   "/contact",

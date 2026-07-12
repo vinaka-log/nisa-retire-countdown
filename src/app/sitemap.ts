@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: path === "/" ? siteUrl : `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : 0.6,
+    priority:
+      path === "/" ? 1 : path === "/guides" || path.startsWith("/guides/") ? 0.8 : 0.6,
   }));
 }

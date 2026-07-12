@@ -336,6 +336,18 @@ body {
   color: var(--gap-quiet);
 }
 
+h2.section-anchor {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.home-seo-links {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--gap-muted);
+}
+
 .section-anchor-num {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;

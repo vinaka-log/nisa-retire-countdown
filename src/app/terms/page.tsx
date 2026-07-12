@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
+import { pageMetadata } from "@/lib/page-metadata";
 import {
   getContactEmailDisplay,
   isContactEmailConfigured,
   SITE_NAME,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "利用規約",
   description: `${SITE_NAME}のご利用条件（利用規約）です。`,
-  alternates: { canonical: "/terms" },
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   const contactEmail = getContactEmailDisplay();

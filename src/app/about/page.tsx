@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
+import { pageMetadata } from "@/lib/page-metadata";
 import {
   getContactEmail,
   getOperatorAddress,
@@ -10,11 +10,11 @@ import {
   SITE_TITLE,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "運営者情報",
   description: `${SITE_NAME}の運営者情報・サイトの目的・お問い合わせ先のご案内です。`,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   const operatorAddress = getOperatorAddress();
