@@ -118,11 +118,7 @@ body {
 }
 
 .site-header-brand {
-  flex-shrink: 1;
-  min-width: 0;
-  max-width: min(16rem, 52%);
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex-shrink: 0;
   white-space: nowrap;
   font-size: 0.9375rem;
   font-weight: 800;
@@ -137,8 +133,10 @@ body {
 }
 
 .site-header-nav {
+  flex: 1 1 auto;
   flex-shrink: 1;
   min-width: 0;
+  justify-content: flex-end;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -169,7 +167,6 @@ body {
   }
 
   .site-header-brand {
-    max-width: min(13.5rem, 50%);
     font-size: 0.875rem;
   }
 
