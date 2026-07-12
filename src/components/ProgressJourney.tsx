@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { TarumiCharacter } from "./TarumiCharacter";
 import { moodFromProgress } from "./NisaruMascot";
 
@@ -129,7 +129,11 @@ export function ProgressJourney({
 
             <div
               className={`progress-runner ${targetReached ? "arrived" : "running"}`}
-              style={{ left: `calc(${displayPercent}% - 24px)` }}
+              style={
+                {
+                  ["--runner-left"]: `${displayPercent}%`,
+                } as CSSProperties
+              }
             >
               <div className="runner-dust" />
               <TarumiCharacter

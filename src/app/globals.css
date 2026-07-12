@@ -374,7 +374,7 @@ h2.section-anchor {
   margin-top: 1.75rem;
 }
 
-/* —— Sticky mini gap (mounted only when hero is off-screen) —— */
+/* —— Sticky mini gap (fixed overlay; no in-flow spacer) —— */
 .sticky-gap-bar {
   position: fixed;
   /* Sit under the sticky site header so both remain readable */
@@ -382,7 +382,6 @@ h2.section-anchor {
   left: 0;
   right: 0;
   z-index: 40;
-  animation: sticky-gap-in 0.22s ease both;
   /* Continue header glass — no second hard slab */
   background: linear-gradient(
     180deg,
@@ -395,6 +394,21 @@ h2.section-anchor {
   /* Only fade downward into content; avoid cut under header */
   box-shadow: none;
   border-top: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.sticky-gap-bar.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .sticky-gap-bar::after {
@@ -410,11 +424,6 @@ h2.section-anchor {
     rgba(255, 241, 244, 0.4) 0%,
     transparent 100%
   );
-}
-
-.sticky-gap-bar-spacer {
-  height: var(--sticky-gap-bar-height);
-  flex-shrink: 0;
 }
 
 .sticky-gap-bar-inner {
@@ -1993,7 +2002,8 @@ textarea::placeholder {
     #bbf7d0 72%,
     #86efac 100%
   );
-  padding: 0.55rem 0.85rem 0.85rem;
+  /* Extra top padding so milestone / goal flags are not clipped */
+  padding: 1.55rem 1rem 0.95rem;
   position: relative;
 }
 
@@ -2111,6 +2121,8 @@ textarea::placeholder {
   position: absolute;
   bottom: 2px;
   z-index: 3;
+  /* Keep runner fully inside the track edges */
+  left: clamp(0px, calc(var(--runner-left, 0%) - 24px), calc(100% - 48px));
   transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -2152,7 +2164,7 @@ textarea::placeholder {
 
 .progress-goal-flag {
   position: absolute;
-  right: -4px;
+  right: 2px;
   top: -30px;
   font-size: 1.5rem;
   z-index: 2;

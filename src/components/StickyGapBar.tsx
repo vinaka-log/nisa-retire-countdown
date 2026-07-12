@@ -15,7 +15,8 @@ type Props = {
 /**
  * Sticky mini gap — keeps 1st fixation available while scrolling to
  * boosts / inputs. Hidden in first viewport so it never competes with hero.
- * Renders a spacer so fixed bar does not cover content underneath.
+ * Fixed overlay only (no in-flow spacer) to avoid layout jump / observer flicker
+ * when the journey section enters view.
  */
 export function StickyGapBar({
   gapAmount,
@@ -45,62 +46,61 @@ export function StickyGapBar({
     return () => observer.disconnect();
   }, []);
 
-  if (!visible) return null;
-
   return (
-    <>
-      <div className="sticky-gap-bar" role="status" aria-live="polite">
-        <div className="sticky-gap-bar-inner">
-          <div className="sticky-gap-bar-text">
-            <span className="sticky-gap-bar-label">
-              {targetReached ? "達成コース" : "あと"}
-            </span>
-            <span
-              className={`sticky-gap-bar-amount ${targetReached ? "is-reached" : ""}`}
-            >
-              {targetReached ? "達成！" : `¥${yen.format(gapAmount)}`}
-            </span>
-            <span className="sticky-gap-bar-meta">
-              {progressPercent}%
-              {typeof yearsToTarget === "number" && yearsToTarget > 0
-                ? ` · ${yearsToTarget}年`
-                : ""}
-            </span>
-          </div>
-
-          <div className="sticky-gap-bar-meter" aria-hidden>
-            <div
-              className="sticky-gap-bar-meter-fill"
-              style={{ width: `${ratio}%` }}
-            />
-          </div>
-
-          {!targetReached && onBoost ? (
-            <div className="sticky-gap-bar-actions">
-              <button
-                type="button"
-                className="sticky-boost-btn sticky-boost-btn-primary"
-                onClick={() => onBoost(5000)}
-              >
-                +5千
-              </button>
-              <button
-                type="button"
-                className="sticky-boost-btn sticky-boost-btn-strong"
-                onClick={() => onBoost(10000)}
-              >
-                +1万
-              </button>
-            </div>
-          ) : !targetReached ? (
-            <a href="#act" className="sticky-gap-bar-cta">
-              縮める
-            </a>
-          ) : null}
+    <div
+      className={`sticky-gap-bar${visible ? " is-visible" : ""}`}
+      role="status"
+      aria-live="polite"
+      aria-hidden={!visible}
+    >
+      <div className="sticky-gap-bar-inner">
+        <div className="sticky-gap-bar-text">
+          <span className="sticky-gap-bar-label">
+            {targetReached ? "達成コース" : "あと"}
+          </span>
+          <span
+            className={`sticky-gap-bar-amount ${targetReached ? "is-reached" : ""}`}
+          >
+            {targetReached ? "達成！" : `¥${yen.format(gapAmount)}`}
+          </span>
+          <span className="sticky-gap-bar-meta">
+            {progressPercent}%
+            {typeof yearsToTarget === "number" && yearsToTarget > 0
+              ? ` · ${yearsToTarget}年`
+              : ""}
+          </span>
         </div>
+
+        <div className="sticky-gap-bar-meter" aria-hidden>
+          <div
+            className="sticky-gap-bar-meter-fill"
+            style={{ width: `${ratio}%` }}
+          />
+        </div>
+
+        {!targetReached && onBoost ? (
+          <div className="sticky-gap-bar-actions">
+            <button
+              type="button"
+              className="sticky-boost-btn sticky-boost-btn-primary"
+              onClick={() => onBoost(5000)}
+            >
+              +5千
+            </button>
+            <button
+              type="button"
+              className="sticky-boost-btn sticky-boost-btn-strong"
+              onClick={() => onBoost(10000)}
+            >
+              +1万
+            </button>
+          </div>
+        ) : !targetReached ? (
+          <a href="#act" className="sticky-gap-bar-cta">
+            縮める
+          </a>
+        ) : null}
       </div>
-      {/* Reserve space so fixed bar never covers section headings */}
-      <div className="sticky-gap-bar-spacer" aria-hidden />
-    </>
+    </div>
   );
 }
