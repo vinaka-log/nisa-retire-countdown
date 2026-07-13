@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_HEADLINE, SITE_NAME, SITE_PRODUCT_LABEL } from "@/lib/site";
 
-export const alt = `${SITE_NAME}｜つみたてNISAで引退は何年後？`;
+export const alt = `${SITE_HEADLINE}｜${SITE_NAME}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,29 +26,35 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: 28,
+            gap: 12,
+            fontSize: 26,
             fontWeight: 700,
-            letterSpacing: "0.04em",
+            letterSpacing: "0.02em",
             color: "#9f1239",
           }}
         >
           {SITE_NAME}
+          <span style={{ color: "rgba(159, 18, 57, 0.35)" }}>—</span>
+          <span style={{ fontSize: 22, fontWeight: 700, color: "#78716c" }}>
+            {SITE_PRODUCT_LABEL}
+          </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div
             style={{
               display: "flex",
-              fontSize: 64,
+              fontSize: 56,
               fontWeight: 800,
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               letterSpacing: "-0.02em",
-              color: "#9f1239",
+              color: "#1c1917",
+              maxWidth: 900,
             }}
           >
-            つみたてNISAで
+            つみたてNISAで、
             <br />
-            引退は何年後？
+            引退まであとどれくらい？
           </div>
           <div
             style={{
@@ -59,7 +65,7 @@ export default function OpenGraphImage() {
               maxWidth: 820,
             }}
           >
-            積立・利回り・目標から、引退までのギャップを見える化する無料ツール
+            積立・利回り・目標を動かすと、目標までの不足額がすぐわかります
           </div>
         </div>
 

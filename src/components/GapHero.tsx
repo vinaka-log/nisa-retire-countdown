@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import { TarumiCharacter } from "@/components/TarumiCharacter";
 import type { MascotMood } from "@/components/TarumiCharacter";
-import { SITE_NAME } from "@/lib/site";
 
 const yen = new Intl.NumberFormat("ja-JP");
 
@@ -16,7 +15,6 @@ type Props = {
   yearsToTarget: number;
   momentumMessage: string;
   mood: MascotMood;
-  onTryConditions?: () => void;
 };
 
 export function GapHero({
@@ -28,7 +26,6 @@ export function GapHero({
   yearsToTarget,
   momentumMessage,
   mood,
-  onTryConditions,
 }: Props) {
   const [petCount, setPetCount] = useState(0);
   const [wiggle, setWiggle] = useState(false);
@@ -44,33 +41,13 @@ export function GapHero({
     window.setTimeout(() => setWiggle(false), 500);
   }
 
-  function handleTryConditions(event: MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault();
-    onTryConditions?.();
-  }
-
   return (
-    <section className="gap-hero" id="gap-hero" aria-labelledby="gap-hero-title">
+    <section className="gap-hero" id="gap-hero" aria-labelledby="gap-result-label">
       <div className="gap-hero-atmosphere" aria-hidden />
 
-      <div className="gap-hero-brand">
-        <h1 id="gap-hero-title" className="gap-hero-title">
-          {SITE_NAME}
-        </h1>
-        <p className="gap-hero-promise">
-          <span className="gap-hero-promise-line">
-            つみたて条件から、引退までのギャップを
-          </span>
-          <span className="gap-hero-promise-line">無料でシミュレーション</span>
-        </p>
-        <p className="gap-hero-promise-hint">
-          年齢・積立・目標を変えると、すぐ反映されます
-        </p>
-      </div>
-
       <div className="gap-hero-focus">
-        <p className="gap-hero-context">いまの仮条件での目安</p>
-        <p className="gap-hero-gap-label">
+        <p className="gap-hero-context">シミュレーション結果</p>
+        <p className="gap-hero-gap-label" id="gap-result-label">
           {targetReached ? "目標達成コース" : "目標まであと"}
         </p>
         <p
@@ -121,20 +98,13 @@ export function GapHero({
           </p>
         </div>
 
-        <div className="gap-hero-cta-row">
-          <a
-            href="#inputs"
-            className="gap-hero-cta-primary"
-            onClick={handleTryConditions}
-          >
-            条件を変えて試す
-          </a>
-          {!targetReached ? (
+        {!targetReached ? (
+          <div className="gap-hero-cta-row">
             <a href="#act" className="gap-hero-cta-secondary">
-              ギャップを縮める
+              ギャップを縮めるヒントへ
             </a>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </div>
 
       <div className="gap-hero-companion">
@@ -161,11 +131,6 @@ export function GapHero({
           <span className="gap-hero-companion-name">みつき</span>
           {supportLine}
         </p>
-      </div>
-
-      <div className="flow-bridge" aria-hidden>
-        <span className="flow-bridge-line" />
-        <span className="flow-bridge-label">道のりへ</span>
       </div>
     </section>
   );

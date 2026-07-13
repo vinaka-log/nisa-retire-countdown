@@ -11,9 +11,15 @@ export function getSiteUrl(): string {
 
 /** Unique product brand (avoid generic「つみたてNISAシミュレーター」). */
 export const SITE_NAME = "みつきリタイア";
-export const SITE_TITLE = "みつきリタイア｜つみたてNISAで引退は何年後？";
+/** Short product type — clarifies what the brand name alone doesn't. */
+export const SITE_PRODUCT_LABEL = "引退ギャップシミュレーター";
+/** First-visit headline: answers "what does this site do?" */
+export const SITE_HEADLINE = "つみたてNISAで、引退まであとどれくらい？";
+export const SITE_LEAD =
+  "積立・利回り・目標を動かすと、目標までの不足額がすぐわかります";
+export const SITE_TITLE = `${SITE_HEADLINE}｜${SITE_NAME}`;
 export const SITE_DESCRIPTION =
-  "みつきリタイアは、つみたてNISAの積立・利回り・目標から引退までのギャップを見える化する無料ツール。現状と目標の差を把握して、積立のモチベーションにつなげます。";
+  `${SITE_NAME}は、つみたてNISAの積立・利回り・目標から引退までのギャップを見える化する無料の${SITE_PRODUCT_LABEL}です。現状と目標の差を把握して、積立のモチベーションにつなげます。`;
 export const SITE_KEYWORDS = [
   "みつきリタイア",
   "つみたてNISA",

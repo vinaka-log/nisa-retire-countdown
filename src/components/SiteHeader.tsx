@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { HEADER_NAV_LINKS, SITE_NAME } from "@/lib/site";
+import {
+  HEADER_NAV_LINKS,
+  SITE_NAME,
+  SITE_PRODUCT_LABEL,
+} from "@/lib/site";
 
 export function SiteHeader() {
   return (
@@ -7,10 +11,11 @@ export function SiteHeader() {
       <div className="site-header-inner">
         <Link
           href="/"
-          title={SITE_NAME}
+          title={`${SITE_NAME}｜${SITE_PRODUCT_LABEL}`}
           className="site-header-brand"
         >
-          {SITE_NAME}
+          <span className="site-header-brand-name">{SITE_NAME}</span>
+          <span className="site-header-brand-label">{SITE_PRODUCT_LABEL}</span>
         </Link>
         <nav
           aria-label="メインナビゲーション"

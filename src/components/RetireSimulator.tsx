@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useMemo, useRef, useState, type ReactNode } from "react";
 import { GapHero } from "@/components/GapHero";
 import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
 import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
-import { StickyGapBar } from "@/components/StickyGapBar";
+import { StepperInput } from "@/components/StepperInput";
+import { StickyResultBar } from "@/components/StickyResultBar";
 
 type Simulation = {
   yearsToTarget: number;
@@ -40,8 +41,6 @@ function simulateRetirePlan(
   const safeTarget = Math.max(targetAmount, 1);
   const targetReached = amountAtRetire >= targetAmount;
   const gapAmount = Math.max(targetAmount - amountAtRetire, 0);
-  // Projected retirement assets vs target — so age / contribution / return
-  // all move progress, journey, and mascot in realtime.
   const progressRatio = Math.min(amountAtRetire / safeTarget, 1);
   const monthlyPassiveIncome = Math.round((amountAtRetire * 0.04) / 12);
 
@@ -75,24 +74,42 @@ function simulateRetirePlan(
 
 const yen = new Intl.NumberFormat("ja-JP");
 
-/** Parse input text; empty/invalid keeps the previous valid number (no zero flash). */
+function formatYen(n: number) {
+  return yen.format(Math.round(n));
+}
+
+function parseYen(raw: string): number | null {
+  const trimmed = raw.trim().replace(/,/g, "");
+  if (trimmed === "") return null;
+  const n = Number(trimmed);
+  return Number.isFinite(n) ? n : null;
+}
+
 function parseKeepingLast(raw: string, lastValid: number): number {
-  const trimmed = raw.trim();
+  const trimmed = raw.trim().replace(/,/g, "");
   if (trimmed === "") return lastValid;
   const n = Number(trimmed);
   return Number.isFinite(n) ? n : lastValid;
 }
 
-function useNumericInput(initial: string) {
-  const [raw, setRaw] = useState(initial);
+function useNumericInput(initial: string, formatDisplay?: (n: number) => string) {
+  const [raw, setRaw] = useState(
+    formatDisplay ? formatDisplay(Number(initial)) : initial,
+  );
   const lastValidRef = useRef(Number(initial));
-  const trimmed = raw.trim();
+  const trimmed = raw.trim().replace(/,/g, "");
   if (trimmed !== "") {
     const n = Number(trimmed);
     if (Number.isFinite(n)) lastValidRef.current = n;
   }
   const value = parseKeepingLast(raw, lastValidRef.current);
-  return [raw, setRaw, value] as const;
+
+  function setValue(next: number) {
+    lastValidRef.current = next;
+    setRaw(formatDisplay ? formatDisplay(next) : String(next));
+  }
+
+  return [raw, setRaw, value, setValue] as const;
 }
 
 type RetireSimulatorProps = {
@@ -100,46 +117,30 @@ type RetireSimulatorProps = {
 };
 
 export function RetireSimulator({ children }: RetireSimulatorProps) {
-  const inputsDetailsRef = useRef<HTMLDetailsElement>(null);
-  const [currentAgeRaw, setCurrentAge, currentAge] = useNumericInput("32");
-  const [retireAgeRaw, setRetireAge, retireAge] = useNumericInput("60");
-  const [currentAmountRaw, setCurrentAmount, currentAmount] =
-    useNumericInput("1200000");
-  const [monthlyContributionRaw, setMonthlyContribution, monthlyContribution] =
-    useNumericInput("33000");
-  const [annualReturnPercentRaw, setAnnualReturnPercent, annualReturnPercent] =
-    useNumericInput("5");
-  const [targetAmountRaw, setTargetAmount, targetAmount] =
-    useNumericInput("40000000");
-
-  function openInputsPanel() {
-    const details = inputsDetailsRef.current;
-    if (details) details.open = true;
-    const section = document.getElementById("inputs");
-    section?.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (window.location.hash !== "#inputs") {
-      window.history.replaceState(null, "", "#inputs");
-    }
-  }
-
-  useEffect(() => {
-    function syncFromHash() {
-      if (window.location.hash !== "#inputs") return;
-      const details = inputsDetailsRef.current;
-      if (details) details.open = true;
-      document
-        .getElementById("inputs")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    // Wait a tick so layout/spacer are ready on first paint.
-    const timer = window.setTimeout(syncFromHash, 0);
-    window.addEventListener("hashchange", syncFromHash);
-    return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("hashchange", syncFromHash);
-    };
-  }, []);
+  const [currentAgeRaw, setCurrentAgeRaw, currentAge, setCurrentAge] =
+    useNumericInput("32");
+  const [retireAgeRaw, setRetireAgeRaw, retireAge, setRetireAge] =
+    useNumericInput("60");
+  const [
+    currentAmountRaw,
+    setCurrentAmountRaw,
+    currentAmount,
+    setCurrentAmount,
+  ] = useNumericInput("1200000", formatYen);
+  const [
+    monthlyContributionRaw,
+    setMonthlyContributionRaw,
+    monthlyContribution,
+    setMonthlyContribution,
+  ] = useNumericInput("33000", formatYen);
+  const [
+    annualReturnPercentRaw,
+    setAnnualReturnPercentRaw,
+    annualReturnPercent,
+    setAnnualReturnPercent,
+  ] = useNumericInput("5");
+  const [targetAmountRaw, setTargetAmountRaw, targetAmount, setTargetAmount] =
+    useNumericInput("40000000", formatYen);
 
   const result = useMemo(
     () =>
@@ -177,22 +178,118 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
   const mood = moodFromProgress(progressPercent, result.targetReached);
 
   function boostContribution(step: number) {
-    setMonthlyContribution(String(monthlyContribution + step));
+    setMonthlyContribution(monthlyContribution + step);
   }
 
   return (
     <>
-      <StickyGapBar
-        gapAmount={result.gapAmount}
-        targetReached={result.targetReached}
-        progressPercent={progressPercent}
-        yearsToTarget={result.yearsToTarget}
-        onBoost={boostContribution}
-      />
+      <main className="home-main mx-auto w-full max-w-3xl flex-1 px-5 pb-28 pt-6 sm:px-6 sm:pb-32 sm:pt-8">
+        <div className="home-block home-block-intro">
+          <h1 className="sim-headline">
+            <span className="sim-headline-line">つみたてNISAで、</span>
+            <span className="sim-headline-line">引退まであとどれくらい？</span>
+          </h1>
+          <p className="sim-lead">
+            <span className="sim-lead-line">積立・利回り・目標を動かすと、</span>
+            <span className="sim-lead-line">目標までの不足額がすぐわかります</span>
+          </p>
+        </div>
 
-      <main className="home-main mx-auto w-full max-w-3xl flex-1 px-5 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
-        {/* Hero: brand + gap as one composition (no section chrome) */}
-        <div id="gap" className="home-block home-block-hero">
+        <section
+          id="inputs"
+          className="home-block home-block-inputs"
+          aria-labelledby="inputs-heading"
+        >
+          <div className="sim-panel">
+            <div className="sim-panel-header">
+              <h2 id="inputs-heading" className="sim-panel-title">
+                条件を設定
+              </h2>
+              <p className="sim-panel-lead">
+                スライダーか＋−で調整。数値はリアルタイム反映です。
+              </p>
+            </div>
+
+            <div className="stepper-stack">
+              <StepperInput
+                label="現在の年齢"
+                value={currentAge}
+                raw={currentAgeRaw}
+                onRawChange={setCurrentAgeRaw}
+                onValueChange={setCurrentAge}
+                min={18}
+                max={80}
+                step={1}
+                unit="歳"
+              />
+              <StepperInput
+                label="引退したい年齢"
+                value={retireAge}
+                raw={retireAgeRaw}
+                onRawChange={setRetireAgeRaw}
+                onValueChange={setRetireAge}
+                min={Math.max(currentAge, 30)}
+                max={90}
+                step={1}
+                unit="歳"
+              />
+              <StepperInput
+                label="現在の運用資産"
+                value={currentAmount}
+                raw={currentAmountRaw}
+                onRawChange={setCurrentAmountRaw}
+                onValueChange={setCurrentAmount}
+                min={0}
+                max={100_000_000}
+                step={100_000}
+                unit="円"
+                formatDisplay={formatYen}
+                parseDisplay={parseYen}
+              />
+              <StepperInput
+                label="毎月の積立額"
+                value={monthlyContribution}
+                raw={monthlyContributionRaw}
+                onRawChange={setMonthlyContributionRaw}
+                onValueChange={setMonthlyContribution}
+                min={0}
+                max={300_000}
+                step={1_000}
+                unit="円"
+                formatDisplay={formatYen}
+                parseDisplay={parseYen}
+                hint="新NISAのつみたて投資枠の目安も参考に"
+              />
+              <StepperInput
+                label="想定年利"
+                value={annualReturnPercent}
+                raw={annualReturnPercentRaw}
+                onRawChange={setAnnualReturnPercentRaw}
+                onValueChange={setAnnualReturnPercent}
+                min={0}
+                max={15}
+                step={0.1}
+                unit="%"
+                hint="過去の株式指数の平均は目安のひとつ。保証ではありません"
+              />
+              <StepperInput
+                label="目標資産額"
+                value={targetAmount}
+                raw={targetAmountRaw}
+                onRawChange={setTargetAmountRaw}
+                onValueChange={setTargetAmount}
+                min={1_000_000}
+                max={200_000_000}
+                step={1_000_000}
+                unit="円"
+                formatDisplay={formatYen}
+                parseDisplay={parseYen}
+              />
+            </div>
+          </div>
+        </section>
+
+        <div id="result" className="home-block home-block-hero">
           <GapHero
             amountAtRetire={result.amountAtRetire}
             targetAmount={targetAmount}
@@ -202,7 +299,6 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
             yearsToTarget={result.yearsToTarget}
             momentumMessage={momentumMessage}
             mood={mood}
-            onTryConditions={openInputsPanel}
           />
         </div>
 
@@ -311,95 +407,18 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
           </div>
         </section>
 
-        <section
-          id="inputs"
-          className="home-block home-block-inputs"
-          aria-labelledby="inputs-heading"
-        >
-          <h2 className="section-anchor" id="inputs-heading">
-            <span className="section-anchor-num">03</span>
-            条件
-          </h2>
-          <details
-            id="inputs-disclosure"
-            ref={inputsDetailsRef}
-            className="inputs-disclosure"
-          >
-            <summary className="inputs-disclosure-summary">
-              <span className="inputs-disclosure-title">条件を変える</span>
-              <span className="inputs-disclosure-hint">
-                年齢・積立・目標など
-              </span>
-            </summary>
-            <div className="inputs-disclosure-body">
-              <div className="inputs-grid">
-                <label className="input-field">
-                  <span>現在の年齢</span>
-                  <input
-                    type="number"
-                    value={currentAgeRaw}
-                    onChange={(e) => setCurrentAge(e.target.value)}
-                  />
-                </label>
-
-                <label className="input-field">
-                  <span>引退したい年齢</span>
-                  <input
-                    type="number"
-                    value={retireAgeRaw}
-                    onChange={(e) => setRetireAge(e.target.value)}
-                  />
-                </label>
-
-                <label className="input-field">
-                  <span>現在の運用資産（円）</span>
-                  <input
-                    type="number"
-                    value={currentAmountRaw}
-                    onChange={(e) => setCurrentAmount(e.target.value)}
-                  />
-                </label>
-
-                <label className="input-field">
-                  <span>毎月の積立額（円）</span>
-                  <input
-                    type="number"
-                    value={monthlyContributionRaw}
-                    onChange={(e) => setMonthlyContribution(e.target.value)}
-                  />
-                </label>
-
-                <label className="input-field">
-                  <span>想定年利（%）</span>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={annualReturnPercentRaw}
-                    onChange={(e) => setAnnualReturnPercent(e.target.value)}
-                  />
-                </label>
-
-                <label className="input-field">
-                  <span>目標資産額（円）</span>
-                  <input
-                    type="number"
-                    value={targetAmountRaw}
-                    onChange={(e) => setTargetAmount(e.target.value)}
-                  />
-                </label>
-              </div>
-              <p className="inputs-note">
-                数値はすぐにギャップと道のりへ反映されます。進捗は「引退時の想定資産
-                ÷ 目標」です（現在資産そのものではありません）。
-              </p>
-            </div>
-          </details>
-        </section>
-
         <SoftAffiliateCta placement="result_summary" className="home-block" />
 
         {children}
       </main>
+
+      <StickyResultBar
+        gapAmount={result.gapAmount}
+        amountAtRetire={result.amountAtRetire}
+        targetReached={result.targetReached}
+        progressPercent={progressPercent}
+        yearsToTarget={result.yearsToTarget}
+      />
     </>
   );
 }
