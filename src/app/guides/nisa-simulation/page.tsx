@@ -12,6 +12,9 @@ export const metadata = pageMetadata({
   title: guide.title,
   description: guide.description,
   path: `/guides/${guide.slug}`,
+  ogType: "article",
+  publishedTime: guide.publishedAt,
+  modifiedTime: guide.updatedAt,
 });
 
 export default function NisaSimulationGuidePage() {
@@ -33,15 +36,39 @@ export default function NisaSimulationGuidePage() {
           </p>
         </ContentSection>
 
+        <ContentSection title="NISA制度との関係（ざっくり）">
+          <p>
+            2024年からの新しいNISAでは、つみたて投資枠・成長投資枠などの区分や非課税保有限度額が定められています。制度の詳細は金融庁の案内が正です。
+          </p>
+          <p>
+            {SITE_NAME}
+            は「口座の枠を使い切るシミュレーター」ではありません。どちらかというと、
+            <span className="font-medium text-zinc-900">
+              毎月いくら積み立て、何年・何％の仮定で、目標に届きそうか
+            </span>
+            を感覚的につかむためのツールです。年間投資上限や銘柄選定は、証券会社・公式案内で確認してください。
+          </p>
+          <p>
+            <a
+              href="https://www.fsa.go.jp/policy/nisa2/index.html"
+              className="text-emerald-700 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              金融庁：NISA特設ページ
+            </a>
+          </p>
+        </ContentSection>
+
         <ContentSection title="入力項目の意味">
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <span className="font-medium text-zinc-900">現在の年齢 / 引退したい年齢</span>
-              — 差が「運用・積立を続ける年数」になります。
+              — 差が「運用・積立を続ける年数」になります。短いほど同じ目標でも必要な積立が大きくなりがちです。
             </li>
             <li>
               <span className="font-medium text-zinc-900">現在の運用資産</span>
-              — いま積み上がっている金額のスタート地点です。
+              — いま積み上がっている金額のスタート地点です。現金だけの予備資金と分けるかどうかは、自分のルールで決めて構いません。
             </li>
             <li>
               <span className="font-medium text-zinc-900">毎月の積立額</span>
@@ -49,11 +76,18 @@ export default function NisaSimulationGuidePage() {
             </li>
             <li>
               <span className="font-medium text-zinc-900">想定年利（%）</span>
-              — 将来の利回りの仮定です。実際の相場は上下し、手数料や税金も考慮していません。
+              — 将来の利回りの仮定です。実際の相場は上下し、手数料や税金・為替も考慮していません。楽観と慎重の両方で試すと比較しやすいです。
             </li>
             <li>
               <span className="font-medium text-zinc-900">目標資産額</span>
-              — 「引退時にこれくらいあれば」という自分用のゴールです。
+              — 「引退時にこれくらいあれば」という自分用のゴールです。置き方は
+              <Link
+                href="/guides/retirement-funds"
+                className="text-emerald-700 hover:underline"
+              >
+                老後資金ガイド
+              </Link>
+              も参照してください。
             </li>
           </ul>
         </ContentSection>
@@ -82,6 +116,27 @@ export default function NisaSimulationGuidePage() {
                 4%ルールのガイド
               </Link>
               を参照してください。
+            </li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="よくある誤解">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">表示額が「将来の確定額」だと思う</span>
+              — あくまで仮定どおり進んだ場合の概算です。相場は変動します。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">進捗バーが「いまの資産の達成率」だと思う</span>
+              — 引退時点の想定に対する進捗です。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">利回りを上げれば必ず目標に届く</span>
+              — 高い利回りの仮定は結果を良く見せますが、そのリターンが得られる保証はありません。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">NISA口座の開設や銘柄選定までできる</span>
+              — 当ツールは計算用です。口座・商品は各金融機関の案内をご確認ください。
             </li>
           </ul>
         </ContentSection>

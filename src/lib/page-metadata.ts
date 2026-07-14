@@ -5,6 +5,10 @@ type PageMetaInput = {
   title: string;
   description: string;
   path: string;
+  /** Open Graph type. Use "article" for guide pages. */
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
 };
 
 /** Page metadata with explicit OG/Twitter fields (avoids inheriting homepage OG). */
@@ -12,6 +16,9 @@ export function pageMetadata({
   title,
   description,
   path,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
 }: PageMetaInput): Metadata {
   const ogTitle = `${title} | ${SITE_NAME}`;
 
@@ -23,9 +30,15 @@ export function pageMetadata({
       title: ogTitle,
       description,
       url: path,
-      type: "website",
+      type: ogType,
       locale: "ja_JP",
       siteName: SITE_NAME,
+      ...(ogType === "article" && publishedTime
+        ? {
+            publishedTime,
+            modifiedTime: modifiedTime ?? publishedTime,
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

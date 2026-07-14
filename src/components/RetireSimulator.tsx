@@ -6,7 +6,6 @@ import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
 import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { StepperInput } from "@/components/StepperInput";
-import { StickyResultBar } from "@/components/StickyResultBar";
 
 type Simulation = {
   yearsToTarget: number;
@@ -181,9 +180,21 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
     setMonthlyContribution(monthlyContribution + step);
   }
 
+  /** Only raise retire age when current age would otherwise overtake it. */
+  function handleCurrentAgeChange(next: number) {
+    setCurrentAge(next);
+    if (next > retireAge) {
+      setRetireAge(next);
+    }
+  }
+
+  function handleRetireAgeChange(next: number) {
+    setRetireAge(Math.max(next, currentAge));
+  }
+
   return (
     <>
-      <main className="home-main mx-auto w-full max-w-3xl flex-1 px-5 pb-28 pt-6 sm:px-6 sm:pb-32 sm:pt-8">
+      <main className="home-main mx-auto w-full max-w-3xl flex-1 px-5 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8">
         <div className="home-block home-block-intro">
           <h1 className="sim-headline">
             <span className="sim-headline-line">つみたてNISAで、</span>
@@ -216,7 +227,7 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
                 value={currentAge}
                 raw={currentAgeRaw}
                 onRawChange={setCurrentAgeRaw}
-                onValueChange={setCurrentAge}
+                onValueChange={handleCurrentAgeChange}
                 min={18}
                 max={80}
                 step={1}
@@ -227,7 +238,7 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
                 value={retireAge}
                 raw={retireAgeRaw}
                 onRawChange={setRetireAgeRaw}
-                onValueChange={setRetireAge}
+                onValueChange={handleRetireAgeChange}
                 min={Math.max(currentAge, 30)}
                 max={90}
                 step={1}
@@ -411,14 +422,6 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
 
         {children}
       </main>
-
-      <StickyResultBar
-        gapAmount={result.gapAmount}
-        amountAtRetire={result.amountAtRetire}
-        targetReached={result.targetReached}
-        progressPercent={progressPercent}
-        yearsToTarget={result.yearsToTarget}
-      />
     </>
   );
 }

@@ -1,11 +1,18 @@
 import { ImageResponse } from "next/og";
-import { SITE_HEADLINE, SITE_NAME, SITE_PRODUCT_LABEL } from "@/lib/site";
+import {
+  getSiteHost,
+  SITE_HEADLINE,
+  SITE_NAME,
+  SITE_PRODUCT_LABEL,
+} from "@/lib/site";
 
 export const alt = `${SITE_HEADLINE}｜${SITE_NAME}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const host = getSiteHost();
+
   return new ImageResponse(
     (
       <div
@@ -77,7 +84,7 @@ export default function OpenGraphImage() {
             color: "#78716c",
           }}
         >
-          nisa-retire-countdown.vercel.app
+          {host}
         </div>
       </div>
     ),

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export type MascotMood = "start" | "focus" | "cheer" | "happy" | "celebrate";
 
 export type TarumiPose = "idle" | "run";
@@ -15,13 +17,13 @@ type Props = {
   className?: string;
 };
 
-const IDLE_SRC = "/characters/tarumi-idle.png";
-const RUN_SRC = "/characters/tarumi-run.png";
-/** Bump when replacing public/characters assets (safe on plain <img>). */
-const ASSET_V = "20260710-2140";
+const IDLE_SRC = "/characters/tarumi-idle.webp";
+const RUN_SRC = "/characters/tarumi-run.webp";
+const INTRINSIC_W = 512;
+const INTRINSIC_H = 768;
 
 /** Portrait assets are 3:4; fill mode uses a square cover crop. */
-const ASPECT = 1536 / 1024;
+const ASPECT = INTRINSIC_H / INTRINSIC_W;
 
 function moodFilter(mood: MascotMood, alluring: boolean): string {
   if (alluring) {
@@ -52,9 +54,11 @@ export function TarumiCharacter({
   className = "",
 }: Props) {
   const running = pose === "run";
-  const src = `${running ? RUN_SRC : IDLE_SRC}?v=${ASSET_V}`;
+  const src = running ? RUN_SRC : IDLE_SRC;
   const height = fill ? size : Math.round(size * ASPECT);
   const showSparkles = mood === "celebrate" || alluring || mood === "happy";
+  /** Companion (~132px) is the likely LCP image; smaller faces stay lazy. */
+  const preload = pose === "idle" && size >= 100;
 
   return (
     <span
@@ -78,17 +82,18 @@ export function TarumiCharacter({
       data-run-frame={running ? runFrame : undefined}
       aria-hidden
     >
-      {/* Plain <img>: next/image rejects cache-bust query strings unless localPatterns is configured. */}
-      <img
+      <Image
         key={src}
         src={src}
         alt=""
-        width={1024}
-        height={1536}
+        width={INTRINSIC_W}
+        height={INTRINSIC_H}
+        sizes={`${size}px`}
         className="tarumi-photo"
         draggable={false}
-        decoding="async"
-        fetchPriority={pose === "idle" ? "high" : "auto"}
+        preload={preload}
+        fetchPriority={preload ? "high" : "auto"}
+        quality={82}
       />
       {showSparkles && (
         <>

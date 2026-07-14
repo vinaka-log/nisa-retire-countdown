@@ -5,6 +5,9 @@ import {
   SITE_PRODUCT_LABEL,
 } from "@/lib/site";
 
+/** Secondary destinations stay in the footer; omit from the compact header row. */
+const COMPACT_HIDDEN_HREFS = new Set(["/contact", "/about"]);
+
 export function SiteHeader() {
   return (
     <header className="site-header">
@@ -19,13 +22,17 @@ export function SiteHeader() {
         </Link>
         <nav
           aria-label="メインナビゲーション"
-          className="site-header-nav flex items-center gap-x-4 text-sm"
+          className="site-header-nav"
         >
           {HEADER_NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="shrink-0 whitespace-nowrap"
+              className={
+                COMPACT_HIDDEN_HREFS.has(link.href)
+                  ? "site-header-nav-secondary"
+                  : undefined
+              }
             >
               {link.label}
             </Link>

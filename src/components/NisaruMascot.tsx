@@ -97,7 +97,7 @@ export function NisaruMascot({ mood, progressPercent, yearsLeft }: Props) {
       <div className="companion-info">
         <div className="companion-name-row">
           <span className="companion-badge gyaru-badge">お姉さんギャル</span>
-          <h2 className="companion-name gyaru-name">みつき</h2>
+          <p className="companion-name gyaru-name">みつき</p>
           <span className="companion-level gyaru-level">Lv.{level}</span>
         </div>
         <p className="companion-dialogue gyaru-dialogue">{line}</p>

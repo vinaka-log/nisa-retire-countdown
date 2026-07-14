@@ -18,7 +18,7 @@ export function JsonLd() {
         url: siteUrl,
         logo: {
           "@type": "ImageObject",
-          url: `${siteUrl}/characters/tarumi-idle.png`,
+          url: `${siteUrl}/characters/tarumi-idle.webp`,
         },
       },
       {

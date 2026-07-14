@@ -12,7 +12,7 @@ import {
 
 export const metadata = pageMetadata({
   title: "運営者情報",
-  description: `${SITE_NAME}の運営者情報・サイトの目的・お問い合わせ先のご案内です。`,
+  description: `${SITE_NAME}の運営者情報・サイトの目的・編集方針・お問い合わせ先のご案内です。`,
   path: "/about",
 });
 
@@ -94,8 +94,39 @@ export default function AboutPage() {
         </div>
       </ContentSection>
 
+      <ContentSection title="編集・更新の方針">
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            シミュレーターとガイドは、一般向けの学習・検討補助を目的とし、個別の投資判断や銘柄推奨は行いません。
+          </li>
+          <li>
+            ガイドでは、金融庁・年金機構・統計機関などの公的情報へのリンクを示し、制度や統計の「入口」として使えるよう心がけます。数値や制度は変更されうるため、最終確認は公式情報で行ってください。
+          </li>
+          <li>
+            記載内容に誤りやわかりにくい点の指摘があった場合は、確認のうえ必要に応じて修正・更新します。
+          </li>
+          <li>
+            アフィリエイトリンクを掲載する場合があります。その旨は
+            <Link href="/disclaimer" className="text-emerald-700 hover:underline">
+              免責事項
+            </Link>
+            ・
+            <Link href="/privacy" className="text-emerald-700 hover:underline">
+              プライバシーポリシー
+            </Link>
+            でも案内します。
+          </li>
+        </ul>
+      </ContentSection>
+
       <ContentSection title="関連ページ">
         <nav aria-label="関連ページ" className="content-related">
+          <Link
+            href="/guides"
+            className="text-emerald-700 underline-offset-2 hover:underline"
+          >
+            ガイド
+          </Link>
           <Link
             href="/contact"
             className="text-emerald-700 underline-offset-2 hover:underline"

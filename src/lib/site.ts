@@ -1,12 +1,39 @@
 export const DEFAULT_SITE_URL =
   "https://nisa-retire-countdown.vercel.app";
 
+function normalizeSiteUrl(raw: string): string {
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  return withProtocol.replace(/\/$/, "");
+}
+
+/**
+ * Canonical site origin for metadata / sitemap / JSON-LD / OG.
+ * Prefer NEXT_PUBLIC_SITE_URL (custom domain). Falls back to Vercel
+ * production host, then the default *.vercel.app URL.
+ */
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (fromEnv) {
-    return fromEnv.replace(/\/$/, "");
+    return normalizeSiteUrl(fromEnv);
   }
+
+  const vercelProduction =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim() ||
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercelProduction) {
+    return normalizeSiteUrl(vercelProduction);
+  }
+
   return DEFAULT_SITE_URL;
+}
+
+/** Hostname only (for OG image footer, etc.). */
+export function getSiteHost(): string {
+  try {
+    return new URL(getSiteUrl()).host;
+  } catch {
+    return DEFAULT_SITE_URL.replace(/^https?:\/\//, "");
+  }
 }
 
 /** Unique product brand (avoid generic「つみたてNISAシミュレーター」). */
