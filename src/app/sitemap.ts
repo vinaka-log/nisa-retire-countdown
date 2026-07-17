@@ -8,8 +8,8 @@ const GUIDE_DATES = Object.fromEntries(
 
 /** Static pages without per-guide dates — last editorial pass. */
 const PAGE_DATES: Record<string, string> = {
-  "/": "2026-07-14",
-  "/guides": "2026-07-14",
+  "/": "2026-07-17",
+  "/guides": "2026-07-17",
   "/about": "2026-07-14",
   "/faq": "2026-07-17",
   "/contact": "2026-07-12",

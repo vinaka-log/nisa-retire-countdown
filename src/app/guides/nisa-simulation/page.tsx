@@ -92,6 +92,51 @@ export default function NisaSimulationGuidePage() {
           </ul>
         </ContentSection>
 
+        <ContentSection title="年代別の使い方（例）">
+          <p>
+            同じ目標でも、残りの年数で「必要な毎月積立」の見え方は大きく変わります。以下はツールの使い方の例です。
+          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">30代</span>
+              — 年数が長いので、積立額を抑えめにしてもギャップが縮みやすいことがあります。まず「今の積立で引退時にいくらになりそうか」を見てから目標を調整すると分かりやすいです。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">40代</span>
+              — 残年数と家計の両立がテーマになりやすい年代です。積立を少し増やす／引退年齢をずらす／目標を見直す、の3つを並べて比較してみてください。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">50代</span>
+              — 年数が短いと、同じ目標でも必要な積立が大きく出やすいです。結果を見て慌てて高利回りに振り切るより、目標額と引退年齢の前提を先に見直す方が安全なことが多いです。
+            </li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="想定年利を変えて読む">
+          <p>
+            想定年利に正解はありません。過去の株式指数の平均は参考のひとつに過ぎず、将来を保証しません。当サイトも特定の％を推奨しません。
+          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">慎重側（例: 3%）</span>
+              — ギャップが大きく・必要積立も大きく出やすいです。「足りない場合の下限イメージ」に使えます。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">中間（例: 5%）</span>
+              — よく話題にされる仮定のひとつです。比較の基準として置く人もいます。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">楽観側（高め）</span>
+              — 結果は良く見えますが、そのリターンが続く前提ではありません。楽観だけ見て積立を決めるのは避けた方がよいです。
+            </li>
+          </ul>
+          <p>
+            同じ他の条件で利回りだけ切り替えて、ギャップと必要積立の
+            <span className="font-medium text-zinc-900">幅</span>
+            を見る使い方が分かりやすいです。
+          </p>
+        </ContentSection>
+
         <ContentSection title="結果の読み方">
           <ul className="list-disc space-y-2 pl-5">
             <li>
@@ -158,7 +203,7 @@ export default function NisaSimulationGuidePage() {
                 href="/guides/4-percent-rule"
                 className="text-emerald-700 hover:underline"
               >
-                4%ルールとは？
+                4%ルールと取り崩しシミュレーション
               </Link>
             </li>
             <li>

@@ -13,16 +13,16 @@ export const GUIDES: GuideMeta[] = [
     slug: "retirement-funds",
     title: "老後資金はいくら必要？目安の考え方",
     description:
-      "老後資金の目安を、生活費・期間・公的年金の差分から逆算する考え方と、シミュレーターで目標を置く流れを解説します。投資助言ではありません。",
+      "老後資金の目安を、生活費・期間・公的年金の差分から逆算する考え方、独身・夫婦の違い、具体例とシミュレーターでの目標の置き方を解説します。投資助言ではありません。",
     publishedAt: "2026-07-12",
-    updatedAt: "2026-07-14",
+    updatedAt: "2026-07-17",
   },
   {
     slug: "nisa-simulation",
     title: "つみたてNISAシミュレーションの見方",
-    description: `${SITE_NAME}の入力項目（年齢・積立・利回り・目標）の意味と、結果の読み方・よくある誤解をわかりやすく解説します。`,
+    description: `${SITE_NAME}の入力項目の意味、年代別の使い方、想定年利の読み方、結果の解釈とよくある誤解をわかりやすく解説します。`,
     publishedAt: "2026-07-12",
-    updatedAt: "2026-07-14",
+    updatedAt: "2026-07-17",
   },
   {
     slug: "4-percent-rule",

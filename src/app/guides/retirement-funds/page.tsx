@@ -69,6 +69,67 @@ export default function RetirementFundsGuidePage() {
           </p>
         </ContentSection>
 
+        <ContentSection title="独身・夫婦で見え方が変わる点">
+          <p>
+            世帯の形によって、支出と年金収入のバランスが変わりやすいです。ここでは「よくある違い」だけ整理します（個別の正解ではありません）。
+          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">独身</span>
+              — 住居・水道光熱などの固定費を一人で抱える一方、支出総額は二人世帯より小さくなりがちです。年金も一人分なので、不足額の計算は「自分の見込み額」だけで足します。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">夫婦</span>
+              — 生活費は二人分、年金も二人分（または片方のみ）で見る必要があります。片働き・共働き・自営業の組み合わせで不足額が大きく変わります。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">持ち家 / 賃貸</span>
+              — 住居費の置き方が目標額を左右しやすい項目です。平均値ではなく、自分の家賃・ローン・修繕のイメージで置く方が実用的です。
+            </li>
+          </ul>
+        </ContentSection>
+
+        <ContentSection title="ねんきん定期便・見込み額の使い方（入口）">
+          <p>
+            公的年金の見込みを全く置かないと、目標資産が過大になりがちです。まずは日本年金機構の案内やねんきん定期便で、
+            <span className="font-medium text-zinc-900">だいたい月いくら入りそうか</span>
+            の感覚を掴み、生活費から引く、という使い方がシンプルです。
+          </p>
+          <p>
+            受給開始年齢をずらす・働き続ける、などの選択で見込みは変わります。当サイトでは制度の最適解は扱いません。数字が分からない場合は、仮の年金収入を置いて目標を試し、あとから差し替えても構いません。
+          </p>
+        </ContentSection>
+
+        <ContentSection title="目標額の具体例（たたき台）">
+          <p>
+            以下は学習用の仮置きです。あなたの家計に当てはまるとは限りません。
+          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">例A：不足 5万円 × 25年</span>
+              — 5万×12×25＝約1,500万円
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">例B：不足 8万円 × 30年</span>
+              — 8万×12×30＝約2,880万円
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">例C：不足 12万円 × 30年</span>
+              — 12万×12×30＝約4,320万円
+            </li>
+          </ul>
+          <p>
+            余裕枠（医療・介護・住宅）を見るなら、たたき台に1〜2割足す、などの置き方もあります。取り崩しの月額イメージは
+            <Link
+              href="/guides/4-percent-rule"
+              className="text-emerald-700 hover:underline"
+            >
+              4%ルールガイド
+            </Link>
+            も合わせてどうぞ。
+          </p>
+        </ContentSection>
+
         <ContentSection title="目標額の置き方（シンプルな手順）">
           <ol className="list-decimal space-y-2 pl-5">
             <li>引退後の月の支出イメージを置く（今より下がる/変わらない/上がる想定）。</li>
@@ -168,7 +229,7 @@ export default function RetirementFundsGuidePage() {
                 href="/guides/4-percent-rule"
                 className="text-emerald-700 hover:underline"
               >
-                4%ルールとは？
+                4%ルールと取り崩しシミュレーション
               </Link>
             </li>
             <li>

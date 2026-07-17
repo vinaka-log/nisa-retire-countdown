@@ -16,15 +16,40 @@ export default function HomePage() {
           {SITE_NAME}
           は、つみたてNISAなどの積立・想定利回り・目標資産から、引退までのギャップを見える化する無料シミュレーターです。会員登録は不要で、入力はブラウザ上で計算に使います。表示は概算であり、投資助言ではありません。
         </p>
-        <p className="home-seo-links">
-          <Link href="/guides" className="text-emerald-700 hover:underline">
-            老後資金・シミュレーションのガイド
-          </Link>
-          {" · "}
-          <Link href="/faq" className="text-emerald-700 hover:underline">
-            FAQ・ヘルプ
-          </Link>
+        <p className="home-section-lead">
+          使い方のヒントはガイドにまとめています。目標の置き方、結果の読み方、取り崩しの目安からどうぞ。
         </p>
+        <ul className="home-seo-links list-disc space-y-1 pl-5">
+          <li>
+            <Link
+              href="/guides/retirement-funds"
+              className="text-emerald-700 hover:underline"
+            >
+              老後資金はいくら必要？目安の考え方
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/nisa-simulation"
+              className="text-emerald-700 hover:underline"
+            >
+              つみたてNISAシミュレーションの見方
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/4-percent-rule"
+              className="text-emerald-700 hover:underline"
+            >
+              4%ルールと取り崩しシミュレーション
+            </Link>
+          </li>
+          <li>
+            <Link href="/faq" className="text-emerald-700 hover:underline">
+              FAQ・ヘルプ
+            </Link>
+          </li>
+        </ul>
       </section>
     </RetireSimulator>
   );
