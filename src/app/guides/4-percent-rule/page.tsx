@@ -35,13 +35,117 @@ export default function FourPercentRuleGuidePage() {
           </p>
         </ContentSection>
 
-        <ContentSection title="数字のイメージ（計算の感覚）">
+        <ContentSection title="取り崩しシミュレーションの手順（簡易）">
           <p>
-            例として、引退時の金融資産が3,000万円なら、年4%は120万円、月あたりおよそ10万円です。これは「毎月いくら使えそうか」の粗い感覚を得るためのもので、その額を生涯保証するものではありません。
+            「4%ルール 取り崩しシミュレーション」と検索されるときによく知りたいのは、
+            <span className="font-medium text-zinc-900">
+              引退時の資産から、月にいくらくらい取り崩すイメージになるか
+            </span>
+            です。当サイトでの簡易な流れは次のとおりです。
           </p>
+          <ol className="list-decimal space-y-2 pl-5">
+            <li>
+              <Link href="/guides/retirement-funds" className="text-emerald-700 hover:underline">
+                老後資金ガイド
+              </Link>
+              を参考に、目標資産額（引退時に欲しいストック）のたたき台を置く。
+            </li>
+            <li>
+              シミュレーターに年齢・積立・想定年利・目標を入れ、引退時の想定資産を確認する。
+            </li>
+            <li>
+              結果の「想定取り崩し（月・4%）」で、年4%仮定の月額イメージを見る。
+            </li>
+            <li>
+              公的年金などの収入と足し合わせ、「毎月の生活費に届きそうか」をざっくり比較する（精密な家計設計ではありません）。
+            </li>
+          </ol>
+        </ContentSection>
+
+        <ContentSection title="数字のイメージ（計算例）">
           <p>
-            実際の取り崩しでは、公的年金などの収入と合わせて支出を賄う、相場が悪い年は取り崩しを抑える、などの調整が話題になることもあります。当サイトではそうした高度な計画までは扱いません。
+            計算式はおおよそ
+            <span className="font-medium text-zinc-900">
+              （引退時の資産 × 0.04）÷ 12
+            </span>
+            です。
           </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">2,000万円</span>
+              — 年80万円、月あたり約6.7万円
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">3,000万円</span>
+              — 年120万円、月あたり約10万円
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">5,000万円</span>
+              — 年200万円、月あたり約16.7万円
+            </li>
+          </ul>
+          <p>
+            これは「毎月いくら使えそうか」の粗い感覚を得るためのもので、その額を生涯保証するものではありません。実際の取り崩しでは、公的年金と合わせる、相場が悪い年は抑える、などの調整が話題になることもあります。当サイトでは高度な計画までは扱いません。
+          </p>
+        </ContentSection>
+
+        <ContentSection title={`${SITE_NAME}の表示との対応`}>
+          <p>
+            シミュレーターでは、引退時の想定資産に対して「想定取り崩し（月・4%）」を簡易表示しています。積立や利回りを変えると引退時想定が変わり、取り崩しイメージも連動します。
+          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">目標まであと</span>
+              — 目標資産と引退時想定のギャップ
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">想定取り崩し（月・4%）</span>
+              — 上記の年4%÷12の参考値
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">達成に必要な毎月積立</span>
+              — 同じ年数・利回りの仮定で目標に届く積立の目安
+            </li>
+          </ul>
+          <p>
+            学習・比較のための参考値であり、実際の取り崩し計画や商品選択の根拠には使えません。入力項目の意味は
+            <Link
+              href="/guides/nisa-simulation"
+              className="text-emerald-700 hover:underline"
+            >
+              シミュレーションの見方
+            </Link>
+            も参照してください。
+          </p>
+        </ContentSection>
+
+        <ContentSection title="よくある誤解">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <span className="font-medium text-zinc-900">
+                「年4%なら必ず資産が尽きない」
+              </span>
+              — 過去データに基づく議論であり、将来を保証しません。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">
+                「表示の月額がそのまま使える生活費」
+              </span>
+              — 公的年金・税金・医療費などは別途考える必要があります。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">
+                「日本でも海外研究と同じ前提でよい」
+              </span>
+              — 物価・為替・税制・年金制度が異なるため、そのまま当てはまるとは限りません。
+            </li>
+            <li>
+              <span className="font-medium text-zinc-900">
+                「シミュレーション結果で商品を選んでよい」
+              </span>
+              — 当ツールは概算の学習用です。投資判断の根拠には使えません。
+            </li>
+          </ul>
         </ContentSection>
 
         <ContentSection title="限界と注意点">
@@ -58,16 +162,6 @@ export default function FourPercentRuleGuidePage() {
               当サイトは投資助言業者ではなく、4%ルールの採用を推奨・勧誘するものではありません。
             </li>
           </ul>
-        </ContentSection>
-
-        <ContentSection title={`${SITE_NAME}での表示`}>
-          <p>
-            シミュレーターでは、引退時の想定資産に対して「想定取り崩し（月・4%）」を簡易表示しています。計算はおおよそ
-            <span className="font-medium text-zinc-900">
-              （引退時想定資産 × 0.04）÷ 12
-            </span>
-            です。学習・比較のための参考値であり、実際の取り崩し計画や商品選択の根拠には使えません。
-          </p>
           <p>
             計算の前提や免責の詳細は
             <Link href="/faq" className="text-emerald-700 hover:underline">
@@ -77,14 +171,7 @@ export default function FourPercentRuleGuidePage() {
             <Link href="/disclaimer" className="text-emerald-700 hover:underline">
               免責事項
             </Link>
-            をご覧ください。老後の目標額の置き方は
-            <Link
-              href="/guides/retirement-funds"
-              className="text-emerald-700 hover:underline"
-            >
-              老後資金ガイド
-            </Link>
-            も参考にしてください。
+            をご覧ください。
           </p>
         </ContentSection>
 

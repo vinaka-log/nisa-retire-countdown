@@ -7,7 +7,7 @@ import { SITE_NAME } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "FAQ・ヘルプ",
-  description: `${SITE_NAME}のよくある質問とヘルプ。シミュレーションの使い方や注意点をまとめています。`,
+  description: `${SITE_NAME}のよくある質問。シミュレーションの精度、老後資金の目標、4%ルールの取り崩し目安、想定年利の置き方などをまとめています。`,
   path: "/faq",
 });
 
@@ -35,6 +35,14 @@ export default function FaqPage() {
 
         <ContentSection title="関連ページ">
           <ul className="list-disc space-y-1 pl-5">
+            <li>
+              <Link
+                href="/guides/4-percent-rule"
+                className="text-emerald-700 hover:underline"
+              >
+                4%ルールと取り崩しシミュレーション
+              </Link>
+            </li>
             <li>
               <Link href="/guides" className="text-emerald-700 hover:underline">
                 ガイド一覧
