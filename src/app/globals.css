@@ -462,6 +462,10 @@ body {
   justify-content: flex-end;
 }
 
+.stepper-field:has(.stepper-input-yen) .stepper-value {
+  min-width: 9.5rem;
+}
+
 .stepper-input {
   width: 5.5rem;
   border: none;
@@ -473,6 +477,10 @@ body {
   color: var(--gap-ink);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+.stepper-input-yen {
+  width: 8.25rem;
 }
 
 .stepper-input:focus {
@@ -542,8 +550,16 @@ body {
     font-size: 0.98rem;
   }
 
+  .stepper-input-yen {
+    width: 7.25rem;
+  }
+
   .stepper-value {
     min-width: 5.5rem;
+  }
+
+  .stepper-field:has(.stepper-input-yen) .stepper-value {
+    min-width: 8.25rem;
   }
 }
 

@@ -54,6 +54,7 @@ export function StepperInput({
 }: Props) {
   function commit(next: number) {
     const clamped = clamp(snap(next, step), min, max);
+    // Keep text + slider + parent state on the same committed value.
     onValueChange(clamped);
     onRawChange(formatDisplay(clamped));
   }
@@ -72,6 +73,8 @@ export function StepperInput({
   }
 
   const sliderMax = Math.max(max, min);
+  // Slider thumb must reflect the same number used in calculation when
+  // parent passes an in-range value; never show a different clamped phantom.
   const sliderValue = clamp(value, min, sliderMax);
   const percent =
     sliderMax === min ? 0 : ((sliderValue - min) / (sliderMax - min)) * 100;
@@ -101,7 +104,7 @@ export function StepperInput({
             <input
               type="text"
               inputMode="decimal"
-              className="stepper-input"
+              className={`stepper-input${unit === "円" ? " stepper-input-yen" : ""}`}
               value={raw}
               onChange={(e) => onRawChange(e.target.value)}
               onBlur={handleBlur}
@@ -111,6 +114,7 @@ export function StepperInput({
                 }
               }}
               aria-label={label}
+              size={unit === "円" ? 12 : 6}
             />
             <span className="stepper-unit">{unit}</span>
           </div>

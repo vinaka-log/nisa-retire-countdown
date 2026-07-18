@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { TarumiCharacter } from "@/components/TarumiCharacter";
 import type { MascotMood } from "@/components/TarumiCharacter";
-
-const yen = new Intl.NumberFormat("ja-JP");
+import { formatProgressPercentLabel, formatYen } from "@/lib/format";
 
 type Props = {
   amountAtRetire: number;
@@ -30,6 +29,7 @@ export function GapHero({
   const [petCount, setPetCount] = useState(0);
   const [wiggle, setWiggle] = useState(false);
   const ratio = Math.min(Math.max(progressPercent, 0), 100);
+  const percentLabel = formatProgressPercentLabel(ratio, targetReached);
 
   const supportLine = targetReached
     ? "達成コース。このペース、いい感じ。"
@@ -54,7 +54,7 @@ export function GapHero({
           className={`gap-hero-gap-amount ${targetReached ? "is-reached" : ""}`}
           aria-live="polite"
         >
-          {targetReached ? "達成！" : `¥${yen.format(gapAmount)}`}
+          {targetReached ? "達成！" : `¥${formatYen(gapAmount)}`}
         </p>
         <p className="gap-hero-momentum">{momentumMessage}</p>
 
@@ -62,13 +62,13 @@ export function GapHero({
           <div className="gap-hero-meaning-row">
             <span className="gap-hero-meaning-label">引退時の想定</span>
             <span className="gap-hero-meaning-value">
-              ¥{yen.format(amountAtRetire)}
+              ¥{formatYen(amountAtRetire)}
             </span>
           </div>
           <div className="gap-hero-meaning-row gap-hero-meaning-row-target">
             <span className="gap-hero-meaning-label">目標資産</span>
             <span className="gap-hero-meaning-value">
-              ¥{yen.format(targetAmount)}
+              ¥{formatYen(targetAmount)}
             </span>
           </div>
           <div className="gap-hero-meaning-row">
@@ -86,7 +86,7 @@ export function GapHero({
             aria-valuenow={ratio}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label={`引退時想定の目標達成度 ${ratio}%`}
+            aria-label={`引退時想定の目標達成度 ${percentLabel}%`}
           >
             <div
               className="gap-hero-meter-fill"
@@ -94,7 +94,7 @@ export function GapHero({
             />
           </div>
           <p className="gap-hero-meter-caption">
-            引退時想定で目標の <strong>{ratio}%</strong>
+            引退時想定で目標の <strong>{percentLabel}%</strong>
           </p>
         </div>
 

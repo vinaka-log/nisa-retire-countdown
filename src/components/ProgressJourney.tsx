@@ -3,33 +3,31 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { TarumiCharacter } from "./TarumiCharacter";
 import { moodFromProgress } from "./NisaruMascot";
+import {
+  formatKm,
+  formatProgressPercentLabel,
+  journeyDistancesFromYen,
+} from "@/lib/format";
 
 type Props = {
   progressPercent: number;
-  currentAmount: number;
+  amountAtRetire: number;
   targetAmount: number;
+  gapAmount: number;
   targetReached: boolean;
 };
 
-/** 1km = 100万円 のメタファーで距離を表示 */
-function journeyDistances(currentAmount: number, targetAmount: number) {
-  const safeTarget = Math.max(targetAmount, 1);
-  const ratio = Math.min(currentAmount / safeTarget, 1);
-  const totalKm = Math.round((safeTarget / 1_000_000) * 10) / 10;
-  const traveledKm = Math.round(totalKm * ratio * 10) / 10;
-  const remainingKm = Math.round((totalKm - traveledKm) * 10) / 10;
-  return { totalKm, traveledKm, remainingKm, ratio };
-}
-
 export function ProgressJourney({
   progressPercent,
-  currentAmount,
+  amountAtRetire,
   targetAmount,
+  gapAmount,
   targetReached,
 }: Props) {
-  const { totalKm, traveledKm, remainingKm } = journeyDistances(
-    currentAmount,
+  const { totalKm, traveledKm, remainingKm } = journeyDistancesFromYen(
+    amountAtRetire,
     targetAmount,
+    gapAmount,
   );
   const clampedPercent = Math.min(Math.max(progressPercent, 0), 100);
   const [runFrame, setRunFrame] = useState<0 | 1>(0);
@@ -55,7 +53,8 @@ export function ProgressJourney({
     function tick(now: number) {
       const t = Math.min((now - startTime) / duration, 1);
       const eased = 1 - (1 - t) ** 3;
-      const next = Math.round(start + (end - start) * eased);
+      const next =
+        Math.round((start + (end - start) * eased) * 10) / 10;
       displayPercentRef.current = next;
       setDisplayPercent(next);
       if (t < 1) raf = requestAnimationFrame(tick);
@@ -71,6 +70,10 @@ export function ProgressJourney({
 
   const milestones = [25, 50, 75];
   const runMood = moodFromProgress(clampedPercent, targetReached);
+  const percentLabel = formatProgressPercentLabel(
+    displayPercent,
+    targetReached || displayPercent >= 100,
+  );
 
   return (
     <article className="progress-journey">
@@ -78,15 +81,17 @@ export function ProgressJourney({
         <p className="progress-journey-label">引退時想定 → 目標</p>
         <div className="progress-journey-metrics">
           <p className="progress-journey-percent">
-            <span className="progress-journey-percent-num">{displayPercent}</span>
+            <span className="progress-journey-percent-num">{percentLabel}</span>
             <span className="progress-journey-percent-unit">%</span>
           </p>
           <p className="progress-journey-km">
-            {targetReached ? "ゴール到達" : `あと ${remainingKm} km`}
+            {targetReached
+              ? "ゴール到達"
+              : `あと ${formatKm(remainingKm)} km`}
           </p>
         </div>
         <p className="progress-journey-sub">
-          {traveledKm} / {totalKm} km（1km ≒ 100万円）
+          {formatKm(traveledKm)} / {formatKm(totalKm)} km（1km ≒ 100万円）
         </p>
       </div>
 
