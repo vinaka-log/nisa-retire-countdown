@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 type Props = {
   label: string;
@@ -52,17 +52,36 @@ export function StepperInput({
   parseDisplay = defaultParse,
   hint,
 }: Props) {
+  const [focused, setFocused] = useState(false);
+  const [draft, setDraft] = useState(raw);
+
+  // Keep draft in sync with parent when not editing (slider / +/- / external).
+  useEffect(() => {
+    if (!focused) setDraft(raw);
+  }, [raw, focused]);
+
   function commit(next: number) {
     const clamped = clamp(snap(next, step), min, max);
+    const display = formatDisplay(clamped);
     // Keep text + slider + parent state on the same committed value.
     onValueChange(clamped);
-    onRawChange(formatDisplay(clamped));
+    onRawChange(display);
+    setDraft(display);
+  }
+
+  /** Prefer the in-progress draft when +/- is pressed before blur. */
+  function baseForStep(): number {
+    const parsed = parseDisplay(focused ? draft : raw);
+    return parsed === null ? value : parsed;
   }
 
   function handleBlur() {
-    const parsed = parseDisplay(raw);
+    setFocused(false);
+    const parsed = parseDisplay(draft);
     if (parsed === null) {
-      onRawChange(formatDisplay(value));
+      const fallback = formatDisplay(value);
+      setDraft(fallback);
+      onRawChange(fallback);
       return;
     }
     commit(parsed);
@@ -95,7 +114,7 @@ export function StepperInput({
             type="button"
             className="stepper-btn"
             aria-label={`${label}を${step}${unit}減らす`}
-            onClick={() => commit(value - step)}
+            onClick={() => commit(baseForStep() - step)}
             disabled={value <= min}
           >
             −
@@ -105,9 +124,12 @@ export function StepperInput({
               type="text"
               inputMode="decimal"
               className={`stepper-input${unit === "円" ? " stepper-input-yen" : ""}`}
-              value={raw}
-              onChange={(e) => onRawChange(e.target.value)}
-              onFocus={(e) => e.currentTarget.select()}
+              value={focused ? draft : raw}
+              onChange={(e) => setDraft(e.target.value)}
+              onFocus={() => {
+                setFocused(true);
+                setDraft(raw);
+              }}
               onBlur={handleBlur}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -123,7 +145,7 @@ export function StepperInput({
             type="button"
             className="stepper-btn"
             aria-label={`${label}を${step}${unit}増やす`}
-            onClick={() => commit(value + step)}
+            onClick={() => commit(baseForStep() + step)}
             disabled={value >= max}
           >
             ＋

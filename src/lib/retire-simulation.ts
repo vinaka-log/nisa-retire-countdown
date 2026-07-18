@@ -68,8 +68,8 @@ function clampInput(key: keyof typeof INPUT_LIMITS, value: number): number {
 /**
  * Normalize inputs so calculation uses the same bounds as the sliders.
  * Also enforces retireAge >= currentAge.
- * Does not snap to step (that happens on slider/blur commit) so typed
- * values match the live simulation until commit.
+ * Does not snap to step (that happens on slider/blur commit) so callers
+ * can pass live values without silent re-rounding mid-edit.
  */
 export function normalizeRetirePlanInput(
   input: RetirePlanInput,

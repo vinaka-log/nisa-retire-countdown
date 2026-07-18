@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { GapHero } from "@/components/GapHero";
 import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
@@ -18,30 +18,23 @@ import {
   simulateRetirePlan,
 } from "@/lib/retire-simulation";
 
-function parseKeepingLast(raw: string, lastValid: number): number {
-  const trimmed = raw.trim().replace(/,/g, "");
-  if (trimmed === "") return lastValid;
-  const n = Number(trimmed);
-  return Number.isFinite(n) ? n : lastValid;
-}
-
+/**
+ * Keeps a freeform text draft (`raw`) separate from the committed number
+ * (`value`). Typing only updates `raw`; simulation / slider use `value`
+ * until blur, Enter, slider, or +/- commits via setValue.
+ */
 function useNumericInput(
   initial: string,
   formatDisplay?: (n: number) => string,
 ) {
+  const initialNumber = Number(initial);
   const [raw, setRaw] = useState(
-    formatDisplay ? formatDisplay(Number(initial)) : initial,
+    formatDisplay ? formatDisplay(initialNumber) : initial,
   );
-  const lastValidRef = useRef(Number(initial));
-  const trimmed = raw.trim().replace(/,/g, "");
-  if (trimmed !== "") {
-    const n = Number(trimmed);
-    if (Number.isFinite(n)) lastValidRef.current = n;
-  }
-  const value = parseKeepingLast(raw, lastValidRef.current);
+  const [value, setValueState] = useState(initialNumber);
 
   function setValue(next: number) {
-    lastValidRef.current = next;
+    setValueState(next);
     setRaw(formatDisplay ? formatDisplay(next) : String(next));
   }
 
@@ -77,11 +70,6 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
   ] = useNumericInput("5", formatReturnPercent);
   const [targetAmountRaw, setTargetAmountRaw, targetAmount, setTargetAmount] =
     useNumericInput("40000000", formatYen);
-
-  // Keep retire age >= current age in state so text, slider, and calc agree.
-  if (currentAge > retireAge) {
-    setRetireAge(currentAge);
-  }
 
   const result = useMemo(
     () =>
@@ -177,7 +165,7 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
                 条件を設定
               </h2>
               <p className="sim-panel-lead">
-                数値を直接入力するか、スライダー・＋−で調整できます。
+                数値を直接入力（確定は Enter か枠外タップ）するか、スライダー・＋−で調整できます。
               </p>
             </div>
 
