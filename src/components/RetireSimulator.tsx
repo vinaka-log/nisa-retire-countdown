@@ -177,7 +177,7 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
                 条件を設定
               </h2>
               <p className="sim-panel-lead">
-                スライダーか＋−で調整。数値はリアルタイム反映です。
+                数値を直接入力するか、スライダー・＋−で調整できます。
               </p>
             </div>
 

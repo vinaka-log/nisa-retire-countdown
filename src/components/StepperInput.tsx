@@ -107,13 +107,14 @@ export function StepperInput({
               className={`stepper-input${unit === "円" ? " stepper-input-yen" : ""}`}
               value={raw}
               onChange={(e) => onRawChange(e.target.value)}
+              onFocus={(e) => e.currentTarget.select()}
               onBlur={handleBlur}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   (e.target as HTMLInputElement).blur();
                 }
               }}
-              aria-label={label}
+              aria-label={`${label}（直接入力可）`}
               size={unit === "円" ? 12 : 6}
             />
             <span className="stepper-unit">{unit}</span>
