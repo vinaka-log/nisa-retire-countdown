@@ -17,19 +17,12 @@ export default function GuidesIndexPage() {
       description="老後資金やNISAの考え方、シミュレーションの読み方を、投資助言にならない範囲でわかりやすくまとめています。"
     >
       <ContentSection title="記事一覧">
-        <ul className="space-y-4">
+        <ul className="space-y-3.5">
           {GUIDES.map((guide) => (
             <li key={guide.slug}>
-              <Link
-                href={`/guides/${guide.slug}`}
-                className="block rounded-2xl border border-zinc-200 bg-white p-5 transition-colors hover:border-emerald-300"
-              >
-                <span className="text-base font-semibold text-zinc-900">
-                  {guide.title}
-                </span>
-                <span className="mt-2 block text-sm leading-relaxed text-zinc-600">
-                  {guide.description}
-                </span>
+              <Link href={`/guides/${guide.slug}`} className="content-card">
+                <span className="content-card-title">{guide.title}</span>
+                <span className="content-card-desc">{guide.description}</span>
               </Link>
             </li>
           ))}

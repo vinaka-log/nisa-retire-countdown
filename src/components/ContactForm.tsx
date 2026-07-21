@@ -49,23 +49,16 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4 rounded-2xl border border-zinc-200 bg-white p-5"
-    >
+    <form onSubmit={handleSubmit} className="contact-form space-y-4">
       {!hasEmail ? (
-        <p
-          className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm leading-relaxed text-amber-900"
-          role="status"
-        >
+        <p className="contact-form-banner" role="status">
           現在メールでのお問い合わせ受付を準備しています。しばらくしてから再度お試しください。
         </p>
       ) : null}
 
-      <label className="grid gap-1 text-sm">
-        <span className="font-medium text-zinc-800">お名前（任意）</span>
+      <label className="contact-form-field">
+        <span>お名前（任意）</span>
         <input
-          className="rounded-lg border border-zinc-300 px-3 py-2 disabled:bg-zinc-50 disabled:text-zinc-400"
           type="text"
           name="name"
           autoComplete="name"
@@ -75,12 +68,9 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         />
       </label>
 
-      <label className="grid gap-1 text-sm">
-        <span className="font-medium text-zinc-800">
-          返信先メールアドレス（任意）
-        </span>
+      <label className="contact-form-field">
+        <span>返信先メールアドレス（任意）</span>
         <input
-          className="rounded-lg border border-zinc-300 px-3 py-2 disabled:bg-zinc-50 disabled:text-zinc-400"
           type="email"
           name="email"
           autoComplete="email"
@@ -90,10 +80,9 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         />
       </label>
 
-      <label className="grid gap-1 text-sm">
-        <span className="font-medium text-zinc-800">件名（任意）</span>
+      <label className="contact-form-field">
+        <span>件名（任意）</span>
         <input
-          className="rounded-lg border border-zinc-300 px-3 py-2 disabled:bg-zinc-50 disabled:text-zinc-400"
           type="text"
           name="subject"
           value={subject}
@@ -102,10 +91,9 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         />
       </label>
 
-      <label className="grid gap-1 text-sm">
-        <span className="font-medium text-zinc-800">お問い合わせ内容</span>
+      <label className="contact-form-field">
+        <span>お問い合わせ内容</span>
         <textarea
-          className="min-h-32 rounded-lg border border-zinc-300 px-3 py-2 disabled:bg-zinc-50 disabled:text-zinc-400"
           name="message"
           required={hasEmail}
           value={message}
@@ -117,19 +105,19 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
       <button
         type="submit"
         disabled={!hasEmail}
-        className="inline-flex items-center justify-center rounded-lg border border-emerald-700 bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:border-zinc-300 disabled:bg-zinc-300 disabled:text-zinc-500"
+        className="soft-affiliate-btn-primary contact-form-submit"
       >
         メールで送信する
       </button>
 
       {status ? (
-        <p className="text-sm leading-relaxed text-zinc-600" role="status">
+        <p className="contact-form-status" role="status">
           {status}
         </p>
       ) : null}
 
       {hasEmail ? (
-        <p className="text-xs leading-relaxed text-zinc-500">
+        <p className="contact-form-hint">
           送信ボタンを押すと、ご利用端末のメールアプリが開きます。サーバーへの直接送信は行いません。
         </p>
       ) : null}
