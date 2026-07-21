@@ -38,7 +38,14 @@ export default function RetirementFundsGuidePage() {
           <p>
             いわゆる「老後2,000万円問題」は、金融庁の金融審議会・市場ワーキング・グループが示した
             <span className="font-medium text-zinc-900">特定の家計モデルでの試算例</span>
-            として話題になりました。前提（夫婦世帯、支出水準、公的年金収入など）が変われば、不足額も変わります。
+            として話題になりました。前提（夫婦世帯、支出水準、公的年金収入など）が変われば、不足額も変わります。位置づけの整理は
+            <Link
+              href="/guides/rogo-2000man"
+              className="text-emerald-700 hover:underline"
+            >
+              老後2000万円問題ガイド
+            </Link>
+            もどうぞ。
           </p>
           <p>
             したがって、見出しの金額をそのまま目標にするより、
@@ -218,10 +225,18 @@ export default function RetirementFundsGuidePage() {
           <ul className="list-disc space-y-1 pl-5">
             <li>
               <Link
-                href="/guides/nisa-simulation"
+                href="/guides/rogo-2000man"
                 className="text-emerald-700 hover:underline"
               >
-                つみたてNISAシミュレーションの見方
+                老後2000万円問題とNISAでの目安
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/guides/monthly-contribution"
+                className="text-emerald-700 hover:underline"
+              >
+                つみたてNISA 毎月いくらが目安か
               </Link>
             </li>
             <li>

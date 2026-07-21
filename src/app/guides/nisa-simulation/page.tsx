@@ -133,7 +133,14 @@ export default function NisaSimulationGuidePage() {
           <p>
             同じ他の条件で利回りだけ切り替えて、ギャップと必要積立の
             <span className="font-medium text-zinc-900">幅</span>
-            を見る使い方が分かりやすいです。
+            を見る使い方が分かりやすいです。詳しくは
+            <Link
+              href="/guides/assumed-return"
+              className="text-emerald-700 hover:underline"
+            >
+              想定年利の置き方
+            </Link>
+            も参照してください。
           </p>
         </ContentSection>
 
@@ -192,18 +199,26 @@ export default function NisaSimulationGuidePage() {
           <ul className="list-disc space-y-1 pl-5">
             <li>
               <Link
-                href="/guides/retirement-funds"
+                href="/guides/assumed-return"
                 className="text-emerald-700 hover:underline"
               >
-                老後資金はいくら必要？
+                想定年利の置き方（3%・5%・7%）
               </Link>
             </li>
             <li>
               <Link
-                href="/guides/4-percent-rule"
+                href="/guides/monthly-contribution"
                 className="text-emerald-700 hover:underline"
               >
-                4%ルールと取り崩しシミュレーション
+                つみたてNISA 毎月いくらが目安か
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/guides/new-nisa-basics"
+                className="text-emerald-700 hover:underline"
+              >
+                新NISAの枠の基本
               </Link>
             </li>
             <li>

@@ -30,6 +30,30 @@ export default function HomePage() {
           </li>
           <li>
             <Link
+              href="/guides/rogo-2000man"
+              className="text-emerald-700 hover:underline"
+            >
+              老後2000万円問題とNISAでの目安
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/monthly-contribution"
+              className="text-emerald-700 hover:underline"
+            >
+              つみたてNISA 毎月いくらが目安か
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/new-nisa-basics"
+              className="text-emerald-700 hover:underline"
+            >
+              新NISAの枠の基本
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/guides/nisa-simulation"
               className="text-emerald-700 hover:underline"
             >
@@ -37,11 +61,8 @@ export default function HomePage() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/guides/4-percent-rule"
-              className="text-emerald-700 hover:underline"
-            >
-              4%ルールと取り崩しシミュレーション
+            <Link href="/guides" className="text-emerald-700 hover:underline">
+              ガイド一覧
             </Link>
           </li>
           <li>

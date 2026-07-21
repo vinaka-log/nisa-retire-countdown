@@ -6,7 +6,7 @@ import { SITE_NAME } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "ガイド",
-  description: `${SITE_NAME}のガイド一覧。老後資金の目安、つみたてNISAシミュレーションの見方、4%ルールなどを解説します。`,
+  description: `${SITE_NAME}のガイド一覧。老後資金・2000万円問題、毎月の積立目安、新NISA、想定年利、NISAとiDeCo、4%ルールなどを解説します。`,
   path: "/guides",
 });
 
@@ -14,7 +14,7 @@ export default function GuidesIndexPage() {
   return (
     <ContentPage
       title="ガイド"
-      description="老後資金やシミュレーションの読み方を、投資助言にならない範囲でわかりやすくまとめています。"
+      description="老後資金やNISAの考え方、シミュレーションの読み方を、投資助言にならない範囲でわかりやすくまとめています。"
     >
       <ContentSection title="記事一覧">
         <ul className="space-y-4">

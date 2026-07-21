@@ -58,7 +58,12 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    google: "8MCdXwwyKEayssVUvMTNOROZwnpR2WWNELNrXe9NhYI",
+    google: [
+      // www.nisa-simulation.com (Search Console)
+      "aVx2rGRpkUhfX2GJRXeZnE9wzxoCo1LUn99D0TEHX8Y",
+      // legacy *.vercel.app property
+      "8MCdXwwyKEayssVUvMTNOROZwnpR2WWNELNrXe9NhYI",
+    ],
   },
 };
 

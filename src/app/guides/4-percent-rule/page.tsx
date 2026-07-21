@@ -189,6 +189,14 @@ export default function FourPercentRuleGuidePage() {
             </li>
             <li>
               <Link
+                href="/guides/rogo-2000man"
+                className="text-emerald-700 hover:underline"
+              >
+                老後2000万円問題とNISAでの目安
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/guides/nisa-simulation"
                 className="text-emerald-700 hover:underline"
               >
