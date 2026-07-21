@@ -551,6 +551,12 @@ a.content-card:hover {
   color: var(--gap-quiet);
 }
 
+.contact-form-hint a {
+  color: var(--gap-rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ASP-style info panel (about / operator disclosure) */
 .content-info-list {
   overflow: hidden;

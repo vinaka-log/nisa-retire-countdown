@@ -30,7 +30,7 @@ export default function ContactPage() {
             お問い合わせ先メール:{" "}
             <a
               href={`mailto:${contactEmail}`}
-              className="font-medium text-emerald-700 underline-offset-2 hover:underline"
+              className="font-medium text-rose-800 underline-offset-2 hover:underline"
             >
               {contactEmail}
             </a>
@@ -38,7 +38,7 @@ export default function ContactPage() {
         ) : (
           <p>
             現在メールでのお問い合わせ受付を準備しています。しばらくしてから再度お試しください。よくある質問は{" "}
-            <Link href="/faq" className="text-emerald-700 hover:underline">
+            <Link href="/faq" className="text-rose-800 hover:underline">
               FAQ・ヘルプ
             </Link>{" "}
             もご参照ください。
@@ -61,7 +61,7 @@ export default function ContactPage() {
           <li>投資判断・個別の資産運用に関する助言はお答えできません。</li>
           <li>
             プライバシーの取り扱いについては{" "}
-            <Link href="/privacy" className="text-emerald-700 hover:underline">
+            <Link href="/privacy" className="text-rose-800 hover:underline">
               プライバシーポリシー
             </Link>{" "}
             をご確認ください。

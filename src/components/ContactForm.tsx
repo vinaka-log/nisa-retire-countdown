@@ -119,6 +119,9 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
       {hasEmail ? (
         <p className="contact-form-hint">
           送信ボタンを押すと、ご利用端末のメールアプリが開きます。サーバーへの直接送信は行いません。
+          うまく開けない場合は{" "}
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>{" "}
+          へ直接ご連絡ください。
         </p>
       ) : null}
     </form>
