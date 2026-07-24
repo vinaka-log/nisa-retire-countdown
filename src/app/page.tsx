@@ -46,6 +46,14 @@ export default function HomePage() {
           </li>
           <li>
             <Link
+              href="/guides/points-and-gap"
+              className="text-emerald-700 hover:underline"
+            >
+              積立余力を増やす：日常のポイントとギャップ
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/guides/new-nisa-basics"
               className="text-emerald-700 hover:underline"
             >

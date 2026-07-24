@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AFFILIATE_PARTNERS,
   buildAffiliateUrl,
@@ -5,6 +7,7 @@ import {
   type AffiliatePartnerId,
   type AffiliatePlacement,
 } from "@/lib/affiliates";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 type AffiliateLinkProps = {
   partner: AffiliatePartnerId;
@@ -30,6 +33,7 @@ export function AffiliateLink({
       className={className}
       rel="sponsored noopener noreferrer"
       target="_blank"
+      onClick={() => trackAffiliateClick(partner, placement)}
     >
       {children}
     </a>

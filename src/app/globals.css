@@ -473,6 +473,50 @@ a.content-card:hover {
   border-color: #fb7185;
 }
 
+.result-share {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--gap-edge-soft);
+}
+
+.result-share-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--gap-quiet);
+}
+
+.result-share-actions {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.result-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.65rem;
+  border: 1.5px solid rgba(214, 211, 209, 0.95);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--gap-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.result-share-btn:hover {
+  background: #fff1f2;
+  border-color: #fb7185;
+}
+
 .contact-form {
   border-radius: 1rem;
   border: 1px solid var(--gap-surface-border);

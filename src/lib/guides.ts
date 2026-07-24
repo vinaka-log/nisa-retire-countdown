@@ -49,6 +49,14 @@ export const GUIDES: GuideMeta[] = [
     updatedAt: "2026-07-21",
   },
   {
+    slug: "points-and-gap",
+    title: "積立余力を増やす：日常のポイントとギャップ",
+    description:
+      "積立額を増やす以外に、日常の支払いポイントを積立余力につなげる考え方を解説します。ギャップを縮めるもう一つの視点です。投資助言ではありません。",
+    publishedAt: "2026-07-25",
+    updatedAt: "2026-07-25",
+  },
+  {
     slug: "assumed-return",
     title: "想定年利の置き方（3%・5%・7%）",
     description:

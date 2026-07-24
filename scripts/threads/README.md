@@ -1,0 +1,72 @@
+# Threads 自動投稿（みつきリタイア）
+
+keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿します。
+
+- スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
+- ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
+- スケジュール: **月・水・金 12:00 JST**（手動実行も可）
+
+## One-time setup
+
+### 1. Meta Threads API
+
+1. [Meta Developer](https://developers.facebook.com/) でアプリ作成（または既存アプリ）
+2. **Threads** 製品を追加し、権限に `threads_basic` / `threads_content_publish` を含める
+3. テストユーザー or 本番権限で長期アクセストークンを発行
+4. Threads の **User ID** を控える
+
+権限エラー（code 10）が出たら:
+
+1. `threads_content_publish` を確認
+2. 長期トークンを再発行
+3. GitHub Secret `THREADS_ACCESS_TOKEN` を更新
+
+### 2. GitHub Secrets
+
+Repo → **Settings → Secrets and variables → Actions**:
+
+| Secret | 内容 |
+|--------|------|
+| `THREADS_ACCESS_TOKEN` | Meta 長期トークン |
+| `THREADS_USER_ID` | Threads ユーザ ID |
+
+### 3. 動作確認
+
+1. Actions → **Threads daily post** → **Run workflow**
+2. まず `dry_run = true` で本文ログを確認
+3. 問題なければ `dry_run = false` で1回投稿
+4. 以降は月・水・金のスケジュールに任せる
+
+## ローカル
+
+```bash
+cd /path/to/nisa-retire-countdown
+python3 -m venv .venv-threads
+source .venv-threads/bin/activate
+pip install -r scripts/threads/requirements.txt
+
+# 本文だけ
+python scripts/threads/post.py --dry-run
+python scripts/threads/post.py --list
+python scripts/threads/post.py --id gap-reveal-1 --dry-run
+
+# 本番投稿（要 env）
+export THREADS_ACCESS_TOKEN=...
+export THREADS_USER_ID=...
+python scripts/threads/post.py --publish
+```
+
+## 投稿文の追加・編集
+
+[`posts.py`](./posts.py) の `POSTS` に追記する。  
+日付ローテーションは `date.toordinal() % len(POSTS)`。
+
+投資助言・銘柄推奨・誇大表現は入れない（サイトの免責と揃える）。
+
+## keiba-ev-app との違い
+
+| | keiba-ev-app | みつきリタイア |
+|--|--------------|----------------|
+| 頻度 | 発走前・朝・夜（高頻度） | 週3回 |
+| 台帳 | Postgres `threads_post_ledger` | 日付ローテ（同一日は同じ文） |
+| 内容 | 予想・的中 | 固定プールの集客コピー |

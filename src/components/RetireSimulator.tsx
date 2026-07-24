@@ -4,6 +4,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { GapHero } from "@/components/GapHero";
 import { moodFromProgress } from "@/components/NisaruMascot";
 import { ProgressJourney } from "@/components/ProgressJourney";
+import { ResultShare } from "@/components/ResultShare";
 import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { StepperInput } from "@/components/StepperInput";
 import {
@@ -272,6 +273,11 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
             yearsToTarget={yearsToTarget}
             momentumMessage={momentumMessage}
             mood={mood}
+          />
+          <ResultShare
+            gapAmount={gapAmount}
+            targetReached={targetReached}
+            yearsToTarget={yearsToTarget}
           />
         </div>
 

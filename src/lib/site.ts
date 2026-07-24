@@ -93,6 +93,7 @@ export const SITEMAP_PATHS = [
   "/guides/4-percent-rule",
   "/guides/rogo-2000man",
   "/guides/monthly-contribution",
+  "/guides/points-and-gap",
   "/guides/assumed-return",
   "/guides/new-nisa-basics",
   "/guides/nisa-vs-ideco",

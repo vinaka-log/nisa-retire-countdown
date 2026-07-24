@@ -60,7 +60,15 @@ export function SoftAffiliateCta({
 
   const hasSecurities = partners.some((p) => p.id === "securities");
   const hasCreditCard = partners.some((p) => p.id === "credit_card");
-  const { title, body, note } = copyForPartners(hasSecurities, hasCreditCard);
+  const base = copyForPartners(hasSecurities, hasCreditCard);
+  const { title, body, note } =
+    placement === "guide" && hasCreditCard && !hasSecurities
+      ? {
+          title: "支払いポイントを、積立余力の選択肢として見る",
+          body: "還元条件は公式情報を優先してください。家計に合わない申込は不要です。",
+          note: base.note,
+        }
+      : base;
 
   return (
     <aside

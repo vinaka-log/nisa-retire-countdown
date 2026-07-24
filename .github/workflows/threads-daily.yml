@@ -1,0 +1,75 @@
+name: Threads daily post
+
+# keiba-ev-app と同様: GitHub Actions + Meta Threads API
+# 週3回（月・水・金）12:00 JST = 03:00 UTC
+
+on:
+  schedule:
+    # Monday 12:00 JST
+    - cron: "0 3 * * 1"
+    # Wednesday 12:00 JST
+    - cron: "0 3 * * 3"
+    # Friday 12:00 JST
+    - cron: "0 3 * * 5"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (print only, do not publish)"
+        type: boolean
+        default: false
+      post_id:
+        description: "Optional post id from posts.py (empty = rotate by date)"
+        required: false
+        default: ""
+
+concurrency:
+  group: threads-daily
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+      THREADS_AUTO_POST: "true"
+      TZ: Asia/Tokyo
+      PYTHONPATH: scripts/threads
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/threads/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/threads/requirements.txt
+
+      - name: Require Threads secrets
+        if: ${{ github.event_name == 'schedule' || inputs.dry_run == false }}
+        run: |
+          if [ -z "$THREADS_ACCESS_TOKEN" ] || [ -z "$THREADS_USER_ID" ]; then
+            echo "Missing THREADS_ACCESS_TOKEN / THREADS_USER_ID secrets"
+            echo "See scripts/threads/README.md"
+            exit 1
+          fi
+
+      - name: Post to Threads
+        run: |
+          ARGS=()
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS+=(--dry-run)
+          else
+            ARGS+=(--publish)
+          fi
+          if [ -n "${{ inputs.post_id }}" ]; then
+            ARGS+=(--id "${{ inputs.post_id }}")
+          fi
+          python scripts/threads/post.py "${ARGS[@]}"

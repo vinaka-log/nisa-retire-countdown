@@ -6,7 +6,7 @@ import { SITE_NAME } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "ガイド",
-  description: `${SITE_NAME}のガイド一覧。老後資金・2000万円問題、毎月の積立目安、新NISA、想定年利、NISAとiDeCo、4%ルールなどを解説します。`,
+  description: `${SITE_NAME}のガイド一覧。老後資金・2000万円問題、毎月の積立目安、積立余力とポイント、新NISA、想定年利、NISAとiDeCo、4%ルールなどを解説します。`,
   path: "/guides",
 });
 

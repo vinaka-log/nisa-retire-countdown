@@ -8,7 +8,7 @@
 
 export type AffiliatePartnerId = "securities" | "credit_card";
 
-export type AffiliatePlacement = "motivation_board" | "footer";
+export type AffiliatePlacement = "motivation_board" | "footer" | "guide";
 
 export const AFFILIATE_DISCLOSURE = "広告・アフィリエイトを含みます";
 
