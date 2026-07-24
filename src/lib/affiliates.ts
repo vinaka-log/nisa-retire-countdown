@@ -8,10 +8,7 @@
 
 export type AffiliatePartnerId = "securities" | "credit_card";
 
-export type AffiliatePlacement =
-  | "motivation_board"
-  | "result_summary"
-  | "footer";
+export type AffiliatePlacement = "motivation_board" | "footer";
 
 export const AFFILIATE_DISCLOSURE = "広告・アフィリエイトを含みます";
 
@@ -31,9 +28,10 @@ type PartnerConfig = {
   url: string;
 };
 
-function envUrl(key: string): string {
-  const value = process.env[key]?.trim();
-  return value && value.length > 0 ? value : "#";
+/** Static process.env.NEXT_PUBLIC_* access required for client bundle inlining. */
+function envUrl(value: string | undefined): string {
+  const trimmed = value?.trim();
+  return trimmed && trimmed.length > 0 ? trimmed : "#";
 }
 
 /** True when the partner URL is a real http(s) destination (not unset / "#"). */
@@ -46,13 +44,13 @@ export const AFFILIATE_PARTNERS: Record<AffiliatePartnerId, PartnerConfig> = {
     id: "securities",
     shortLabel: "つみたてNISA口座",
     ctaLabel: "つみたてNISA対応の口座を調べる",
-    url: envUrl("NEXT_PUBLIC_AFFILIATE_SECURITIES_URL"),
+    url: envUrl(process.env.NEXT_PUBLIC_AFFILIATE_SECURITIES_URL),
   },
   credit_card: {
     id: "credit_card",
-    shortLabel: "クレカ積立",
-    ctaLabel: "クレカ積立についても調べる",
-    url: envUrl("NEXT_PUBLIC_AFFILIATE_CREDIT_CARD_URL"),
+    shortLabel: "エポスカード",
+    ctaLabel: "エポスカードでポイント還元を見る",
+    url: envUrl(process.env.NEXT_PUBLIC_AFFILIATE_CREDIT_CARD_URL),
   },
 };
 

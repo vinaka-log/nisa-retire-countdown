@@ -386,6 +386,13 @@ a.content-card:hover {
   color: var(--gap-ink);
 }
 
+.soft-affiliate-body {
+  margin: 0.4rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--gap-muted);
+}
+
 .soft-affiliate-note {
   margin: 0.35rem 0 0;
   font-size: 0.75rem;

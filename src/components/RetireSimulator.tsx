@@ -382,8 +382,6 @@ export function RetireSimulator({ children }: RetireSimulatorProps) {
           </div>
         </section>
 
-        <SoftAffiliateCta placement="result_summary" className="home-block" />
-
         {children}
       </main>
     </>
