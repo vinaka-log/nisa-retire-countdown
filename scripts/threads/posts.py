@@ -204,6 +204,10 @@ POSTS: List[dict] = [
 ]
 
 
+# 1日あたりの投稿枠（朝・昼・夜）。ワークフローの cron と揃える。
+POSTS_PER_DAY = 3
+
+
 def _truncate(text: str, limit: int = THREADS_TEXT_LIMIT) -> str:
     text = text.strip()
     if len(text) <= limit:
@@ -215,14 +219,30 @@ def all_posts() -> Sequence[dict]:
     return POSTS
 
 
-def pick_post_for_date(day: date | None = None) -> dict:
-    """Rotate by day-of-year so the same calendar day is stable."""
+def slot_from_hour(hour: int) -> int:
+    """Map JST hour to morning(0) / noon(1) / evening(2)."""
+    if hour < 10:
+        return 0
+    if hour < 16:
+        return 1
+    return 2
+
+
+def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
+    """Rotate by calendar day × slot so each daily run gets a different post."""
     day = day or date.today()
-    index = (day.toordinal()) % len(POSTS)
+    slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
+    index = (day.toordinal() * POSTS_PER_DAY + slot) % len(POSTS)
     post = dict(POSTS[index])
     post["text"] = _truncate(post["text"])
     post["index"] = index
+    post["slot"] = slot
     return post
+
+
+def pick_post_for_date(day: date | None = None) -> dict:
+    """Backward-compatible: morning slot for the given day."""
+    return pick_post_for_slot(day, slot=0)
 
 
 def pick_post_by_id(post_id: str) -> dict:

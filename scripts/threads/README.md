@@ -4,7 +4,7 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 - スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
-- スケジュール: **月・水・金 12:00 JST**（手動実行も可）
+- スケジュール: **毎日 08:00 / 12:00 / 20:00 JST**（手動実行も可）
 
 ## One-time setup
 
@@ -35,7 +35,10 @@ Repo → **Settings → Secrets and variables → Actions**:
 1. Actions → **Threads daily post** → **Run workflow**
 2. まず `dry_run = true` で本文ログを確認
 3. 問題なければ `dry_run = false` で1回投稿
-4. 以降は月・水・金のスケジュールに任せる
+4. 以降は毎日3回のスケジュールに任せる
+
+手動実行時に特定文だけ試す場合は、`post_id` に例: `gap-reveal-1` を入れる。  
+日内枠を固定したい場合は `slot` に `0`（朝）/ `1`（昼）/ `2`（夜）を指定する。
 
 ## ローカル
 
@@ -49,6 +52,9 @@ pip install -r scripts/threads/requirements.txt
 python scripts/threads/post.py --dry-run
 python scripts/threads/post.py --list
 python scripts/threads/post.py --id gap-reveal-1 --dry-run
+python scripts/threads/post.py --slot 0 --dry-run
+python scripts/threads/post.py --slot 1 --dry-run
+python scripts/threads/post.py --slot 2 --dry-run
 
 # 本番投稿（要 env）
 export THREADS_ACCESS_TOKEN=...
@@ -59,7 +65,7 @@ python scripts/threads/post.py --publish
 ## 投稿文の追加・編集
 
 [`posts.py`](./posts.py) の `POSTS` に追記する。  
-日付ローテーションは `date.toordinal() % len(POSTS)`。
+ローテーションは `(日付 × 3 + slot) % len(POSTS)`（同日の朝・昼・夜で別文）。
 
 投資助言・銘柄推奨・誇大表現は入れない（サイトの免責と揃える）。
 
@@ -67,6 +73,6 @@ python scripts/threads/post.py --publish
 
 | | keiba-ev-app | みつきリタイア |
 |--|--------------|----------------|
-| 頻度 | 発走前・朝・夜（高頻度） | 週3回 |
-| 台帳 | Postgres `threads_post_ledger` | 日付ローテ（同一日は同じ文） |
+| 頻度 | 発走前・朝・夜（高頻度） | 毎日3回（8/12/20 JST） |
+| 台帳 | Postgres `threads_post_ledger` | 日付×枠ローテ |
 | 内容 | 予想・的中 | 固定プールの集客コピー |

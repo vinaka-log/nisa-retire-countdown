@@ -15,14 +15,22 @@ import argparse
 import asyncio
 import os
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from client import ThreadsApiError, ThreadsClient  # noqa: E402
-from posts import all_posts, pick_post_by_id, pick_post_for_date  # noqa: E402
+from posts import (  # noqa: E402
+    all_posts,
+    pick_post_by_id,
+    pick_post_for_slot,
+    slot_from_hour,
+)
+
+JST = ZoneInfo("Asia/Tokyo")
 
 
 def _env(name: str) -> str:
@@ -50,15 +58,25 @@ async def main_async(args: argparse.Namespace) -> int:
 
     if args.id:
         post = pick_post_by_id(args.id)
+        slot = None
     else:
-        day = date.fromisoformat(args.date) if args.date else date.today()
-        post = pick_post_for_date(day)
+        now_jst = datetime.now(JST)
+        day = date.fromisoformat(args.date) if args.date else now_jst.date()
+        if args.slot is not None:
+            slot = args.slot
+        else:
+            slot = slot_from_hour(now_jst.hour)
+        post = pick_post_for_slot(day, slot=slot)
 
     dry_run = resolve_dry_run(args)
     text = post["text"]
     topic = (args.topic_tag or post.get("topic") or "").strip() or None
 
-    print(f"post_id={post['id']} topic={topic or '-'} dry_run={dry_run}")
+    slot_label = post.get("slot", slot)
+    print(
+        f"post_id={post['id']} slot={slot_label if slot_label is not None else '-'} "
+        f"topic={topic or '-'} dry_run={dry_run}"
+    )
     print("-----")
     print(text)
     print("-----")
@@ -110,6 +128,13 @@ def main() -> None:
         "--date",
         default="",
         help="投稿選択用の日付 YYYY-MM-DD（省略時は今日・ローテーション）",
+    )
+    parser.add_argument(
+        "--slot",
+        type=int,
+        choices=(0, 1, 2),
+        default=None,
+        help="日内枠 0=朝 1=昼 2=夜（省略時は JST の時刻から判定）",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")

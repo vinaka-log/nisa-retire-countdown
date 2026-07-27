@@ -1,16 +1,16 @@
 name: Threads daily post
 
 # keiba-ev-app と同様: GitHub Actions + Meta Threads API
-# 週3回（月・水・金）12:00 JST = 03:00 UTC
+# 毎日3回: 08:00 / 12:00 / 20:00 JST
 
 on:
   schedule:
-    # Monday 12:00 JST
-    - cron: "0 3 * * 1"
-    # Wednesday 12:00 JST
-    - cron: "0 3 * * 3"
-    # Friday 12:00 JST
-    - cron: "0 3 * * 5"
+    # 08:00 JST = 23:00 UTC (previous calendar day in UTC)
+    - cron: "0 23 * * *"
+    # 12:00 JST = 03:00 UTC
+    - cron: "0 3 * * *"
+    # 20:00 JST = 11:00 UTC
+    - cron: "0 11 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -18,7 +18,11 @@ on:
         type: boolean
         default: false
       post_id:
-        description: "Optional post id from posts.py (empty = rotate by date)"
+        description: "Optional post id from posts.py (empty = rotate by date+slot)"
+        required: false
+        default: ""
+      slot:
+        description: "Optional slot 0=morning 1=noon 2=evening (empty = from JST hour)"
         required: false
         default: ""
 
@@ -71,5 +75,8 @@ jobs:
           fi
           if [ -n "${{ inputs.post_id }}" ]; then
             ARGS+=(--id "${{ inputs.post_id }}")
+          fi
+          if [ -n "${{ inputs.slot }}" ]; then
+            ARGS+=(--slot "${{ inputs.slot }}")
           fi
           python scripts/threads/post.py "${ARGS[@]}"
