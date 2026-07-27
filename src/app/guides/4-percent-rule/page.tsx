@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import { GuideCta } from "@/components/GuideCta";
+import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { GuideJsonLd } from "@/components/GuideJsonLd";
 import { getGuide } from "@/lib/guides";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -174,6 +175,8 @@ export default function FourPercentRuleGuidePage() {
             をご覧ください。
           </p>
         </ContentSection>
+
+        <SoftAffiliateCta placement="guide" />
 
         <GuideCta note="想定資産が変わると、月あたりの4%取り崩しイメージも連動して更新されます。" />
 

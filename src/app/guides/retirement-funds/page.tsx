@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import { GuideCta } from "@/components/GuideCta";
+import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { GuideJsonLd } from "@/components/GuideJsonLd";
 import { getGuide } from "@/lib/guides";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -166,6 +167,8 @@ export default function RetirementFundsGuidePage() {
             進捗は「引退時の想定資産 ÷ 目標」です。現在資産そのものの達成率ではありません。計算は複利と積立を単純化した概算で、手数料・税金・相場変動は含みません。
           </p>
         </ContentSection>
+
+        <SoftAffiliateCta placement="guide" />
 
         <GuideCta note="目標額を変えると、ギャップと必要な積立額がすぐに更新されます。" />
 

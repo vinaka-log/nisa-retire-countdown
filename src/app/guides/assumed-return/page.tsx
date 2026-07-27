@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import { GuideCta } from "@/components/GuideCta";
+import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { GuideJsonLd } from "@/components/GuideJsonLd";
 import { getGuide } from "@/lib/guides";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -124,6 +125,8 @@ export default function AssumedReturnGuidePage() {
             </li>
           </ul>
         </ContentSection>
+
+        <SoftAffiliateCta placement="guide" />
 
         <GuideCta note="想定年利だけ切り替えて、ギャップの幅を比べてみてください。" />
 

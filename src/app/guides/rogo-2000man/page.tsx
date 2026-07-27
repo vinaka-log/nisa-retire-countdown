@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/ContentPage";
 import { GuideCta } from "@/components/GuideCta";
+import { SoftAffiliateCta } from "@/components/SoftAffiliateCta";
 import { GuideJsonLd } from "@/components/GuideJsonLd";
 import { getGuide } from "@/lib/guides";
 import { pageMetadata } from "@/lib/page-metadata";
@@ -117,6 +118,8 @@ export default function Rogo2000manGuidePage() {
             を参照してください。
           </p>
         </ContentSection>
+
+        <SoftAffiliateCta placement="guide" />
 
         <GuideCta note="目標を2000万円にして、積立と年数を動かすとギャップの変化がすぐわかります。" />
 
