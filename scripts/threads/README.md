@@ -6,6 +6,7 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
 - スケジュール: **毎日 08:00 / 12:00 / 20:00 JST**（手動実行も可）
 - 導線: **本投稿はリンクなし** → **自分リプで「続きを見る」＋URL**（リーチ低下を避ける型）
+- 方針: [@ai_syuhu](https://www.threads.com/@ai_syuhu) 型＝**教育投稿で信頼を積み、サイトで問題解決**（売り込み連打しない）
 
 ## One-time setup
 
@@ -68,6 +69,15 @@ python scripts/threads/post.py --publish
 [`posts.py`](./posts.py) の `POSTS` に追記する。  
 各投稿は `text`（本投稿・URLなし）と `reply`（自分リプ・URLあり）。  
 ローテーションは `(日付 × 3 + slot) % len(POSTS)`（同日の朝・昼・夜で別文）。
+
+### 書くときの型（アフィにつなげる）
+
+1. **Threads** … 悩みの言語化 / リスト / 誤解の訂正 / 問いかけ（価値そのもの）
+2. **自分リプ** … 「続きを見る」＋シミュ or ガイドURLのみ
+3. **サイト** … ギャップ確認のあと SoftAffiliateCta（マネックス・エポス）
+
+❌ 本投稿で口座・カードの売り込み  
+⭕ 「数字を見てから選択肢」の教育 → サイトでソフトCTA
 
 投資助言・銘柄推奨・誇大表現は入れない（サイトの免責と揃える）。  
 トーンはみつきらしい軽さ＋絵文字可（勧誘っぽくしすぎない）。
