@@ -6,10 +6,17 @@ Simplified from keiba-ev-app/backend/app/services/threads_client.py
 from __future__ import annotations
 
 import asyncio
+import os
 from dataclasses import dataclass, field
 from typing import List, Optional
 
 import httpx
+
+# Meta / network transient failures (GitHub Actions 朝枠で code:2 が出た実績あり)
+_RETRYABLE_HTTP = frozenset({429, 500, 502, 503, 504})
+_RETRYABLE_FB_CODES = frozenset({1, 2, 4, 17, 32})
+_MAX_ATTEMPTS = 4
+_BACKOFF_SEC = (2.0, 5.0, 10.0)
 
 
 class ThreadsApiError(RuntimeError):
@@ -52,7 +59,43 @@ class ThreadsClient:
         self.publish_delay_sec = max(0.0, publish_delay_sec)
         self.timeout_sec = timeout_sec
 
+    @staticmethod
+    def _error_payload(payload: Optional[dict]) -> dict:
+        if not isinstance(payload, dict):
+            return {}
+        err = payload.get("error")
+        return err if isinstance(err, dict) else {}
+
+    @classmethod
+    def _is_retryable(cls, exc: ThreadsApiError) -> bool:
+        if exc.status_code in _RETRYABLE_HTTP:
+            return True
+        err = cls._error_payload(exc.payload)
+        if err.get("is_transient"):
+            return True
+        code = err.get("code")
+        return isinstance(code, int) and code in _RETRYABLE_FB_CODES
+
     async def _post_params(
+        self,
+        path: str,
+        params: dict,
+        *,
+        client: Optional[httpx.AsyncClient] = None,
+    ) -> dict:
+        last_exc: Optional[ThreadsApiError] = None
+        for attempt in range(_MAX_ATTEMPTS):
+            try:
+                return await self._post_params_once(path, params, client=client)
+            except ThreadsApiError as exc:
+                last_exc = exc
+                if attempt >= _MAX_ATTEMPTS - 1 or not self._is_retryable(exc):
+                    raise
+                delay = _BACKOFF_SEC[min(attempt, len(_BACKOFF_SEC) - 1)]
+                await asyncio.sleep(delay)
+        raise last_exc or ThreadsApiError(f"API失敗 {path}")
+
+    async def _post_params_once(
         self,
         path: str,
         params: dict,

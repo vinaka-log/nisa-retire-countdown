@@ -79,3 +79,11 @@ python scripts/threads/post.py --publish
 | 頻度 | 発走前・朝・夜（高頻度） | 毎日3回（8/12/20 JST） |
 | 台帳 | Postgres `threads_post_ledger` | 日付×枠ローテ |
 | 内容 | 予想・的中 | 固定プールの集客コピー |
+
+## 失敗時の切り分け（GitHub Actions）
+
+| 症状 | 原因 | 対処 |
+|------|------|------|
+| `Missing THREADS_ACCESS_TOKEN` | Secrets 未設定 | GitHub → Settings → Secrets に2つ登録 |
+| `API失敗 ... is_transient ... code: 2` | Meta 側一時障害 | 自動リトライ（最大4回）。それでも失敗なら Actions で Re-run |
+| 想定時刻より1時間以上遅い | GitHub cron の遅延 | 正常。slot は cron から渡すので誤ローテは起きにくい |

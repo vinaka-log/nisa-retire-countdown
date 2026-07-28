@@ -119,6 +119,12 @@ async def main_async(args: argparse.Namespace) -> int:
                 "長期トークンを再発行して THREADS_ACCESS_TOKEN を更新。",
                 file=sys.stderr,
             )
+        elif "is_transient" in lower or "'code': 2" in msg:
+            print(
+                "ヒント: Meta の一時障害です。数分後に Actions を Re-run するか、"
+                "次回スケジュール実行を待ってください（自動リトライは client 側）。",
+                file=sys.stderr,
+            )
         return 1
 
     print(f"PUBLISHED: {result.post_ids}")
