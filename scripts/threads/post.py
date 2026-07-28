@@ -28,6 +28,7 @@ from posts import (  # noqa: E402
     pick_post_by_id,
     pick_post_for_slot,
     slot_from_hour,
+    thread_texts,
 )
 
 JST = ZoneInfo("Asia/Tokyo")
@@ -69,16 +70,18 @@ async def main_async(args: argparse.Namespace) -> int:
         post = pick_post_for_slot(day, slot=slot)
 
     dry_run = resolve_dry_run(args)
-    text = post["text"]
+    texts = post.get("thread") or thread_texts(post)
     topic = (args.topic_tag or post.get("topic") or "").strip() or None
 
     slot_label = post.get("slot", slot)
     print(
         f"post_id={post['id']} slot={slot_label if slot_label is not None else '-'} "
-        f"topic={topic or '-'} dry_run={dry_run}"
+        f"topic={topic or '-'} dry_run={dry_run} parts={len(texts)}"
     )
-    print("-----")
-    print(text)
+    for i, part in enumerate(texts):
+        label = "main" if i == 0 else f"reply-{i}"
+        print(f"----- {label} -----")
+        print(part)
     print("-----")
 
     if dry_run:
@@ -98,7 +101,7 @@ async def main_async(args: argparse.Namespace) -> int:
     )
     try:
         result = await client.publish_thread(
-            [text],
+            texts,
             topic_tag=topic,
             dry_run=False,
         )

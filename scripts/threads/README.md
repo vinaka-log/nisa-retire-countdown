@@ -5,6 +5,7 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 - スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
 - スケジュール: **毎日 08:00 / 12:00 / 20:00 JST**（手動実行も可）
+- 導線: **本投稿はリンクなし** → **自分リプで「続きを見る」＋URL**（リーチ低下を避ける型）
 
 ## One-time setup
 
@@ -65,6 +66,7 @@ python scripts/threads/post.py --publish
 ## 投稿文の追加・編集
 
 [`posts.py`](./posts.py) の `POSTS` に追記する。  
+各投稿は `text`（本投稿・URLなし）と `reply`（自分リプ・URLあり）。  
 ローテーションは `(日付 × 3 + slot) % len(POSTS)`（同日の朝・昼・夜で別文）。
 
 投資助言・銘柄推奨・誇大表現は入れない（サイトの免責と揃える）。  
