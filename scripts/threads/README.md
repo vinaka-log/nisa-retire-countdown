@@ -13,7 +13,9 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 ### 1. Meta Threads API
 
 1. [Meta Developer](https://developers.facebook.com/) でアプリ作成（または既存アプリ）
-2. **Threads** 製品を追加し、権限に `threads_basic` / `threads_content_publish` を含める
+2. **Threads** 製品を追加し、権限に次を含める  
+   - `threads_basic` / `threads_content_publish`（投稿必須）  
+   - `threads_manage_replies`（**自分リプ連鎖・reply_to_id 用。無いと code 10 になりやすい**）
 3. テストユーザー or 本番権限で長期アクセストークンを発行
 4. Threads の **User ID** を控える
 
@@ -96,4 +98,11 @@ python scripts/threads/post.py --publish
 |------|------|------|
 | `Missing THREADS_ACCESS_TOKEN` | Secrets 未設定 | GitHub → Settings → Secrets に2つ登録 |
 | `API失敗 ... is_transient ... code: 2` | Meta 側一時障害 | 自動リトライ（最大4回）。それでも失敗なら Actions で Re-run |
+| `code: 10` / permission（reply） | `reply_to_id` に権限不足 | Meta で `threads_manage_replies` 追加→トークン再発行 |
+| `PARTIAL` / reply failed | 親は成功・リプ失敗 | ジョブは成功扱い。権限と `THREADS_REPLY_GAP_SEC` を確認 |
 | 想定時刻より1時間以上遅い | GitHub cron の遅延 | 正常。slot は cron から渡すので誤ローテは起きにくい |
+
+待ち時間（環境変数・既定値）:
+
+- `THREADS_PUBLISH_DELAY_SEC` … コンテナ作成→publish（既定 8）
+- `THREADS_REPLY_GAP_SEC` … 親公開→リプ作成（既定 5）

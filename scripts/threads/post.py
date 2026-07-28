@@ -104,6 +104,7 @@ async def main_async(args: argparse.Namespace) -> int:
             texts,
             topic_tag=topic,
             dry_run=False,
+            allow_partial=True,
         )
     except (ThreadsApiError, ValueError) as exc:
         msg = str(exc)
@@ -112,10 +113,11 @@ async def main_async(args: argparse.Namespace) -> int:
         if (
             "permission" in lower
             or "threads_content_publish" in lower
+            or "threads_manage_replies" in lower
             or ("code" in lower and "10" in msg)
         ):
             print(
-                "ヒント: Meta Developer で threads_content_publish を確認し、"
+                "ヒント: Meta で threads_content_publish / threads_manage_replies を確認し、"
                 "長期トークンを再発行して THREADS_ACCESS_TOKEN を更新。",
                 file=sys.stderr,
             )
@@ -128,6 +130,16 @@ async def main_async(args: argparse.Namespace) -> int:
         return 1
 
     print(f"PUBLISHED: {result.post_ids}")
+    if result.warnings:
+        for w in result.warnings:
+            print(f"WARNING: {w}", file=sys.stderr)
+        print(
+            "PARTIAL: 本投稿は公開済み。続きリプ（URL）は失敗。"
+            " threads_manage_replies と待ち時間を確認してください。",
+            file=sys.stderr,
+        )
+        # 親が出ていればジョブは成功扱い（朝枠の全滅を避ける）
+        return 0
     return 0
 
 

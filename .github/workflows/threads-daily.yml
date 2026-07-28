@@ -38,6 +38,9 @@ jobs:
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
       THREADS_AUTO_POST: "true"
+      # TEXT でも短すぎると publish / reply_to_id が落ちやすい
+      THREADS_PUBLISH_DELAY_SEC: "8"
+      THREADS_REPLY_GAP_SEC: "5"
       TZ: Asia/Tokyo
       PYTHONPATH: scripts/threads
     steps:
