@@ -4,9 +4,11 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 - スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
-- スケジュール: **毎日 08:00 / 12:00 / 20:00 JST**（手動実行も可）
-- 導線: **本投稿はリンクなし** → **自分リプで「続きを見る」＋URL**（リーチ低下を避ける型）
-- 方針: [@ai_syuhu](https://www.threads.com/@ai_syuhu) 型＝**教育投稿で信頼を積み、サイトで問題解決**（売り込み連打しない）
+- スケジュール: **毎日5回 JST**
+  - **08:00 / 12:00 / 20:00** … 価値発信のみ（リンクなし・リプなし）
+  - **10:00 / 18:00** … 教育＋自分リプにURL
+- 誘導枠の導線: 本投稿はリンクなし → 自分リプで「続きを見る」＋URL
+- 方針: [@ai_syuhu](https://www.threads.com/@ai_syuhu) 型＝**教育で信頼、誘導は1日2回に絞る**
 
 ## One-time setup
 
@@ -39,10 +41,18 @@ Repo → **Settings → Secrets and variables → Actions**:
 1. Actions → **Threads daily post** → **Run workflow**
 2. まず `dry_run = true` で本文ログを確認
 3. 問題なければ `dry_run = false` で1回投稿
-4. 以降は毎日3回のスケジュールに任せる
+4. 以降は毎日5回のスケジュールに任せる
 
-手動実行時に特定文だけ試す場合は、`post_id` に例: `gap-reveal-1` を入れる。  
-日内枠を固定したい場合は `slot` に `0`（朝）/ `1`（昼）/ `2`（夜）を指定する。
+手動実行時に特定文だけ試す場合は、`post_id` に例: `val-checklist` / `cta-gap-check` を入れる。  
+日内枠は `slot`:
+
+| slot | 時刻(JST) | 種類 |
+|------|-----------|------|
+| 0 | 08:00 | value（リンクなし） |
+| 1 | 10:00 | cta（リプにURL） |
+| 2 | 12:00 | value |
+| 3 | 18:00 | cta |
+| 4 | 20:00 | value |
 
 ## ローカル
 
@@ -58,7 +68,7 @@ python scripts/threads/post.py --list
 python scripts/threads/post.py --id gap-reveal-1 --dry-run
 python scripts/threads/post.py --slot 0 --dry-run
 python scripts/threads/post.py --slot 1 --dry-run
-python scripts/threads/post.py --slot 2 --dry-run
+python scripts/threads/post.py --id cta-gap-check --dry-run
 
 # 本番投稿（要 env）
 export THREADS_ACCESS_TOKEN=...
@@ -68,18 +78,18 @@ python scripts/threads/post.py --publish
 
 ## 投稿文の追加・編集
 
-[`posts.py`](./posts.py) の `POSTS` に追記する。  
-各投稿は `text`（本投稿・URLなし）と `reply`（自分リプ・URLあり）。  
-ローテーションは `(日付 × 3 + slot) % len(POSTS)`（同日の朝・昼・夜で別文）。
+[`posts.py`](./posts.py) の `VALUE_POSTS` / `CTA_POSTS` に追記する。  
+- `kind=value` … `text` のみ（URL禁止）  
+- `kind=cta` … `text` + `reply`（URLは reply のみ）
 
 ### 書くときの型（アフィにつなげる）
 
-1. **Threads** … 悩みの言語化 / リスト / 誤解の訂正 / 問いかけ（価値そのもの）
-2. **自分リプ** … 「続きを見る」＋シミュ or ガイドURLのみ
+1. **1日3回（value）** … 悩みの言語化 / リスト / 誤解の訂正 / 問いかけ（リンクなし）
+2. **1日2回（cta）** … 短く価値 → 自分リプでシミュ／ガイドURL
 3. **サイト** … ギャップ確認のあと SoftAffiliateCta（マネックス・エポス）
 
 ❌ 本投稿で口座・カードの売り込み  
-⭕ 「数字を見てから選択肢」の教育 → サイトでソフトCTA
+⭕ ほとんどの投稿は価値だけ。誘導は少数枠に集約
 
 投資助言・銘柄推奨・誇大表現は入れない（サイトの免責と揃える）。  
 トーンはみつきらしい軽さ＋絵文字可（勧誘っぽくしすぎない）。
@@ -88,9 +98,9 @@ python scripts/threads/post.py --publish
 
 | | keiba-ev-app | みつきリタイア |
 |--|--------------|----------------|
-| 頻度 | 発走前・朝・夜（高頻度） | 毎日3回（8/12/20 JST） |
-| 台帳 | Postgres `threads_post_ledger` | 日付×枠ローテ |
-| 内容 | 予想・的中 | 固定プールの集客コピー |
+| 頻度 | 発走前・朝・夜（高頻度） | 毎日5回（value3 + cta2） |
+| 台帳 | Postgres `threads_post_ledger` | 日付×枠ローテ（value/cta別プール） |
+| 内容 | 予想・的中 | 教育中心＋少数のリプ誘導 |
 
 ## 失敗時の切り分け（GitHub Actions）
 

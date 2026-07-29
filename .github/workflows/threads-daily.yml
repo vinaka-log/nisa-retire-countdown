@@ -1,14 +1,20 @@
 name: Threads daily post
 
-# keiba-ev-app と同様: GitHub Actions + Meta Threads API
-# 毎日3回: 08:00 / 12:00 / 20:00 JST
+# GitHub Actions + Meta Threads API
+# 毎日5回 JST:
+#   08/12/20 = 価値発信のみ（リンクなし）
+#   10/18    = 教育＋自分リプにURL
 
 on:
   schedule:
-    # 08:00 JST = 23:00 UTC (previous calendar day in UTC)
+    # 08:00 JST = 23:00 UTC (previous calendar day)
     - cron: "0 23 * * *"
+    # 10:00 JST = 01:00 UTC
+    - cron: "0 1 * * *"
     # 12:00 JST = 03:00 UTC
     - cron: "0 3 * * *"
+    # 18:00 JST = 09:00 UTC
+    - cron: "0 9 * * *"
     # 20:00 JST = 11:00 UTC
     - cron: "0 11 * * *"
   workflow_dispatch:
@@ -22,7 +28,7 @@ on:
         required: false
         default: ""
       slot:
-        description: "Optional slot 0=morning 1=noon 2=evening (empty = from JST hour)"
+        description: "0=08value 1=10cta 2=12value 3=18cta 4=20value"
         required: false
         default: ""
 
@@ -38,7 +44,6 @@ jobs:
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
       THREADS_AUTO_POST: "true"
-      # TEXT でも短すぎると publish / reply_to_id が落ちやすい
       THREADS_PUBLISH_DELAY_SEC: "8"
       THREADS_REPLY_GAP_SEC: "5"
       TZ: Asia/Tokyo
@@ -73,8 +78,10 @@ jobs:
         run: |
           case "${{ github.event.schedule }}" in
             "0 23 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
-            "0 3 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
-            "0 11 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
+            "0 1 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
+            "0 3 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
+            "0 9 * * *") echo "THREADS_SLOT=3" >> "$GITHUB_ENV" ;;
+            "0 11 * * *") echo "THREADS_SLOT=4" >> "$GITHUB_ENV" ;;
             *) echo "Could not map schedule to slot: ${{ github.event.schedule }}" >&2 ;;
           esac
 

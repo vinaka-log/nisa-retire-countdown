@@ -54,7 +54,8 @@ def resolve_dry_run(args: argparse.Namespace) -> bool:
 async def main_async(args: argparse.Namespace) -> int:
     if args.list:
         for i, post in enumerate(all_posts()):
-            print(f"{i:02d}  {post['id']}  #{post.get('topic', '')}")
+            kind = post.get("kind", "-")
+            print(f"{i:02d}  {post['id']}  kind={kind}  #{post.get('topic', '')}")
         return 0
 
     if args.id:
@@ -73,9 +74,10 @@ async def main_async(args: argparse.Namespace) -> int:
     texts = post.get("thread") or thread_texts(post)
     topic = (args.topic_tag or post.get("topic") or "").strip() or None
 
-    slot_label = post.get("slot", slot)
+    slot_label = post.get("slot_label") or post.get("slot", slot)
+    kind = post.get("kind", "-")
     print(
-        f"post_id={post['id']} slot={slot_label if slot_label is not None else '-'} "
+        f"post_id={post['id']} kind={kind} slot={slot_label if slot_label is not None else '-'} "
         f"topic={topic or '-'} dry_run={dry_run} parts={len(texts)}"
     )
     for i, part in enumerate(texts):
@@ -153,9 +155,9 @@ def main() -> None:
     parser.add_argument(
         "--slot",
         type=int,
-        choices=(0, 1, 2),
+        choices=(0, 1, 2, 3, 4),
         default=None,
-        help="日内枠 0=朝 1=昼 2=夜（省略時は JST の時刻から判定）",
+        help="日内枠 0=08value 1=10cta 2=12value 3=18cta 4=20value",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")
