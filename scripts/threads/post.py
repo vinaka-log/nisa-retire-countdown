@@ -136,7 +136,7 @@ async def main_async(args: argparse.Namespace) -> int:
         for w in result.warnings:
             print(f"WARNING: {w}", file=sys.stderr)
         print(
-            "PARTIAL: 本投稿は公開済み。続きリプ（URL）は失敗。"
+            "PARTIAL: 本投稿は公開済み。続きリプ連鎖の一部（教育/URL）は失敗。"
             " threads_manage_replies と待ち時間を確認してください。",
             file=sys.stderr,
         )
@@ -155,9 +155,9 @@ def main() -> None:
     parser.add_argument(
         "--slot",
         type=int,
-        choices=(0, 1, 2, 3, 4),
+        choices=(0, 1, 2),
         default=None,
-        help="日内枠 0=08value 1=10cta 2=12value 3=18cta 4=20value",
+        help="日内枠 0=08value 1=12cta 2=20value",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")

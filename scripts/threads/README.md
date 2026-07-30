@@ -4,11 +4,51 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 - スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
-- スケジュール: **毎日5回 JST**
-  - **08:00 / 12:00 / 20:00** … 価値発信のみ（リンクなし・リプなし）
-  - **10:00 / 18:00** … 教育＋自分リプにURL
-- 誘導枠の導線: 本投稿はリンクなし → 自分リプで「続きを見る」＋URL
-- 方針: [@ai_syuhu](https://www.threads.com/@ai_syuhu) 型＝**教育で信頼、誘導は1日2回に絞る**
+- スケジュール: **毎日3回 JST**（初期は少なめ。余力は他アカへのリプに回す）
+  - **08:00 / 20:00** … 価値発信のみ（リンクなし・リプなし）
+  - **12:00** … 教育＋自分リプにURL（誘導は1日1回）
+- 誘導枠の導線: 本投稿はリンクなし＋「続きはリプ👇」→ 自分リプで教育 → 最終リプにURL
+- 方針: [@ai_syuhu](https://www.threads.com/@ai_syuhu) 型＝**教育で信頼、誘導は少数**＋**1行目の止めフック／問いかけ**
+
+## 成長期の運用メモ
+
+自動投稿だけではフォロワーは増えにくい。並行して:
+
+1. **毎日15〜30分** … NISA／積立／老後系の伸び投稿に、売り込みなしの短いリプ
+2. **通知は即レス** … コメントが来たら1時間以内に返す
+3. **プロフィール** … 下の推奨文言を反映（フォロー判断の入口）
+
+フォロワーが安定して増えてきたら、枠を5回に戻す判断でもよい。
+
+## プロフィール文言（推奨）
+
+ポジションは **「足りるか不安な人の確認係」**。始め方・銘柄・満額自慢と被らない。
+
+| 項目 | 推奨 |
+|------|------|
+| 表示名 | みつきリタイア｜足りるか確認係 |
+| ユーザー名 | （既存のまま） |
+| リンク | `https://www.nisa-simulation.com` |
+
+**自己紹介（推奨・そのまま貼付）**
+
+```
+つみたて続けてるのに不安が消えない人へ
+引退まで「足りるか」を数字で見る係
+無料ギャップシミュ運営｜投資助言ではないよ
+枠埋めより先に、距離を知ろう
+```
+
+代替（短め）:
+
+```
+引退まであとどれくらい？を見える化
+みつき｜無料ギャップシミュ
+投資助言じゃないよ／口座の前に数字
+```
+
+❌ 避ける: 〇年で〇万／銘柄おすすめ／NISA始め方完全ガイド  
+⭕ 入れる: 不安の言語化・ギャップ・無料・助言ではない
 
 ## One-time setup
 
@@ -41,7 +81,7 @@ Repo → **Settings → Secrets and variables → Actions**:
 1. Actions → **Threads daily post** → **Run workflow**
 2. まず `dry_run = true` で本文ログを確認
 3. 問題なければ `dry_run = false` で1回投稿
-4. 以降は毎日5回のスケジュールに任せる
+4. 以降は毎日3回のスケジュールに任せる
 
 手動実行時に特定文だけ試す場合は、`post_id` に例: `val-checklist` / `cta-gap-check` を入れる。  
 日内枠は `slot`:
@@ -49,10 +89,8 @@ Repo → **Settings → Secrets and variables → Actions**:
 | slot | 時刻(JST) | 種類 |
 |------|-----------|------|
 | 0 | 08:00 | value（リンクなし） |
-| 1 | 10:00 | cta（リプにURL） |
-| 2 | 12:00 | value |
-| 3 | 18:00 | cta |
-| 4 | 20:00 | value |
+| 1 | 12:00 | cta（リプにURL） |
+| 2 | 20:00 | value |
 
 ## ローカル
 
@@ -65,7 +103,7 @@ pip install -r scripts/threads/requirements.txt
 # 本文だけ
 python scripts/threads/post.py --dry-run
 python scripts/threads/post.py --list
-python scripts/threads/post.py --id gap-reveal-1 --dry-run
+python scripts/threads/post.py --id val-checklist --dry-run
 python scripts/threads/post.py --slot 0 --dry-run
 python scripts/threads/post.py --slot 1 --dry-run
 python scripts/threads/post.py --id cta-gap-check --dry-run
@@ -79,14 +117,20 @@ python scripts/threads/post.py --publish
 ## 投稿文の追加・編集
 
 [`posts.py`](./posts.py) の `VALUE_POSTS` / `CTA_POSTS` に追記する。  
-- `kind=value` … `text` のみ（URL禁止）  
-- `kind=cta` … `text` + `reply`（URLは reply のみ）
+- `kind=value` … `text` のみ（URL禁止）。**1行目は止めフック**。末尾にテーマ関連の問いかけを1行  
+- `kind=cta` … `text` + `replies`（推奨）または `reply`（単発）  
+  - 本投稿末尾に **「続きはリプ👇」**  
+  - 自分リプは **フック本投稿 → 教育リプ → 最終リプにURL** の連鎖可  
+  - **URLは最終リプのみ**（本投稿・途中リプにリンク禁止）
 
 ### 書くときの型（アフィにつなげる）
 
-1. **1日3回（value）** … 悩みの言語化 / リスト / 誤解の訂正 / 問いかけ（リンクなし）
-2. **1日2回（cta）** … 短く価値 → 自分リプでシミュ／ガイドURL
+1. **1日2回（value）** … 悩みの言語化 / リスト / 誤解の訂正 / 問いかけ（リンクなし）
+2. **1日1回（cta）** … 短くフック → 自分リプで教育 → 最終リプでシミュ／ガイドURL
 3. **サイト** … ギャップ確認のあと SoftAffiliateCta（マネックス・エポス）
+4. **手動** … 他アカへのリプ回り（発見の主エンジン）
+
+ポジションは **「足りるか（ギャップ）」**。始め方・銘柄戦争には入らない。
 
 ❌ 本投稿で口座・カードの売り込み  
 ⭕ ほとんどの投稿は価値だけ。誘導は少数枠に集約
@@ -98,7 +142,7 @@ python scripts/threads/post.py --publish
 
 | | keiba-ev-app | みつきリタイア |
 |--|--------------|----------------|
-| 頻度 | 発走前・朝・夜（高頻度） | 毎日5回（value3 + cta2） |
+| 頻度 | 発走前・朝・夜（高頻度） | 毎日3回（value2 + cta1） |
 | 台帳 | Postgres `threads_post_ledger` | 日付×枠ローテ（value/cta別プール） |
 | 内容 | 予想・的中 | 教育中心＋少数のリプ誘導 |
 

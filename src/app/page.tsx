@@ -46,6 +46,22 @@ export default function HomePage() {
           </li>
           <li>
             <Link
+              href="/guides/assumed-return"
+              className="text-emerald-700 hover:underline"
+            >
+              想定年利の置き方（3%・5%・7%）
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/4-percent-rule"
+              className="text-emerald-700 hover:underline"
+            >
+              4%ルールと取り崩しシミュレーション
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/guides/points-and-gap"
               className="text-emerald-700 hover:underline"
             >
@@ -58,6 +74,14 @@ export default function HomePage() {
               className="text-emerald-700 hover:underline"
             >
               新NISAの枠の基本
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/guides/nisa-vs-ideco"
+              className="text-emerald-700 hover:underline"
+            >
+              NISAとiDeCoの違い
             </Link>
           </li>
           <li>
