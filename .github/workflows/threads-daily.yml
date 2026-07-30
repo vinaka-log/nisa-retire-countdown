@@ -1,16 +1,20 @@
 name: Threads daily post
 
 # GitHub Actions + Meta Threads API
-# 毎日3回 JST（初期は少なめ）:
-#   08/20 = 価値発信のみ（リンクなし）
-#   12    = 教育＋自分リプにURL（1日1回）
+# 毎日5回 JST:
+#   08/10/18/20 = 価値発信（リンクなし・約1/3は失敗談）
+#   12          = 教育＋自分リプにURL（誘導1回）
 
 on:
   schedule:
     # 08:00 JST = 23:00 UTC (previous calendar day)
     - cron: "0 23 * * *"
+    # 10:00 JST = 01:00 UTC
+    - cron: "0 1 * * *"
     # 12:00 JST = 03:00 UTC
     - cron: "0 3 * * *"
+    # 18:00 JST = 09:00 UTC
+    - cron: "0 9 * * *"
     # 20:00 JST = 11:00 UTC
     - cron: "0 11 * * *"
   workflow_dispatch:
@@ -24,7 +28,7 @@ on:
         required: false
         default: ""
       slot:
-        description: "0=08value 1=12cta 2=20value"
+        description: "0=08value 1=10value 2=12cta 3=18value 4=20value"
         required: false
         default: ""
 
@@ -74,8 +78,10 @@ jobs:
         run: |
           case "${{ github.event.schedule }}" in
             "0 23 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
-            "0 3 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
-            "0 11 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
+            "0 1 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
+            "0 3 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
+            "0 9 * * *") echo "THREADS_SLOT=3" >> "$GITHUB_ENV" ;;
+            "0 11 * * *") echo "THREADS_SLOT=4" >> "$GITHUB_ENV" ;;
             *) echo "Could not map schedule to slot: ${{ github.event.schedule }}" >&2 ;;
           esac
 

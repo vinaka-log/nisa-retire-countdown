@@ -1,8 +1,8 @@
 """Threads 投稿文プール（みつきリタイア集客用）.
 
-1日の枠（JST）※初期は少なめ（閲覧・フォロー獲得優先）:
-  08:00 / 20:00 … 価値発信のみ（リンクなし・リプなし）
-  12:00         … 教育＋自分リプでURL（誘導・1日1回）
+1日の枠（JST）:
+  08:00 / 10:00 / 18:00 / 20:00 … 価値発信（リンクなし・リプなし）※約1/3は失敗談
+  12:00 … 教育＋自分リプでURL（誘導・1日1回）
 
 参考:
   - @ai_syuhu 型＝教育で信頼を積み、誘導は少数に絞る
@@ -11,6 +11,7 @@
 
 投資助言・銘柄推奨・誇大表現は書かない。
 始め方・銘柄戦争には入らず、「足りるか（ギャップ）」に寄せる。
+価値枠の約1/3は失敗談（共感）。損失額の煽り・銘柄話は禁止。
 """
 
 from __future__ import annotations
@@ -21,10 +22,10 @@ from typing import List, Sequence
 SITE_URL = "https://www.nisa-simulation.com"
 THREADS_TEXT_LIMIT = 500
 
-# slot: 0=08 value, 1=12 cta, 2=20 value
-POSTS_PER_DAY = 3
-SLOT_KINDS = ("value", "cta", "value")
-SLOT_LABELS = ("08value", "12cta", "20value")
+# slot: 0=08 value, 1=10 value, 2=12 cta, 3=18 value, 4=20 value
+POSTS_PER_DAY = 5
+SLOT_KINDS = ("value", "value", "cta", "value", "value")
+SLOT_LABELS = ("08value", "10value", "12cta", "18value", "20value")
 
 # --- 価値発信のみ（URLなし・replyなし） ---
 # 1行目＝止めフック。末尾＝語りたくなる問いかけ1行
@@ -269,6 +270,123 @@ VALUE_POSTS: List[dict] = [
             "まず少額でも設定完了の方が先✨\n\n"
             "続けたあとに、ギャップを見て調整すればいい💕\n\n"
             "いま止まってるとしたら、何が引っかかってる？"
+        ),
+    },
+]
+
+# --- 失敗談（共感）: 価値枠の約1/3でローテ ---
+# 題材は公開されている定番失敗・SNSあるあるを一人称に精錬したもの。
+# 例: NISA貧乏／満額FOMO／高め設定で生活苦／下落で狼狽／2000万で固まる／調べ疲れ
+# 禁止: 損失額の煽り・銘柄名・口座勧誘・投資助言
+FAIL_STORY_POSTS: List[dict] = [
+    {
+        "id": "val-fail-nisa-binbo",
+        "topic": "新NISA",
+        "kind": "value",
+        "text": (
+            "失敗談：SNSの「枠埋めた」見て、生活まで削りかけた🥹💦\n\n"
+            "手元の現金が薄くなると、\n"
+            "ちょっと下がっただけで胃が痛くなるんだよね…💭\n\n"
+            "あのとき混同してたのは\n"
+            "「枠の上限」と「自分の続けられる額」✨\n\n"
+            "続けられる額に戻してから、やっと息ができたよ🫶\n\n"
+            "枠埋め焦りで、生活キツくなったことある？"
+        ),
+    },
+    {
+        "id": "val-fail-sns-full",
+        "topic": "積立投資",
+        "kind": "value",
+        "text": (
+            "タイムライン、「今年の枠もう埋めた」だらけに見えた時期ある🥹\n\n"
+            "見えてるのって発信する人だけなのに、\n"
+            "自分だけ遅れてる気になってた…💦\n\n"
+            "焦りの正体、だいたい他人の家計なんだよね💭\n"
+            "比較相手を「昨日の自分のギャップ」に変えてから楽になったよ✨\n\n"
+            "満額報告、見て一度でも沈んだことある？"
+        ),
+    },
+    {
+        "id": "val-fail-too-high",
+        "topic": "つみたてNISA",
+        "kind": "value",
+        "text": (
+            "最初の失敗：積立、気持ちよく高めに設定した🥹\n\n"
+            "翌月、生活がキツくて減額した…💭💦\n"
+            "「やる気」だけで金額決めると、だいたいこれになる。\n\n"
+            "今は先に\n"
+            "必要額（逆算）と続けられる額を分けて見る✨\n"
+            "混ぜると苦しくなるよ💕\n\n"
+            "高め設定→すぐ減額、経験した人いる？"
+        ),
+    },
+    {
+        "id": "val-fail-dip-scare",
+        "topic": "積立投資",
+        "kind": "value",
+        "text": (
+            "下落の日、アプリ何回も開いちゃったことある🥹💦\n\n"
+            "止めたら安心しそうで、\n"
+            "指が止まりかけた…💭\n\n"
+            "あのときの私、見てたのは相場で\n"
+            "見てなかったのは「足りるか」の距離だった✨\n\n"
+            "少額でも続く状態に戻して、\n"
+            "ギャップを見てからの方が落ち着いたよ🫶\n\n"
+            "下落で止めかけたこと、ある人いる？"
+        ),
+    },
+    {
+        "id": "val-fail-2000man",
+        "topic": "老後資金",
+        "kind": "value",
+        "text": (
+            "「老後2000万円」で頭が真っ白になった時期、ある🥹\n\n"
+            "あれって平均モデルのたたき台なのに、\n"
+            "私は自分の生活費も年金も置かず固まった…💭\n\n"
+            "抜けたのはこの式に落としたとき↓\n"
+            "生活費 − 年金見込み = 毎月の不足 → ×年数✨\n\n"
+            "見出しじゃなく、自分用の数字1回で景色変わるよ💕\n\n"
+            "2000万で、固まったことある人いる？"
+        ),
+    },
+    {
+        "id": "val-fail-no-number",
+        "topic": "資産形成",
+        "kind": "value",
+        "text": (
+            "いちばん恥ずかしい失敗談🥹\n"
+            "積立は続いてたのに、「足りない額」を一度も出してなかった…💦\n\n"
+            "情報は見る。口座もある。\n"
+            "なのに不安だけが残る、って状態だった💭\n\n"
+            "変わったのは正解探しをやめて、\n"
+            "ざっくりでも数字を1回並べたあと✨\n\n"
+            "積立してるのに不安が消えない人、同じことある？"
+        ),
+    },
+    {
+        "id": "val-fail-optimistic-sim",
+        "topic": "資産形成",
+        "kind": "value",
+        "text": (
+            "シミュで想定年利を上げて、安心したフリしたことある🥹\n\n"
+            "不安なときほど「届く数字」に寄せたくなるんだよね…💦\n"
+            "でもそれ、確認じゃなくて自己暗示💭\n\n"
+            "今は 3% と 5% みたいに幅で見る✨\n"
+            "一点で決めない方が、積立や年数のレバーも冷静に選べるよ💕\n\n"
+            "いい数字に寄せちゃった経験、ある人いる？"
+        ),
+    },
+    {
+        "id": "val-fail-research-tired",
+        "topic": "つみたてNISA",
+        "kind": "value",
+        "text": (
+            "口座・条件のタブ、ブラウザに並べすぎて疲れ果てたことある🥹💦\n\n"
+            "比較表は増えるのに、不安は減らないやつ…💭\n\n"
+            "あのとき足りなかったのは情報じゃなく、\n"
+            "「毎月あとどれくらい足りないか」の感覚だった✨\n\n"
+            "順番をギャップ確認→選択肢に変えてから、やっと動けたよ🫶\n\n"
+            "調べ疲れで止まったこと、ある人いる？"
         ),
     },
 ]
@@ -572,7 +690,10 @@ CTA_POSTS: List[dict] = [
 ]
 
 # 互換: 全投稿の連結（--list / --id 用）
-POSTS: List[dict] = [*VALUE_POSTS, *CTA_POSTS]
+POSTS: List[dict] = [*VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
+
+# 価値投稿のうち失敗談にする割合（3回に1回）
+_FAIL_STORY_EVERY_N = 3
 
 
 def _truncate(text: str, limit: int = THREADS_TEXT_LIMIT) -> str:
@@ -611,13 +732,17 @@ def all_posts() -> Sequence[dict]:
 
 
 def slot_from_hour(hour: int) -> int:
-    """Map JST hour to nearest daily slot 0..2."""
-    # Midpoints between 8, 12, 20
-    if hour < 10:
+    """Map JST hour to nearest daily slot 0..4."""
+    # Midpoints between 8, 10, 12, 18, 20
+    if hour < 9:
         return 0
-    if hour < 16:
+    if hour < 11:
         return 1
-    return 2
+    if hour < 15:
+        return 2
+    if hour < 19:
+        return 3
+    return 4
 
 
 def slot_kind(slot: int) -> str:
@@ -646,15 +771,27 @@ def _hydrate(post: dict, *, index: int | None = None, slot: int | None = None) -
 
 
 def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
-    """枠の kind（value/cta）に応じたプールからローテ選択。"""
+    """枠の kind（value/cta）に応じたプールからローテ選択。
+
+    value は約1/3を失敗談（FAIL_STORY_POSTS）にする。
+    """
     day = day or date.today()
     slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
     kind = SLOT_KINDS[slot]
-    pool = CTA_POSTS if kind == "cta" else VALUE_POSTS
-    # 同日内の同 kind の何番目か（value: 0,1 / cta: 0）
     kind_index = SLOT_KINDS[: slot + 1].count(kind) - 1
     per_day_kind = SLOT_KINDS.count(kind)
-    index = (day.toordinal() * per_day_kind + kind_index) % len(pool)
+    emit = day.toordinal() * per_day_kind + kind_index
+
+    if kind == "cta":
+        pool = CTA_POSTS
+        index = emit % len(pool)
+    elif FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
+        pool = FAIL_STORY_POSTS
+        index = (emit // _FAIL_STORY_EVERY_N) % len(pool)
+    else:
+        pool = VALUE_POSTS
+        index = emit % len(pool)
+
     return _hydrate(pool[index], index=index, slot=slot)
 
 
