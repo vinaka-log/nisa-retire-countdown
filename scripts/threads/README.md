@@ -1,4 +1,4 @@
-# Threads 自動投稿（みつきリタイア）
+# Threads 自動投稿（みつき｜NISA「足りるか」確認係）
 
 keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿します。
 
@@ -27,9 +27,11 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 | 項目 | 推奨 |
 |------|------|
-| 表示名 | みつきリタイア｜足りるか確認係 |
-| ユーザー名 | （既存のまま） |
+| 表示名 | みつき｜NISA「足りるか」確認係 |
+| ユーザー名 | （既存のまま。変えるとプロフィールURLが変わるため） |
 | リンク | `https://www.nisa-simulation.com` |
+
+表示名はThreads内検索の対象。「NISA」を含めて発見性を確保しつつ、「リタイア」はFIRE自慢系と誤認されやすいため外した（2026-08 競合調査）。
 
 **自己紹介（推奨・そのまま貼付）**
 
