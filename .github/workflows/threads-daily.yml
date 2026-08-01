@@ -1,22 +1,33 @@
 name: Threads daily post
 
 # GitHub Actions + Meta Threads API
-# 毎日5回 JST:
-#   08/10/18/20 = 価値発信（リンクなし・約1/3は失敗談）
-#   12          = 教育＋自分リプにURL（誘導1回）
+# 毎日10回 JST（価値提供8 + 誘導2）:
+#   07/10/17/21   = 価値発信（固定プール・リンクなし・約1/3は失敗談）
+#   08/15/18:30/22:30 = 数字ネタ（num_posts.py 自動計算生成・リンクなし）
+#   12/20         = 教育＋自分リプにURL（誘導2回）
 
 on:
   schedule:
-    # 08:00 JST = 23:00 UTC (previous calendar day)
+    # 07:00 JST = 22:00 UTC (previous day) : slot 0 value
+    - cron: "0 22 * * *"
+    # 08:00 JST = 23:00 UTC (previous day) : slot 1 num
     - cron: "0 23 * * *"
-    # 10:00 JST = 01:00 UTC
+    # 10:00 JST = 01:00 UTC : slot 2 value
     - cron: "0 1 * * *"
-    # 12:00 JST = 03:00 UTC
+    # 12:00 JST = 03:00 UTC : slot 3 cta
     - cron: "0 3 * * *"
-    # 18:00 JST = 09:00 UTC
-    - cron: "0 9 * * *"
-    # 20:00 JST = 11:00 UTC
+    # 15:00 JST = 06:00 UTC : slot 4 num
+    - cron: "0 6 * * *"
+    # 17:00 JST = 08:00 UTC : slot 5 value
+    - cron: "0 8 * * *"
+    # 18:30 JST = 09:30 UTC : slot 6 num
+    - cron: "30 9 * * *"
+    # 20:00 JST = 11:00 UTC : slot 7 cta
     - cron: "0 11 * * *"
+    # 21:00 JST = 12:00 UTC : slot 8 value
+    - cron: "0 12 * * *"
+    # 22:30 JST = 13:30 UTC : slot 9 num
+    - cron: "30 13 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -28,7 +39,7 @@ on:
         required: false
         default: ""
       slot:
-        description: "0=08value 1=10value 2=12cta 3=18value 4=20value"
+        description: "0=07value 1=08num 2=10value 3=12cta 4=15num 5=17value 6=18num 7=20cta 8=21value 9=22num"
         required: false
         default: ""
 
@@ -77,11 +88,16 @@ jobs:
         if: github.event_name == 'schedule'
         run: |
           case "${{ github.event.schedule }}" in
-            "0 23 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
-            "0 1 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
-            "0 3 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
-            "0 9 * * *") echo "THREADS_SLOT=3" >> "$GITHUB_ENV" ;;
-            "0 11 * * *") echo "THREADS_SLOT=4" >> "$GITHUB_ENV" ;;
+            "0 22 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
+            "0 23 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
+            "0 1 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
+            "0 3 * * *") echo "THREADS_SLOT=3" >> "$GITHUB_ENV" ;;
+            "0 6 * * *") echo "THREADS_SLOT=4" >> "$GITHUB_ENV" ;;
+            "0 8 * * *") echo "THREADS_SLOT=5" >> "$GITHUB_ENV" ;;
+            "30 9 * * *") echo "THREADS_SLOT=6" >> "$GITHUB_ENV" ;;
+            "0 11 * * *") echo "THREADS_SLOT=7" >> "$GITHUB_ENV" ;;
+            "0 12 * * *") echo "THREADS_SLOT=8" >> "$GITHUB_ENV" ;;
+            "30 13 * * *") echo "THREADS_SLOT=9" >> "$GITHUB_ENV" ;;
             *) echo "Could not map schedule to slot: ${{ github.event.schedule }}" >&2 ;;
           esac
 

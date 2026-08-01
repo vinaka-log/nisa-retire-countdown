@@ -1,8 +1,9 @@
-"""Threads 投稿文プール（みつきリタイア集客用）.
+"""Threads 投稿文プール（みつき｜NISA「足りるか」確認係）.
 
-1日の枠（JST）:
-  08:00 / 10:00 / 18:00 / 20:00 … 価値発信（リンクなし）※約1/3は失敗談
-  12:00 … 教育＋自分リプでURL（誘導・1日1回）
+1日の枠（JST）: 価値提供8 + 誘導2 の計10本
+  07:00 / 10:00 / 17:00 / 21:00 … 価値発信（固定プール・リンクなし）※約1/3は失敗談
+  08:00 / 15:00 / 18:30 / 22:30 … 数字ネタ（num_posts.py で自動計算生成・リンクなし）
+  12:00 / 20:00 … 教育＋自分リプでURL（誘導・1日2回）
 
 参考:
   - @ai_syuhu 型＝教育で信頼を積み、誘導は少数に絞る
@@ -26,10 +27,32 @@ from typing import List, Sequence
 SITE_URL = "https://www.nisa-simulation.com"
 THREADS_TEXT_LIMIT = 500
 
-# slot: 0=08 value, 1=10 value, 2=12 cta, 3=18 value, 4=20 value
-POSTS_PER_DAY = 5
-SLOT_KINDS = ("value", "value", "cta", "value", "value")
-SLOT_LABELS = ("08value", "10value", "12cta", "18value", "20value")
+# 日内枠（JST）: value=固定プール / num=数字ネタ自動生成 / cta=リプ末尾にURL
+POSTS_PER_DAY = 10
+SLOT_KINDS = (
+    "value",  # 0: 07:00
+    "num",    # 1: 08:00
+    "value",  # 2: 10:00
+    "cta",    # 3: 12:00
+    "num",    # 4: 15:00
+    "value",  # 5: 17:00
+    "num",    # 6: 18:30
+    "cta",    # 7: 20:00
+    "value",  # 8: 21:00
+    "num",    # 9: 22:30
+)
+SLOT_LABELS = (
+    "07value",
+    "08num",
+    "10value",
+    "12cta",
+    "15num",
+    "17value",
+    "18num",
+    "20cta",
+    "21value",
+    "22num",
+)
 
 # --- 価値発信（URLなし。replies=本文の続き、URL禁止） ---
 # 基本形: 本投稿=疑問の自分語り＋数字予告↓（途中で切る）/ 自分リプ=答え＋念押し＋問いかけ
@@ -838,18 +861,12 @@ def all_posts() -> Sequence[dict]:
     return POSTS
 
 
+_SLOT_HOURS = (7.0, 8.0, 10.0, 12.0, 15.0, 17.0, 18.5, 20.0, 21.0, 22.5)
+
+
 def slot_from_hour(hour: int) -> int:
-    """Map JST hour to nearest daily slot 0..4."""
-    # Midpoints between 8, 10, 12, 18, 20
-    if hour < 9:
-        return 0
-    if hour < 11:
-        return 1
-    if hour < 15:
-        return 2
-    if hour < 19:
-        return 3
-    return 4
+    """Map JST hour to nearest daily slot 0..9."""
+    return min(range(POSTS_PER_DAY), key=lambda i: abs(hour - _SLOT_HOURS[i]))
 
 
 def slot_kind(slot: int) -> str:
@@ -878,9 +895,10 @@ def _hydrate(post: dict, *, index: int | None = None, slot: int | None = None) -
 
 
 def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
-    """枠の kind（value/cta）に応じたプールからローテ選択。
+    """枠の kind（value/num/cta）に応じたプール/生成からローテ選択。
 
     value は約1/3を失敗談（FAIL_STORY_POSTS）にする。
+    num は num_posts.py がパラメータから毎回計算生成する。
     """
     day = day or date.today()
     slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
@@ -888,6 +906,13 @@ def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
     kind_index = SLOT_KINDS[: slot + 1].count(kind) - 1
     per_day_kind = SLOT_KINDS.count(kind)
     emit = day.toordinal() * per_day_kind + kind_index
+
+    if kind == "num":
+        from num_posts import generate_num_post
+
+        return _hydrate(
+            generate_num_post(day, kind_index, per_day_kind), slot=slot
+        )
 
     if kind == "cta":
         pool = CTA_POSTS

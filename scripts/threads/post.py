@@ -155,9 +155,12 @@ def main() -> None:
     parser.add_argument(
         "--slot",
         type=int,
-        choices=(0, 1, 2, 3, 4),
+        choices=tuple(range(10)),
         default=None,
-        help="日内枠 0=08value 1=10value 2=12cta 3=18value 4=20value",
+        help=(
+            "日内枠 0=07value 1=08num 2=10value 3=12cta 4=15num "
+            "5=17value 6=18num 7=20cta 8=21value 9=22num"
+        ),
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")
