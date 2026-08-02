@@ -214,6 +214,13 @@ CASUAL_HAND_POSTS: List[dict] = [
         "id": "cas-work-monday-stomach",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "work",
+        "consistency": {
+            "time": "morning",
+            "weekdays": [0],
+            "sets": [],
+            "forbids": [],
+        },
         "text": (
             "月曜朝、目覚ましより先に胃が重い\n"
             "身体が先に仕事拒否してる"
