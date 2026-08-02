@@ -5,8 +5,9 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 - スクリプト: [`post.py`](./post.py) / [`posts.py`](./posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
 - スケジュール: **毎日10回 JST（雑談8 : 誘導2）**
-  - **07:00 / 08:00 / 10:00 / 15:00 / 17:00 / 18:30 / 21:00 / 22:30** … 雑談（[`CASUAL_POSTS`](./posts.py)・リンクなし）
+  - **07:00 / 08:00 / 10:00 / 15:00 / 17:00 / 18:30 / 21:00 / 22:30** … 雑談（手書き + 自動生成・リンクなし・**一度きり**）
   - **12:00 / 20:00** … 教育＋自分リプにURL（誘導は1日2回）
+- 雑談補充: [`generate_casual.py`](./generate_casual.py) + [`.github/workflows/threads-casual-refill.yml`](../../.github/workflows/threads-casual-refill.yml)（週次 / 残数不足時）
 - 誘導枠の導線: 本投稿はリンクなし＋「続きはリプ👇」→ 自分リプで教育 → 最終リプにURL
 - 方針: フォロワー少期は**雑談8割**で接点を作り、誘導は少数。価値発信・数字ネタプールはコードに残置（枠復帰用）
 
@@ -81,6 +82,14 @@ Repo → **Settings → Secrets and variables → Actions**:
 |--------|------|
 | `THREADS_ACCESS_TOKEN` | Meta 長期トークン |
 | `THREADS_USER_ID` | Threads ユーザ ID |
+| `OPENAI_API_KEY` | 雑談自動生成用（OpenAI 互換APIキー） |
+
+任意の Actions Variables:
+
+| Variable | 内容 | デフォルト |
+|----------|------|------------|
+| `OPENAI_MODEL` | モデル名 | `gpt-4o-mini` |
+| `OPENAI_BASE_URL` | API base | `https://api.openai.com/v1` |
 
 ### 3. 動作確認
 
@@ -121,21 +130,44 @@ python scripts/threads/post.py --slot 0 --dry-run
 python scripts/threads/post.py --slot 1 --dry-run
 python scripts/threads/post.py --id cta-gap-check --dry-run
 
+# 雑談の自動生成（要 OPENAI_API_KEY）
+python scripts/threads/generate_casual.py --dry-run --count 8
+python scripts/threads/generate_casual.py --refill
+
 # 本番投稿（要 env）
 export THREADS_ACCESS_TOKEN=...
 export THREADS_USER_ID=...
 python scripts/threads/post.py --publish
 ```
 
+## 雑談の自動生成
+
+手書き（`CASUAL_HAND_POSTS`）＋自動生成（[`casual_generated.json`](./casual_generated.json)）を結合して使う。  
+投稿後は [`casual_ledger.json`](./casual_ledger.json) に入り、**再利用しない**。
+
+| ファイル / スクリプト | 役割 |
+|------------------------|------|
+| [`generate_casual.py`](./generate_casual.py) | OpenAI互換APIで雑談を生成・追記 |
+| [`casual_generated.json`](./casual_generated.json) | 生成結果の保存先 |
+| [`threads-casual-refill.yml`](../../.github/workflows/threads-casual-refill.yml) | 週次で残数を見て補充 → commit |
+
+補充ロジック（`--refill`）:
+- 未使用残が **24本未満** なら、目標 **48本** まで生成
+- テーマは gal / work / gym / nonsense を均等
+- 既存文との重複・禁止語（NISA等）・ハート絵文字はスキップ
+
+Actions → **Threads casual refill** → Run workflow で手動実行可（`dry_run` / `force_count`）。
+
 ## 投稿文の追加・編集
 
-[`posts.py`](./posts.py) の `CASUAL_POSTS` / `CTA_POSTS` に追記する（主力）。  
+[`posts.py`](./posts.py) の `CASUAL_HAND_POSTS` / `CTA_POSTS` に追記する（主力）。  
+自動生成分は `generate_casual.py` 経由で `casual_generated.json` へ。  
 `VALUE_POSTS` / `FAIL_STORY_POSTS` / `num_posts.py` は枠を戻すとき用に残している。  
 - `kind=casual` … **1投稿完結・URLなし**。ギャル / 仕事憂鬱 / 筋トレ / どうでもいい雑談  
   - オチをきれいに着地させない。途中で終わる口調  
   - ハート系絵文字は使わない  
   - **一度きり**: 投稿成功後に [`casual_ledger.json`](./casual_ledger.json) へ記録し、再利用しない  
-  - 枯渇時は value にフォールバック（使い回しはしない）。定期的に `CASUAL_POSTS` へ追記すること  
+  - 枯渇時は value にフォールバック（使い回しはしない）。`generate_casual.py` / 週次 Actions で補充  
 - `kind=cta` … `text` + `replies`（推奨）または `reply`（単発）  
   - 本投稿末尾に **「続きはリプ👇」**  
   - 自分リプは **フック本投稿 → 教育リプ → 最終リプにURL** の連鎖可  

@@ -1,0 +1,92 @@
+name: Threads casual refill
+
+# 雑談プール（casual_generated.json）を OpenAI 互換APIで補充する。
+# 残数が閾値未満のときだけ生成し、main に commit/push する。
+
+on:
+  schedule:
+    # 毎週月曜 04:00 JST = 日曜 19:00 UTC
+    - cron: "0 19 * * 0"
+  workflow_dispatch:
+    inputs:
+      force_count:
+        description: "0=refillロジック / 1以上=その件数を強制生成"
+        required: false
+        default: "0"
+      dry_run:
+        description: "生成のみ（ファイル書き込み・commitなし）"
+        type: boolean
+        default: false
+
+concurrency:
+  group: threads-casual-refill
+  cancel-in-progress: false
+
+jobs:
+  refill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+      OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
+      TZ: Asia/Tokyo
+      PYTHONPATH: scripts/threads
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/threads/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/threads/requirements.txt
+
+      - name: Require OpenAI secret
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "Missing OPENAI_API_KEY secret"
+            echo "Repo → Settings → Secrets → Actions に追加してください"
+            exit 1
+          fi
+
+      - name: Generate casual posts
+        run: |
+          ARGS=()
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          FORCE="0"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FORCE="${{ inputs.force_count }}"
+          fi
+          if [ -n "$FORCE" ] && [ "$FORCE" != "0" ]; then
+            ARGS+=(--count "$FORCE")
+          else
+            ARGS+=(--refill)
+          fi
+          python scripts/threads/generate_casual.py "${ARGS[@]}"
+
+      - name: Commit generated pool
+        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          if git diff --quiet -- scripts/threads/casual_generated.json; then
+            echo "No generated pool changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/threads/casual_generated.json
+          git commit -m "chore(threads): refill generated casual posts"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"

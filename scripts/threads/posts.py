@@ -22,7 +22,9 @@ from typing import List, Sequence, Set
 
 SITE_URL = "https://www.nisa-simulation.com"
 THREADS_TEXT_LIMIT = 500
-CASUAL_LEDGER_PATH = Path(__file__).resolve().parent / "casual_ledger.json"
+_THREADS_DIR = Path(__file__).resolve().parent
+CASUAL_LEDGER_PATH = _THREADS_DIR / "casual_ledger.json"
+CASUAL_GENERATED_PATH = _THREADS_DIR / "casual_generated.json"
 
 # 日内枠（JST）: casual=雑談 / cta=リプ末尾にURL
 POSTS_PER_DAY = 10
@@ -52,8 +54,10 @@ SLOT_LABELS = (
 )
 
 # --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
-# 系統: gal / work / gym / nonsense。毎日8枠なのでプールは多めに持つ。
-CASUAL_POSTS: List[dict] = [
+# 系統: gal / work / gym / nonsense。
+# 手書き + casual_generated.json（generate_casual.py / Actions 補充）。
+# 実行時は build_casual_posts() で結合。台帳で一度きり。
+CASUAL_HAND_POSTS: List[dict] = [
     # --- 承認済み8本 ---
     {
         "id": "cas-gal-nail-book",
@@ -1114,11 +1118,66 @@ CTA_POSTS: List[dict] = [
     },
 ]
 
-# 互換: 全投稿の連結（--list / --id 用）
-POSTS: List[dict] = [*CASUAL_POSTS, *VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
-
 # 価値投稿のうち失敗談にする割合（予備・value枠復帰時用）
 _FAIL_STORY_EVERY_N = 3
+
+
+def _normalize_casual_post(raw: dict) -> dict | None:
+    pid = str(raw.get("id") or "").strip()
+    text = str(raw.get("text") or "").strip()
+    if not pid or not text:
+        return None
+    theme = str(raw.get("theme") or "").strip()
+    out = {
+        "id": pid,
+        "topic": str(raw.get("topic") or "雑談").strip() or "雑談",
+        "kind": "casual",
+        "text": text,
+    }
+    if theme:
+        out["theme"] = theme
+    return out
+
+
+def load_generated_casual_posts() -> List[dict]:
+    path = CASUAL_GENERATED_PATH
+    if not path.is_file():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    raw_list = data.get("posts") if isinstance(data, dict) else data
+    if not isinstance(raw_list, list):
+        return []
+    out: List[dict] = []
+    for item in raw_list:
+        if not isinstance(item, dict):
+            continue
+        normalized = _normalize_casual_post(item)
+        if normalized:
+            out.append(normalized)
+    return out
+
+
+def build_casual_posts() -> List[dict]:
+    """手書き + 自動生成。ID重複は先勝ち（手書き優先）。"""
+    seen: Set[str] = set()
+    out: List[dict] = []
+    for raw in (*CASUAL_HAND_POSTS, *load_generated_casual_posts()):
+        normalized = _normalize_casual_post(raw)
+        if not normalized:
+            continue
+        pid = normalized["id"]
+        if pid in seen:
+            continue
+        seen.add(pid)
+        out.append(normalized)
+    return out
+
+
+# 互換: 古い参照用（import 時点のスナップショット。選択は build_casual_posts を使う）
+CASUAL_POSTS: List[dict] = build_casual_posts()
 
 
 def _truncate(text: str, limit: int = THREADS_TEXT_LIMIT) -> str:
@@ -1149,7 +1208,11 @@ def thread_texts(post: dict) -> List[str]:
 
 
 def all_posts() -> Sequence[dict]:
-    return POSTS
+    return [*build_casual_posts(), *VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
+
+
+# 互換エイリアス（動的に all_posts を見る用途向け。静的スナップショットではない）
+POSTS: List[dict] = []
 
 
 _SLOT_HOURS = (7.0, 8.0, 10.0, 12.0, 15.0, 17.0, 18.5, 20.0, 21.0, 22.5)
@@ -1209,7 +1272,7 @@ def load_casual_used_ids() -> List[str]:
 
 def unused_casual_posts(extra_used: Set[str] | None = None) -> List[dict]:
     used = set(load_casual_used_ids()) | (extra_used or set())
-    return [p for p in CASUAL_POSTS if str(p.get("id") or "") not in used]
+    return [p for p in build_casual_posts() if str(p.get("id") or "") not in used]
 
 
 def casual_remaining_count(extra_used: Set[str] | None = None) -> int:
@@ -1275,11 +1338,12 @@ def pick_post_for_slot(
         )
 
     if kind == "casual":
+        pool = build_casual_posts()
         unused = unused_casual_posts(session_used)
         if not unused:
             print(
-                "WARNING: CASUAL_POSTS が枯渇。雑談は再利用せず value にフォールバック。"
-                " posts.py に新規雑談を追加してください。",
+                "WARNING: 雑談プール枯渇。再利用せず value にフォールバック。"
+                " python scripts/threads/generate_casual.py で補充してください。",
                 file=sys.stderr,
             )
             return _pick_value_fallback(day, kind_index, per_day_kind, slot)
@@ -1288,7 +1352,7 @@ def pick_post_for_slot(
         if session_used is not None and pid:
             session_used.add(pid)
         index = next(
-            (i for i, p in enumerate(CASUAL_POSTS) if p.get("id") == pid),
+            (i for i, p in enumerate(pool) if p.get("id") == pid),
             None,
         )
         return _hydrate(post, index=index, slot=slot)
@@ -1312,7 +1376,7 @@ def pick_post_for_date(day: date | None = None) -> dict:
 
 
 def pick_post_by_id(post_id: str) -> dict:
-    for index, post in enumerate(POSTS):
+    for index, post in enumerate(all_posts()):
         if post["id"] == post_id:
             return _hydrate(post, index=index)
     raise KeyError(f"unknown post id: {post_id}")
