@@ -75,6 +75,7 @@ CASUAL_HAND_POSTS: List[dict] = [
         "topic": "雑談",
         "kind": "casual",
         "theme": "work",
+        "consistency": {"time": "evening", "sets": [], "forbids": []},
         "text": (
             "今日の退勤後なに食べよみたいなこと考えてる時点で仕事してない説ある\n"
             "でももう頭キャパない"
@@ -85,6 +86,11 @@ CASUAL_HAND_POSTS: List[dict] = [
         "topic": "雑談",
         "kind": "casual",
         "theme": "gym",
+        "consistency": {
+            "time": "any",
+            "sets": ["gym_skipped_today"],
+            "forbids": ["gym_done_today"],
+        },
         "text": (
             "ジム行くのダルいから今日は自宅でスクワットだけやった\n"
             "30回で息切れしてて草、運動不足すぎ"
@@ -105,6 +111,7 @@ CASUAL_HAND_POSTS: List[dict] = [
         "topic": "雑談",
         "kind": "casual",
         "theme": "gal",
+        "consistency": {"time": "morning", "sets": [], "forbids": []},
         "text": (
             "まつげパーマした翌日なのに寝癖で潰れてて泣いた\n"
             "お金払った意味どこいった"
@@ -115,6 +122,7 @@ CASUAL_HAND_POSTS: List[dict] = [
         "topic": "雑談",
         "kind": "casual",
         "theme": "work",
+        "consistency": {"time": "daytime", "sets": [], "forbids": []},
         "text": (
             "上司の「で？」が怖すぎる\n"
             "説明してる途中で来るのほんとにやめて"
@@ -125,6 +133,11 @@ CASUAL_HAND_POSTS: List[dict] = [
         "topic": "雑談",
         "kind": "casual",
         "theme": "gym",
+        "consistency": {
+            "time": "any",
+            "sets": ["at_office_today"],
+            "forbids": ["wfh_today"],
+        },
         "text": (
             "昨日の脚トレのせいだと思うけど、階段で足ガクガク\n"
             "後輩に先に行かれた"
@@ -1147,6 +1160,9 @@ def _normalize_casual_post(raw: dict) -> dict | None:
     }
     if theme:
         out["theme"] = theme
+    consistency = raw.get("consistency")
+    if isinstance(consistency, dict):
+        out["consistency"] = consistency
     return out
 
 
@@ -1331,31 +1347,56 @@ def _pick_casual_for_day(
     session_used: Set[str] | None,
     pool: List[dict],
     day: date | None = None,
+    slot: int = 0,
 ) -> dict:
-    """同日内でテーマ偏りを抑えて1本選ぶ。"""
+    """同日内の事実矛盾・時間帯・テーマ偏りを抑えて1本選ぶ。"""
+    from casual_consistency import (
+        flags_from_posts,
+        is_flag_compatible,
+        is_time_compatible,
+    )
+
     if not unused:
         raise ValueError("no unused casual posts")
 
     id_to_post = {str(p.get("id") or ""): p for p in pool}
-    theme_counts: dict[str, int] = {}
     today_ids = set(load_casual_used_today(day))
     if session_used:
         today_ids |= set(session_used)
-    for pid in today_ids:
-        post = id_to_post.get(pid)
-        if not post:
-            continue
+    today_posts = [id_to_post[i] for i in today_ids if i in id_to_post]
+    flags = flags_from_posts(today_posts)
+
+    flag_ok = [p for p in unused if is_flag_compatible(p, flags)]
+    timed = [
+        p
+        for p in flag_ok
+        if is_time_compatible(p, slot, _SLOT_HOURS)
+    ]
+    candidates = timed or flag_ok or unused
+    if not timed and flag_ok:
+        print(
+            f"NOTE: slot={slot} 時間帯一致なし → 事実整合のみで選定",
+            file=sys.stderr,
+        )
+    if not flag_ok:
+        print(
+            f"WARNING: slot={slot} 事実整合できる雑談なし → 緩和して選定",
+            file=sys.stderr,
+        )
+
+    theme_counts: dict[str, int] = {}
+    for post in today_posts:
         t = casual_theme_of(post)
         theme_counts[t] = theme_counts.get(t, 0) + 1
 
     if not theme_counts:
-        return unused[0]
+        return candidates[0]
 
-    min_count = min(theme_counts.get(casual_theme_of(p), 0) for p in unused)
+    min_count = min(theme_counts.get(casual_theme_of(p), 0) for p in candidates)
     preferred = [
-        p for p in unused if theme_counts.get(casual_theme_of(p), 0) == min_count
+        p for p in candidates if theme_counts.get(casual_theme_of(p), 0) == min_count
     ]
-    return preferred[0] if preferred else unused[0]
+    return preferred[0] if preferred else candidates[0]
 
 
 def casual_remaining_count(extra_used: Set[str] | None = None) -> int:
@@ -1452,7 +1493,7 @@ def pick_post_for_slot(
             )
             return _pick_value_fallback(day, kind_index, per_day_kind, slot)
         post = _pick_casual_for_day(
-            unused, session_used=session_used, pool=pool, day=day
+            unused, session_used=session_used, pool=pool, day=day, slot=slot
         )
         pid = str(post.get("id") or "")
         if session_used is not None and pid:

@@ -150,6 +150,7 @@ python scripts/threads/post.py --publish
 - オチ・教訓なし、途中で終わる口語
 - 絵文字は基本なし（ハート／✨系は禁止）
 - 投資・NISA・URL禁止
+- **一日の整合性**: `casual_consistency.py` が「今日ジム行った/サボった」「出社/在宅」「朝/昼/夜」の衝突を避けて枠を選ぶ
 
 補充（`--refill`）: 未使用残が24未満なら目標48まで追加。バンク不足時は `CHITCHAT_BANK` に文面を足す。
 

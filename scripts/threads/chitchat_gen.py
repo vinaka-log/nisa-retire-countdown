@@ -38,6 +38,7 @@ from posts import (  # noqa: E402
     casual_remaining_count,
     load_generated_casual_posts,
 )
+from casual_consistency import resolve_consistency  # noqa: E402
 
 THEMES = ("gal", "work", "gym", "nonsense")
 
@@ -276,6 +277,7 @@ def pick_from_bank(count: int, *, seed: int | None = None) -> List[dict]:
                     "kind": "casual",
                     "theme": theme,
                     "text": text,
+                    "consistency": resolve_consistency({"text": text}),
                     "source": "chitchat_gen",
                     "created_at": datetime.now(timezone.utc).strftime(
                         "%Y-%m-%dT%H:%M:%SZ"
@@ -309,6 +311,7 @@ def pick_from_bank(count: int, *, seed: int | None = None) -> List[dict]:
                     "kind": "casual",
                     "theme": theme,
                     "text": text,
+                    "consistency": resolve_consistency({"text": text}),
                     "source": "chitchat_gen",
                     "created_at": datetime.now(timezone.utc).strftime(
                         "%Y-%m-%dT%H:%M:%SZ"
