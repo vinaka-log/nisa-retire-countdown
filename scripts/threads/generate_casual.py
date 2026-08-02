@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""雑談投稿の自動生成（OpenAI互換API）.
+"""雑談投稿の自動生成.
 
-未使用残が減ったら CASUAL_HAND_POSTS と同トーンの文を作り、
-casual_generated.json に追記する。一度きりの台帳とは別ファイル。
+デフォルトは APIなし（場面×反応の組み合わせ）。
+任意で OpenAI 互換API（--mode openai）も使える。
 
 Examples:
   PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --dry-run --count 8
   PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --count 16
   PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --refill
+  PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --mode openai --count 8
 """
 
 from __future__ import annotations
@@ -22,11 +23,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Set
 
-import httpx
-
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from casual_local import generate_local_texts  # noqa: E402
 from posts import (  # noqa: E402
     CASUAL_GENERATED_PATH,
     CASUAL_HAND_POSTS,
@@ -180,6 +180,8 @@ JSONのみ返せ。posts はちょうど {count} 件。
 
 
 def call_openai(messages: List[Dict[str, str]], *, model: str, base_url: str, api_key: str) -> Dict[str, Any]:
+    import httpx
+
     url = base_url.rstrip("/") + "/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -214,6 +216,8 @@ def parse_model_posts(payload: Dict[str, Any]) -> List[Dict[str, str]]:
 
 
 def generate_batch(count: int, *, api_key: str, model: str, base_url: str) -> List[dict]:
+    import httpx
+
     keys = existing_text_keys()
     ids = existing_ids()
     avoid = [str(p.get("text") or "") for p in build_casual_posts()][-24:]
@@ -250,6 +254,7 @@ def generate_batch(count: int, *, api_key: str, model: str, base_url: str) -> Li
                 "kind": "casual",
                 "theme": theme,
                 "text": text,
+                "source": "openai",
                 "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             }
             accepted.append(post)
@@ -260,6 +265,42 @@ def generate_batch(count: int, *, api_key: str, model: str, base_url: str) -> Li
                 break
         print(f"attempt={attempts} accepted={len(accepted)}/{count}", file=sys.stderr)
 
+    return accepted[:count]
+
+
+def generate_local_batch(count: int, *, seed: int | None = None) -> List[dict]:
+    keys = existing_text_keys()
+    ids = existing_ids()
+    pairs = generate_local_texts(
+        count,
+        avoid_keys=set(keys),
+        text_key_fn=_text_key,
+        seed=seed,
+    )
+    accepted: List[dict] = []
+    for theme, text in pairs:
+        reason = validate_post(theme, text)
+        if reason:
+            print(f"skip: {reason} :: {text[:40]!r}", file=sys.stderr)
+            continue
+        key = _text_key(text)
+        if key in keys:
+            continue
+        pid = make_id(theme, text)
+        if pid in ids:
+            continue
+        post = {
+            "id": pid,
+            "topic": "雑談",
+            "kind": "casual",
+            "theme": theme,
+            "text": text,
+            "source": "local",
+            "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+        accepted.append(post)
+        keys.add(key)
+        ids.add(pid)
     return accepted[:count]
 
 
@@ -326,14 +367,26 @@ def main() -> int:
     parser.add_argument("--target-remaining", type=int, default=48, help="補充後の目標残数")
     parser.add_argument("--dry-run", action="store_true", help="ファイルに書かず表示のみ")
     parser.add_argument(
+        "--mode",
+        choices=("local", "openai"),
+        default=_env("CASUAL_GEN_MODE", "local"),
+        help="local=APIなし部品組み合わせ / openai=ChatGPT互換API",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="localモードの乱数シード（省略時は非決定的）",
+    )
+    parser.add_argument(
         "--model",
         default=_env("OPENAI_MODEL", "gpt-4o-mini"),
-        help="OpenAI互換モデル名",
+        help="OpenAI互換モデル名（--mode openai）",
     )
     parser.add_argument(
         "--base-url",
         default=_env("OPENAI_BASE_URL", "https://api.openai.com/v1"),
-        help="OpenAI互換 base URL",
+        help="OpenAI互換 base URL（--mode openai）",
     )
     args = parser.parse_args()
 
@@ -341,38 +394,46 @@ def main() -> int:
     if count <= 0:
         return 0
 
-    api_key = _env("OPENAI_API_KEY")
-    if not api_key:
-        print(
-            "ERROR: OPENAI_API_KEY が未設定です（GitHub Secrets / ローカル env）",
-            file=sys.stderr,
-        )
-        return 1
-
     print(
-        f"hand={len(CASUAL_HAND_POSTS)} generated={len(load_generated_casual_posts())} "
-        f"remaining={casual_remaining_count()} gen_count={count} model={args.model}",
+        f"mode={args.mode} hand={len(CASUAL_HAND_POSTS)} "
+        f"generated={len(load_generated_casual_posts())} "
+        f"remaining={casual_remaining_count()} gen_count={count}",
         file=sys.stderr,
     )
 
     try:
-        posts = generate_batch(
-            count,
-            api_key=api_key,
-            model=args.model,
-            base_url=args.base_url,
-        )
-    except (httpx.HTTPError, json.JSONDecodeError, KeyError, ValueError) as exc:
+        if args.mode == "local":
+            posts = generate_local_batch(count, seed=args.seed)
+        else:
+            api_key = _env("OPENAI_API_KEY")
+            if not api_key:
+                print(
+                    "ERROR: OPENAI_API_KEY が未設定です（--mode openai）",
+                    file=sys.stderr,
+                )
+                return 1
+            import httpx
+
+            posts = generate_batch(
+                count,
+                api_key=api_key,
+                model=args.model,
+                base_url=args.base_url,
+            )
+    except Exception as exc:  # noqa: BLE001 - surface generator failures cleanly
         print(f"ERROR: generation failed: {exc}", file=sys.stderr)
         return 1
 
     if len(posts) < count:
         print(
-            f"WARNING: requested={count} got={len(posts)} (validation drops)",
+            f"WARNING: requested={count} got={len(posts)}",
             file=sys.stderr,
         )
     if not posts:
-        print("ERROR: no posts accepted", file=sys.stderr)
+        print(
+            "ERROR: no posts accepted（部品プール枯渇の可能性。casual_local.py を拡充）",
+            file=sys.stderr,
+        )
         return 1
 
     for post in posts:

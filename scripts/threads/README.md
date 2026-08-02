@@ -82,14 +82,7 @@ Repo → **Settings → Secrets and variables → Actions**:
 |--------|------|
 | `THREADS_ACCESS_TOKEN` | Meta 長期トークン |
 | `THREADS_USER_ID` | Threads ユーザ ID |
-| `OPENAI_API_KEY` | 雑談自動生成用（OpenAI 互換APIキー） |
-
-任意の Actions Variables:
-
-| Variable | 内容 | デフォルト |
-|----------|------|------------|
-| `OPENAI_MODEL` | モデル名 | `gpt-4o-mini` |
-| `OPENAI_BASE_URL` | API base | `https://api.openai.com/v1` |
+| `OPENAI_API_KEY` | （任意）`--mode openai` を使うときだけ |
 
 ### 3. 動作確認
 
@@ -142,21 +135,33 @@ python scripts/threads/post.py --publish
 
 ## 雑談の自動生成
 
+**デフォルトは ChatGPT API 不要。** 場面×反応の部品組み合わせ（[`casual_local.py`](./casual_local.py)）で生成する。
+
 手書き（`CASUAL_HAND_POSTS`）＋自動生成（[`casual_generated.json`](./casual_generated.json)）を結合して使う。  
 投稿後は [`casual_ledger.json`](./casual_ledger.json) に入り、**再利用しない**。
 
 | ファイル / スクリプト | 役割 |
 |------------------------|------|
-| [`generate_casual.py`](./generate_casual.py) | OpenAI互換APIで雑談を生成・追記 |
+| [`generate_casual.py`](./generate_casual.py) | 雑談生成（`--mode local` が既定 / 任意で `openai`） |
+| [`casual_local.py`](./casual_local.py) | APIなし用の部品プール |
 | [`casual_generated.json`](./casual_generated.json) | 生成結果の保存先 |
 | [`threads-casual-refill.yml`](../../.github/workflows/threads-casual-refill.yml) | 週次で残数を見て補充 → commit |
 
 補充ロジック（`--refill`）:
 - 未使用残が **24本未満** なら、目標 **48本** まで生成
 - テーマは gal / work / gym / nonsense を均等
-- 既存文との重複・禁止語（NISA等）・ハート絵文字はスキップ
+- 既存文との重複・禁止語はスキップ
 
-Actions → **Threads casual refill** → Run workflow で手動実行可（`dry_run` / `force_count`）。
+```bash
+# APIなし（推奨）
+PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --mode local --count 16
+PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --refill
+
+# 任意: OpenAI（課金が必要なときだけ）
+OPENAI_API_KEY=... PYTHONPATH=scripts/threads python scripts/threads/generate_casual.py --mode openai --count 8
+```
+
+Actions → **Threads casual refill** → Run workflow で手動実行可（APIキー不要）。
 
 ## 投稿文の追加・編集
 

@@ -1,3 +1,148 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "cas-gen-nonsense-d65634fbd3",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "シャンプーとリンス、また順番逆\n黙ってリカバリーするしかない",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gal-9215fc2e15",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "カラー剤の匂いが服についてて一日中気になる\n明日の自分に丸投げする",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gal-8767fedc8e",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "リップと服の色が喧嘩してるの鏡見て発覚\n自分で自分に呆れてる",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-nonsense-ededc50f15",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "コンビニの新作アイス、名前覚えられない\n言っても仕方ないやつなのに気になる",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gym-c7f8becbc9",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "水分足りず頭くらくらになった\n効いてる証拠ってことにしとく",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-work-048911b9de",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "定例なのにアジェンダ空っぽで入室した\n結局自分で抱えるやつ",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-work-6da91d1738",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "在宅なのにスーツ上だけ着てる意味わからん自分\n結局自分で抱えるやつ",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gym-e83e4dd6b4",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "今日のメニュー、やる気だけ先に帰宅した\n誰にも見られてないことにする",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gal-faa7bb07ed",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "新しい香水、自分だけ匂わなすぎ問題\n明日の自分に丸投げする",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gal-5001516ae7",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "前髪切りすぎて前髪なし人生始まった\n会う予定なかったの不幸中の幸い",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-work-237d80188f",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "Slack既読スルーされてる気がして胃が痛い\n気になって夜まで引きずるやつ",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gym-35a185b10b",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "マシンの使い方、隣の人見て学んでる\n続けてる自分えらい、で締める",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-nonsense-ff912d4e14",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "イヤホン左右どっちが右かわからんまま挿した\nもう二度とやりたくない",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-nonsense-45bed6a55c",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "鍵閉めたか不安で駅から戻った\n言っても仕方ないやつなのに気になる",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-gym-bd480dd801",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "クールダウン飛ばして後悔してる\nプロテインの味だけが友達",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    },
+    {
+      "id": "cas-gen-work-6dd49aa364",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "プリンター前で順番待ちしてる時間が長い\n誰か代わりに生きてほしい",
+      "source": "local",
+      "created_at": "2026-08-02T12:36:55Z"
+    }
+  ]
 }
