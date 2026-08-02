@@ -158,8 +158,8 @@ def main() -> None:
         choices=tuple(range(10)),
         default=None,
         help=(
-            "日内枠 0=07value 1=08num 2=10value 3=12cta 4=15num "
-            "5=17value 6=18num 7=20cta 8=21value 9=22num"
+            "日内枠 0=07casual 1=08casual 2=10casual 3=12cta 4=15casual "
+            "5=17casual 6=18casual 7=20cta 8=21casual 9=22casual"
         ),
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")

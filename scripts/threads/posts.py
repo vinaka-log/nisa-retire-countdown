@@ -1,22 +1,14 @@
 """Threads 投稿文プール（みつき｜NISA「足りるか」確認係）.
 
-1日の枠（JST）: 価値提供8 + 誘導2 の計10本
-  07:00 / 10:00 / 17:00 / 21:00 … 価値発信（固定プール・リンクなし）※約1/3は失敗談
-  08:00 / 15:00 / 18:30 / 22:30 … 数字ネタ（num_posts.py で自動計算生成・リンクなし）
+1日の枠（JST）: 雑談8 + 誘導2 の計10本（フォロワー少期は雑談8割）
+  07:00 / 08:00 / 10:00 / 15:00 / 17:00 / 18:30 / 21:00 / 22:30 … 雑談（リンクなし）
   12:00 / 20:00 … 教育＋自分リプでURL（誘導・1日2回）
 
-参考:
-  - @ai_syuhu 型＝教育で信頼を積み、誘導は少数に絞る
-  - クリフハンガー型（売れてるnote系アカの型）＝
-      本投稿は「疑問の自分語り＋経験＋数字予告（〜すること2つ）」で途中で切り、
-      本文（答え）は自分リプに置く。リプで断言の念押し＋問いかけ
-  - タイムライン表示は1〜2行目が勝負。冒頭を止めフックに
+雑談はギャル / 仕事憂鬱 / 筋トレ / どうでもいい の4系統。
+オチをきれいに着地させず、途中で終わる人間っぽい口調にする。
+絵文字はハート系（💕❤️🫶等）を使わない。
 
-投資助言・銘柄推奨・誇大表現は書かない。実績の捏造もしない
-（根拠は「シミュ運営してて」「自分の数字を出してみて」に留める）。
-始め方・銘柄戦争には入らず、「足りるか（ギャップ）」に寄せる。
-価値枠の約1/3は失敗談（共感）。損失額の煽り・銘柄話は禁止。
-絵文字はハート系（💕❤️🫶等）を使わない。🥹✨💭💦🙌あたりに留める。
+誘導枠のみ投資・シミュ話可。投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
 """
 
 from __future__ import annotations
@@ -27,36 +19,330 @@ from typing import List, Sequence
 SITE_URL = "https://www.nisa-simulation.com"
 THREADS_TEXT_LIMIT = 500
 
-# 日内枠（JST）: value=固定プール / num=数字ネタ自動生成 / cta=リプ末尾にURL
+# 日内枠（JST）: casual=雑談 / cta=リプ末尾にURL
 POSTS_PER_DAY = 10
 SLOT_KINDS = (
-    "value",  # 0: 07:00
-    "num",    # 1: 08:00
-    "value",  # 2: 10:00
-    "cta",    # 3: 12:00
-    "num",    # 4: 15:00
-    "value",  # 5: 17:00
-    "num",    # 6: 18:30
-    "cta",    # 7: 20:00
-    "value",  # 8: 21:00
-    "num",    # 9: 22:30
+    "casual",  # 0: 07:00
+    "casual",  # 1: 08:00
+    "casual",  # 2: 10:00
+    "cta",     # 3: 12:00
+    "casual",  # 4: 15:00
+    "casual",  # 5: 17:00
+    "casual",  # 6: 18:30
+    "cta",     # 7: 20:00
+    "casual",  # 8: 21:00
+    "casual",  # 9: 22:30
 )
 SLOT_LABELS = (
-    "07value",
-    "08num",
-    "10value",
+    "07casual",
+    "08casual",
+    "10casual",
     "12cta",
-    "15num",
-    "17value",
-    "18num",
+    "15casual",
+    "17casual",
+    "18casual",
     "20cta",
-    "21value",
-    "22num",
+    "21casual",
+    "22casual",
 )
 
-# --- 価値発信（URLなし。replies=本文の続き、URL禁止） ---
-# 基本形: 本投稿=疑問の自分語り＋数字予告↓（途中で切る）/ 自分リプ=答え＋念押し＋問いかけ
-# 一部は1投稿完結（問いかけ型）でリズムを変える
+# --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
+# 系統: gal / work / gym / nonsense。毎日8枠なのでプールは多めに持つ。
+CASUAL_POSTS: List[dict] = [
+    # --- 承認済み8本 ---
+    {
+        "id": "cas-gal-nail-book",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "ネイルサロン予約したのに日程間違えとる\n"
+            "来週の金曜じゃなくて再来週だった…金どぶ"
+        ),
+    },
+    {
+        "id": "cas-gal-lash-crush",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "まつげパーマした翌日なのに寝癖で潰れてて泣いた\n"
+            "お金払った意味どこいった"
+        ),
+    },
+    {
+        "id": "cas-work-dinner-think",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "今日の退勤後なに食べよみたいなこと考えてる時点で仕事してない説ある\n"
+            "でももう頭キャパない"
+        ),
+    },
+    {
+        "id": "cas-work-de",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "上司の「で？」が怖すぎる\n"
+            "説明してる途中で来るのほんとにやめて"
+        ),
+    },
+    {
+        "id": "cas-gym-home-squat",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "ジム行くのダルいから今日は自宅でスクワットだけやった\n"
+            "30回で息切れしてて草、運動不足すぎ"
+        ),
+    },
+    {
+        "id": "cas-gym-stairs",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "脚トレ後に階段登れなくて後輩に先に行かれた\n"
+            "きついんだけどこれ効いてる証拠ってことでいい？"
+        ),
+    },
+    {
+        "id": "cas-nonsense-ice",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "アイスの棒、折れた方から食べ始めたらバランス崩れて落ちた\n"
+            "床びちょびちょ、最悪"
+        ),
+    },
+    {
+        "id": "cas-nonsense-laundry",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "洗濯機まわり終わったと思って開けたら中ぬるいの残ってて絶望した\n"
+            "もう一回回すのめんどくさいんだけど"
+        ),
+    },
+    # --- 追加プール（同トーン・被りにくいネタ） ---
+    {
+        "id": "cas-gal-lip-stain",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "白い服着た日に限ってリップ落とすのなんで\n"
+            "襟元見て発狂した"
+        ),
+    },
+    {
+        "id": "cas-gal-contact-one",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "コンタクト片眼だけ行方不明\n"
+            "洗面台の排水溝見にいく勇気でない"
+        ),
+    },
+    {
+        "id": "cas-gal-hair-color",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "カラーしたてなのに今日雨\n"
+            "傘さした意味あるのかこれ"
+        ),
+    },
+    {
+        "id": "cas-gal-mirror-light",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "家の照明だと盛れてるのに外の光で別人になるの\n"
+            "照明詐欺やめてほしい"
+        ),
+    },
+    {
+        "id": "cas-gal-perfume",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "香水つけすぎた気がして電車でずっと気になってる\n"
+            "周りに匂ってたらごめん"
+        ),
+    },
+    {
+        "id": "cas-gal-heels",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "ヒール履いて出たけど駅ついた時点で限界\n"
+            "帰りフラットに履き替えた、正解"
+        ),
+    },
+    {
+        "id": "cas-work-monday-stomach",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "月曜朝、目覚ましより先に胃が重い\n"
+            "身体が先に仕事拒否してる"
+        ),
+    },
+    {
+        "id": "cas-work-teams-ping",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "Teamsの通知音だけで肩に力入る\n"
+            "ミュートにしてるのに脳が反応するのやめて"
+        ),
+    },
+    {
+        "id": "cas-work-ato-kore",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "「あとこれだけ」信用した自分がバカだった\n"
+            "結局1時間半溶けた"
+        ),
+    },
+    {
+        "id": "cas-work-meeting-silence",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "「何かありますか？」のあとの無言\n"
+            "あるけど言うほどじゃないやつどうすればいいの"
+        ),
+    },
+    {
+        "id": "cas-work-calendar",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "カレンダー開けたら今週水色多すぎて笑った\n"
+            "笑う以外の処理方法教えて"
+        ),
+    },
+    {
+        "id": "cas-work-lunch-solo",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "昼休みスマホ見ながら一人飯してる時間だけが生きてる実感ある\n"
+            "午後また別人になる"
+        ),
+    },
+    {
+        "id": "cas-gym-protein-taste",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "プロテインの味、3日目から急に無理になった\n"
+            "ヨーグルト混ぜたらまた飲める、小勝利"
+        ),
+    },
+    {
+        "id": "cas-gym-hip-thrust",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "ヒップスラストのあと椅子に座るだけで筋肉痛\n"
+            "きついけど後ろ姿のためならまあ…"
+        ),
+    },
+    {
+        "id": "cas-gym-form",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "隣の人の方が明らかにフォームうまい\n"
+            "私回数だけ頑張ってる感ある"
+        ),
+    },
+    {
+        "id": "cas-gym-skip",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "今日ジム行く予定だったのに帰宅後ソファから動けず\n"
+            "明日やる、たぶん"
+        ),
+    },
+    {
+        "id": "cas-gym-scale",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "体重計乗ったら昨日より増えててやる気削られた\n"
+            "むくみってことにしとく"
+        ),
+    },
+    {
+        "id": "cas-gym-glute-band",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "ゴムバンド使った尻トレ、翌日歩けん\n"
+            "でもジーンズのフィット感は好き"
+        ),
+    },
+    {
+        "id": "cas-nonsense-towel",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "お風呂上がりにタオルどこ置いたか毎回忘れる\n"
+            "床に落ちてるの拾ってる時点で何してんだろ"
+        ),
+    },
+    {
+        "id": "cas-nonsense-cable",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "充電しながら寝て朝起きたらコード腕に巻きついてた\n"
+            "コード短すぎ問題いつ解決する"
+        ),
+    },
+    {
+        "id": "cas-nonsense-elevator",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "エレベーターで押されてるボタンもう一回押してる\n"
+            "押したあとの気まずい0.5秒なんとかして"
+        ),
+    },
+    {
+        "id": "cas-nonsense-remote",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "リモコン探して10分、自分の尻の下にあった\n"
+            "誰にも言えない"
+        ),
+    },
+    {
+        "id": "cas-nonsense-sock",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "靴下片方だけ洗濯機から出てこない問題\n"
+            "異次元に行ってる説ある"
+        ),
+    },
+    {
+        "id": "cas-nonsense-tab",
+        "topic": "雑談",
+        "kind": "casual",
+        "text": (
+            "スマホのタブ開きすぎてどれが何だか分からん\n"
+            "全部閉じる勇気もない"
+        ),
+    },
+]
+
+# --- 価値発信（予備プール。現状スケジュールでは未使用） ---
+# 基本形: 本投稿=疑問の自分語り＋数字予告↓ / 自分リプ=答え
 VALUE_POSTS: List[dict] = [
     {
         "id": "val-checklist",
@@ -824,9 +1110,9 @@ CTA_POSTS: List[dict] = [
 ]
 
 # 互換: 全投稿の連結（--list / --id 用）
-POSTS: List[dict] = [*VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
+POSTS: List[dict] = [*CASUAL_POSTS, *VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
 
-# 価値投稿のうち失敗談にする割合（3回に1回）
+# 価値投稿のうち失敗談にする割合（予備・value枠復帰時用）
 _FAIL_STORY_EVERY_N = 3
 
 
@@ -849,7 +1135,7 @@ def _post_replies(post: dict) -> List[str]:
 
 
 def thread_texts(post: dict) -> List[str]:
-    """本投稿→自分リプ連鎖。value=URLどこにも禁止 / cta=URLは最終リプのみ。"""
+    """本投稿→自分リプ連鎖。casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
     main = _truncate(str(post.get("text") or ""))
     texts = [t for t in (main, *_post_replies(post)) if t]
     if not texts:
@@ -895,10 +1181,12 @@ def _hydrate(post: dict, *, index: int | None = None, slot: int | None = None) -
 
 
 def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
-    """枠の kind（value/num/cta）に応じたプール/生成からローテ選択。
+    """枠の kind（casual/cta/value/num）に応じたプール/生成からローテ選択。
 
-    value は約1/3を失敗談（FAIL_STORY_POSTS）にする。
-    num は num_posts.py がパラメータから毎回計算生成する。
+    casual は CASUAL_POSTS を日付シフトで回す（同じ時刻に同じ文が固定されない）。
+    cta は CTA_POSTS。
+    value は約1/3を失敗談（FAIL_STORY_POSTS）にする（枠復帰時用）。
+    num は num_posts.py がパラメータから毎回計算生成する（枠復帰時用）。
     """
     day = day or date.today()
     slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
@@ -914,7 +1202,11 @@ def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
             generate_num_post(day, kind_index, per_day_kind), slot=slot
         )
 
-    if kind == "cta":
+    if kind == "casual":
+        pool = CASUAL_POSTS
+        # 日付で開始位置をずらし、枠内では連番で取る（日内の被り防止）
+        index = (day.toordinal() + kind_index) % len(pool)
+    elif kind == "cta":
         pool = CTA_POSTS
         index = emit % len(pool)
     elif FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
