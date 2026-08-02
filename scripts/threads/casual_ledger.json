@@ -2,7 +2,8 @@
   "used_ids": [
     "cas-gym-skip",
     "cas-nonsense-remote",
-    "cas-gym-home-squat"
+    "cas-gym-home-squat",
+    "cas-nonsense-ice"
   ],
   "history": [
     {
@@ -15,6 +16,10 @@
     },
     {
       "id": "cas-gym-home-squat",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "cas-nonsense-ice",
       "date": "2026-08-03"
     }
   ]
