@@ -1,0 +1,346 @@
+{
+  "2026-08-03": {
+    "date": "2026-08-03",
+    "flags": [
+      "gym_skipped_today"
+    ],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "cas-gym-home-squat",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "ジム行くのダルいから今日は自宅でスクワットだけやった\n30回で息切れしてて草、運動不足すぎ",
+        "consistency": {
+          "sets": [
+            "gym_skipped_today"
+          ],
+          "forbids": [
+            "gym_done_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-nonsense-ice",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "アイスの棒、折れた方から食べ始めたらバランス崩れて落ちた\n床びちょびちょ、最悪",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gal-lash-crush",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "まつげパーマした翌日なのに寝癖で潰れてて泣いた\nお金払った意味どこいった",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "morning",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-return-guide",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "想定年利、いい数字に寄せてない？🥹\n\n不安なときほど、置き方がブレやすい💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "おすすめは一点決めより幅で見ること✨\n例：3% と 5% を並べる\n\n届く／届かないを一点で決めないと、\n積立や年数のレバーも冷静に選べるよ💭",
+          "整理した話はここ✨\n\nhttps://www.nisa-simulation.com/guides/assumed-return"
+        ]
+      },
+      "4": {
+        "id": "cas-work-de",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "上司の「で？」が怖すぎる\n説明してる途中で来るのほんとにやめて",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "daytime",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-nonsense-laundry",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "洗濯機まわり終わったと思って開けたら中ぬるいの残ってて絶望した\nもう一回回すのめんどくさいんだけど",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-work-dinner-think",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "今日の退勤後なに食べよみたいなこと考えてる時点で仕事してない説ある\nでももう頭キャパない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "evening",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-monthly-guide",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「毎月いくらが正解？」で苦しくなる人、多い🥹\n\n必要額と続けられる額、混ぜると詰みやすいよ✨\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "必要額＝目標から逆算した目安\n続けられる額＝家計で無理なく続く額\n\n満額できない＝失敗、でもない✨\n続けられる額で始めて、ギャップを見ながら調整が現実的",
+          "逆算の見方はここ✨\n\nhttps://www.nisa-simulation.com/guides/monthly-contribution"
+        ]
+      },
+      "8": {
+        "id": "cas-gal-lip-stain",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "白い服着た日に限ってリップ落とすのなんで\n襟元見て発狂した",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-gym-protein-taste",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "プロテインの味、3日目から急に無理になった\nヨーグルト混ぜたらまた飲める、小勝利",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
+  },
+  "2026-08-04": {
+    "date": "2026-08-04",
+    "flags": [
+      "gym_done_today"
+    ],
+    "yesterday_flags_carried": [
+      "gym_skipped_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "cas-gal-contact-one",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "コンタクト片眼だけ行方不明\n洗面台の排水溝見にいく勇気でない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-work-teams-ping",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "Teamsの通知音だけで肩に力入る\nミュートにしてるのに脳が反応するのやめて",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gym-hip-thrust",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "ヒップスラストのあと椅子に座るだけで筋肉痛\nきついけど後ろ姿のためならまあ…",
+        "consistency": {
+          "sets": [
+            "gym_done_today"
+          ],
+          "forbids": [
+            "gym_skipped_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-points-gap",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "ギャップを縮めるの、積立アップだけじゃないよ💭\n\nただし順番を間違えると疲れやすい✨\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "① まず不足額を数字で見る\n② 増額・年数・支出の取りこぼしを並べる\n③ 合うものだけ選ぶ\n\n先に選択肢を探すと、疲れやすいよ💭",
+          "整理はここから✨\nサイトでは数字のあとに選択肢もそっと置いてるよ（広告含む）\n\nhttps://www.nisa-simulation.com/guides/points-and-gap"
+        ]
+      },
+      "4": {
+        "id": "cas-nonsense-towel",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "お風呂上がりにタオルどこ置いたか毎回忘れる\n床に落ちてるの拾ってる時点で何してんだろ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gal-hair-color",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "カラーしたてなのに今日雨\n傘さした意味あるのかこれ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-work-ato-kore",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "「あとこれだけ」信用した自分がバカだった\n結局1時間半溶けた",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-rogo",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n見出しじゃなく、自分の式に落とすと動きやすい💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\nざっくりでいい。一度出すと焦り方が変わるよ✨",
+          "くわしくはここ🙌\n\nhttps://www.nisa-simulation.com/guides/rogo-2000man"
+        ]
+      },
+      "8": {
+        "id": "cas-gym-form",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "隣の人の方が明らかにフォームうまい\n私回数だけ頑張ってる感ある",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-nonsense-cable",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "充電しながら寝て朝起きたらコード腕に巻きついてた\nコード短すぎ問題いつ解決する",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
+  }
+}

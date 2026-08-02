@@ -136,7 +136,8 @@ CASUAL_HAND_POSTS: List[dict] = [
         "consistency": {
             "time": "any",
             "sets": ["at_office_today"],
-            "forbids": ["wfh_today"],
+            "forbids": ["wfh_today", "gym_skipped_yesterday"],
+            "requires": ["gym_done_yesterday"],
         },
         "text": (
             "昨日の脚トレのせいだと思うけど、階段で足ガクガク\n"
@@ -1355,8 +1356,12 @@ def _pick_casual_for_day(
     pool: List[dict],
     day: date | None = None,
     slot: int = 0,
+    base_flags: Set[str] | None = None,
 ) -> dict:
-    """同日内の事実矛盾・曜日・時間帯・テーマ偏りを抑えて1本選ぶ。"""
+    """同日内の事実矛盾・曜日・時間帯・テーマ偏りを抑えて1本選ぶ。
+
+    base_flags には前日からの引き継ぎ（gym_done_yesterday 等）を渡す。
+    """
     from casual_consistency import (
         flags_from_posts,
         is_flag_compatible,
@@ -1372,7 +1377,7 @@ def _pick_casual_for_day(
     if session_used:
         today_ids |= set(session_used)
     today_posts = [id_to_post[i] for i in today_ids if i in id_to_post]
-    flags = flags_from_posts(today_posts)
+    flags = set(base_flags or []) | flags_from_posts(today_posts)
 
     weekday_ok = [p for p in unused if is_weekday_compatible(p, day)]
     flag_ok = [p for p in weekday_ok if is_flag_compatible(p, flags)]
@@ -1475,16 +1480,21 @@ def pick_post_for_slot(
     slot: int = 0,
     *,
     session_used: Set[str] | None = None,
+    persist_plan: bool = True,
 ) -> dict:
-    """枠の kind（casual/cta/value/num）に応じたプール/生成から選択。
+    """日内枠の投稿を返す。
 
-    casual は台帳で一度きり（再利用しない）。未使用の先頭から消化。
-    日内プレビューは session_used に逐次 add して同じIDを返さない。
-    プール枯渇時は value/失敗談にフォールバック（雑談の使い回しはしない）。
-    cta は CTA_POSTS ローテ。
+    通常は day_plans.json の日次プランから取得（毎日の内容を記憶して整合性を保つ）。
+    session_used 指定時のみ、プランを使わずその場で選定（テスト用）。
     """
     day = day or date.today()
     slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
+
+    if session_used is None:
+        from day_plan import pick_from_day_plan
+
+        return pick_from_day_plan(day, slot, persist=persist_plan)
+
     kind = SLOT_KINDS[slot]
     kind_index = SLOT_KINDS[: slot + 1].count(kind) - 1
     per_day_kind = SLOT_KINDS.count(kind)
