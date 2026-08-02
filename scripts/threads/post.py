@@ -134,7 +134,8 @@ async def main_async(args: argparse.Namespace) -> int:
 
     print(f"PUBLISHED: {result.post_ids}")
     if post.get("kind") == "casual" or str(post.get("id") or "").startswith("cas-"):
-        if mark_casual_used(str(post["id"])):
+        day = date.fromisoformat(args.date) if getattr(args, "date", None) and args.date else datetime.now(JST).date()
+        if mark_casual_used(str(post["id"]), day=day):
             print(f"LEDGER: marked casual used id={post['id']}")
         else:
             print(f"LEDGER: already used id={post['id']}")

@@ -59,74 +59,82 @@ SLOT_LABELS = (
 # 手書き + casual_generated.json（chitchat_gen.py / Actions 補充）。
 # 実行時は build_casual_posts() で結合。台帳で一度きり。
 CASUAL_HAND_POSTS: List[dict] = [
-    # --- 承認済み8本 ---
+    # テーマを混ぜて並べる（同日に同系統が連続しにくくする）
     {
         "id": "cas-gal-nail-book",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "gal",
         "text": (
             "ネイルサロン予約したのに日程間違えとる\n"
             "来週の金曜じゃなくて再来週だった…金どぶ"
         ),
     },
     {
-        "id": "cas-gal-lash-crush",
-        "topic": "雑談",
-        "kind": "casual",
-        "text": (
-            "まつげパーマした翌日なのに寝癖で潰れてて泣いた\n"
-            "お金払った意味どこいった"
-        ),
-    },
-    {
         "id": "cas-work-dinner-think",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "work",
         "text": (
             "今日の退勤後なに食べよみたいなこと考えてる時点で仕事してない説ある\n"
             "でももう頭キャパない"
         ),
     },
     {
-        "id": "cas-work-de",
-        "topic": "雑談",
-        "kind": "casual",
-        "text": (
-            "上司の「で？」が怖すぎる\n"
-            "説明してる途中で来るのほんとにやめて"
-        ),
-    },
-    {
         "id": "cas-gym-home-squat",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "gym",
         "text": (
             "ジム行くのダルいから今日は自宅でスクワットだけやった\n"
             "30回で息切れしてて草、運動不足すぎ"
         ),
     },
     {
-        "id": "cas-gym-stairs",
-        "topic": "雑談",
-        "kind": "casual",
-        "text": (
-            "脚トレ後に階段登れなくて後輩に先に行かれた\n"
-            "きついんだけどこれ効いてる証拠ってことでいい？"
-        ),
-    },
-    {
         "id": "cas-nonsense-ice",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "nonsense",
         "text": (
             "アイスの棒、折れた方から食べ始めたらバランス崩れて落ちた\n"
             "床びちょびちょ、最悪"
         ),
     },
     {
+        "id": "cas-gal-lash-crush",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "gal",
+        "text": (
+            "まつげパーマした翌日なのに寝癖で潰れてて泣いた\n"
+            "お金払った意味どこいった"
+        ),
+    },
+    {
+        "id": "cas-work-de",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "work",
+        "text": (
+            "上司の「で？」が怖すぎる\n"
+            "説明してる途中で来るのほんとにやめて"
+        ),
+    },
+    {
+        "id": "cas-gym-stairs",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "gym",
+        "text": (
+            "昨日の脚トレのせいだと思うけど、階段で足ガクガク\n"
+            "後輩に先に行かれた"
+        ),
+    },
+    {
         "id": "cas-nonsense-laundry",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "nonsense",
         "text": (
             "洗濯機まわり終わったと思って開けたら中ぬるいの残ってて絶望した\n"
             "もう一回回すのめんどくさいんだけど"
@@ -137,6 +145,7 @@ CASUAL_HAND_POSTS: List[dict] = [
         "id": "cas-gal-lip-stain",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "gal",
         "text": (
             "白い服着た日に限ってリップ落とすのなんで\n"
             "襟元見て発狂した"
@@ -146,6 +155,7 @@ CASUAL_HAND_POSTS: List[dict] = [
         "id": "cas-gal-contact-one",
         "topic": "雑談",
         "kind": "casual",
+        "theme": "gal",
         "text": (
             "コンタクト片眼だけ行方不明\n"
             "洗面台の排水溝見にいく勇気でない"
@@ -1271,26 +1281,119 @@ def load_casual_used_ids() -> List[str]:
     return out
 
 
+def load_casual_used_today(day: date | None = None) -> Set[str]:
+    """当日すでに投稿した雑談ID（枠間のテーマ偏り防止用）。"""
+    day = day or date.today()
+    day_s = day.isoformat()
+    path = CASUAL_LEDGER_PATH
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    if not isinstance(data, dict):
+        return set()
+    history = data.get("history")
+    if not isinstance(history, list):
+        return set()
+    out: Set[str] = set()
+    for item in history:
+        if not isinstance(item, dict):
+            continue
+        if str(item.get("date") or "") != day_s:
+            continue
+        pid = str(item.get("id") or "").strip()
+        if pid:
+            out.add(pid)
+    return out
+
+
 def unused_casual_posts(extra_used: Set[str] | None = None) -> List[dict]:
     used = set(load_casual_used_ids()) | (extra_used or set())
     return [p for p in build_casual_posts() if str(p.get("id") or "") not in used]
+
+
+def casual_theme_of(post: dict) -> str:
+    theme = str(post.get("theme") or "").strip()
+    if theme:
+        return theme
+    pid = str(post.get("id") or "")
+    for name in ("gal", "work", "gym", "nonsense"):
+        if f"-{name}-" in pid or pid.startswith(f"cas-{name}-"):
+            return name
+    return "other"
+
+
+def _pick_casual_for_day(
+    unused: List[dict],
+    *,
+    session_used: Set[str] | None,
+    pool: List[dict],
+    day: date | None = None,
+) -> dict:
+    """同日内でテーマ偏りを抑えて1本選ぶ。"""
+    if not unused:
+        raise ValueError("no unused casual posts")
+
+    id_to_post = {str(p.get("id") or ""): p for p in pool}
+    theme_counts: dict[str, int] = {}
+    today_ids = set(load_casual_used_today(day))
+    if session_used:
+        today_ids |= set(session_used)
+    for pid in today_ids:
+        post = id_to_post.get(pid)
+        if not post:
+            continue
+        t = casual_theme_of(post)
+        theme_counts[t] = theme_counts.get(t, 0) + 1
+
+    if not theme_counts:
+        return unused[0]
+
+    min_count = min(theme_counts.get(casual_theme_of(p), 0) for p in unused)
+    preferred = [
+        p for p in unused if theme_counts.get(casual_theme_of(p), 0) == min_count
+    ]
+    return preferred[0] if preferred else unused[0]
 
 
 def casual_remaining_count(extra_used: Set[str] | None = None) -> int:
     return len(unused_casual_posts(extra_used))
 
 
-def mark_casual_used(post_id: str) -> bool:
+def mark_casual_used(post_id: str, *, day: date | None = None) -> bool:
     """雑談IDを台帳に追加。変更があれば True。"""
     pid = str(post_id or "").strip()
     if not pid:
         return False
+    day = day or date.today()
     used = load_casual_used_ids()
-    if pid in used:
+    path = CASUAL_LEDGER_PATH
+    history: List[dict] = []
+    if path.is_file():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and isinstance(data.get("history"), list):
+                history = [h for h in data["history"] if isinstance(h, dict)]
+        except (OSError, json.JSONDecodeError):
+            history = []
+
+    changed = False
+    if pid not in used:
+        used.append(pid)
+        changed = True
+    day_s = day.isoformat()
+    if not any(
+        str(h.get("id") or "") == pid and str(h.get("date") or "") == day_s
+        for h in history
+    ):
+        history.append({"id": pid, "date": day_s})
+        changed = True
+    if not changed:
         return False
-    used.append(pid)
-    payload = {"used_ids": used}
-    CASUAL_LEDGER_PATH.write_text(
+    payload = {"used_ids": used, "history": history}
+    path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
@@ -1348,7 +1451,9 @@ def pick_post_for_slot(
                 file=sys.stderr,
             )
             return _pick_value_fallback(day, kind_index, per_day_kind, slot)
-        post = unused[0]
+        post = _pick_casual_for_day(
+            unused, session_used=session_used, pool=pool, day=day
+        )
         pid = str(post.get("id") or "")
         if session_used is not None and pid:
             session_used.add(pid)
