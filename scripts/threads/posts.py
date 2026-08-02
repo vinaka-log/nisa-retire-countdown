@@ -7,7 +7,8 @@
 雑談はギャル / 仕事憂鬱 / 筋トレ / どうでもいい の4系統。
 オチをきれいに着地させず、途中で終わる人間っぽい口調にする。
 雑談は casual_ledger.json で一度きり（使い回し禁止）。枯渇したら value にフォールバック。
-絵文字はハート系（💕❤️🫶等）を使わない。
+補充は chitchat_gen.py（完成文バンク・APIなし）。
+絵文字はハート／✨系を使わない。
 
 誘導枠のみ投資・シミュ話可。投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
 """
@@ -55,7 +56,7 @@ SLOT_LABELS = (
 
 # --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
 # 系統: gal / work / gym / nonsense。
-# 手書き + casual_generated.json（generate_casual.py / Actions 補充）。
+# 手書き + casual_generated.json（chitchat_gen.py / Actions 補充）。
 # 実行時は build_casual_posts() で結合。台帳で一度きり。
 CASUAL_HAND_POSTS: List[dict] = [
     # --- 承認済み8本 ---
@@ -1343,7 +1344,7 @@ def pick_post_for_slot(
         if not unused:
             print(
                 "WARNING: 雑談プール枯渇。再利用せず value にフォールバック。"
-                " python scripts/threads/generate_casual.py で補充してください。",
+                " python scripts/threads/chitchat_gen.py で補充してください。",
                 file=sys.stderr,
             )
             return _pick_value_fallback(day, kind_index, per_day_kind, slot)

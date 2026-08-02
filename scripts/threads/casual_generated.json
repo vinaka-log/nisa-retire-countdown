@@ -1,148 +1,220 @@
 {
   "posts": [
     {
-      "id": "cas-gen-nonsense-d65634fbd3",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "nonsense",
-      "text": "シャンプーとリンス、また順番逆\n黙ってリカバリーするしかない",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-gal-9215fc2e15",
+      "id": "cas-gen-gal-bad7f89950",
       "topic": "雑談",
       "kind": "casual",
       "theme": "gal",
-      "text": "カラー剤の匂いが服についてて一日中気になる\n明日の自分に丸投げする",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "白い服の日に限ってリップ落とすのなんで\n襟元見て発狂した",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     },
     {
-      "id": "cas-gen-gal-8767fedc8e",
+      "id": "cas-gen-gal-d23c0e350d",
       "topic": "雑談",
       "kind": "casual",
       "theme": "gal",
-      "text": "リップと服の色が喧嘩してるの鏡見て発覚\n自分で自分に呆れてる",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "カバンの中で化粧水あふれてた\n中ぐちゃぐちゃ、最悪",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     },
     {
-      "id": "cas-gen-nonsense-ededc50f15",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "nonsense",
-      "text": "コンビニの新作アイス、名前覚えられない\n言っても仕方ないやつなのに気になる",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-gym-c7f8becbc9",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "gym",
-      "text": "水分足りず頭くらくらになった\n効いてる証拠ってことにしとく",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-work-048911b9de",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "work",
-      "text": "定例なのにアジェンダ空っぽで入室した\n結局自分で抱えるやつ",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-work-6da91d1738",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "work",
-      "text": "在宅なのにスーツ上だけ着てる意味わからん自分\n結局自分で抱えるやつ",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-gym-e83e4dd6b4",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "gym",
-      "text": "今日のメニュー、やる気だけ先に帰宅した\n誰にも見られてないことにする",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-gal-faa7bb07ed",
+      "id": "cas-gen-gal-5f76d47fec",
       "topic": "雑談",
       "kind": "casual",
       "theme": "gal",
-      "text": "新しい香水、自分だけ匂わなすぎ問題\n明日の自分に丸投げする",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "今日のコーデ、靴だけ浮いてるの後から気づいた\n写真残してしまった",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     },
     {
-      "id": "cas-gen-gal-5001516ae7",
+      "id": "cas-gen-gal-7ac0106488",
       "topic": "雑談",
       "kind": "casual",
       "theme": "gal",
-      "text": "前髪切りすぎて前髪なし人生始まった\n会う予定なかったの不幸中の幸い",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "眉毛整えすぎた\n別人すぎて笑えない",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     },
     {
-      "id": "cas-gen-work-237d80188f",
+      "id": "cas-gen-gal-4bca70684a",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "カラー剤の匂いが服についてて一日中気になる\n自分だけかもなのに気になる",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gal-af44e67529",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gal",
+      "text": "ヘアオイルつけすぎて頭ぴかぴか\n電車の窓に映って発覚",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-work-43e84f7334",
       "topic": "雑談",
       "kind": "casual",
       "theme": "work",
-      "text": "Slack既読スルーされてる気がして胃が痛い\n気になって夜まで引きずるやつ",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "返信したつもりが下書きのまま残ってた\n相手どう思ってるんだろ",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     },
     {
-      "id": "cas-gen-gym-35a185b10b",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "gym",
-      "text": "マシンの使い方、隣の人見て学んでる\n続けてる自分えらい、で締める",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-nonsense-ff912d4e14",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "nonsense",
-      "text": "イヤホン左右どっちが右かわからんまま挿した\nもう二度とやりたくない",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-nonsense-45bed6a55c",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "nonsense",
-      "text": "鍵閉めたか不安で駅から戻った\n言っても仕方ないやつなのに気になる",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-gym-bd480dd801",
-      "topic": "雑談",
-      "kind": "casual",
-      "theme": "gym",
-      "text": "クールダウン飛ばして後悔してる\nプロテインの味だけが友達",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
-    },
-    {
-      "id": "cas-gen-work-6dd49aa364",
+      "id": "cas-gen-work-bdd783d8f3",
       "topic": "雑談",
       "kind": "casual",
       "theme": "work",
-      "text": "プリンター前で順番待ちしてる時間が長い\n誰か代わりに生きてほしい",
-      "source": "local",
-      "created_at": "2026-08-02T12:36:55Z"
+      "text": "会議室予約、終了時間だけ押してなかった\n次の人来て発覚",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-work-df24d14700",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "チャットの「了解です」打ちすぎて指が痛い\n今日の成果これだけかも",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-work-b9fd5e5e3f",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "Excelのフィルタ解除忘れて数字おかしく見えてた\n一瞬で焦った",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-work-fcb18140a8",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "画面共有で別タブ映った気がする\n確認する勇気がない",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-work-b204a31f23",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "work",
+      "text": "自分のカメラオフ忘れて変顔映ってた説ある\n誰も指摘してこないの逆に怖い",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-dadaac78cc",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "脚トレ後に階段登れなくて後輩に先に行かれた\nきつい…",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-5db42bd91a",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "腹筋ローラー、3回で人生終了した\n床に伏せたまましばらく動けず",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-81164bc79a",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "プロテインシェイカー洗わず放置してた\n蓋開けた瞬間終わった",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-f57d9a53bd",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "自宅トレ用マット、畳む気力がない\n床に出したまま翌日",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-d95db6e6e4",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "ランニングマシン速度上げすぎて降りられない\n緊急停止した",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-gym-509ce5b15a",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "gym",
+      "text": "今日は歩くだけでトレ扱いする日\nそれでいい日もある",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-4c3d7db972",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "傘、晴れだと忘れる雨だと持ってない\n法則すぎる",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-8eb5432376",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "エレベーターで押されてるボタンもう一回押してる\n押したあとの気まずい感じなんとかして",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-3eb7970a14",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "シャンプーとリンス、また順番逆\n気づくのいつも途中",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-1fc97904c3",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "靴下のゴムだけ先に寿命迎えてる\nかかと落ちる",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-b5d7e77903",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "カバンの中でイヤホン絡まりすぎ問題\n毎朝の儀式",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
+    },
+    {
+      "id": "cas-gen-nonsense-6237dc6570",
+      "topic": "雑談",
+      "kind": "casual",
+      "theme": "nonsense",
+      "text": "イヤホン左右どっちが右かわからんまま挿した\n音変で気づく",
+      "source": "chitchat_gen",
+      "created_at": "2026-08-02T12:40:00Z"
     }
   ]
 }

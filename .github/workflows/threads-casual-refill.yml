@@ -1,7 +1,6 @@
-name: Threads casual refill
+name: Threads chitchat_gen refill
 
-# 雑談プール（casual_generated.json）を APIなしで補充する（部品組み合わせ）。
-# 残数が閾値未満のときだけ生成し、main に commit/push する。
+# chitchat_gen で雑談を APIなし自動追加 → casual_generated.json を commit
 
 on:
   schedule:
@@ -10,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       force_count:
-        description: "0=refillロジック / 1以上=その件数を強制生成"
+        description: "0=refillロジック / 1以上=その件数を強制追加"
         required: false
         default: "0"
       dry_run:
@@ -31,7 +30,6 @@ jobs:
     env:
       TZ: Asia/Tokyo
       PYTHONPATH: scripts/threads
-      CASUAL_GEN_MODE: local
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,9 +41,9 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate casual posts (local, no API)
+      - name: Run chitchat_gen
         run: |
-          ARGS=(--mode local)
+          ARGS=()
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS+=(--dry-run)
           fi
@@ -58,9 +56,8 @@ jobs:
           else
             ARGS+=(--refill)
           fi
-          # 日付シードで週次の再現性を少し持たせる
           ARGS+=(--seed "$(date +%Y%m%d)")
-          python scripts/threads/generate_casual.py "${ARGS[@]}"
+          python scripts/threads/chitchat_gen.py "${ARGS[@]}"
 
       - name: Commit generated pool
         if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
@@ -72,6 +69,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add scripts/threads/casual_generated.json
-          git commit -m "chore(threads): refill generated casual posts (local)"
+          git commit -m "chore(threads): chitchat_gen refill"
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
