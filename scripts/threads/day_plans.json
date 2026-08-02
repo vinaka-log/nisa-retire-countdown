@@ -342,5 +342,175 @@
         "slot": 9
       }
     }
+  },
+  "2026-08-02": {
+    "date": "2026-08-02",
+    "flags": [
+      "gym_skipped_today"
+    ],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "cas-gal-mirror-light",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "家の照明だと盛れてるのに外の光で別人になるの\n照明詐欺やめてほしい",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-work-meeting-silence",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "「何かありますか？」のあとの無言\nあるけど言うほどじゃないやつどうすればいいの",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gym-scale",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "体重計乗ったら昨日より増えててやる気削られた\nむくみってことにしとく",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-gap-check",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「引退まであとどれくらい足りない？」即答できる人、意外と少ない🥹\n\nつみたて続けてても、ここが見えてないと不安は残りやすい💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "不安の正体、だいたい\n金額が見えてないことだったりする✨\n\n見るのはこのくらいで十分↓\n・いまの年齢\n・引退したい年齢\n・毎月の積立\n・想定利回り（幅でOK）\n・目標の取り崩しイメージ",
+          "並べると「感覚」が「距離」になるよ✨\n会員なし・概算・投資助言じゃないよ🥹\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "4": {
+        "id": "cas-nonsense-elevator",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "エレベーターで押されてるボタンもう一回押してる\n押したあとの気まずい0.5秒なんとかして",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gal-perfume",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "香水つけすぎた気がして電車でずっと気になってる\n周りに匂ってたらごめん",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-work-calendar",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "カレンダー開けたら今週水色多すぎて笑った\n笑う以外の処理方法教えて",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-role-split",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "売り込み投稿だけだと、フォローもクリックも続きにくい🥹\n\n大事なのは\n・悩みを言葉にする\n・考え方を渡す\n・小さな確認（数字）を届ける\n\nThreadsは気づき。確認の場所は分けた方がいいよ✨\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "確認用の無料シミュはここ✨\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "8": {
+        "id": "cas-gym-skip",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "今日ジム行く予定だったのに帰宅後ソファから動けず\n明日やる、たぶん",
+        "consistency": {
+          "sets": [
+            "gym_skipped_today"
+          ],
+          "forbids": [
+            "gym_done_today"
+          ],
+          "requires": [],
+          "time": "evening",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-nonsense-remote",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "リモコン探して10分、自分の尻の下にあった\n誰にも言えない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
