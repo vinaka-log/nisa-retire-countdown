@@ -1349,11 +1349,12 @@ def _pick_casual_for_day(
     day: date | None = None,
     slot: int = 0,
 ) -> dict:
-    """同日内の事実矛盾・時間帯・テーマ偏りを抑えて1本選ぶ。"""
+    """同日内の事実矛盾・曜日・時間帯・テーマ偏りを抑えて1本選ぶ。"""
     from casual_consistency import (
         flags_from_posts,
         is_flag_compatible,
         is_time_compatible,
+        is_weekday_compatible,
     )
 
     if not unused:
@@ -1366,21 +1367,28 @@ def _pick_casual_for_day(
     today_posts = [id_to_post[i] for i in today_ids if i in id_to_post]
     flags = flags_from_posts(today_posts)
 
-    flag_ok = [p for p in unused if is_flag_compatible(p, flags)]
+    weekday_ok = [p for p in unused if is_weekday_compatible(p, day)]
+    flag_ok = [p for p in weekday_ok if is_flag_compatible(p, flags)]
     timed = [
         p
         for p in flag_ok
         if is_time_compatible(p, slot, _SLOT_HOURS)
     ]
-    candidates = timed or flag_ok or unused
-    if not timed and flag_ok:
+    # 緩和順: 時間 → 事実 → 曜日 → 全部
+    candidates = timed or flag_ok or weekday_ok or unused
+    if not weekday_ok:
         print(
-            f"NOTE: slot={slot} 時間帯一致なし → 事実整合のみで選定",
+            f"WARNING: slot={slot} 曜日一致なし → 緩和して選定",
             file=sys.stderr,
         )
-    if not flag_ok:
+    elif not flag_ok:
         print(
             f"WARNING: slot={slot} 事実整合できる雑談なし → 緩和して選定",
+            file=sys.stderr,
+        )
+    elif not timed:
+        print(
+            f"NOTE: slot={slot} 時間帯一致なし → 事実・曜日整合のみで選定",
             file=sys.stderr,
         )
 

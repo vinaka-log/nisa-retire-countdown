@@ -1,17 +1,35 @@
-"""同日内の雑談整合性（矛盾する事実・時間帯の衝突を防ぐ）.
+"""同日内の雑談整合性（矛盾する事実・時間帯・曜日の衝突を防ぐ）.
 
 各投稿は flags を sets / forbids で持ち、当日すでに立っている flags と衝突したら選ばない。
-時間帯 (morning / daytime / evening) もソフト制約として使う。
+時間帯 (morning / daytime / evening) と曜日も制約として使う。
 """
 
 from __future__ import annotations
 
-from typing import Dict, Iterable, List, Set
+from datetime import date
+from typing import Dict, Iterable, List, Optional, Set
 
 # 相互排他（片方が立っていたら、もう片方を sets する投稿は不可）
 _EXCLUSIVE_PAIRS = (
     ("gym_skipped_today", "gym_done_today"),
     ("wfh_today", "at_office_today"),
+)
+
+_WEEKDAY_TOKENS = (
+    ("月曜日", 0),
+    ("火曜", 1),
+    ("火曜日", 1),
+    ("水曜", 2),
+    ("水曜日", 2),
+    ("木曜", 3),
+    ("木曜日", 3),
+    ("金曜", 4),
+    ("金曜日", 4),
+    ("土曜", 5),
+    ("土曜日", 5),
+    ("日曜", 6),
+    ("日曜日", 6),
+    ("月曜", 0),
 )
 
 
@@ -31,6 +49,7 @@ def infer_consistency(text: str) -> Dict[str, object]:
     sets: List[str] = []
     forbids: List[str] = []
     time = "any"
+    weekdays: Optional[List[int]] = None
 
     yesterday_workout = ("昨日" in text) and any(
         k in text for k in ("脚トレ", "トレ", "ジム", "筋肉痛")
@@ -91,7 +110,17 @@ def infer_consistency(text: str) -> Dict[str, object]:
             sets.append("at_office_today")
             forbids.append("wfh_today")
 
-    return {"sets": sets, "forbids": forbids, "time": time}
+    for token, dow in sorted(_WEEKDAY_TOKENS, key=lambda x: -len(x[0])):
+        if token in text:
+            weekdays = [dow]
+            break
+
+    return {
+        "sets": sets,
+        "forbids": forbids,
+        "time": time,
+        "weekdays": weekdays,
+    }
 
 
 def resolve_consistency(post: dict) -> Dict[str, object]:
@@ -103,6 +132,7 @@ def resolve_consistency(post: dict) -> Dict[str, object]:
     sets = explicit.get("sets")
     forbids = explicit.get("forbids")
     time = explicit.get("time")
+    weekdays = explicit.get("weekdays")
 
     return {
         "sets": list(sets) if isinstance(sets, list) else list(inferred["sets"]),  # type: ignore[index]
@@ -110,6 +140,9 @@ def resolve_consistency(post: dict) -> Dict[str, object]:
         if isinstance(forbids, list)
         else list(inferred["forbids"]),  # type: ignore[index]
         "time": str(time) if time else str(inferred["time"]),
+        "weekdays": list(weekdays)
+        if isinstance(weekdays, list)
+        else inferred["weekdays"],
     }
 
 
@@ -137,13 +170,8 @@ def is_flag_compatible(post: dict, existing_flags: Set[str]) -> bool:
     if forbids & existing_flags:
         return False
     for flag in cons["sets"]:  # type: ignore[index]
-        f = str(flag)
-        if _exclusive_blocks(f, existing_flags):
+        if _exclusive_blocks(str(flag), existing_flags):
             return False
-        # 既存が forbid 相当: 既に反対側が立っている
-        if f in existing_flags:
-            # 同じ flag の再セットは許容
-            continue
     return True
 
 
@@ -153,3 +181,17 @@ def is_time_compatible(post: dict, slot: int, slot_hours: Iterable[float]) -> bo
     if want == "any":
         return True
     return want == slot_time_bucket(slot, slot_hours)
+
+
+def is_weekday_compatible(post: dict, day: date | None) -> bool:
+    if day is None:
+        return True
+    cons = resolve_consistency(post)
+    weekdays = cons.get("weekdays")
+    if not weekdays:
+        return True
+    try:
+        allowed = {int(x) for x in weekdays}  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return True
+    return day.weekday() in allowed
