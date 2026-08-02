@@ -6,6 +6,7 @@
 
 雑談はギャル / 仕事憂鬱 / 筋トレ / どうでもいい の4系統。
 オチをきれいに着地させず、途中で終わる人間っぽい口調にする。
+雑談は casual_ledger.json で一度きり（使い回し禁止）。枯渇したら value にフォールバック。
 絵文字はハート系（💕❤️🫶等）を使わない。
 
 誘導枠のみ投資・シミュ話可。投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
@@ -13,11 +14,15 @@
 
 from __future__ import annotations
 
+import json
+import sys
 from datetime import date
-from typing import List, Sequence
+from pathlib import Path
+from typing import List, Sequence, Set
 
 SITE_URL = "https://www.nisa-simulation.com"
 THREADS_TEXT_LIMIT = 500
+CASUAL_LEDGER_PATH = Path(__file__).resolve().parent / "casual_ledger.json"
 
 # 日内枠（JST）: casual=雑談 / cta=リプ末尾にURL
 POSTS_PER_DAY = 10
@@ -1180,13 +1185,80 @@ def _hydrate(post: dict, *, index: int | None = None, slot: int | None = None) -
     return out
 
 
-def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
-    """枠の kind（casual/cta/value/num）に応じたプール/生成からローテ選択。
+def load_casual_used_ids() -> List[str]:
+    """使用済み雑談ID（一度きり・再利用禁止）。"""
+    path = CASUAL_LEDGER_PATH
+    if not path.is_file():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    raw = data.get("used_ids") if isinstance(data, dict) else None
+    if not isinstance(raw, list):
+        return []
+    out: List[str] = []
+    seen: Set[str] = set()
+    for item in raw:
+        pid = str(item).strip()
+        if pid and pid not in seen:
+            seen.add(pid)
+            out.append(pid)
+    return out
 
-    casual は CASUAL_POSTS を日付シフトで回す（同じ時刻に同じ文が固定されない）。
-    cta は CTA_POSTS。
-    value は約1/3を失敗談（FAIL_STORY_POSTS）にする（枠復帰時用）。
-    num は num_posts.py がパラメータから毎回計算生成する（枠復帰時用）。
+
+def unused_casual_posts(extra_used: Set[str] | None = None) -> List[dict]:
+    used = set(load_casual_used_ids()) | (extra_used or set())
+    return [p for p in CASUAL_POSTS if str(p.get("id") or "") not in used]
+
+
+def casual_remaining_count(extra_used: Set[str] | None = None) -> int:
+    return len(unused_casual_posts(extra_used))
+
+
+def mark_casual_used(post_id: str) -> bool:
+    """雑談IDを台帳に追加。変更があれば True。"""
+    pid = str(post_id or "").strip()
+    if not pid:
+        return False
+    used = load_casual_used_ids()
+    if pid in used:
+        return False
+    used.append(pid)
+    payload = {"used_ids": used}
+    CASUAL_LEDGER_PATH.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return True
+
+
+def _pick_value_fallback(day: date, kind_index: int, per_day_kind: int, slot: int) -> dict:
+    emit = day.toordinal() * max(per_day_kind, 1) + kind_index
+    if FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
+        pool = FAIL_STORY_POSTS
+        index = (emit // _FAIL_STORY_EVERY_N) % len(pool)
+    else:
+        pool = VALUE_POSTS
+        index = emit % len(pool)
+    out = _hydrate(pool[index], index=index, slot=slot)
+    out["kind"] = "value"
+    out["casual_exhausted"] = True
+    return out
+
+
+def pick_post_for_slot(
+    day: date | None = None,
+    slot: int = 0,
+    *,
+    session_used: Set[str] | None = None,
+) -> dict:
+    """枠の kind（casual/cta/value/num）に応じたプール/生成から選択。
+
+    casual は台帳で一度きり（再利用しない）。未使用の先頭から消化。
+    日内プレビューは session_used に逐次 add して同じIDを返さない。
+    プール枯渇時は value/失敗談にフォールバック（雑談の使い回しはしない）。
+    cta は CTA_POSTS ローテ。
     """
     day = day or date.today()
     slot = max(0, min(POSTS_PER_DAY - 1, int(slot)))
@@ -1203,10 +1275,25 @@ def pick_post_for_slot(day: date | None = None, slot: int = 0) -> dict:
         )
 
     if kind == "casual":
-        pool = CASUAL_POSTS
-        # 日付で開始位置をずらし、枠内では連番で取る（日内の被り防止）
-        index = (day.toordinal() + kind_index) % len(pool)
-    elif kind == "cta":
+        unused = unused_casual_posts(session_used)
+        if not unused:
+            print(
+                "WARNING: CASUAL_POSTS が枯渇。雑談は再利用せず value にフォールバック。"
+                " posts.py に新規雑談を追加してください。",
+                file=sys.stderr,
+            )
+            return _pick_value_fallback(day, kind_index, per_day_kind, slot)
+        post = unused[0]
+        pid = str(post.get("id") or "")
+        if session_used is not None and pid:
+            session_used.add(pid)
+        index = next(
+            (i for i, p in enumerate(CASUAL_POSTS) if p.get("id") == pid),
+            None,
+        )
+        return _hydrate(post, index=index, slot=slot)
+
+    if kind == "cta":
         pool = CTA_POSTS
         index = emit % len(pool)
     elif FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:

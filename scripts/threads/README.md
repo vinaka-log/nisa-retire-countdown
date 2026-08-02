@@ -134,6 +134,8 @@ python scripts/threads/post.py --publish
 - `kind=casual` … **1投稿完結・URLなし**。ギャル / 仕事憂鬱 / 筋トレ / どうでもいい雑談  
   - オチをきれいに着地させない。途中で終わる口調  
   - ハート系絵文字は使わない  
+  - **一度きり**: 投稿成功後に [`casual_ledger.json`](./casual_ledger.json) へ記録し、再利用しない  
+  - 枯渇時は value にフォールバック（使い回しはしない）。定期的に `CASUAL_POSTS` へ追記すること  
 - `kind=cta` … `text` + `replies`（推奨）または `reply`（単発）  
   - 本投稿末尾に **「続きはリプ👇」**  
   - 自分リプは **フック本投稿 → 教育リプ → 最終リプにURL** の連鎖可  

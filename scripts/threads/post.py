@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from client import ThreadsApiError, ThreadsClient  # noqa: E402
 from posts import (  # noqa: E402
     all_posts,
+    mark_casual_used,
     pick_post_by_id,
     pick_post_for_slot,
     slot_from_hour,
@@ -132,6 +133,11 @@ async def main_async(args: argparse.Namespace) -> int:
         return 1
 
     print(f"PUBLISHED: {result.post_ids}")
+    if post.get("kind") == "casual" or str(post.get("id") or "").startswith("cas-"):
+        if mark_casual_used(str(post["id"])):
+            print(f"LEDGER: marked casual used id={post['id']}")
+        else:
+            print(f"LEDGER: already used id={post['id']}")
     if result.warnings:
         for w in result.warnings:
             print(f"WARNING: {w}", file=sys.stderr)
