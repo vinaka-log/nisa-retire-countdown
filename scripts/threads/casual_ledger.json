@@ -1,10 +1,15 @@
 {
   "used_ids": [
-    "cas-gym-skip"
+    "cas-gym-skip",
+    "cas-nonsense-remote"
   ],
   "history": [
     {
       "id": "cas-gym-skip",
+      "date": "2026-08-02"
+    },
+    {
+      "id": "cas-nonsense-remote",
       "date": "2026-08-02"
     }
   ]
