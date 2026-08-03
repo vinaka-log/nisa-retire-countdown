@@ -5,7 +5,8 @@
     "cas-gym-home-squat",
     "cas-nonsense-ice",
     "cas-gal-lash-crush",
-    "cas-work-de"
+    "cas-work-de",
+    "cas-nonsense-laundry"
   ],
   "history": [
     {
@@ -30,6 +31,10 @@
     },
     {
       "id": "cas-work-de",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "cas-nonsense-laundry",
       "date": "2026-08-03"
     }
   ]
