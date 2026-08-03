@@ -4,7 +4,8 @@
     "cas-nonsense-remote",
     "cas-gym-home-squat",
     "cas-nonsense-ice",
-    "cas-gal-lash-crush"
+    "cas-gal-lash-crush",
+    "cas-work-de"
   ],
   "history": [
     {
@@ -25,6 +26,10 @@
     },
     {
       "id": "cas-gal-lash-crush",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "cas-work-de",
       "date": "2026-08-03"
     }
   ]
