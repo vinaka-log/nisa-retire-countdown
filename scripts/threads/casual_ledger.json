@@ -7,7 +7,8 @@
     "cas-gal-lash-crush",
     "cas-work-de",
     "cas-nonsense-laundry",
-    "cas-work-dinner-think"
+    "cas-work-dinner-think",
+    "cas-gal-lip-stain"
   ],
   "history": [
     {
@@ -40,6 +41,10 @@
     },
     {
       "id": "cas-work-dinner-think",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "cas-gal-lip-stain",
       "date": "2026-08-03"
     }
   ]
