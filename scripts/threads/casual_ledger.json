@@ -6,7 +6,8 @@
     "cas-nonsense-ice",
     "cas-gal-lash-crush",
     "cas-work-de",
-    "cas-nonsense-laundry"
+    "cas-nonsense-laundry",
+    "cas-work-dinner-think"
   ],
   "history": [
     {
@@ -35,6 +36,10 @@
     },
     {
       "id": "cas-nonsense-laundry",
+      "date": "2026-08-03"
+    },
+    {
+      "id": "cas-work-dinner-think",
       "date": "2026-08-03"
     }
   ]
