@@ -8,7 +8,8 @@
     "cas-work-de",
     "cas-nonsense-laundry",
     "cas-work-dinner-think",
-    "cas-gal-lip-stain"
+    "cas-gal-lip-stain",
+    "cas-nonsense-cable"
   ],
   "history": [
     {
@@ -46,6 +47,10 @@
     {
       "id": "cas-gal-lip-stain",
       "date": "2026-08-03"
+    },
+    {
+      "id": "cas-nonsense-cable",
+      "date": "2026-08-04"
     }
   ]
 }
