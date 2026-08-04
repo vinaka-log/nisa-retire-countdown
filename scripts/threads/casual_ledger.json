@@ -18,7 +18,8 @@
     "cas-work-ato-kore",
     "cas-gym-form",
     "cas-gen-work-43e84f7334",
-    "cas-gym-stairs"
+    "cas-gym-stairs",
+    "cas-gal-heels"
   ],
   "history": [
     {
@@ -95,6 +96,10 @@
     },
     {
       "id": "cas-gym-stairs",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "cas-gal-heels",
       "date": "2026-08-05"
     }
   ]
