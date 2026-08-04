@@ -11,7 +11,8 @@
     "cas-gal-lip-stain",
     "cas-nonsense-cable",
     "cas-gal-contact-one",
-    "cas-work-teams-ping"
+    "cas-work-teams-ping",
+    "cas-gym-hip-thrust"
   ],
   "history": [
     {
@@ -60,6 +61,10 @@
     },
     {
       "id": "cas-work-teams-ping",
+      "date": "2026-08-04"
+    },
+    {
+      "id": "cas-gym-hip-thrust",
       "date": "2026-08-04"
     }
   ]
