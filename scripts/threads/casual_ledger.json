@@ -13,7 +13,8 @@
     "cas-gal-contact-one",
     "cas-work-teams-ping",
     "cas-gym-hip-thrust",
-    "cas-nonsense-towel"
+    "cas-nonsense-towel",
+    "cas-gal-hair-color"
   ],
   "history": [
     {
@@ -70,6 +71,10 @@
     },
     {
       "id": "cas-nonsense-towel",
+      "date": "2026-08-04"
+    },
+    {
+      "id": "cas-gal-hair-color",
       "date": "2026-08-04"
     }
   ]
