@@ -12,7 +12,8 @@
     "cas-nonsense-cable",
     "cas-gal-contact-one",
     "cas-work-teams-ping",
-    "cas-gym-hip-thrust"
+    "cas-gym-hip-thrust",
+    "cas-nonsense-towel"
   ],
   "history": [
     {
@@ -65,6 +66,10 @@
     },
     {
       "id": "cas-gym-hip-thrust",
+      "date": "2026-08-04"
+    },
+    {
+      "id": "cas-nonsense-towel",
       "date": "2026-08-04"
     }
   ]
