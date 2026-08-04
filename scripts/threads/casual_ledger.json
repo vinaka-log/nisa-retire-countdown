@@ -17,7 +17,8 @@
     "cas-gal-hair-color",
     "cas-work-ato-kore",
     "cas-gym-form",
-    "cas-gen-work-43e84f7334"
+    "cas-gen-work-43e84f7334",
+    "cas-gym-stairs"
   ],
   "history": [
     {
@@ -90,6 +91,10 @@
     },
     {
       "id": "cas-gen-work-43e84f7334",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "cas-gym-stairs",
       "date": "2026-08-05"
     }
   ]
