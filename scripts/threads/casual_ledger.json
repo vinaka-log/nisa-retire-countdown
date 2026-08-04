@@ -16,7 +16,8 @@
     "cas-nonsense-towel",
     "cas-gal-hair-color",
     "cas-work-ato-kore",
-    "cas-gym-form"
+    "cas-gym-form",
+    "cas-gen-work-43e84f7334"
   ],
   "history": [
     {
@@ -86,6 +87,10 @@
     {
       "id": "cas-gym-form",
       "date": "2026-08-04"
+    },
+    {
+      "id": "cas-gen-work-43e84f7334",
+      "date": "2026-08-05"
     }
   ]
 }

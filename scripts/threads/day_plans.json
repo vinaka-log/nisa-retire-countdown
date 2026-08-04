@@ -512,5 +512,183 @@
         "slot": 9
       }
     }
+  },
+  "2026-08-05": {
+    "date": "2026-08-05",
+    "flags": [
+      "at_office_today"
+    ],
+    "yesterday_flags_carried": [
+      "gym_done_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "cas-gym-stairs",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "昨日の脚トレのせいだと思うけど、階段で足ガクガク\n後輩に先に行かれた",
+        "consistency": {
+          "sets": [
+            "at_office_today"
+          ],
+          "forbids": [
+            "wfh_today",
+            "gym_skipped_yesterday"
+          ],
+          "requires": [
+            "gym_done_yesterday"
+          ],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-gal-heels",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "ヒール履いて出たけど駅ついた時点で限界\n帰りフラットに履き替えた、正解",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-nonsense-sock",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "靴下片方だけ洗濯機から出てこない問題\n異次元に行ってる説ある",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-sim-soft",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "シミュは占いじゃない。でも感覚はかなりはっきりする✨\n\nまず距離を知る。口座やカードはそのあとで十分🙌\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "年齢・積立・利回り・目標を入れるだけで\n不足額の概算は出せるよ✨\n会員登録なしで試せるよ🥹\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "4": {
+        "id": "cas-work-lunch-solo",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "昼休みスマホ見ながら一人飯してる時間だけが生きてる実感ある\n午後また別人になる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "daytime",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gym-glute-band",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "ゴムバンド使った尻トレ、翌日歩けん\nでもジーンズのフィット感は好き",
+        "consistency": {
+          "sets": [],
+          "forbids": [
+            "gym_skipped_yesterday"
+          ],
+          "requires": [
+            "gym_done_yesterday"
+          ],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-nonsense-tab",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "",
+        "text": "スマホのタブ開きすぎてどれが何だか分からん\n全部閉じる勇気もない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-retire-age",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "引退年齢、何歳に置いてる？ここ1つでギャップ変わる🥹\n\n積立だけがレバーじゃないよ💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "年数を動かしてから、必要額を見直すのもあり✨\n\n動かして見る入口はここ🙌\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "8": {
+        "id": "cas-gen-gal-bad7f89950",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "白い服の日に限ってリップ落とすのなんで\n襟元見て発狂した",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-gen-work-43e84f7334",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "返信したつもりが下書きのまま残ってた\n相手どう思ってるんだろ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
