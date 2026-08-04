@@ -14,7 +14,8 @@
     "cas-work-teams-ping",
     "cas-gym-hip-thrust",
     "cas-nonsense-towel",
-    "cas-gal-hair-color"
+    "cas-gal-hair-color",
+    "cas-work-ato-kore"
   ],
   "history": [
     {
@@ -75,6 +76,10 @@
     },
     {
       "id": "cas-gal-hair-color",
+      "date": "2026-08-04"
+    },
+    {
+      "id": "cas-work-ato-kore",
       "date": "2026-08-04"
     }
   ]
