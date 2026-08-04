@@ -10,7 +10,8 @@
     "cas-work-dinner-think",
     "cas-gal-lip-stain",
     "cas-nonsense-cable",
-    "cas-gal-contact-one"
+    "cas-gal-contact-one",
+    "cas-work-teams-ping"
   ],
   "history": [
     {
@@ -55,6 +56,10 @@
     },
     {
       "id": "cas-gal-contact-one",
+      "date": "2026-08-04"
+    },
+    {
+      "id": "cas-work-teams-ping",
       "date": "2026-08-04"
     }
   ]
