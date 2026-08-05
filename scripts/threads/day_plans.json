@@ -690,5 +690,187 @@
         "slot": 9
       }
     }
+  },
+  "2026-08-06": {
+    "date": "2026-08-06",
+    "flags": [
+      "at_office_today",
+      "gym_done_today"
+    ],
+    "yesterday_flags_carried": [
+      "at_office_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "cas-gen-gal-d23c0e350d",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "カバンの中で化粧水あふれてた\n中ぐちゃぐちゃ、最悪",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-gen-work-bdd783d8f3",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "会議室予約、終了時間だけ押してなかった\n次の人来て発覚",
+        "consistency": {
+          "sets": [
+            "at_office_today"
+          ],
+          "forbids": [
+            "wfh_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gen-gym-dadaac78cc",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "脚トレ後に階段登れなくて後輩に先に行かれた\nきつい…",
+        "consistency": {
+          "sets": [
+            "gym_done_today"
+          ],
+          "forbids": [
+            "gym_skipped_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-anxiety-chain",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "積立続いてるのに不安が消えない人、だいたい足りない額を出してない🥹\n\n銘柄比較より先に、距離を見る方が効くことが多い💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "おすすめの順番は\nギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n全部いっぺんに変えなくて大丈夫✨",
+          "距離の確認、無料シミュはここから🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "4": {
+        "id": "cas-gen-nonsense-4c3d7db972",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "傘、晴れだと忘れる雨だと持ってない\n法則すぎる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gen-gal-5f76d47fec",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "今日のコーデ、靴だけ浮いてるの後から気づいた\n写真残してしまった",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-gen-work-df24d14700",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "チャットの「了解です」打ちすぎて指が痛い\n今日の成果これだけかも",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-4pct-guide",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「いくら持つか」だけ見てると、月いくら使えそうかがぼやける🥹\n\n総額→月の感覚にすると、ギャップが具体的になる💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "取り崩しの粗いイメージとして\n年4%÷12 みたいな見方があるよ✨\n\n保証じゃない。でも感覚のたたき台にはなる✨",
+          "考え方の整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/4-percent-rule"
+        ]
+      },
+      "8": {
+        "id": "cas-gen-gym-5db42bd91a",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "腹筋ローラー、3回で人生終了した\n床に伏せたまましばらく動けず",
+        "consistency": {
+          "sets": [
+            "gym_done_today"
+          ],
+          "forbids": [
+            "gym_skipped_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-gen-nonsense-8eb5432376",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "エレベーターで押されてるボタンもう一回押してる\n押したあとの気まずい感じなんとかして",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
