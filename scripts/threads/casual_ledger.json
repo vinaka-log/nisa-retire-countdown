@@ -21,7 +21,8 @@
     "cas-gym-stairs",
     "cas-gal-heels",
     "cas-nonsense-sock",
-    "cas-work-lunch-solo"
+    "cas-work-lunch-solo",
+    "cas-gym-glute-band"
   ],
   "history": [
     {
@@ -110,6 +111,10 @@
     },
     {
       "id": "cas-work-lunch-solo",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "cas-gym-glute-band",
       "date": "2026-08-05"
     }
   ]
