@@ -20,7 +20,8 @@
     "cas-gen-work-43e84f7334",
     "cas-gym-stairs",
     "cas-gal-heels",
-    "cas-nonsense-sock"
+    "cas-nonsense-sock",
+    "cas-work-lunch-solo"
   ],
   "history": [
     {
@@ -105,6 +106,10 @@
     },
     {
       "id": "cas-nonsense-sock",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "cas-work-lunch-solo",
       "date": "2026-08-05"
     }
   ]
