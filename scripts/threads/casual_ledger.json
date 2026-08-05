@@ -19,7 +19,8 @@
     "cas-gym-form",
     "cas-gen-work-43e84f7334",
     "cas-gym-stairs",
-    "cas-gal-heels"
+    "cas-gal-heels",
+    "cas-nonsense-sock"
   ],
   "history": [
     {
@@ -100,6 +101,10 @@
     },
     {
       "id": "cas-gal-heels",
+      "date": "2026-08-05"
+    },
+    {
+      "id": "cas-nonsense-sock",
       "date": "2026-08-05"
     }
   ]
