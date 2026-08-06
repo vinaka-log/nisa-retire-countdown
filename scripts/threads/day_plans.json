@@ -872,5 +872,179 @@
         "slot": 9
       }
     }
+  },
+  "2026-08-07": {
+    "date": "2026-08-07",
+    "flags": [],
+    "yesterday_flags_carried": [
+      "at_office_yesterday",
+      "gym_done_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "cas-gal-nail-book",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "ネイルサロン予約したのに日程間違えとる\n来週の金曜じゃなくて再来週だった…金どぶ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": [
+            4
+          ]
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-gen-work-b9fd5e5e3f",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "Excelのフィルタ解除忘れて数字おかしく見えてた\n一瞬で焦った",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gen-gym-81164bc79a",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "プロテインシェイカー洗わず放置してた\n蓋開けた瞬間終わった",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-retirement-funds",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "老後資金いくら必要？万人共通の正解を探すと迷子🥹\n\nたたき台はシンプルでいい💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\n完璧な表より、一度出した数字の方が動けるよ✨",
+          "目安の考え方はここから🙌\n\nhttps://www.nisa-simulation.com/guides/retirement-funds"
+        ]
+      },
+      "4": {
+        "id": "cas-gen-nonsense-3eb7970a14",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "シャンプーとリンス、また順番逆\n気づくのいつも途中",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gen-gal-7ac0106488",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "眉毛整えすぎた\n別人すぎて笑えない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-gen-work-fcb18140a8",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "画面共有で別タブ映った気がする\n確認する勇気がない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-nisa-basics",
+        "kind": "cta",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "つみたて／成長で迷うとき、先に枠の地図だけ持っておくと楽🥹\n\n枠は上限。ギャップは別計算✨\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "制度の基本とシミュの関係を分けて見ると\n迷子になりにくいよ✨",
+          "枠の基本はここ🙌\n\nhttps://www.nisa-simulation.com/guides/new-nisa-basics"
+        ]
+      },
+      "8": {
+        "id": "cas-gen-gym-f57d9a53bd",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "自宅トレ用マット、畳む気力がない\n床に出したまま翌日",
+        "consistency": {
+          "sets": [],
+          "forbids": [
+            "gym_skipped_yesterday"
+          ],
+          "requires": [
+            "gym_done_yesterday"
+          ],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-gen-nonsense-1fc97904c3",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "靴下のゴムだけ先に寿命迎えてる\nかかと落ちる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
