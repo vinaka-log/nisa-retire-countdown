@@ -39,7 +39,8 @@
     "cas-gen-gym-81164bc79a",
     "cas-gen-nonsense-3eb7970a14",
     "cas-gen-gal-7ac0106488",
-    "cas-gen-work-fcb18140a8"
+    "cas-gen-work-fcb18140a8",
+    "cas-gen-gym-f57d9a53bd"
   ],
   "history": [
     {
@@ -200,6 +201,10 @@
     },
     {
       "id": "cas-gen-work-fcb18140a8",
+      "date": "2026-08-07"
+    },
+    {
+      "id": "cas-gen-gym-f57d9a53bd",
       "date": "2026-08-07"
     }
   ]
