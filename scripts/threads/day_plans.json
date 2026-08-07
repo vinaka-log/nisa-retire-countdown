@@ -1046,5 +1046,183 @@
         "slot": 9
       }
     }
+  },
+  "2026-08-08": {
+    "date": "2026-08-08",
+    "flags": [
+      "gym_done_today",
+      "gym_skipped_today"
+    ],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "cas-gen-gal-4bca70684a",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "カラー剤の匂いが服についてて一日中気になる\n自分だけかもなのに気になる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-gen-work-b204a31f23",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "自分のカメラオフ忘れて変顔映ってた説ある\n誰も指摘してこないの逆に怖い",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-gen-gym-d95db6e6e4",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "ランニングマシン速度上げすぎて降りられない\n緊急停止した",
+        "consistency": {
+          "sets": [
+            "gym_done_today"
+          ],
+          "forbids": [
+            "gym_skipped_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "cta-nisa-ideco",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "NISAとiDeCo、どっちがいい？より「使い方に合うか」🥹\n\n儲かる比較より、用途の切り分けが先💭\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "replies": [
+          "途中で使うかも → 流動性も意識\n老後まで触らない → 置き方が変わる✨",
+          "違いの整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/nisa-vs-ideco"
+        ]
+      },
+      "4": {
+        "id": "cas-gen-nonsense-b5d7e77903",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "カバンの中でイヤホン絡まりすぎ問題\n毎朝の儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "cas-gen-gal-af44e67529",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "ヘアオイルつけすぎて頭ぴかぴか\n電車の窓に映って発覚",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-gen-nonsense-6237dc6570",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "イヤホン左右どっちが右かわからんまま挿した\n音変で気づく",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cta-faq",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "シミュの数字、どこまで信じていい？って質問、けっこう来る🥹\n\n答えはシンプル。概算・比較用。投資助言じゃない✨\n\n続きはリプ👇",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "replies": [
+          "精度・4%・想定年利の置き方など\nよくある疑問はまとめてあるよ✨",
+          "FAQはここから🙌\n\nhttps://www.nisa-simulation.com/faq"
+        ]
+      },
+      "8": {
+        "id": "cas-gen-gym-509ce5b15a",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "今日は歩くだけでトレ扱いする日\nそれでいい日もある",
+        "consistency": {
+          "sets": [
+            "gym_skipped_today"
+          ],
+          "forbids": [
+            "gym_done_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-work-monday-stomach",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "月曜朝、目覚ましより先に胃が重い\n身体が先に仕事拒否してる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "morning",
+          "weekdays": [
+            0
+          ]
+        },
+        "slot": 9
+      }
+    }
   }
 }
