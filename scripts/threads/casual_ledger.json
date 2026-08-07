@@ -41,7 +41,8 @@
     "cas-gen-gal-7ac0106488",
     "cas-gen-work-fcb18140a8",
     "cas-gen-gym-f57d9a53bd",
-    "cas-gen-gal-4bca70684a"
+    "cas-gen-gal-4bca70684a",
+    "cas-gen-work-b204a31f23"
   ],
   "history": [
     {
@@ -210,6 +211,10 @@
     },
     {
       "id": "cas-gen-gal-4bca70684a",
+      "date": "2026-08-08"
+    },
+    {
+      "id": "cas-gen-work-b204a31f23",
       "date": "2026-08-08"
     }
   ]
