@@ -33,7 +33,8 @@
     "cas-gen-gal-5f76d47fec",
     "cas-gen-work-df24d14700",
     "cas-gen-gym-5db42bd91a",
-    "cas-gen-nonsense-1fc97904c3"
+    "cas-gen-nonsense-1fc97904c3",
+    "cas-gal-nail-book"
   ],
   "history": [
     {
@@ -170,6 +171,10 @@
     },
     {
       "id": "cas-gen-nonsense-1fc97904c3",
+      "date": "2026-08-07"
+    },
+    {
+      "id": "cas-gal-nail-book",
       "date": "2026-08-07"
     }
   ]
