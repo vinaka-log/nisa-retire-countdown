@@ -4,7 +4,8 @@
     "ogiri-chihiro-stop-frog",
     "ogiri-fin-chihiro-coupon",
     "ogiri-chihiro-yubaba-bill",
-    "ogiri-fin-chihiro-noface"
+    "ogiri-fin-chihiro-noface",
+    "ogiri-chihiro-noface"
   ],
   "history": [
     {
@@ -26,6 +27,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-08"
+    },
+    {
+      "id": "ogiri-chihiro-noface",
+      "date": "2026-08-09"
     }
   ]
 }

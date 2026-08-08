@@ -1230,5 +1230,191 @@
         ]
       }
     }
+  },
+  "2026-08-09": {
+    "date": "2026-08-09",
+    "schedule": "D-ogiri10",
+    "flags": [
+      "gym_skipped_today"
+    ],
+    "yesterday_flags_carried": [
+      "gym_done_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-noface",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "会話に入れず、橋の上で立ち尽くす飲み会の自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-kitchen",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "給料日前、冷蔵庫の残り物でやりくりしてる厨房感",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro030.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "cas-gen-gal-af44e67529",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "ヘアオイルつけすぎて頭ぴかぴか\n電車の窓に映って発覚",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "ogiri-chihiro-noface-gift",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "いらないのに、大量にもらって困ってる時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro025.jpg",
+        "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-totoro-bus",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "積立日、何もしてないのに勝手に引かれてる安心感",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/totoro001.jpg",
+        "film": "totoro"
+      },
+      "5": {
+        "id": "cta-gap-check",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「引退まであとどれくらい足りない？」即答できる人、意外と少ない🥹\n\nつみたて続けてても不安が残るとき、\nだいたい足りないのはこの1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "「足りない額」を一度も数字で出してないこと💭\n\n見るのはこのくらいで十分↓\n・いまの年齢\n・引退したい年齢\n・毎月の積立\n・想定利回り（幅でOK）\n・目標の取り崩しイメージ\n\nいま、足りない額って数字で言える？",
+          "並べると感覚が距離になるよ✨\n会員なし・概算・投資助言じゃないよ🥹\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "cas-gen-gym-509ce5b15a",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "今日は歩くだけでトレ扱いする日\nそれでいい日もある",
+        "consistency": {
+          "sets": [
+            "gym_skipped_today"
+          ],
+          "forbids": [
+            "gym_done_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "ogiri-chihiro-kitchen",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "ランチピークの厨房、笑顔だけが元気な人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "daytime",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro030.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-totoro-rain",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "値上げラッシュのスーパー、カゴの中身は同じなのに合計だけ増えてる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/totoro012.jpg",
+        "film": "totoro"
+      },
+      "9": {
+        "id": "cta-distance-first",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "口座比較のタブ開きすぎて疲れる人へ🥹\n\n比較表より先に見た方がいいもの、1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "足りない距離（ギャップ）です💭\n\nおすすめの順番は\nギャップ確認 → レバー1つ動かす → 必要なら選択肢✨\n\n全部いっぺんに変えなくて大丈夫\n\nいま調べてるの、数字？口座条件？",
+          "距離の確認、無料で試せるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      }
+    }
   }
 }
