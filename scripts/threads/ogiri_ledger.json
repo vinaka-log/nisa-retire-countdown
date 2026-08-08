@@ -1,4 +1,11 @@
 {
-  "used_ids": [],
-  "history": []
+  "used_ids": [
+    "ogiri-chihiro-car-sulk"
+  ],
+  "history": [
+    {
+      "id": "ogiri-chihiro-car-sulk",
+      "date": "2026-08-08"
+    }
+  ]
 }
