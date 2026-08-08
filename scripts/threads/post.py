@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from client import ThreadsApiError, ThreadsClient  # noqa: E402
+from ogiri_posts import mark_ogiri_used  # noqa: E402
 from posts import (  # noqa: E402
     all_posts,
     mark_casual_used,
@@ -77,9 +78,11 @@ async def main_async(args: argparse.Namespace) -> int:
 
     slot_label = post.get("slot_label") or post.get("slot", slot)
     kind = post.get("kind", "-")
+    image_url = (post.get("image_url") or "").strip() or None
     print(
         f"post_id={post['id']} kind={kind} slot={slot_label if slot_label is not None else '-'} "
         f"topic={topic or '-'} dry_run={dry_run} parts={len(texts)}"
+        + (f" image={image_url}" if image_url else "")
     )
     for i, part in enumerate(texts):
         label = "main" if i == 0 else f"reply-{i}"
@@ -106,6 +109,7 @@ async def main_async(args: argparse.Namespace) -> int:
         result = await client.publish_thread(
             texts,
             topic_tag=topic,
+            image_url=image_url,
             dry_run=False,
             allow_partial=True,
         )
@@ -133,8 +137,17 @@ async def main_async(args: argparse.Namespace) -> int:
         return 1
 
     print(f"PUBLISHED: {result.post_ids}")
-    if post.get("kind") == "casual" or str(post.get("id") or "").startswith("cas-"):
-        day = date.fromisoformat(args.date) if getattr(args, "date", None) and args.date else datetime.now(JST).date()
+    day = (
+        date.fromisoformat(args.date)
+        if getattr(args, "date", None) and args.date
+        else datetime.now(JST).date()
+    )
+    if post.get("kind") == "ogiri" or str(post.get("id") or "").startswith("ogiri-"):
+        if mark_ogiri_used(str(post["id"]), day=day):
+            print(f"LEDGER: marked ogiri used id={post['id']}")
+        else:
+            print(f"LEDGER: already used id={post['id']}")
+    elif post.get("kind") == "casual" or str(post.get("id") or "").startswith("cas-"):
         if mark_casual_used(str(post["id"]), day=day):
             print(f"LEDGER: marked casual used id={post['id']}")
         else:
@@ -162,12 +175,9 @@ def main() -> None:
     parser.add_argument(
         "--slot",
         type=int,
-        choices=tuple(range(10)),
+        choices=(0, 1, 2),
         default=None,
-        help=(
-            "日内枠 0=07casual 1=08casual 2=10casual 3=12cta 4=15casual "
-            "5=17casual 6=18casual 7=20cta 8=21casual 9=22casual"
-        ),
+        help="日内枠 0=08ogiri 1=12ogiri 2=20ogiri",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")

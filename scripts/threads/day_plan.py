@@ -51,6 +51,10 @@ def _slot_snapshot(post: dict, slot: int) -> dict:
         "consistency": cons,
         "slot": slot,
     }
+    if post.get("image_url"):
+        out["image_url"] = post["image_url"]
+    if post.get("film"):
+        out["film"] = post["film"]
     if post.get("replies"):
         out["replies"] = list(post["replies"])
     elif post.get("reply"):
@@ -82,17 +86,17 @@ def get_day_plan(day: date) -> Dict[str, Any] | None:
 
 
 def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[str, Any]:
-    """その日の10枠を確定して返す。未作成なら整合性を見て新規作成。"""
+    """その日の全枠を確定して返す。未作成なら整合性を見て新規作成。"""
+    from ogiri_posts import load_ogiri_used_ids, pick_ogiri
     from posts import (
         CTA_POSTS,
-        FAIL_STORY_POSTS,
         POSTS_PER_DAY,
+        SCHEDULE_ID,
         SLOT_KINDS,
-        VALUE_POSTS,
-        _FAIL_STORY_EVERY_N,
         _hydrate,
         _pick_casual_for_day,
         _pick_value_fallback,
+        _select_value_pool,
         build_casual_posts,
         load_casual_used_ids,
         unused_casual_posts,
@@ -104,7 +108,11 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
     existing = plans.get(key)
     if isinstance(existing, dict):
         slots = existing.get("slots")
-        if isinstance(slots, dict) and len(slots) >= POSTS_PER_DAY:
+        if (
+            isinstance(slots, dict)
+            and len(slots) >= POSTS_PER_DAY
+            and existing.get("schedule") == SCHEDULE_ID
+        ):
             return existing
 
     # 前日プランがあれば flags を引き継ぐ（無い日は空＝初日から記憶開始）
@@ -121,9 +129,13 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
             yflags = flags_from_posts(yposts)
     base_flags = carry_yesterday_flags(yflags)
 
-    # 当日の未完成プランは作り直し
+    # 当日の未完成プラン／旧スケジュールは作り直し
     plans.pop(key, None)
-    planned_ids = all_planned_ids(plans) | set(load_casual_used_ids())
+    planned_ids = (
+        all_planned_ids(plans)
+        | set(load_casual_used_ids())
+        | set(load_ogiri_used_ids())
+    )
     day_session: Set[str] = set()
     slot_map: Dict[str, dict] = {}
 
@@ -133,7 +145,14 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
         per_day_kind = SLOT_KINDS.count(kind)
         emit = day.toordinal() * per_day_kind + kind_index
 
-        if kind == "casual":
+        if kind == "ogiri":
+            post = pick_ogiri(session_used=day_session, planned_ids=planned_ids)
+            pid = str(post.get("id") or "")
+            if pid:
+                day_session.add(pid)
+                planned_ids.add(pid)
+            hydrated = _hydrate(post, slot=slot)
+        elif kind == "casual":
             pool = build_casual_posts()
             extra = set(planned_ids) | day_session
             unused = unused_casual_posts(extra)
@@ -168,13 +187,10 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
                 generate_num_post(day, kind_index, per_day_kind), slot=slot
             )
         else:
-            if FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
-                pool = FAIL_STORY_POSTS
-                index = (emit // _FAIL_STORY_EVERY_N) % len(pool)
-            else:
-                pool = VALUE_POSTS
-                index = emit % len(pool)
+            # value（教育 / 褒め / 失敗談）
+            pool, index = _select_value_pool(emit)
             hydrated = _hydrate(pool[index], index=index, slot=slot)
+            hydrated["kind"] = "value"
 
         slot_map[str(slot)] = _slot_snapshot(hydrated, slot)
 
@@ -186,6 +202,7 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
     today_flags = sorted(flags_from_posts(casual_posts))
     plan = {
         "date": key,
+        "schedule": SCHEDULE_ID,
         "flags": today_flags,
         "yesterday_flags_carried": sorted(base_flags),
         "slots": slot_map,
@@ -193,7 +210,7 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
     plans[key] = plan
     if persist:
         save_day_plans(plans)
-        print(f"DAY_PLAN: wrote {key} flags={today_flags}", file=sys.stderr)
+        print(f"DAY_PLAN: wrote {key} schedule={SCHEDULE_ID} flags={today_flags}", file=sys.stderr)
     return plan
 
 

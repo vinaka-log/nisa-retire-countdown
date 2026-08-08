@@ -1,11 +1,9 @@
 name: Threads chitchat_gen refill
 
-# chitchat_gen で雑談を APIなし自動追加 → casual_generated.json を commit
+# 旧: 雑談プール補充。現行スケジュールはジブリ大喜利のみのため
+# 自動 cron は止め、必要時のみ手動実行。
 
 on:
-  schedule:
-    # 毎週月曜 04:00 JST = 日曜 19:00 UTC
-    - cron: "0 19 * * 0"
   workflow_dispatch:
     inputs:
       force_count:
@@ -44,13 +42,10 @@ jobs:
       - name: Run chitchat_gen
         run: |
           ARGS=()
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          FORCE="0"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            FORCE="${{ inputs.force_count }}"
-          fi
+          FORCE="${{ inputs.force_count }}"
           if [ -n "$FORCE" ] && [ "$FORCE" != "0" ]; then
             ARGS+=(--count "$FORCE")
           else
@@ -60,7 +55,7 @@ jobs:
           python scripts/threads/chitchat_gen.py "${ARGS[@]}"
 
       - name: Commit generated pool
-        if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        if: ${{ success() && inputs.dry_run != true }}
         run: |
           if git diff --quiet -- scripts/threads/casual_generated.json; then
             echo "No generated pool changes"

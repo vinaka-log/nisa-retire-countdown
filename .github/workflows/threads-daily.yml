@@ -1,32 +1,17 @@
 name: Threads daily post
 
 # GitHub Actions + Meta Threads API
-# 毎日10回 JST（雑談8 + 誘導2）:
-#   07/08/10/15/17/18:30/21/22:30 = 雑談（CASUAL_POSTS・リンクなし）
-#   12/20                         = 教育＋自分リプにURL（誘導2回）
+# 毎日3回 JST（ジブリ大喜利・PRなし）:
+#   08 / 12 / 20 = 公式場面写真 + あるあるキャプション
 
 on:
   schedule:
-    # 07:00 JST = 22:00 UTC (previous day) : slot 0 value
-    - cron: "0 22 * * *"
-    # 08:00 JST = 23:00 UTC (previous day) : slot 1 num
+    # 08:00 JST = 23:00 UTC (previous day) : slot 0
     - cron: "0 23 * * *"
-    # 10:00 JST = 01:00 UTC : slot 2 value
-    - cron: "0 1 * * *"
-    # 12:00 JST = 03:00 UTC : slot 3 cta
+    # 12:00 JST = 03:00 UTC : slot 1
     - cron: "0 3 * * *"
-    # 15:00 JST = 06:00 UTC : slot 4 num
-    - cron: "0 6 * * *"
-    # 17:00 JST = 08:00 UTC : slot 5 value
-    - cron: "0 8 * * *"
-    # 18:30 JST = 09:30 UTC : slot 6 num
-    - cron: "30 9 * * *"
-    # 20:00 JST = 11:00 UTC : slot 7 cta
+    # 20:00 JST = 11:00 UTC : slot 2
     - cron: "0 11 * * *"
-    # 21:00 JST = 12:00 UTC : slot 8 value
-    - cron: "0 12 * * *"
-    # 22:30 JST = 13:30 UTC : slot 9 num
-    - cron: "30 13 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -34,11 +19,11 @@ on:
         type: boolean
         default: false
       post_id:
-        description: "Optional post id from posts.py (empty = rotate by date+slot)"
+        description: "Optional post id from ogiri_posts.py / posts.py (empty = rotate by date+slot)"
         required: false
         default: ""
       slot:
-        description: "0=07casual 1=08casual 2=10casual 3=12cta 4=15casual 5=17casual 6=18casual 7=20cta 8=21casual 9=22casual"
+        description: "0=08ogiri 1=12ogiri 2=20ogiri"
         required: false
         default: ""
 
@@ -57,6 +42,7 @@ jobs:
       THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
       THREADS_AUTO_POST: "true"
       THREADS_PUBLISH_DELAY_SEC: "8"
+      THREADS_IMAGE_PUBLISH_DELAY_SEC: "20"
       THREADS_REPLY_GAP_SEC: "5"
       TZ: Asia/Tokyo
       PYTHONPATH: scripts/threads
@@ -92,16 +78,9 @@ jobs:
         if: github.event_name == 'schedule'
         run: |
           case "${{ github.event.schedule }}" in
-            "0 22 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
-            "0 23 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
-            "0 1 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
-            "0 3 * * *") echo "THREADS_SLOT=3" >> "$GITHUB_ENV" ;;
-            "0 6 * * *") echo "THREADS_SLOT=4" >> "$GITHUB_ENV" ;;
-            "0 8 * * *") echo "THREADS_SLOT=5" >> "$GITHUB_ENV" ;;
-            "30 9 * * *") echo "THREADS_SLOT=6" >> "$GITHUB_ENV" ;;
-            "0 11 * * *") echo "THREADS_SLOT=7" >> "$GITHUB_ENV" ;;
-            "0 12 * * *") echo "THREADS_SLOT=8" >> "$GITHUB_ENV" ;;
-            "30 13 * * *") echo "THREADS_SLOT=9" >> "$GITHUB_ENV" ;;
+            "0 23 * * *") echo "THREADS_SLOT=0" >> "$GITHUB_ENV" ;;
+            "0 3 * * *") echo "THREADS_SLOT=1" >> "$GITHUB_ENV" ;;
+            "0 11 * * *") echo "THREADS_SLOT=2" >> "$GITHUB_ENV" ;;
             *) echo "Could not map schedule to slot: ${{ github.event.schedule }}" >&2 ;;
           esac
 
@@ -123,16 +102,16 @@ jobs:
           fi
           python scripts/threads/post.py "${ARGS[@]}"
 
-      - name: Commit casual ledger and day plan
+      - name: Commit ogiri ledger and day plan
         if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         run: |
-          if git diff --quiet -- scripts/threads/casual_ledger.json scripts/threads/day_plans.json; then
+          if git diff --quiet -- scripts/threads/ogiri_ledger.json scripts/threads/day_plans.json; then
             echo "No ledger/day-plan changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/threads/casual_ledger.json scripts/threads/day_plans.json
-          git commit -m "chore(threads): update casual ledger and day plan"
+          git add scripts/threads/ogiri_ledger.json scripts/threads/day_plans.json
+          git commit -m "chore(threads): update ogiri ledger and day plan"
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"

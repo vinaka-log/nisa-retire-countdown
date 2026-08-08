@@ -1,4 +1,4 @@
-"""Meta Threads Graph API client (text posts).
+"""Meta Threads Graph API client (text / image posts).
 
 Simplified from keiba-ev-app/backend/app/services/threads_client.py
 
@@ -6,6 +6,7 @@ Simplified from keiba-ev-app/backend/app/services/threads_client.py
   - コンテナ作成→publish の待ちを長めに
   - 親公開後→リプ作成前にもギャップ
   - 2本目以降失敗時は親投稿を残して部分成功（ジョブ全体は落とさない）
+画像投稿は media_type=IMAGE + 公開URL（Meta が取得）。処理待ちを長めに取る。
 """
 
 from __future__ import annotations
@@ -25,6 +26,8 @@ _BACKOFF_SEC = (2.0, 5.0, 10.0)
 
 # TEXT でも短すぎると threads_publish / reply が失敗しやすい
 _DEFAULT_PUBLISH_DELAY_SEC = 8.0
+# IMAGE は Meta 側の取得・処理待ちが必要なので長め
+_DEFAULT_IMAGE_PUBLISH_DELAY_SEC = 20.0
 # 親投稿公開後、reply_to_id 付きコンテナを作る前の待ち
 _DEFAULT_REPLY_GAP_SEC = 5.0
 
@@ -87,6 +90,9 @@ class ThreadsClient:
             publish_delay_sec
             if publish_delay_sec is not None
             else _env_float("THREADS_PUBLISH_DELAY_SEC", _DEFAULT_PUBLISH_DELAY_SEC)
+        )
+        self.image_publish_delay_sec = _env_float(
+            "THREADS_IMAGE_PUBLISH_DELAY_SEC", _DEFAULT_IMAGE_PUBLISH_DELAY_SEC
         )
         self.reply_gap_sec = (
             reply_gap_sec
@@ -167,13 +173,16 @@ class ThreadsClient:
         *,
         reply_to_id: Optional[str] = None,
         topic_tag: Optional[str] = None,
+        image_url: Optional[str] = None,
         client: Optional[httpx.AsyncClient] = None,
     ) -> str:
         params: dict = {
             "text": text,
             "access_token": self.access_token,
-            "media_type": "TEXT",
+            "media_type": "IMAGE" if image_url else "TEXT",
         }
+        if image_url:
+            params["image_url"] = image_url
         if reply_to_id:
             params["reply_to_id"] = reply_to_id
         if topic_tag:
@@ -204,16 +213,21 @@ class ThreadsClient:
         *,
         reply_to_id: Optional[str] = None,
         topic_tag: Optional[str] = None,
+        image_url: Optional[str] = None,
         client: Optional[httpx.AsyncClient] = None,
     ) -> str:
         creation_id = await self.create_media_container(
             text,
             reply_to_id=reply_to_id,
             topic_tag=topic_tag,
+            image_url=image_url,
             client=client,
         )
-        if self.publish_delay_sec:
-            await asyncio.sleep(self.publish_delay_sec)
+        delay = (
+            self.image_publish_delay_sec if image_url else self.publish_delay_sec
+        )
+        if delay:
+            await asyncio.sleep(delay)
         return await self.publish_container(creation_id, client=client)
 
     async def publish_thread(
@@ -221,19 +235,24 @@ class ThreadsClient:
         texts: List[str],
         *,
         topic_tag: Optional[str] = None,
+        image_url: Optional[str] = None,
         dry_run: bool = False,
         allow_partial: bool = True,
     ) -> ThreadsPostResult:
         """本投稿→自分リプの連鎖。
 
+        image_url は本投稿（index 0）のみ。リプは TEXT。
         allow_partial=True: 2本目以降が失敗しても、親が出ていれば warnings 付きで返す。
         """
         cleaned = [t.strip() for t in texts if t and t.strip()]
         if not cleaned:
             raise ValueError("投稿コンテンツが空です")
 
+        images = [image_url] if image_url else []
         if dry_run:
-            return ThreadsPostResult(texts=cleaned, post_ids=[], dry_run=True)
+            return ThreadsPostResult(
+                texts=cleaned, post_ids=[], dry_run=True, image_urls=images
+            )
 
         post_ids: List[str] = []
         warnings: List[str] = []
@@ -247,6 +266,7 @@ class ThreadsClient:
                         text,
                         reply_to_id=reply_to,
                         topic_tag=topic_tag if index == 0 else None,
+                        image_url=image_url if index == 0 else None,
                         client=http,
                     )
                 except ThreadsApiError as exc:
@@ -269,5 +289,6 @@ class ThreadsClient:
             texts=cleaned,
             post_ids=post_ids,
             dry_run=False,
+            image_urls=images,
             warnings=warnings,
         )

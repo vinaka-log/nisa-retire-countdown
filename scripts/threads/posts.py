@@ -1,16 +1,13 @@
 """Threads 投稿文プール（みつき｜NISA「足りるか」確認係）.
 
-1日の枠（JST）: 雑談8 + 誘導2 の計10本（フォロワー少期は雑談8割）
-  07:00 / 08:00 / 10:00 / 15:00 / 17:00 / 18:30 / 21:00 / 22:30 … 雑談（リンクなし）
-  12:00 / 20:00 … 教育＋自分リプでURL（誘導・1日2回）
+1日の枠（JST）: ジブリ大喜利 3本（PRなし・URLなし）
+  08:00 / 12:00 / 20:00 … 公式場面写真 + あるあるキャプション
 
-雑談はギャル / 仕事憂鬱 / 筋トレ / どうでもいい の4系統。
-オチをきれいに着地させず、途中で終わる人間っぽい口調にする。
-雑談は casual_ledger.json で一度きり（使い回し禁止）。枯渇したら value にフォールバック。
-補充は chitchat_gen.py（完成文バンク・APIなし）。
+画像はスタジオジブリ公式ギャラリーを参照（常識の範囲で自由利用可）。
+大喜利は ogiri_ledger.json で一度きり（枯渇時のみ再利用）。
+旧: 雑談 / 価値 / 誘導プールは --id 指定用に残置。
 絵文字はハート／✨系を使わない。
-
-誘導枠のみ投資・シミュ話可。投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
+投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
 """
 
 from __future__ import annotations
@@ -27,31 +24,19 @@ _THREADS_DIR = Path(__file__).resolve().parent
 CASUAL_LEDGER_PATH = _THREADS_DIR / "casual_ledger.json"
 CASUAL_GENERATED_PATH = _THREADS_DIR / "casual_generated.json"
 
-# 日内枠（JST）: casual=雑談 / cta=リプ末尾にURL
-POSTS_PER_DAY = 10
+# 日内枠（JST）: ogiri=ジブリ場面写真×大喜利（PRなし）
+# schedule を変えたら SCHEDULE_ID も更新 → day_plans.json が自動で作り直される
+SCHEDULE_ID = "D-ogiri3"
+POSTS_PER_DAY = 3
 SLOT_KINDS = (
-    "casual",  # 0: 07:00
-    "casual",  # 1: 08:00
-    "casual",  # 2: 10:00
-    "cta",     # 3: 12:00
-    "casual",  # 4: 15:00
-    "casual",  # 5: 17:00
-    "casual",  # 6: 18:30
-    "cta",     # 7: 20:00
-    "casual",  # 8: 21:00
-    "casual",  # 9: 22:30
+    "ogiri",  # 0: 08:00
+    "ogiri",  # 1: 12:00
+    "ogiri",  # 2: 20:00
 )
 SLOT_LABELS = (
-    "07casual",
-    "08casual",
-    "10casual",
-    "12cta",
-    "15casual",
-    "17casual",
-    "18casual",
-    "20cta",
-    "21casual",
-    "22casual",
+    "08ogiri",
+    "12ogiri",
+    "20ogiri",
 )
 
 # --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
@@ -382,8 +367,9 @@ CASUAL_HAND_POSTS: List[dict] = [
     },
 ]
 
-# --- 価値発信（予備プール。現状スケジュールでは未使用） ---
-# 基本形: 本投稿=疑問の自分語り＋数字予告↓ / 自分リプ=答え
+# --- 価値発信（発見用・10:00 / 17:00） ---
+# 基本形: 本投稿=疑問の自分語り＋数字予告↓ / 自分リプ=答え＋問いかけ
+# ローテは _select_value_pool（教育 / 褒め / 失敗談）
 VALUE_POSTS: List[dict] = [
     {
         "id": "val-checklist",
@@ -690,6 +676,222 @@ VALUE_POSTS: List[dict] = [
     },
 ]
 
+# --- 褒め・肯定（価値枠の約1/3） ---
+# 満額自慢・煽りと逆で、「続いてる人」を先に認める。ギャップ確認へ自然につなぐ。
+# 禁止: 実績捏造・銘柄推奨・投資助言・「これだけで豊かに」系
+PRAISE_POSTS: List[dict] = [
+    {
+        "id": "val-praise-1man-inflate",
+        "topic": "積立投資",
+        "kind": "value",
+        "text": (
+            "物価上がってるいま、\n"
+            "毎月1万円でも積立できてる人、正直かなりえらい🥹\n\n"
+            "満額じゃない＝ダメ、じゃないよ💭\n\n"
+            "理由、1つだけ↓"
+        ),
+        "replies": [
+            (
+                "インフレで生活費も上がってる中で、\n"
+                "未来用に先に分けてる時点で行動できてるから✨\n\n"
+                "額の大小より「止まってない」方が長い目で効くことが多いよ🙌\n\n"
+                "いま毎月いくら入れてる？少額でも教えて🥹"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-keep-going",
+        "topic": "つみたてNISA",
+        "kind": "value",
+        "text": (
+            "つみたて、止まらず続いてる人へ🥹\n\n"
+            "SNSの満額報告より、あなたの「続いた月数」の方がすごい💭\n\n"
+            "そう思う理由↓"
+        ),
+        "replies": [
+            (
+                "続く人だけが、あとから金額や年数を調整できるから✨\n\n"
+                "止まってる状態で正解探ししても、距離は縮まないんだよね…\n\n"
+                "まずは続いた自分を一回ほめていいよ🙌\n\n"
+                "いま、何ヶ月くらい続いてる？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-small-start",
+        "topic": "つみたてNISA",
+        "kind": "value",
+        "text": (
+            "月3,000円とか5,000円から始めてる人、\n"
+            "ぜんぜん遅くないし、ぜんぜん小さくない🥹\n\n"
+            "大事なのはスタートの大きさより↓"
+        ),
+        "replies": [
+            (
+                "「勝手に続く状態」を作れたかどうか✨\n\n"
+                "少額でも設定が生きてると、\n"
+                "余裕できた月に足しやすいんだよね💭\n\n"
+                "満額組と比べなくて大丈夫。あなたのペースでいいよ🙌\n\n"
+                "最初の設定額、いくらだった？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-life-first",
+        "topic": "資産形成",
+        "kind": "value",
+        "text": (
+            "生活守りながら積立してる人、\n"
+            "いちばん地味でいちばん強い🥹\n\n"
+            "枠埋めのために削りすぎてる人より、\n"
+            "あなたの方が長く走れると思う↓"
+        ),
+        "replies": [
+            (
+                "手元が薄すぎると、下落のたびに心が折れるから💭\n\n"
+                "続けられる額で積んで、\n"
+                "余白がある人の方が結果的に止まりにくい✨\n\n"
+                "今日も生活と積立、両立できてたら十分えらいよ🙌\n\n"
+                "いま、続けやすさ何点くらい？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-auto",
+        "topic": "積立投資",
+        "kind": "value",
+        "text": (
+            "給料日に自動で積立されてる人、\n"
+            "もう半分勝ってると思っていい🥹✨\n\n"
+            "意志の強さより、仕組みの勝ち↓"
+        ),
+        "replies": [
+            (
+                "毎月「今月どうする？」が消えるだけで、\n"
+                "不安の回数も減るんだよね💭\n\n"
+                "あとは距離（足りるか）をたまに見るだけで十分✨\n\n"
+                "自動積立、もう組めてる？まだならどこで止まってる？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-anxiety-ok",
+        "topic": "資産形成",
+        "kind": "value",
+        "text": (
+            "不安なまま積立続けてる人、\n"
+            "それだけで十分がんばってる🥹\n\n"
+            "不安ゼロになってから動こう、だと\n"
+            "だいたい動けないんだよね↓"
+        ),
+        "replies": [
+            (
+                "不安の正体は、だいたい金額が見えてないこと💭\n\n"
+                "続けてる上に、不足額を一度出せたら\n"
+                "さらに気持ちが軽くなることが多いよ✨\n\n"
+                "不安あっても止めなかった自分、まずはえらい🙌\n\n"
+                "不安、いま何点くらい？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-not-full",
+        "topic": "新NISA",
+        "kind": "value",
+        "text": (
+            "NISA枠、満額埋められてなくても大丈夫🥹\n\n"
+            "枠は上限の話で、\n"
+            "あなたの家計の正解とは別物💭\n\n"
+            "そう言える理由↓"
+        ),
+        "replies": [
+            (
+                "目標までの距離と、続けられる額は別計算だから✨\n\n"
+                "満額できてない自分を責めるより、\n"
+                "「今のペースでどう見えるか」を見た方が前に進むよ🙌\n\n"
+                "枠埋めより先に、自分を一回認めていい🥹\n\n"
+                "いま、枠に対して何割くらい入れてる？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-checked-gap",
+        "topic": "老後資金",
+        "kind": "value",
+        "text": (
+            "「足りるか」を一度でも数字で出した人、\n"
+            "もう普通より一歩先にいる🥹\n\n"
+            "感覚の不安と、距離の確認は別物↓"
+        ),
+        "replies": [
+            (
+                "出した数字が仮でもいい。\n"
+                "見えた瞬間に、焦り方が変わる人が多いよ✨\n\n"
+                "まだなら、完璧な表よりざっくり1回で十分🙌\n\n"
+                "不足額、出したことある？まだなら一緒に考えよ💭"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-retire-early-think",
+        "topic": "老後資金",
+        "kind": "value",
+        "text": (
+            "老後のこと、まだ先って放置してる人が多い中で、\n"
+            "いま動いてる人、正直かなりえらい🥹\n\n"
+            "考えてるだけでもう差がついてる↓"
+        ),
+        "replies": [
+            (
+                "行動の大きさより、先に「自分ごと」にできてるかが効く💭\n\n"
+                "積立・年数・目標を少しでも置いてる人は、\n"
+                "不安のまま止まってる人よりずっと前にいるよ✨\n\n"
+                "今日も老後用に一手でも動いてたら、十分ほめていい🙌\n\n"
+                "引退年齢、いま何歳で置いてる？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-future-self",
+        "topic": "資産形成",
+        "kind": "value",
+        "text": (
+            "今の自分より、未来の自分のために\n"
+            "お金を分けてる人、地味にすごい🥹\n\n"
+            "「老後はまだ先」って流せるのに、\n"
+            "止まらず積んでる時点で↓"
+        ),
+        "replies": [
+            (
+                "先延ばしが一番高いコストになりやすいから💭\n\n"
+                "額が大きくなくても、\n"
+                "「老後用」に口座や積立を分けてるだけで十分えらい✨\n\n"
+                "未来の自分に仕送りできてる月、ちゃんと積み上がってるよ🙌\n\n"
+                "老後用って意識して分けてる？まだなら何から始めた？"
+            ),
+        ],
+    },
+    {
+        "id": "val-praise-not-too-late",
+        "topic": "老後資金",
+        "kind": "value",
+        "text": (
+            "「もっと早く始めればよかった」って思いながらも、\n"
+            "いま積立してる人へ🥹\n\n"
+            "後悔しつつ動いてるの、いちばんえらい↓"
+        ),
+        "replies": [
+            (
+                "始まってない人は後悔も行動もまだ無い。\n"
+                "あなたはもう両方やってる側✨\n\n"
+                "遅い／早いより、今日からの距離の方が大事💭\n\n"
+                "いま動いてる自分を、一回認めていいよ🙌\n\n"
+                "始めたの、何年前くらいから？"
+            ),
+        ],
+    },
+]
+
 # --- 失敗談（共感）: 価値枠の約1/3でローテ ---
 # 題材は公開されている定番失敗・SNSあるあるを一人称に精錬したもの。
 # 例: NISA貧乏／満額FOMO／高め設定で生活苦／下落で狼狽／2000万で固まる／調べ疲れ
@@ -852,8 +1054,9 @@ FAIL_STORY_POSTS: List[dict] = [
     },
 ]
 
-# --- 誘導枠（本投稿はURLなし、自分リプに教育、最終リプにURL） ---
-# 末尾に「続きはリプ👇」。replies 優先 / reply は後方互換
+# --- 誘導枠（本投稿は価値と同型・URLなし、自分リプで教育、最終リプにURL） ---
+# 禁止: 「続きはリプ👇」等の宣伝合図。見た目は崖っぷち／問いの教育投稿。
+# replies 優先 / reply は後方互換
 CTA_POSTS: List[dict] = [
     {
         "id": "cta-gap-check",
@@ -861,45 +1064,49 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "「引退まであとどれくらい足りない？」即答できる人、意外と少ない🥹\n\n"
-            "つみたて続けてても、ここが見えてないと不安は残りやすい💭\n\n"
-            "続きはリプ👇"
+            "つみたて続けてても不安が残るとき、\n"
+            "だいたい足りないのはこの1つ↓"
         ),
         "replies": [
             (
-                "不安の正体、だいたい\n"
-                "金額が見えてないことだったりする✨\n\n"
+                "「足りない額」を一度も数字で出してないこと💭\n\n"
                 "見るのはこのくらいで十分↓\n"
                 "・いまの年齢\n"
                 "・引退したい年齢\n"
                 "・毎月の積立\n"
                 "・想定利回り（幅でOK）\n"
-                "・目標の取り崩しイメージ"
+                "・目標の取り崩しイメージ\n\n"
+                "いま、足りない額って数字で言える？"
             ),
             (
-                "並べると「感覚」が「距離」になるよ✨\n"
+                "並べると感覚が距離になるよ✨\n"
                 "会員なし・概算・投資助言じゃないよ🥹\n\n"
                 f"{SITE_URL}"
             ),
         ],
     },
     {
-        "id": "cta-role-split",
+        "id": "cta-distance-first",
         "topic": "資産形成",
         "kind": "cta",
         "text": (
-            "売り込み投稿だけだと、フォローもクリックも続きにくい🥹\n\n"
-            "大事なのは\n"
-            "・悩みを言葉にする\n"
-            "・考え方を渡す\n"
-            "・小さな確認（数字）を届ける\n\n"
-            "Threadsは気づき。確認の場所は分けた方がいいよ✨\n\n"
-            "続きはリプ👇"
+            "口座比較のタブ開きすぎて疲れる人へ🥹\n\n"
+            "比較表より先に見た方がいいもの、1つだけ↓"
         ),
-        "reply": (
-            "確認用の無料シミュはここ✨\n"
-            "概算・会員なし（投資助言じゃない）\n\n"
-            f"{SITE_URL}"
-        ),
+        "replies": [
+            (
+                "足りない距離（ギャップ）です💭\n\n"
+                "おすすめの順番は\n"
+                "ギャップ確認 → レバー1つ動かす → 必要なら選択肢✨\n\n"
+                "全部いっぺんに変えなくて大丈夫\n\n"
+                "いま調べてるの、数字？口座条件？"
+            ),
+            (
+                "距離の確認、無料で試せるよ🙌\n"
+                "概算・会員なし（投資助言じゃない）\n\n"
+                f"{SITE_URL}"
+            ),
+        ],
     },
     {
         "id": "cta-return-guide",
@@ -908,17 +1115,18 @@ CTA_POSTS: List[dict] = [
         "text": (
             "想定年利、いい数字に寄せてない？🥹\n\n"
             "不安なときほど、置き方がブレやすい💭\n\n"
-            "続きはリプ👇"
+            "危ない置き方と迷わない置き方の違い、1つ↓"
         ),
         "replies": [
             (
-                "おすすめは一点決めより幅で見ること✨\n"
-                "例：3% と 5% を並べる\n\n"
+                "危ない＝帳尻が合うまで%を上げる\n"
+                "迷わない＝3%と5%みたいに幅で見る✨\n\n"
                 "届く／届かないを一点で決めないと、\n"
-                "積立や年数のレバーも冷静に選べるよ💭"
+                "積立や年数のレバーも冷静に選べるよ💭\n\n"
+                "いま何%で置いてる？"
             ),
             (
-                "整理した話はここ✨\n\n"
+                "置き方の整理はここ✨\n\n"
                 f"{SITE_URL}/guides/assumed-return"
             ),
         ],
@@ -929,15 +1137,15 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "「毎月いくらが正解？」で苦しくなる人、多い🥹\n\n"
-            "必要額と続けられる額、混ぜると詰みやすいよ✨\n\n"
-            "続きはリプ👇"
+            "混ぜちゃいけない2つがある↓"
         ),
         "replies": [
             (
                 "必要額＝目標から逆算した目安\n"
                 "続けられる額＝家計で無理なく続く額\n\n"
                 "満額できない＝失敗、でもない✨\n"
-                "続けられる額で始めて、ギャップを見ながら調整が現実的"
+                "続けられる額で始めて、ギャップを見ながら調整が現実的\n\n"
+                "いま、どっちで決めてる？"
             ),
             (
                 "逆算の見方はここ✨\n\n"
@@ -951,19 +1159,19 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "ギャップを縮めるの、積立アップだけじゃないよ💭\n\n"
-            "ただし順番を間違えると疲れやすい✨\n\n"
-            "続きはリプ👇"
+            "ただし順番を間違えると疲れやすい。正しい順は↓"
         ),
         "replies": [
             (
                 "① まず不足額を数字で見る\n"
                 "② 増額・年数・支出の取りこぼしを並べる\n"
                 "③ 合うものだけ選ぶ\n\n"
-                "先に選択肢を探すと、疲れやすいよ💭"
+                "先に選択肢を探すと、疲れやすいよ💭\n\n"
+                "いま最初に触ってるレバー、どれ？"
             ),
             (
                 "整理はここから✨\n"
-                "サイトでは数字のあとに選択肢もそっと置いてるよ（広告含む）\n\n"
+                "数字のあとに選択肢もそっと置いてるよ（広告含む）\n\n"
                 f"{SITE_URL}/guides/points-and-gap"
             ),
         ],
@@ -974,14 +1182,14 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n"
-            "見出しじゃなく、自分の式に落とすと動きやすい💭\n\n"
-            "続きはリプ👇"
+            "見出しじゃなく、自分の式に落とすと動きやすい。式はこれ↓"
         ),
         "replies": [
             (
                 "生活費 − 年金見込み = 毎月の不足\n"
                 "→ × 想定年数\n\n"
-                "ざっくりでいい。一度出すと焦り方が変わるよ✨"
+                "ざっくりでいい。一度出すと焦り方が変わるよ✨\n\n"
+                "自分の「毎月の不足」、出したことある？"
             ),
             (
                 "くわしくはここ🙌\n\n"
@@ -994,15 +1202,16 @@ CTA_POSTS: List[dict] = [
         "topic": "つみたてNISA",
         "kind": "cta",
         "text": (
-            "シミュは占いじゃない。でも感覚はかなりはっきりする✨\n\n"
-            "まず距離を知る。口座やカードはそのあとで十分🙌\n\n"
-            "続きはリプ👇"
+            "足りるかの確認、占いじゃなくていい🥹\n\n"
+            "年齢・積立・利回り・目標を並べるだけで\n"
+            "感覚はかなりはっきりする↓"
         ),
         "replies": [
             (
-                "年齢・積立・利回り・目標を入れるだけで\n"
-                "不足額の概算は出せるよ✨\n"
-                "会員登録なしで試せるよ🥹\n\n"
+                "まず距離を知る。口座やカードはそのあとで十分🙌\n\n"
+                "不足額の概算、会員なしで試せるよ✨\n"
+                "投資助言じゃないよ🥹\n\n"
+                "距離、一度でも数字で見たことある？\n\n"
                 f"{SITE_URL}"
             ),
         ],
@@ -1013,8 +1222,7 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "引退年齢、何歳に置いてる？ここ1つでギャップ変わる🥹\n\n"
-            "積立だけがレバーじゃないよ💭\n\n"
-            "続きはリプ👇"
+            "積立だけがレバーじゃない。動かして見えるもの↓"
         ),
         "replies": [
             (
@@ -1029,18 +1237,18 @@ CTA_POSTS: List[dict] = [
         "topic": "資産形成",
         "kind": "cta",
         "text": (
-            "積立続いてるのに不安が消えない人、だいたい足りない額を出してない🥹\n\n"
-            "銘柄比較より先に、距離を見る方が効くことが多い💭\n\n"
-            "続きはリプ👇"
+            "積立続いてるのに不安が消えない人、\n"
+            "だいたい足りない額を出してない🥹\n\n"
+            "銘柄比較より先に効くことが多い順番↓"
         ),
         "replies": [
             (
-                "おすすめの順番は\n"
                 "ギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n"
-                "全部いっぺんに変えなくて大丈夫✨"
+                "全部いっぺんに変えなくて大丈夫✨\n\n"
+                "不安の正体、いま何だと思ってる？"
             ),
             (
-                "距離の確認、無料シミュはここから🙌\n"
+                "距離の確認、無料でできるよ🙌\n"
                 "概算・会員なし（投資助言じゃない）\n\n"
                 f"{SITE_URL}"
             ),
@@ -1051,15 +1259,16 @@ CTA_POSTS: List[dict] = [
         "topic": "老後資金",
         "kind": "cta",
         "text": (
-            "「いくら持つか」だけ見てると、月いくら使えそうかがぼやける🥹\n\n"
-            "総額→月の感覚にすると、ギャップが具体的になる💭\n\n"
-            "続きはリプ👇"
+            "「いくら持つか」だけ見てると、\n"
+            "月いくら使えそうかがぼやける🥹\n\n"
+            "総額→月の感覚にする粗い見方↓"
         ),
         "replies": [
             (
-                "取り崩しの粗いイメージとして\n"
+                "取り崩しのイメージとして\n"
                 "年4%÷12 みたいな見方があるよ✨\n\n"
-                "保証じゃない。でも感覚のたたき台にはなる✨"
+                "保証じゃない。でも感覚のたたき台にはなる✨\n\n"
+                "目標、いま総額と月の使い方どっちで見てる？"
             ),
             (
                 "考え方の整理はここ🙌\n\n"
@@ -1073,14 +1282,14 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "老後資金いくら必要？万人共通の正解を探すと迷子🥹\n\n"
-            "たたき台はシンプルでいい💭\n\n"
-            "続きはリプ👇"
+            "たたき台はシンプルでいい。いちばん短い式↓"
         ),
         "replies": [
             (
                 "生活費 − 年金見込み = 毎月の不足\n"
                 "→ × 想定年数\n\n"
-                "完璧な表より、一度出した数字の方が動けるよ✨"
+                "完璧な表より、一度出した数字の方が動けるよ✨\n\n"
+                "生活費と年金見込み、ざっくり置いたことある？"
             ),
             (
                 "目安の考え方はここから🙌\n\n"
@@ -1093,14 +1302,16 @@ CTA_POSTS: List[dict] = [
         "topic": "新NISA",
         "kind": "cta",
         "text": (
-            "つみたて／成長で迷うとき、先に枠の地図だけ持っておくと楽🥹\n\n"
-            "枠は上限。ギャップは別計算✨\n\n"
-            "続きはリプ👇"
+            "つみたて／成長で迷うとき、\n"
+            "先に枠の地図だけ持っておくと楽🥹\n\n"
+            "枠とギャップ、混ぜると迷子になる理由↓"
         ),
         "replies": [
             (
-                "制度の基本とシミュの関係を分けて見ると\n"
-                "迷子になりにくいよ✨"
+                "枠は上限の話。\n"
+                "目標に届くかは別計算✨\n\n"
+                "制度の基本と距離確認を分けて見ると迷いにくいよ\n\n"
+                "枠埋めとギャップ確認、どっち先にしてる？"
             ),
             (
                 "枠の基本はここ🙌\n\n"
@@ -1114,13 +1325,13 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "NISAとiDeCo、どっちがいい？より「使い方に合うか」🥹\n\n"
-            "儲かる比較より、用途の切り分けが先💭\n\n"
-            "続きはリプ👇"
+            "儲かる比較より先に見る切り分け↓"
         ),
         "replies": [
             (
                 "途中で使うかも → 流動性も意識\n"
-                "老後まで触らない → 置き方が変わる✨"
+                "老後まで触らない → 置き方が変わる✨\n\n"
+                "いまの優先、流動性寄り？老後固定寄り？"
             ),
             (
                 "違いの整理はここ🙌\n\n"
@@ -1134,13 +1345,13 @@ CTA_POSTS: List[dict] = [
         "kind": "cta",
         "text": (
             "シミュの数字、どこまで信じていい？って質問、けっこう来る🥹\n\n"
-            "答えはシンプル。概算・比較用。投資助言じゃない✨\n\n"
-            "続きはリプ👇"
+            "答えはシンプル。概算・比較用。投資助言じゃない↓"
         ),
         "replies": [
             (
                 "精度・4%・想定年利の置き方など\n"
-                "よくある疑問はまとめてあるよ✨"
+                "よくある疑問はまとめてあるよ✨\n\n"
+                "数字の精度、いまどこまで気にしてる？"
             ),
             (
                 "FAQはここから🙌\n\n"
@@ -1150,8 +1361,20 @@ CTA_POSTS: List[dict] = [
     },
 ]
 
-# 価値投稿のうち失敗談にする割合（予備・value枠復帰時用）
-_FAIL_STORY_EVERY_N = 3
+# 価値枠ローテ: 教育 / 褒め / 失敗談 を均等寄り（emit % 3）
+_VALUE_BUCKET_FAIL = 0
+_VALUE_BUCKET_PRAISE = 1
+_VALUE_BUCKET_EDU = 2
+
+
+def _select_value_pool(emit: int) -> tuple[List[dict], int]:
+    """価値枠のプールと index を返す。fail / praise / 教育。"""
+    bucket = emit % 3
+    if bucket == _VALUE_BUCKET_FAIL and FAIL_STORY_POSTS:
+        return FAIL_STORY_POSTS, (emit // 3) % len(FAIL_STORY_POSTS)
+    if bucket == _VALUE_BUCKET_PRAISE and PRAISE_POSTS:
+        return PRAISE_POSTS, (emit // 3) % len(PRAISE_POSTS)
+    return VALUE_POSTS, emit % len(VALUE_POSTS)
 
 
 def _normalize_casual_post(raw: dict) -> dict | None:
@@ -1234,7 +1457,7 @@ def _post_replies(post: dict) -> List[str]:
 
 
 def thread_texts(post: dict) -> List[str]:
-    """本投稿→自分リプ連鎖。casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
+    """本投稿→自分リプ連鎖。ogiri/casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
     main = _truncate(str(post.get("text") or ""))
     texts = [t for t in (main, *_post_replies(post)) if t]
     if not texts:
@@ -1243,18 +1466,27 @@ def thread_texts(post: dict) -> List[str]:
 
 
 def all_posts() -> Sequence[dict]:
-    return [*build_casual_posts(), *VALUE_POSTS, *FAIL_STORY_POSTS, *CTA_POSTS]
+    from ogiri_posts import OGIRI_POSTS
+
+    return [
+        *OGIRI_POSTS,
+        *build_casual_posts(),
+        *VALUE_POSTS,
+        *PRAISE_POSTS,
+        *FAIL_STORY_POSTS,
+        *CTA_POSTS,
+    ]
 
 
 # 互換エイリアス（動的に all_posts を見る用途向け。静的スナップショットではない）
 POSTS: List[dict] = []
 
 
-_SLOT_HOURS = (7.0, 8.0, 10.0, 12.0, 15.0, 17.0, 18.5, 20.0, 21.0, 22.5)
+_SLOT_HOURS = (8.0, 12.0, 20.0)
 
 
 def slot_from_hour(hour: int) -> int:
-    """Map JST hour to nearest daily slot 0..9."""
+    """Map JST hour to nearest daily slot 0..POSTS_PER_DAY-1."""
     return min(range(POSTS_PER_DAY), key=lambda i: abs(hour - _SLOT_HOURS[i]))
 
 
@@ -1273,6 +1505,8 @@ def _hydrate(post: dict, *, index: int | None = None, slot: int | None = None) -
         out["reply"] = replies[-1]
     elif out.get("reply"):
         out["reply"] = _truncate(out["reply"])
+    if out.get("image_url"):
+        out["image_url"] = str(out["image_url"]).strip()
     out["thread"] = thread_texts(out)
     if index is not None:
         out["index"] = index
@@ -1463,12 +1697,7 @@ def mark_casual_used(post_id: str, *, day: date | None = None) -> bool:
 
 def _pick_value_fallback(day: date, kind_index: int, per_day_kind: int, slot: int) -> dict:
     emit = day.toordinal() * max(per_day_kind, 1) + kind_index
-    if FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
-        pool = FAIL_STORY_POSTS
-        index = (emit // _FAIL_STORY_EVERY_N) % len(pool)
-    else:
-        pool = VALUE_POSTS
-        index = emit % len(pool)
+    pool, index = _select_value_pool(emit)
     out = _hydrate(pool[index], index=index, slot=slot)
     out["kind"] = "value"
     out["casual_exhausted"] = True
@@ -1499,6 +1728,19 @@ def pick_post_for_slot(
     kind_index = SLOT_KINDS[: slot + 1].count(kind) - 1
     per_day_kind = SLOT_KINDS.count(kind)
     emit = day.toordinal() * per_day_kind + kind_index
+
+    if kind == "ogiri":
+        from ogiri_posts import OGIRI_POSTS, pick_ogiri
+
+        post = pick_ogiri(session_used=session_used)
+        pid = str(post.get("id") or "")
+        if session_used is not None and pid:
+            session_used.add(pid)
+        index = next(
+            (i for i, p in enumerate(OGIRI_POSTS) if p.get("id") == pid),
+            None,
+        )
+        return _hydrate(post, index=index, slot=slot)
 
     if kind == "num":
         from num_posts import generate_num_post
@@ -1532,14 +1774,14 @@ def pick_post_for_slot(
     if kind == "cta":
         pool = CTA_POSTS
         index = emit % len(pool)
-    elif FAIL_STORY_POSTS and emit % _FAIL_STORY_EVERY_N == 0:
-        pool = FAIL_STORY_POSTS
-        index = (emit // _FAIL_STORY_EVERY_N) % len(pool)
-    else:
-        pool = VALUE_POSTS
-        index = emit % len(pool)
+        out = _hydrate(pool[index], index=index, slot=slot)
+        return out
 
-    return _hydrate(pool[index], index=index, slot=slot)
+    pool, index = _select_value_pool(emit)
+    out = _hydrate(pool[index], index=index, slot=slot)
+    if kind == "value":
+        out["kind"] = "value"
+    return out
 
 
 def pick_post_for_date(day: date | None = None) -> dict:
