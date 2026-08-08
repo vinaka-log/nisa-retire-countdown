@@ -1049,28 +1049,13 @@
   },
   "2026-08-08": {
     "date": "2026-08-08",
-    "schedule": "D-ogiri3",
-    "flags": [],
+    "schedule": "D-ogiri10",
+    "flags": [
+      "gym_done_today"
+    ],
     "yesterday_flags_carried": [],
     "slots": {
       "0": {
-        "id": "ogiri-chihiro-car-sulk",
-        "kind": "ogiri",
-        "topic": "大喜利",
-        "theme": "",
-        "text": "帰省の車、後ろの席で不機嫌アピールしてる時の顔",
-        "consistency": {
-          "sets": [],
-          "forbids": [],
-          "requires": [],
-          "time": "any",
-          "weekdays": null
-        },
-        "slot": 0,
-        "image_url": "https://www.ghibli.jp/gallery/chihiro001.jpg",
-        "film": "chihiro"
-      },
-      "1": {
         "id": "ogiri-chihiro-haku-blow",
         "kind": "ogiri",
         "topic": "大喜利",
@@ -1083,11 +1068,47 @@
           "time": "any",
           "weekdays": null
         },
-        "slot": 1,
+        "slot": 0,
         "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
         "film": "chihiro"
       },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
       "2": {
+        "id": "cas-gen-gym-d95db6e6e4",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "ランニングマシン速度上げすぎて降りられない\n緊急停止した",
+        "consistency": {
+          "sets": [
+            "gym_done_today"
+          ],
+          "forbids": [
+            "gym_skipped_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
         "id": "ogiri-chihiro-stop-frog",
         "kind": "ogiri",
         "topic": "大喜利",
@@ -1100,9 +1121,113 @@
           "time": "any",
           "weekdays": null
         },
-        "slot": 2,
+        "slot": 3,
         "image_url": "https://www.ghibli.jp/gallery/chihiro012.jpg",
         "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-nisa-ideco",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "NISAとiDeCo、どっちがいい？より「使い方に合うか」🥹\n\n儲かる比較より先に見る切り分け↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "途中で使うかも → 流動性も意識\n老後まで触らない → 置き方が変わる✨\n\nいまの優先、流動性寄り？老後固定寄り？",
+          "違いの整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/nisa-vs-ideco"
+        ]
+      },
+      "6": {
+        "id": "cas-gen-nonsense-b5d7e77903",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "カバンの中でイヤホン絡まりすぎ問題\n毎朝の儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "ogiri-chihiro-yubaba-bill",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカの明細開いた瞬間の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-faq",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "シミュの数字、どこまで信じていい？って質問、けっこう来る🥹\n\n答えはシンプル。概算・比較用。投資助言じゃない↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "精度・4%・想定年利の置き方など\nよくある疑問はまとめてあるよ✨\n\n数字の精度、いまどこまで気にしてる？",
+          "FAQはここから🙌\n\nhttps://www.nisa-simulation.com/faq"
+        ]
       }
     }
   }

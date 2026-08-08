@@ -1,10 +1,15 @@
 {
   "used_ids": [
-    "ogiri-chihiro-car-sulk"
+    "ogiri-chihiro-car-sulk",
+    "ogiri-chihiro-stop-frog"
   ],
   "history": [
     {
       "id": "ogiri-chihiro-car-sulk",
+      "date": "2026-08-08"
+    },
+    {
+      "id": "ogiri-chihiro-stop-frog",
       "date": "2026-08-08"
     }
   ]
