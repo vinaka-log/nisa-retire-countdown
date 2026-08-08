@@ -4,7 +4,9 @@
 https://www.ghibli.jp/ の gallery/*.jpg
 
 方針: キャプションは「そのカットで見える表情・動作・構図」に噛み合わせる。
-PR・URL・投資話は入れない。1投稿完結・画像＋短文のみ。
+生活大喜利は PR・URL・投資話を入れない。金融大喜利（kind=ogiri_fin）は
+NISA・物価・貯蓄あるあるに寄せるが、銘柄推奨・投資助言・URL は入れない。
+1投稿完結・画像＋短文のみ。
 """
 
 from __future__ import annotations
@@ -618,6 +620,204 @@ OGIRI_POSTS: List[dict] = [
 ]
 
 
+# kind=ogiri_fin / URLなし / リプなし / 銘柄名なし
+# 金融・NISA・物価あるある。画像は生活大喜利と同じギャラリーを共用する。
+OGIRI_FIN_POSTS: List[dict] = [
+    {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "chihiro",
+        "image_url": _still("chihiro016"),
+        "text": "クレカ明細、予想の3倍だった時の顔",
+    },
+    {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "chihiro",
+        "image_url": _still("chihiro005"),
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+    },
+    {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "chihiro",
+        "image_url": _still("chihiro020"),
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+    },
+    {
+        "id": "ogiri-fin-chihiro-kitchen",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "chihiro",
+        "image_url": _still("chihiro030"),
+        "text": "給料日前、冷蔵庫の残り物でやりくりしてる厨房感",
+    },
+    {
+        "id": "ogiri-fin-totoro-bus",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "totoro",
+        "image_url": _still("totoro001"),
+        "text": "積立日、何もしてないのに勝手に引かれてる安心感",
+    },
+    {
+        "id": "ogiri-fin-totoro-rain",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "totoro",
+        "image_url": _still("totoro012"),
+        "text": "値上げラッシュのスーパー、カゴの中身は同じなのに合計だけ増えてる",
+    },
+    {
+        "id": "ogiri-fin-kiki-bread",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "majo",
+        "image_url": _still("majo001"),
+        "text": "「今月は節約する」って言った翌朝、コンビニコーヒー買ってる",
+    },
+    {
+        "id": "ogiri-fin-kiki-radio",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "majo",
+        "image_url": _still("majo010"),
+        "text": "老後2,000万円問題、数字だけ聞いて一旦フリーズする顔",
+    },
+    {
+        "id": "ogiri-fin-laputa-robot",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "laputa",
+        "image_url": _still("laputa001"),
+        "text": "給料日なのに、家賃と積立で手元ゼロのロボット感",
+    },
+    {
+        "id": "ogiri-fin-mononoke-mask",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "mononoke",
+        "image_url": _still("mononoke001"),
+        "text": "投資の話になると急に専門家ぶる知人、中身はよくわからん",
+    },
+    {
+        "id": "ogiri-fin-howl-castle",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "howl",
+        "image_url": _still("howl001"),
+        "text": "家計簿アプリ開いた瞬間、現実から逃げたくなる城",
+    },
+    {
+        "id": "ogiri-fin-howl-calc",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "howl",
+        "image_url": _still("howl008"),
+        "text": "「何歳まで働く？」って聞かれた時の計算顔",
+    },
+    {
+        "id": "ogiri-fin-porco-plane",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "porco",
+        "image_url": _still("porco001"),
+        "text": "ボーナス入った瞬間、旅行と積立で脳内バトル",
+    },
+    {
+        "id": "ogiri-fin-marnie-marsh",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "marnie",
+        "image_url": _still("marnie001"),
+        "text": "将来の自分に「足りる？」って聞いて、返事が来ない沼",
+    },
+    {
+        "id": "ogiri-fin-nausicaa-wind",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "nausicaa",
+        "image_url": _still("nausicaa001"),
+        "text": "インフレの風、買い物カゴにだけ強く当たってる",
+    },
+    {
+        "id": "ogiri-fin-chihiro-train",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "chihiro",
+        "image_url": _still("chihiro040"),
+        "text": "老後まで続く積立、終点が見えない電車",
+    },
+    {
+        "id": "ogiri-fin-totoro-sleep",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "totoro",
+        "image_url": _still("totoro020"),
+        "text": "NISA始めたのに、あとは放置で眠ってる資産",
+    },
+    {
+        "id": "ogiri-fin-kiki-tired",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "majo",
+        "image_url": _still("majo025"),
+        "text": "節約疲れた日、「今日だけ」が一番高い買い物になる",
+    },
+    {
+        "id": "ogiri-fin-ponyo-ham",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "ponyo",
+        "image_url": _still("ponyo008"),
+        "text": "給料日前なのに、カートに入れる手が止まらない",
+    },
+    {
+        "id": "ogiri-fin-baron-pose",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "baron",
+        "image_url": _still("baron005"),
+        "text": "積立設定しただけで、賢くなった気がしてる顔",
+    },
+    {
+        "id": "ogiri-fin-yamada-dinner",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "yamada",
+        "image_url": _still("yamada001"),
+        "text": "外食か自炊かで、家計会議が一番長い",
+    },
+    {
+        "id": "ogiri-fin-tanuki-transform",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "tanuki",
+        "image_url": _still("tanuki001"),
+        "text": "値札見て、買う自分と帰ろうとする自分が入れ替わる",
+    },
+    {
+        "id": "ogiri-fin-kazetachinu-desk",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "kazetachinu",
+        "image_url": _still("kazetachinu005"),
+        "text": "シミュレーション開いたまま、数字から目を逸らしてる",
+    },
+    {
+        "id": "ogiri-fin-karigurashi-tiny",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "film": "karigurashi",
+        "image_url": _still("karigurashi001"),
+        "text": "残高、小さくて見えないくらいまで減ってる",
+    },
+]
+
+
 def load_ogiri_used_ids() -> List[str]:
     if not OGIRI_LEDGER_PATH.is_file():
         return []
@@ -638,13 +838,25 @@ def load_ogiri_used_ids() -> List[str]:
     return out
 
 
-def unused_ogiri_posts(extra_used: Set[str] | None = None) -> List[dict]:
+def _ogiri_pool(kind: str = "ogiri") -> List[dict]:
+    return OGIRI_FIN_POSTS if kind == "ogiri_fin" else OGIRI_POSTS
+
+
+def unused_ogiri_posts(
+    extra_used: Set[str] | None = None,
+    *,
+    kind: str = "ogiri",
+) -> List[dict]:
     used = set(load_ogiri_used_ids()) | (extra_used or set())
-    return [p for p in OGIRI_POSTS if str(p.get("id") or "") not in used]
+    return [p for p in _ogiri_pool(kind) if str(p.get("id") or "") not in used]
 
 
-def ogiri_remaining_count(extra_used: Set[str] | None = None) -> int:
-    return len(unused_ogiri_posts(extra_used))
+def ogiri_remaining_count(
+    extra_used: Set[str] | None = None,
+    *,
+    kind: str = "ogiri",
+) -> int:
+    return len(unused_ogiri_posts(extra_used, kind=kind))
 
 
 def mark_ogiri_used(post_id: str, *, day: date | None = None) -> bool:
@@ -687,13 +899,15 @@ def pick_ogiri(
     *,
     session_used: Set[str] | None = None,
     planned_ids: Set[str] | None = None,
+    kind: str = "ogiri",
 ) -> dict:
     """未使用の大喜利を1本返す。枯渇時はプール先頭から再利用。"""
     extra = set(session_used or []) | set(planned_ids or [])
-    unused = unused_ogiri_posts(extra)
+    unused = unused_ogiri_posts(extra, kind=kind)
     if unused:
         return dict(unused[0])
-    pool = [p for p in OGIRI_POSTS if str(p.get("id") or "") not in set(session_used or [])]
+    src = _ogiri_pool(kind)
+    pool = [p for p in src if str(p.get("id") or "") not in set(session_used or [])]
     if not pool:
-        pool = list(OGIRI_POSTS)
+        pool = list(src)
     return dict(pool[0])

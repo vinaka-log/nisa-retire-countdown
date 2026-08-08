@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from client import ThreadsApiError, ThreadsClient  # noqa: E402
 from ogiri_posts import mark_ogiri_used  # noqa: E402
 from posts import (  # noqa: E402
+    POSTS_PER_DAY,
     all_posts,
     mark_casual_used,
     pick_post_by_id,
@@ -142,7 +143,9 @@ async def main_async(args: argparse.Namespace) -> int:
         if getattr(args, "date", None) and args.date
         else datetime.now(JST).date()
     )
-    if post.get("kind") == "ogiri" or str(post.get("id") or "").startswith("ogiri-"):
+    if post.get("kind") in ("ogiri", "ogiri_fin") or str(post.get("id") or "").startswith(
+        "ogiri-"
+    ):
         if mark_ogiri_used(str(post["id"]), day=day):
             print(f"LEDGER: marked ogiri used id={post['id']}")
         else:
@@ -175,9 +178,9 @@ def main() -> None:
     parser.add_argument(
         "--slot",
         type=int,
-        choices=(0, 1, 2),
+        choices=tuple(range(POSTS_PER_DAY)),
         default=None,
-        help="日内枠 0=08ogiri 1=12ogiri 2=20ogiri",
+        help="日内枠 0..9（08ogiri / 0930ogiri-fin / 11casual / … / 22cta）",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")

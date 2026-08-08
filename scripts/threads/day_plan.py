@@ -145,8 +145,10 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
         per_day_kind = SLOT_KINDS.count(kind)
         emit = day.toordinal() * per_day_kind + kind_index
 
-        if kind == "ogiri":
-            post = pick_ogiri(session_used=day_session, planned_ids=planned_ids)
+        if kind in ("ogiri", "ogiri_fin"):
+            post = pick_ogiri(
+                session_used=day_session, planned_ids=planned_ids, kind=kind
+            )
             pid = str(post.get("id") or "")
             if pid:
                 day_session.add(pid)

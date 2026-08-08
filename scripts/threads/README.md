@@ -4,20 +4,22 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 - スクリプト: [`post.py`](./post.py) / [`ogiri_posts.py`](./ogiri_posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
-- スケジュール: **毎日3回 JST（ジブリ大喜利・PRなし）**
-  - **08:00 / 12:00 / 20:00** … 公式場面写真 + あるあるキャプション（URLなし・リプなし）
+- スケジュール: **毎日10回 JST**（repo は public のため Actions 枠は消費しない）
+  - 生活大喜利 3 / 金融・NISA・物価大喜利 3 / 雑談 2 / 誘導 2
 - 画像: [スタジオジブリ公式ギャラリー](https://www.ghibli.jp/)（「常識の範囲でご自由にお使いください」）
-- 台帳: [`ogiri_ledger.json`](./ogiri_ledger.json)（一度きり。枯渇時のみ再利用）
+- 台帳: [`ogiri_ledger.json`](./ogiri_ledger.json)（大喜利一度きり。枯渇時のみ再利用）
+  / [`casual_ledger.json`](./casual_ledger.json)（雑談一度きり）
 - `SCHEDULE_ID` 変更で [`day_plans.json`](./day_plans.json) は自動再生成
-- Actions 分節約のため、旧雑談補充の週次 cron は停止（手動のみ）
+- 雑談プール補充は [threads-casual-refill.yml](../../.github/workflows/threads-casual-refill.yml) を手動実行
 
 ## 運用（手動は最小）
 
 1. **プロフィール** … 下の推奨文言＋サイトリンクを反映（発見導線はプロフィール任せ）
-2. **自動投稿に任せる** … 1日3本の大喜利
+2. **自動投稿に任せる** … 1日10本
 3. **来た通知だけ返す** … 自分の投稿へのコメントが来たら返信（任意）
 
-投稿本文にシミュURL・アフィリエイトは入れない（PRなし）。
+生活大喜利・雑談にシミュURLは入れない。誘導枠だけ最終リプにサイトURL。
+金融大喜利は NISA・物価・貯蓄あるあるのみ（銘柄推奨・投資助言禁止）。
 
 ## プロフィール文言（推奨）
 
@@ -57,9 +59,16 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 | slot | 時刻(JST) | 種類 |
 |------|-----------|------|
-| 0 | 08:00 | ogiri（ジブリ大喜利） |
-| 1 | 12:00 | ogiri |
-| 2 | 20:00 | ogiri |
+| 0 | 08:00 | ogiri（生活大喜利） |
+| 1 | 09:30 | ogiri_fin（金融・NISA・物価大喜利） |
+| 2 | 11:00 | casual（雑談） |
+| 3 | 12:30 | ogiri |
+| 4 | 14:00 | ogiri_fin |
+| 5 | 16:00 | cta（誘導） |
+| 6 | 18:00 | casual |
+| 7 | 19:30 | ogiri |
+| 8 | 21:00 | ogiri_fin |
+| 9 | 22:00 | cta |
 
 ## ローカル
 
@@ -72,19 +81,20 @@ pip install -r scripts/threads/requirements.txt
 PYTHONPATH=scripts/threads python scripts/threads/post.py --dry-run
 PYTHONPATH=scripts/threads python scripts/threads/post.py --list
 PYTHONPATH=scripts/threads python scripts/threads/post.py --slot 0 --dry-run
+PYTHONPATH=scripts/threads python scripts/threads/post.py --slot 1 --dry-run
 PYTHONPATH=scripts/threads python scripts/threads/post.py --id ogiri-chihiro-yubaba-bill --dry-run
 ```
 
 ## 投稿文の追加
 
-[`ogiri_posts.py`](./ogiri_posts.py) の `OGIRI_POSTS` に追記する。
+[`ogiri_posts.py`](./ogiri_posts.py) に追記する。
 
-- `kind=ogiri` … **画像＋短文・URLなし・リプなし**
+- `OGIRI_POSTS` / `kind=ogiri` … 生活あるある（投資・PR禁止）
+- `OGIRI_FIN_POSTS` / `kind=ogiri_fin` … NISA・物価・貯蓄あるある（銘柄名・URL禁止）
 - `image_url` … `https://www.ghibli.jp/gallery/{slug}{nnn}.jpg`
-- キャプションは日常あるある（投資・PR禁止）
 - 投稿成功後に [`ogiri_ledger.json`](./ogiri_ledger.json) へ記録
 
-旧プール（`CASUAL_*` / `VALUE_*` / `CTA_*`）は `--id` 指定用に残しているが、スケジュールでは使わない。
+雑談は `CASUAL_HAND_POSTS` / `casual_generated.json`。誘導は `CTA_POSTS`。
 
 ## 失敗時の切り分け（GitHub Actions）
 
@@ -94,6 +104,7 @@ PYTHONPATH=scripts/threads python scripts/threads/post.py --id ogiri-chihiro-yub
 | `API失敗 ... is_transient ... code: 2` | Meta 側一時障害 | 自動リトライ。だめなら Re-run |
 | 画像コンテナ失敗 | `image_url` が取れない / 処理待ち不足 | URL疎通と `THREADS_IMAGE_PUBLISH_DELAY_SEC`（既定20）を確認 |
 | 想定時刻より遅い | GitHub cron の遅延 | 正常。slot は cron から渡す |
+| 雑談枯渇 | casual プール不足 | `threads-casual-refill` を手動実行 |
 
 待ち時間:
 

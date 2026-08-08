@@ -1,11 +1,11 @@
 """Threads 投稿文プール（みつき｜NISA「足りるか」確認係）.
 
-1日の枠（JST）: ジブリ大喜利 3本（PRなし・URLなし）
-  08:00 / 12:00 / 20:00 … 公式場面写真 + あるあるキャプション
+1日の枠（JST）10本:
+  ジブリ大喜利（生活）3 / ジブリ大喜利（金融・NISA・物価）3 / 雑談2 / 誘導2
 
 画像はスタジオジブリ公式ギャラリーを参照（常識の範囲で自由利用可）。
 大喜利は ogiri_ledger.json で一度きり（枯渇時のみ再利用）。
-旧: 雑談 / 価値 / 誘導プールは --id 指定用に残置。
+雑談は casual_ledger.json で一度きり。誘導は CTA_POSTS をローテ。
 絵文字はハート／✨系を使わない。
 投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
 """
@@ -24,19 +24,33 @@ _THREADS_DIR = Path(__file__).resolve().parent
 CASUAL_LEDGER_PATH = _THREADS_DIR / "casual_ledger.json"
 CASUAL_GENERATED_PATH = _THREADS_DIR / "casual_generated.json"
 
-# 日内枠（JST）: ogiri=ジブリ場面写真×大喜利（PRなし）
+# 日内枠（JST）: ogiri=生活大喜利 / ogiri_fin=金融大喜利 / casual=雑談 / cta=誘導
 # schedule を変えたら SCHEDULE_ID も更新 → day_plans.json が自動で作り直される
-SCHEDULE_ID = "D-ogiri3"
-POSTS_PER_DAY = 3
+SCHEDULE_ID = "D-ogiri10"
+POSTS_PER_DAY = 10
 SLOT_KINDS = (
-    "ogiri",  # 0: 08:00
-    "ogiri",  # 1: 12:00
-    "ogiri",  # 2: 20:00
+    "ogiri",      # 0: 08:00 生活大喜利
+    "ogiri_fin",  # 1: 09:30 金融大喜利
+    "casual",     # 2: 11:00 雑談
+    "ogiri",      # 3: 12:30 生活大喜利
+    "ogiri_fin",  # 4: 14:00 金融大喜利
+    "cta",        # 5: 16:00 誘導
+    "casual",     # 6: 18:00 雑談
+    "ogiri",      # 7: 19:30 生活大喜利
+    "ogiri_fin",  # 8: 21:00 金融大喜利
+    "cta",        # 9: 22:00 誘導
 )
 SLOT_LABELS = (
     "08ogiri",
-    "12ogiri",
-    "20ogiri",
+    "0930ogiri-fin",
+    "11casual",
+    "1230ogiri",
+    "14ogiri-fin",
+    "16cta",
+    "18casual",
+    "1930ogiri",
+    "21ogiri-fin",
+    "22cta",
 )
 
 # --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
@@ -1457,7 +1471,7 @@ def _post_replies(post: dict) -> List[str]:
 
 
 def thread_texts(post: dict) -> List[str]:
-    """本投稿→自分リプ連鎖。ogiri/casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
+    """本投稿→自分リプ連鎖。ogiri/ogiri_fin/casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
     main = _truncate(str(post.get("text") or ""))
     texts = [t for t in (main, *_post_replies(post)) if t]
     if not texts:
@@ -1466,10 +1480,11 @@ def thread_texts(post: dict) -> List[str]:
 
 
 def all_posts() -> Sequence[dict]:
-    from ogiri_posts import OGIRI_POSTS
+    from ogiri_posts import OGIRI_FIN_POSTS, OGIRI_POSTS
 
     return [
         *OGIRI_POSTS,
+        *OGIRI_FIN_POSTS,
         *build_casual_posts(),
         *VALUE_POSTS,
         *PRAISE_POSTS,
@@ -1482,7 +1497,7 @@ def all_posts() -> Sequence[dict]:
 POSTS: List[dict] = []
 
 
-_SLOT_HOURS = (8.0, 12.0, 20.0)
+_SLOT_HOURS = (8.0, 9.5, 11.0, 12.5, 14.0, 16.0, 18.0, 19.5, 21.0, 22.0)
 
 
 def slot_from_hour(hour: int) -> int:
@@ -1729,15 +1744,16 @@ def pick_post_for_slot(
     per_day_kind = SLOT_KINDS.count(kind)
     emit = day.toordinal() * per_day_kind + kind_index
 
-    if kind == "ogiri":
-        from ogiri_posts import OGIRI_POSTS, pick_ogiri
+    if kind in ("ogiri", "ogiri_fin"):
+        from ogiri_posts import OGIRI_FIN_POSTS, OGIRI_POSTS, pick_ogiri
 
-        post = pick_ogiri(session_used=session_used)
+        pool = OGIRI_FIN_POSTS if kind == "ogiri_fin" else OGIRI_POSTS
+        post = pick_ogiri(session_used=session_used, kind=kind)
         pid = str(post.get("id") or "")
         if session_used is not None and pid:
             session_used.add(pid)
         index = next(
-            (i for i, p in enumerate(OGIRI_POSTS) if p.get("id") == pid),
+            (i for i, p in enumerate(pool) if p.get("id") == pid),
             None,
         )
         return _hydrate(post, index=index, slot=slot)
