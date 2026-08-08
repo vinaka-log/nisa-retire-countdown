@@ -2,7 +2,8 @@
   "used_ids": [
     "ogiri-chihiro-car-sulk",
     "ogiri-chihiro-stop-frog",
-    "ogiri-fin-chihiro-coupon"
+    "ogiri-fin-chihiro-coupon",
+    "ogiri-chihiro-yubaba-bill"
   ],
   "history": [
     {
@@ -15,6 +16,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-08"
+    },
+    {
+      "id": "ogiri-chihiro-yubaba-bill",
       "date": "2026-08-08"
     }
   ]
