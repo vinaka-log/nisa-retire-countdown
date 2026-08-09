@@ -1416,5 +1416,187 @@
         ]
       }
     }
+  },
+  "2026-08-10": {
+    "date": "2026-08-10",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [
+      "gym_skipped_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-boat-follow",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "後ろからずっとついてくる気配に気づいた帰り道",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro040.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-kiki-bread",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "「今月は節約する」って言った翌朝、コンビニコーヒー買ってる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/majo001.jpg",
+        "film": "majo"
+      },
+      "2": {
+        "id": "cas-gen-nonsense-6237dc6570",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "イヤホン左右どっちが右かわからんまま挿した\n音変で気づく",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "ogiri-totoro-run-home",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "宅配の再配達、あと3分ってなって全力疾走",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/totoro001.jpg",
+        "film": "totoro"
+      },
+      "4": {
+        "id": "ogiri-fin-kiki-radio",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "老後2,000万円問題、数字だけ聞いて一旦フリーズする顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/majo010.jpg",
+        "film": "majo"
+      },
+      "5": {
+        "id": "cta-return-guide",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "想定年利、いい数字に寄せてない？🥹\n\n不安なときほど、置き方がブレやすい💭\n\n危ない置き方と迷わない置き方の違い、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "危ない＝帳尻が合うまで%を上げる\n迷わない＝3%と5%みたいに幅で見る✨\n\n届く／届かないを一点で決めないと、\n積立や年数のレバーも冷静に選べるよ💭\n\nいま何%で置いてる？",
+          "置き方の整理はここ✨\n\nhttps://www.nisa-simulation.com/guides/assumed-return"
+        ]
+      },
+      "6": {
+        "id": "cas-work-monday-stomach",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "月曜朝、目覚ましより先に胃が重い\n身体が先に仕事拒否してる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "morning",
+          "weekdays": [
+            0
+          ]
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "ogiri-totoro-stairs",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "冷蔵庫開けて、何もないのに二度見してる顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/totoro005.jpg",
+        "film": "totoro"
+      },
+      "8": {
+        "id": "ogiri-fin-laputa-robot",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "給料日なのに、家賃と積立で手元ゼロのロボット感",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/laputa001.jpg",
+        "film": "laputa"
+      },
+      "9": {
+        "id": "cta-monthly-guide",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「毎月いくらが正解？」で苦しくなる人、多い🥹\n\n混ぜちゃいけない2つがある↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "必要額＝目標から逆算した目安\n続けられる額＝家計で無理なく続く額\n\n満額できない＝失敗、でもない✨\n続けられる額で始めて、ギャップを見ながら調整が現実的\n\nいま、どっちで決めてる？",
+          "逆算の見方はここ✨\n\nhttps://www.nisa-simulation.com/guides/monthly-contribution"
+        ]
+      }
+    }
   }
 }
