@@ -13,7 +13,8 @@
     "ogiri-fin-totoro-rain",
     "ogiri-chihiro-boat-follow",
     "ogiri-fin-kiki-bread",
-    "ogiri-totoro-run-home"
+    "ogiri-totoro-run-home",
+    "ogiri-fin-kiki-radio"
   ],
   "history": [
     {
@@ -70,6 +71,10 @@
     },
     {
       "id": "ogiri-totoro-run-home",
+      "date": "2026-08-10"
+    },
+    {
+      "id": "ogiri-fin-kiki-radio",
       "date": "2026-08-10"
     }
   ]
