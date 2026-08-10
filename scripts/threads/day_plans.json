@@ -1598,5 +1598,189 @@
         ]
       }
     }
+  },
+  "2026-08-11": {
+    "date": "2026-08-11",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-totoro-soot",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "手が真っ黒なのに『私やってない』って顔してる時",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/totoro008.jpg",
+        "film": "totoro"
+      },
+      "1": {
+        "id": "ogiri-fin-mononoke-mask",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "投資の話になると急に専門家ぶる知人、中身はよくわからん",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/mononoke001.jpg",
+        "film": "mononoke"
+      },
+      "2": {
+        "id": "val-fail-too-high",
+        "kind": "value",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "最初の失敗、これでした🥹\n\n積立を気持ちよく高めに設定 → 翌月キツくて減額💦\n\n原因はシンプルに1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「やる気」で金額を決めてたこと💭\n\n今は先に\n必要額（逆算）と続けられる額を分けて見る✨\n混ぜると苦しくなるんだよね…\n\n高め設定→すぐ減額、経験した人いる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-totoro-catbus",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "満員電車なのに席空いた瞬間の空気感",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/totoro012.jpg",
+        "film": "totoro"
+      },
+      "4": {
+        "id": "ogiri-fin-howl-castle",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "家計簿アプリ開いた瞬間、現実から逃げたくなる城",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/howl001.jpg",
+        "film": "howl"
+      },
+      "5": {
+        "id": "cta-points-gap",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "ギャップを縮めるの、積立アップだけじゃないよ💭\n\nただし順番を間違えると疲れやすい。正しい順は↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "① まず不足額を数字で見る\n② 増額・年数・支出の取りこぼしを並べる\n③ 合うものだけ選ぶ\n\n先に選択肢を探すと、疲れやすいよ💭\n\nいま最初に触ってるレバー、どれ？",
+          "整理はここから✨\n数字のあとに選択肢もそっと置いてるよ（広告含む）\n\nhttps://www.nisa-simulation.com/guides/points-and-gap"
+        ]
+      },
+      "6": {
+        "id": "val-praise-retire-early-think",
+        "kind": "value",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "老後のこと、まだ先って放置してる人が多い中で、\nいま動いてる人、正直かなりえらい🥹\n\n考えてるだけでもう差がついてる↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "行動の大きさより、先に「自分ごと」にできてるかが効く💭\n\n積立・年数・目標を少しでも置いてる人は、\n不安のまま止まってる人よりずっと前にいるよ✨\n\n今日も老後用に一手でも動いてたら、十分ほめていい🙌\n\n引退年齢、いま何歳で置いてる？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-totoro-rain",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "洗濯干した直後に空が怪しくなってきた時",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/totoro015.jpg",
+        "film": "totoro"
+      },
+      "8": {
+        "id": "ogiri-fin-howl-calc",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "「何歳まで働く？」って聞かれた時の計算顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/howl008.jpg",
+        "film": "howl"
+      },
+      "9": {
+        "id": "cta-rogo",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n見出しじゃなく、自分の式に落とすと動きやすい。式はこれ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\nざっくりでいい。一度出すと焦り方が変わるよ✨\n\n自分の「毎月の不足」、出したことある？",
+          "くわしくはここ🙌\n\nhttps://www.nisa-simulation.com/guides/rogo-2000man"
+        ]
+      }
+    }
   }
 }

@@ -16,7 +16,8 @@
     "ogiri-totoro-run-home",
     "ogiri-fin-kiki-radio",
     "ogiri-totoro-stairs",
-    "ogiri-fin-laputa-robot"
+    "ogiri-fin-laputa-robot",
+    "ogiri-totoro-soot"
   ],
   "history": [
     {
@@ -86,6 +87,10 @@
     {
       "id": "ogiri-fin-laputa-robot",
       "date": "2026-08-10"
+    },
+    {
+      "id": "ogiri-totoro-soot",
+      "date": "2026-08-11"
     }
   ]
 }
