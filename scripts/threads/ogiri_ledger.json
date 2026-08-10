@@ -11,7 +11,8 @@
     "ogiri-fin-totoro-bus",
     "ogiri-chihiro-kitchen",
     "ogiri-fin-totoro-rain",
-    "ogiri-chihiro-boat-follow"
+    "ogiri-chihiro-boat-follow",
+    "ogiri-fin-kiki-bread"
   ],
   "history": [
     {
@@ -60,6 +61,10 @@
     },
     {
       "id": "ogiri-chihiro-boat-follow",
+      "date": "2026-08-10"
+    },
+    {
+      "id": "ogiri-fin-kiki-bread",
       "date": "2026-08-10"
     }
   ]
