@@ -14,7 +14,8 @@
     "ogiri-chihiro-boat-follow",
     "ogiri-fin-kiki-bread",
     "ogiri-totoro-run-home",
-    "ogiri-fin-kiki-radio"
+    "ogiri-fin-kiki-radio",
+    "ogiri-totoro-stairs"
   ],
   "history": [
     {
@@ -75,6 +76,10 @@
     },
     {
       "id": "ogiri-fin-kiki-radio",
+      "date": "2026-08-10"
+    },
+    {
+      "id": "ogiri-totoro-stairs",
       "date": "2026-08-10"
     }
   ]
