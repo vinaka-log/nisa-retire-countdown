@@ -46,7 +46,8 @@
     "cas-gen-nonsense-b5d7e77903",
     "cas-gen-gal-af44e67529",
     "cas-gen-gym-509ce5b15a",
-    "cas-gen-nonsense-6237dc6570"
+    "cas-gen-nonsense-6237dc6570",
+    "cas-work-monday-stomach"
   ],
   "history": [
     {
@@ -235,6 +236,10 @@
     },
     {
       "id": "cas-gen-nonsense-6237dc6570",
+      "date": "2026-08-10"
+    },
+    {
+      "id": "cas-work-monday-stomach",
       "date": "2026-08-10"
     }
   ]
