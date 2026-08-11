@@ -18,7 +18,8 @@
     "ogiri-totoro-stairs",
     "ogiri-fin-laputa-robot",
     "ogiri-totoro-soot",
-    "ogiri-fin-mononoke-mask"
+    "ogiri-fin-mononoke-mask",
+    "ogiri-totoro-catbus"
   ],
   "history": [
     {
@@ -95,6 +96,10 @@
     },
     {
       "id": "ogiri-fin-mononoke-mask",
+      "date": "2026-08-11"
+    },
+    {
+      "id": "ogiri-totoro-catbus",
       "date": "2026-08-11"
     }
   ]
