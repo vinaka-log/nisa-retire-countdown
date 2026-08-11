@@ -19,7 +19,8 @@
     "ogiri-fin-laputa-robot",
     "ogiri-totoro-soot",
     "ogiri-fin-mononoke-mask",
-    "ogiri-totoro-catbus"
+    "ogiri-totoro-catbus",
+    "ogiri-fin-howl-castle"
   ],
   "history": [
     {
@@ -100,6 +101,10 @@
     },
     {
       "id": "ogiri-totoro-catbus",
+      "date": "2026-08-11"
+    },
+    {
+      "id": "ogiri-fin-howl-castle",
       "date": "2026-08-11"
     }
   ]
