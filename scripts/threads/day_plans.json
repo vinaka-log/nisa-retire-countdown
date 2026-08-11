@@ -1782,5 +1782,187 @@
         ]
       }
     }
+  },
+  "2026-08-12": {
+    "date": "2026-08-12",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-totoro-night",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "夜中に冷蔵庫開けて、何もないのを確認する儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/totoro020.jpg",
+        "film": "totoro"
+      },
+      "1": {
+        "id": "ogiri-fin-porco-plane",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "ボーナス入った瞬間、旅行と積立で脳内バトル",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/porco001.jpg",
+        "film": "porco"
+      },
+      "2": {
+        "id": "val-years-left",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "同じ目標額なのに、人によって必要な毎月積立が全然違うのなんでなん？\n\n答えは1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「残り年数」です💭\n\n引退まで25年の人と10年の人じゃ、\n同じ目標でも毎月の必要額は別世界✨\n\nだから他人の積立額を真似するより、\n自分の残り年数で逆算した方が迷わないよ🙌\n\n引退まで、いま何年で置いてる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-majo-grass",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "有給取った日の午後、何もしてないのに充実してる顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/majo001.jpg",
+        "film": "majo"
+      },
+      "4": {
+        "id": "ogiri-fin-marnie-marsh",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "将来の自分に「足りる？」って聞いて、返事が来ない沼",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/marnie001.jpg",
+        "film": "marnie"
+      },
+      "5": {
+        "id": "cta-sim-soft",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "足りるかの確認、占いじゃなくていい🥹\n\n年齢・積立・利回り・目標を並べるだけで\n感覚はかなりはっきりする↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "まず距離を知る。口座やカードはそのあとで十分🙌\n\n不足額の概算、会員なしで試せるよ✨\n投資助言じゃないよ🥹\n\n距離、一度でも数字で見たことある？\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-fail-dip-scare",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "下落の日、アプリ何回も開いて\n積立止めかけたことある🥹💦\n\nあのとき見てなかったもの、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "「足りるか」の距離です💭\n\n見てたのは相場だけで、\n自分のギャップは一度も見てなかった…\n\n少額でも続く状態に戻して、\n距離を見てからの方がずっと落ち着いたよ🙌\n\n下落で止めかけたこと、ある人いる？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-majo-mom-hug",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "実家帰ったら母親の説教が始まる前触れ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/majo005.jpg",
+        "film": "majo"
+      },
+      "8": {
+        "id": "ogiri-fin-nausicaa-wind",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "インフレの風、買い物カゴにだけ強く当たってる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/nausicaa001.jpg",
+        "film": "nausicaa"
+      },
+      "9": {
+        "id": "cta-retire-age",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "引退年齢、何歳に置いてる？ここ1つでギャップ変わる🥹\n\n積立だけがレバーじゃない。動かして見えるもの↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "年数を動かしてから、必要額を見直すのもあり✨\n\n動かして見る入口はここ🙌\n\nhttps://www.nisa-simulation.com"
+        ]
+      }
+    }
   }
 }

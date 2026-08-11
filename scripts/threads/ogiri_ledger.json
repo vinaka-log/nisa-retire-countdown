@@ -22,7 +22,8 @@
     "ogiri-totoro-catbus",
     "ogiri-fin-howl-castle",
     "ogiri-totoro-rain",
-    "ogiri-fin-howl-calc"
+    "ogiri-fin-howl-calc",
+    "ogiri-totoro-night"
   ],
   "history": [
     {
@@ -116,6 +117,10 @@
     {
       "id": "ogiri-fin-howl-calc",
       "date": "2026-08-11"
+    },
+    {
+      "id": "ogiri-totoro-night",
+      "date": "2026-08-12"
     }
   ]
 }
