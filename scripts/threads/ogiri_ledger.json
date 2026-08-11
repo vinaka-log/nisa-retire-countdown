@@ -17,7 +17,8 @@
     "ogiri-fin-kiki-radio",
     "ogiri-totoro-stairs",
     "ogiri-fin-laputa-robot",
-    "ogiri-totoro-soot"
+    "ogiri-totoro-soot",
+    "ogiri-fin-mononoke-mask"
   ],
   "history": [
     {
@@ -90,6 +91,10 @@
     },
     {
       "id": "ogiri-totoro-soot",
+      "date": "2026-08-11"
+    },
+    {
+      "id": "ogiri-fin-mononoke-mask",
       "date": "2026-08-11"
     }
   ]
