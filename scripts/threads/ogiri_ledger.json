@@ -28,7 +28,8 @@
     "ogiri-majo-grass",
     "ogiri-fin-marnie-marsh",
     "ogiri-majo-mom-hug",
-    "ogiri-fin-nausicaa-wind"
+    "ogiri-fin-nausicaa-wind",
+    "ogiri-majo-hair-up"
   ],
   "history": [
     {
@@ -146,6 +147,10 @@
     {
       "id": "ogiri-fin-nausicaa-wind",
       "date": "2026-08-12"
+    },
+    {
+      "id": "ogiri-majo-hair-up",
+      "date": "2026-08-13"
     }
   ]
 }

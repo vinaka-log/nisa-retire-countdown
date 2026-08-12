@@ -1964,5 +1964,186 @@
         ]
       }
     }
+  },
+  "2026-08-13": {
+    "date": "2026-08-13",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-majo-hair-up",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "ヘルメット外した直後、自信だけ残ってる髪型",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/majo010.jpg",
+        "film": "majo"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-train",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "老後まで続く積立、終点が見えない電車",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro040.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-future-self",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "今の自分より、未来の自分のために\nお金を分けてる人、地味にすごい🥹\n\n「老後はまだ先」って流せるのに、\n止まらず積んでる時点で↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "先延ばしが一番高いコストになりやすいから💭\n\n額が大きくなくても、\n「老後用」に口座や積立を分けてるだけで十分えらい✨\n\n未来の自分に仕送りできてる月、ちゃんと積み上がってるよ🙌\n\n老後用って意識して分けてる？まだなら何から始めた？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-majo-police",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "『ちょっとお話いいですか』って呼ばれた時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/majo015.jpg",
+        "film": "majo"
+      },
+      "4": {
+        "id": "ogiri-fin-totoro-sleep",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA始めたのに、あとは放置で眠ってる資産",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/totoro020.jpg",
+        "film": "totoro"
+      },
+      "5": {
+        "id": "cta-anxiety-chain",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "積立続いてるのに不安が消えない人、\nだいたい足りない額を出してない🥹\n\n銘柄比較より先に効くことが多い順番↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "ギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n全部いっぺんに変えなくて大丈夫✨\n\n不安の正体、いま何だと思ってる？",
+          "距離の確認、無料でできるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-4pct",
+        "kind": "value",
+        "topic": "FIRE",
+        "theme": "",
+        "text": "資産3000万→年4%仮定だと月約10万（年金は別）💭\n\nこれは「保証」じゃなく、\n取り崩しの粗いイメージ用だよ🥹✨\n\n「いくら持つか」だけより\n「月いくら使えそうか」で見るとギャップが具体的になる✨\n\n目標、いま「総額」と「月の使い方」どっちで見てる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "ogiri-majo-delivery",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "宅配ボックス満杯で再配達になった時の虚無",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/majo020.jpg",
+        "film": "majo"
+      },
+      "8": {
+        "id": "ogiri-fin-kiki-tired",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "節約疲れた日、「今日だけ」が一番高い買い物になる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/majo025.jpg",
+        "film": "majo"
+      },
+      "9": {
+        "id": "cta-4pct-guide",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「いくら持つか」だけ見てると、\n月いくら使えそうかがぼやける🥹\n\n総額→月の感覚にする粗い見方↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "取り崩しのイメージとして\n年4%÷12 みたいな見方があるよ✨\n\n保証じゃない。でも感覚のたたき台にはなる✨\n\n目標、いま総額と月の使い方どっちで見てる？",
+          "考え方の整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/4-percent-rule"
+        ]
+      }
+    }
   }
 }
