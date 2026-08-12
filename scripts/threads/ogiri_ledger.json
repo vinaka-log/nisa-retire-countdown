@@ -25,7 +25,8 @@
     "ogiri-fin-howl-calc",
     "ogiri-totoro-night",
     "ogiri-fin-porco-plane",
-    "ogiri-majo-grass"
+    "ogiri-majo-grass",
+    "ogiri-fin-marnie-marsh"
   ],
   "history": [
     {
@@ -130,6 +131,10 @@
     },
     {
       "id": "ogiri-majo-grass",
+      "date": "2026-08-12"
+    },
+    {
+      "id": "ogiri-fin-marnie-marsh",
       "date": "2026-08-12"
     }
   ]
