@@ -26,7 +26,8 @@
     "ogiri-totoro-night",
     "ogiri-fin-porco-plane",
     "ogiri-majo-grass",
-    "ogiri-fin-marnie-marsh"
+    "ogiri-fin-marnie-marsh",
+    "ogiri-majo-mom-hug"
   ],
   "history": [
     {
@@ -135,6 +136,10 @@
     },
     {
       "id": "ogiri-fin-marnie-marsh",
+      "date": "2026-08-12"
+    },
+    {
+      "id": "ogiri-majo-mom-hug",
       "date": "2026-08-12"
     }
   ]
