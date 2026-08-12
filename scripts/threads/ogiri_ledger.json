@@ -23,7 +23,8 @@
     "ogiri-fin-howl-castle",
     "ogiri-totoro-rain",
     "ogiri-fin-howl-calc",
-    "ogiri-totoro-night"
+    "ogiri-totoro-night",
+    "ogiri-fin-porco-plane"
   ],
   "history": [
     {
@@ -120,6 +121,10 @@
     },
     {
       "id": "ogiri-totoro-night",
+      "date": "2026-08-12"
+    },
+    {
+      "id": "ogiri-fin-porco-plane",
       "date": "2026-08-12"
     }
   ]
