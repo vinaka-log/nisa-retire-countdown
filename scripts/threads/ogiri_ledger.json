@@ -27,7 +27,8 @@
     "ogiri-fin-porco-plane",
     "ogiri-majo-grass",
     "ogiri-fin-marnie-marsh",
-    "ogiri-majo-mom-hug"
+    "ogiri-majo-mom-hug",
+    "ogiri-fin-nausicaa-wind"
   ],
   "history": [
     {
@@ -140,6 +141,10 @@
     },
     {
       "id": "ogiri-majo-mom-hug",
+      "date": "2026-08-12"
+    },
+    {
+      "id": "ogiri-fin-nausicaa-wind",
       "date": "2026-08-12"
     }
   ]
