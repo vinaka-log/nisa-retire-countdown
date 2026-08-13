@@ -31,7 +31,8 @@
     "ogiri-fin-nausicaa-wind",
     "ogiri-majo-hair-up",
     "ogiri-fin-chihiro-train",
-    "ogiri-majo-police"
+    "ogiri-majo-police",
+    "ogiri-fin-totoro-sleep"
   ],
   "history": [
     {
@@ -160,6 +161,10 @@
     },
     {
       "id": "ogiri-majo-police",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "ogiri-fin-totoro-sleep",
       "date": "2026-08-13"
     }
   ]
