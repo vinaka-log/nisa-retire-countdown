@@ -32,7 +32,8 @@
     "ogiri-majo-hair-up",
     "ogiri-fin-chihiro-train",
     "ogiri-majo-police",
-    "ogiri-fin-totoro-sleep"
+    "ogiri-fin-totoro-sleep",
+    "ogiri-majo-delivery"
   ],
   "history": [
     {
@@ -165,6 +166,10 @@
     },
     {
       "id": "ogiri-fin-totoro-sleep",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "ogiri-majo-delivery",
       "date": "2026-08-13"
     }
   ]
