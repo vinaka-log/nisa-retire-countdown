@@ -29,7 +29,8 @@
     "ogiri-fin-marnie-marsh",
     "ogiri-majo-mom-hug",
     "ogiri-fin-nausicaa-wind",
-    "ogiri-majo-hair-up"
+    "ogiri-majo-hair-up",
+    "ogiri-fin-chihiro-train"
   ],
   "history": [
     {
@@ -150,6 +151,10 @@
     },
     {
       "id": "ogiri-majo-hair-up",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "ogiri-fin-chihiro-train",
       "date": "2026-08-13"
     }
   ]
