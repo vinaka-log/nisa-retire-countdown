@@ -34,7 +34,8 @@
     "ogiri-majo-police",
     "ogiri-fin-totoro-sleep",
     "ogiri-majo-delivery",
-    "ogiri-fin-kiki-tired"
+    "ogiri-fin-kiki-tired",
+    "ogiri-majo-wind"
   ],
   "history": [
     {
@@ -176,6 +177,10 @@
     {
       "id": "ogiri-fin-kiki-tired",
       "date": "2026-08-13"
+    },
+    {
+      "id": "ogiri-majo-wind",
+      "date": "2026-08-14"
     }
   ]
 }

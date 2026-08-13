@@ -2145,5 +2145,189 @@
         ]
       }
     }
+  },
+  "2026-08-14": {
+    "date": "2026-08-14",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-majo-wind",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "強風で髪型ぜんぶ崩壊した通勤",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/majo025.jpg",
+        "film": "majo"
+      },
+      "1": {
+        "id": "ogiri-fin-ponyo-ham",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "給料日前なのに、カートに入れる手が止まらない",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/ponyo008.jpg",
+        "film": "ponyo"
+      },
+      "2": {
+        "id": "val-fail-2000man",
+        "kind": "value",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万」で頭真っ白になって、\nしばらく何も動けなかった話🥹↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "あれ、平均モデルのたたき台なのに\n自分の生活費も年金も置かずに固まってた💦\n\n抜けたのはこの式に落としたとき↓\n生活費 − 年金見込み = 毎月の不足 → ×年数✨\n\n見出しじゃなく、自分用の数字1回で景色変わるよ✨\n\n2000万で固まったこと、ある人いる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-howl-sophie-shop",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "接客の笑顔、心はすでに退勤してる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/howl001.jpg",
+        "film": "howl"
+      },
+      "4": {
+        "id": "ogiri-fin-baron-pose",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "積立設定しただけで、賢くなった気がしてる顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/baron005.jpg",
+        "film": "baron"
+      },
+      "5": {
+        "id": "cta-retirement-funds",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "老後資金いくら必要？万人共通の正解を探すと迷子🥹\n\nたたき台はシンプルでいい。いちばん短い式↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\n完璧な表より、一度出した数字の方が動けるよ✨\n\n生活費と年金見込み、ざっくり置いたことある？",
+          "目安の考え方はここから🙌\n\nhttps://www.nisa-simulation.com/guides/retirement-funds"
+        ]
+      },
+      "6": {
+        "id": "val-praise-not-too-late",
+        "kind": "value",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「もっと早く始めればよかった」って思いながらも、\nいま積立してる人へ🥹\n\n後悔しつつ動いてるの、いちばんえらい↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "始まってない人は後悔も行動もまだ無い。\nあなたはもう両方やってる側✨\n\n遅い／早いより、今日からの距離の方が大事💭\n\nいま動いてる自分を、一回認めていいよ🙌\n\n始めたの、何年前くらいから？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-howl-sky-walk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "デートで手繋いだ瞬間、急にキラキラして見えた（本人談）",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/howl005.jpg",
+        "film": "howl"
+      },
+      "8": {
+        "id": "ogiri-fin-yamada-dinner",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "外食か自炊かで、家計会議が一番長い",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/yamada001.jpg",
+        "film": "yamada"
+      },
+      "9": {
+        "id": "cta-nisa-basics",
+        "kind": "cta",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "つみたて／成長で迷うとき、\n先に枠の地図だけ持っておくと楽🥹\n\n枠とギャップ、混ぜると迷子になる理由↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "枠は上限の話。\n目標に届くかは別計算✨\n\n制度の基本と距離確認を分けて見ると迷いにくいよ\n\n枠埋めとギャップ確認、どっち先にしてる？",
+          "枠の基本はここ🙌\n\nhttps://www.nisa-simulation.com/guides/new-nisa-basics"
+        ]
+      }
+    }
   }
 }
