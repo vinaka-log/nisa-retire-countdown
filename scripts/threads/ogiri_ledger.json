@@ -30,7 +30,8 @@
     "ogiri-majo-mom-hug",
     "ogiri-fin-nausicaa-wind",
     "ogiri-majo-hair-up",
-    "ogiri-fin-chihiro-train"
+    "ogiri-fin-chihiro-train",
+    "ogiri-majo-police"
   ],
   "history": [
     {
@@ -155,6 +156,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-train",
+      "date": "2026-08-13"
+    },
+    {
+      "id": "ogiri-majo-police",
       "date": "2026-08-13"
     }
   ]
