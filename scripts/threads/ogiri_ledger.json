@@ -37,7 +37,8 @@
     "ogiri-fin-kiki-tired",
     "ogiri-majo-wind",
     "ogiri-fin-ponyo-ham",
-    "ogiri-howl-sophie-shop"
+    "ogiri-howl-sophie-shop",
+    "ogiri-fin-baron-pose"
   ],
   "history": [
     {
@@ -190,6 +191,10 @@
     },
     {
       "id": "ogiri-howl-sophie-shop",
+      "date": "2026-08-14"
+    },
+    {
+      "id": "ogiri-fin-baron-pose",
       "date": "2026-08-14"
     }
   ]
