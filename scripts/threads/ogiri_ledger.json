@@ -38,7 +38,8 @@
     "ogiri-majo-wind",
     "ogiri-fin-ponyo-ham",
     "ogiri-howl-sophie-shop",
-    "ogiri-fin-baron-pose"
+    "ogiri-fin-baron-pose",
+    "ogiri-howl-sky-walk"
   ],
   "history": [
     {
@@ -195,6 +196,10 @@
     },
     {
       "id": "ogiri-fin-baron-pose",
+      "date": "2026-08-14"
+    },
+    {
+      "id": "ogiri-howl-sky-walk",
       "date": "2026-08-14"
     }
   ]
