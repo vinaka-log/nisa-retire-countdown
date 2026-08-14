@@ -39,7 +39,8 @@
     "ogiri-fin-ponyo-ham",
     "ogiri-howl-sophie-shop",
     "ogiri-fin-baron-pose",
-    "ogiri-howl-sky-walk"
+    "ogiri-howl-sky-walk",
+    "ogiri-fin-yamada-dinner"
   ],
   "history": [
     {
@@ -200,6 +201,10 @@
     },
     {
       "id": "ogiri-howl-sky-walk",
+      "date": "2026-08-14"
+    },
+    {
+      "id": "ogiri-fin-yamada-dinner",
       "date": "2026-08-14"
     }
   ]
