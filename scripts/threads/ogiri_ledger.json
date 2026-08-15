@@ -45,7 +45,8 @@
     "ogiri-fin-tanuki-transform",
     "ogiri-howl-clean",
     "ogiri-fin-kazetachinu-desk",
-    "ogiri-howl-magic"
+    "ogiri-howl-magic",
+    "ogiri-fin-karigurashi-tiny"
   ],
   "history": [
     {
@@ -230,6 +231,10 @@
     },
     {
       "id": "ogiri-howl-magic",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ogiri-fin-karigurashi-tiny",
       "date": "2026-08-15"
     }
   ]
