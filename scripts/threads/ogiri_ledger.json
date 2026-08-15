@@ -43,7 +43,8 @@
     "ogiri-fin-yamada-dinner",
     "ogiri-howl-mirror-shock",
     "ogiri-fin-tanuki-transform",
-    "ogiri-howl-clean"
+    "ogiri-howl-clean",
+    "ogiri-fin-kazetachinu-desk"
   ],
   "history": [
     {
@@ -220,6 +221,10 @@
     },
     {
       "id": "ogiri-howl-clean",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ogiri-fin-kazetachinu-desk",
       "date": "2026-08-15"
     }
   ]
