@@ -42,7 +42,8 @@
     "ogiri-howl-sky-walk",
     "ogiri-fin-yamada-dinner",
     "ogiri-howl-mirror-shock",
-    "ogiri-fin-tanuki-transform"
+    "ogiri-fin-tanuki-transform",
+    "ogiri-howl-clean"
   ],
   "history": [
     {
@@ -215,6 +216,10 @@
     },
     {
       "id": "ogiri-fin-tanuki-transform",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ogiri-howl-clean",
       "date": "2026-08-15"
     }
   ]
