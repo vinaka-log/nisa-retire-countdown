@@ -41,7 +41,8 @@
     "ogiri-fin-baron-pose",
     "ogiri-howl-sky-walk",
     "ogiri-fin-yamada-dinner",
-    "ogiri-howl-mirror-shock"
+    "ogiri-howl-mirror-shock",
+    "ogiri-fin-tanuki-transform"
   ],
   "history": [
     {
@@ -210,6 +211,10 @@
     },
     {
       "id": "ogiri-howl-mirror-shock",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ogiri-fin-tanuki-transform",
       "date": "2026-08-15"
     }
   ]
