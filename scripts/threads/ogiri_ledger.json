@@ -44,7 +44,8 @@
     "ogiri-howl-mirror-shock",
     "ogiri-fin-tanuki-transform",
     "ogiri-howl-clean",
-    "ogiri-fin-kazetachinu-desk"
+    "ogiri-fin-kazetachinu-desk",
+    "ogiri-howl-magic"
   ],
   "history": [
     {
@@ -225,6 +226,10 @@
     },
     {
       "id": "ogiri-fin-kazetachinu-desk",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ogiri-howl-magic",
       "date": "2026-08-15"
     }
   ]
