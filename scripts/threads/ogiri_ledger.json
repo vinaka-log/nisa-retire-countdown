@@ -50,7 +50,8 @@
     "ogiri-howl-door",
     "ogiri-fin-chihiro-bill",
     "ogiri-mononoke-watch",
-    "ogiri-mononoke-fight"
+    "ogiri-mononoke-fight",
+    "ogiri-mononoke-stare"
   ],
   "history": [
     {
@@ -264,6 +265,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-16"
+    },
+    {
+      "id": "ogiri-mononoke-stare",
+      "date": "2026-08-17"
     }
   ]
 }

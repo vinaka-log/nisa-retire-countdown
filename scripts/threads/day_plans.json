@@ -2691,5 +2691,189 @@
         ]
       }
     }
+  },
+  "2026-08-17": {
+    "date": "2026-08-17",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-mononoke-stare",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "「大丈夫？」って聞かれて、大丈夫じゃない時の目",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/mononoke010.jpg",
+        "film": "mononoke"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-fail-optimistic-sim",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "シミュで想定年利を上げて、\n安心したフリしてた話🥹\n\nこれのタチが悪いとこ、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「確認した気」になれちゃうこと💦\n\n実際は確認じゃなくて自己暗示なんだよね💭\n\n今は3%と5%みたいに幅で見る✨\n一点で決めない方が、積立や年数のレバーも冷静に選べる✨\n\nいい数字に寄せちゃった経験、ある人いる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-mononoke-forest",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "リモートなのにカメラON強制の会議",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/mononoke015.jpg",
+        "film": "mononoke"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-return-guide",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "想定年利、いい数字に寄せてない？🥹\n\n不安なときほど、置き方がブレやすい💭\n\n危ない置き方と迷わない置き方の違い、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "危ない＝帳尻が合うまで%を上げる\n迷わない＝3%と5%みたいに幅で見る✨\n\n届く／届かないを一点で決めないと、\n積立や年数のレバーも冷静に選べるよ💭\n\nいま何%で置いてる？",
+          "置き方の整理はここ✨\n\nhttps://www.nisa-simulation.com/guides/assumed-return"
+        ]
+      },
+      "6": {
+        "id": "val-praise-keep-going",
+        "kind": "value",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "つみたて、止まらず続いてる人へ🥹\n\nSNSの満額報告より、あなたの「続いた月数」の方がすごい💭\n\nそう思う理由↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "続く人だけが、あとから金額や年数を調整できるから✨\n\n止まってる状態で正解探ししても、距離は縮まないんだよね…\n\nまずは続いた自分を一回ほめていいよ🙌\n\nいま、何ヶ月くらい続いてる？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-ponyo-school",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "満員電車、魚群と同じ密度で進んでる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/ponyo001.jpg",
+        "film": "ponyo"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-monthly-guide",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「毎月いくらが正解？」で苦しくなる人、多い🥹\n\n混ぜちゃいけない2つがある↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "必要額＝目標から逆算した目安\n続けられる額＝家計で無理なく続く額\n\n満額できない＝失敗、でもない✨\n続けられる額で始めて、ギャップを見ながら調整が現実的\n\nいま、どっちで決めてる？",
+          "逆算の見方はここ✨\n\nhttps://www.nisa-simulation.com/guides/monthly-contribution"
+        ]
+      }
+    }
   }
 }
