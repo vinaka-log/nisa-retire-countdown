@@ -49,7 +49,8 @@
     "ogiri-fin-karigurashi-tiny",
     "ogiri-howl-door",
     "ogiri-fin-chihiro-bill",
-    "ogiri-mononoke-watch"
+    "ogiri-mononoke-watch",
+    "ogiri-mononoke-fight"
   ],
   "history": [
     {
@@ -254,6 +255,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-16"
+    },
+    {
+      "id": "ogiri-mononoke-fight",
       "date": "2026-08-16"
     }
   ]
