@@ -48,7 +48,8 @@
     "ogiri-howl-magic",
     "ogiri-fin-karigurashi-tiny",
     "ogiri-howl-door",
-    "ogiri-fin-chihiro-bill"
+    "ogiri-fin-chihiro-bill",
+    "ogiri-mononoke-watch"
   ],
   "history": [
     {
@@ -245,6 +246,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-16"
+    },
+    {
+      "id": "ogiri-mononoke-watch",
       "date": "2026-08-16"
     }
   ]
