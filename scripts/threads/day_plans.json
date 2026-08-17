@@ -2875,5 +2875,189 @@
         ]
       }
     }
+  },
+  "2026-08-18": {
+    "date": "2026-08-18",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-ponyo-run",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "セール品見つけて、カートごと全力ダッシュ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/ponyo005.jpg",
+        "film": "ponyo"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-return-myth",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "想定年利、けっきょく何%で置けばいいん？って迷ってたけど\n\nシミュ運営してて分かった、\n危ない置き方と迷わない置き方の違い、1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "危ない置き方＝帳尻が合うまで%を上げる💦\n迷わない置き方＝3%と5%みたいに幅で見る\n\n不安なときほど「いい数字」に寄るの、ホントあるある🥹\n\n幅で見ると、届く／届かないを一点で決めずに\n積立や年数のレバーも冷静に選べるよ✨\n\nいま何%で置いてる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-ponyo-ham",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "夜中のカップ麺、明日の自分への宣戦布告",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/ponyo008.jpg",
+        "film": "ponyo"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-points-gap",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "ギャップを縮めるの、積立アップだけじゃないよ💭\n\nただし順番を間違えると疲れやすい。正しい順は↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "① まず不足額を数字で見る\n② 増額・年数・支出の取りこぼしを並べる\n③ 合うものだけ選ぶ\n\n先に選択肢を探すと、疲れやすいよ💭\n\nいま最初に触ってるレバー、どれ？",
+          "整理はここから✨\n数字のあとに選択肢もそっと置いてるよ（広告含む）\n\nhttps://www.nisa-simulation.com/guides/points-and-gap"
+        ]
+      },
+      "6": {
+        "id": "val-fail-research-tired",
+        "kind": "value",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "口座比較のタブ、開きすぎて\n何も決められず全部閉じた夜の話🥹💦↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "比較表は増えるのに、不安は減らないんだよね…💭\n\n足りなかったのは情報じゃなくて\n「毎月あとどれくらい足りないか」の感覚だった✨\n\n順番をギャップ確認→選択肢に変えてから、やっと動けた🙌\n\n調べ疲れで止まったこと、ある人いる？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-ponyo-sea",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "風呂の水位上げすぎて、溢しそうな瞬間",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/ponyo012.jpg",
+        "film": "ponyo"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-rogo",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n見出しじゃなく、自分の式に落とすと動きやすい。式はこれ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\nざっくりでいい。一度出すと焦り方が変わるよ✨\n\n自分の「毎月の不足」、出したことある？",
+          "くわしくはここ🙌\n\nhttps://www.nisa-simulation.com/guides/rogo-2000man"
+        ]
+      }
+    }
   }
 }

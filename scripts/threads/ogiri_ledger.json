@@ -53,7 +53,8 @@
     "ogiri-mononoke-fight",
     "ogiri-mononoke-stare",
     "ogiri-mononoke-forest",
-    "ogiri-ponyo-school"
+    "ogiri-ponyo-school",
+    "ogiri-ponyo-run"
   ],
   "history": [
     {
@@ -291,6 +292,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-17"
+    },
+    {
+      "id": "ogiri-ponyo-run",
+      "date": "2026-08-18"
     }
   ]
 }
