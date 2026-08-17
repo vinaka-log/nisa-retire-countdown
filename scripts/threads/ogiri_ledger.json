@@ -51,7 +51,8 @@
     "ogiri-fin-chihiro-bill",
     "ogiri-mononoke-watch",
     "ogiri-mononoke-fight",
-    "ogiri-mononoke-stare"
+    "ogiri-mononoke-stare",
+    "ogiri-mononoke-forest"
   ],
   "history": [
     {
@@ -272,6 +273,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "ogiri-mononoke-forest",
       "date": "2026-08-17"
     }
   ]
