@@ -52,7 +52,8 @@
     "ogiri-mononoke-watch",
     "ogiri-mononoke-fight",
     "ogiri-mononoke-stare",
-    "ogiri-mononoke-forest"
+    "ogiri-mononoke-forest",
+    "ogiri-ponyo-school"
   ],
   "history": [
     {
@@ -281,6 +282,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "ogiri-ponyo-school",
       "date": "2026-08-17"
     }
   ]
