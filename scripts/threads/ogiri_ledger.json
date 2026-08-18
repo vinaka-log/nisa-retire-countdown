@@ -55,7 +55,8 @@
     "ogiri-mononoke-forest",
     "ogiri-ponyo-school",
     "ogiri-ponyo-run",
-    "ogiri-ponyo-ham"
+    "ogiri-ponyo-ham",
+    "ogiri-ponyo-sea"
   ],
   "history": [
     {
@@ -308,6 +309,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-18"
+    },
+    {
+      "id": "ogiri-ponyo-sea",
       "date": "2026-08-18"
     }
   ]
