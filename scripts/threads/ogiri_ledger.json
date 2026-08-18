@@ -56,7 +56,8 @@
     "ogiri-ponyo-school",
     "ogiri-ponyo-run",
     "ogiri-ponyo-ham",
-    "ogiri-ponyo-sea"
+    "ogiri-ponyo-sea",
+    "ogiri-laputa-sky"
   ],
   "history": [
     {
@@ -318,6 +319,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-18"
+    },
+    {
+      "id": "ogiri-laputa-sky",
+      "date": "2026-08-19"
     }
   ]
 }

@@ -3059,5 +3059,189 @@
         ]
       }
     }
+  },
+  "2026-08-19": {
+    "date": "2026-08-19",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-laputa-sky",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "有給取れた金曜の空の見え方",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": [
+            4
+          ]
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/laputa001.jpg",
+        "film": "laputa"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-small-start",
+        "kind": "value",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "月3,000円とか5,000円から始めてる人、\nぜんぜん遅くないし、ぜんぜん小さくない🥹\n\n大事なのはスタートの大きさより↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「勝手に続く状態」を作れたかどうか✨\n\n少額でも設定が生きてると、\n余裕できた月に足しやすいんだよね💭\n\n満額組と比べなくて大丈夫。あなたのペースでいいよ🙌\n\n最初の設定額、いくらだった？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-laputa-robot",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "自動更新で課金されてたアプリ見つけた時",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/laputa005.jpg",
+        "film": "laputa"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-sim-soft",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "足りるかの確認、占いじゃなくていい🥹\n\n年齢・積立・利回り・目標を並べるだけで\n感覚はかなりはっきりする↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "まず距離を知る。口座やカードはそのあとで十分🙌\n\n不足額の概算、会員なしで試せるよ✨\n投資助言じゃないよ🥹\n\n距離、一度でも数字で見たことある？\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-age-40",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "40代からじゃもう遅いん？って不安、よく見るけど\n\n見るべきは年齢じゃなくて、この3つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "① 毎月の積立\n② 引退年齢\n③ 目標額そのもの\n\n利回りだけ上げて帳尻合わせるのはNG💦\n\nレバーは複数ある。\n数字で並べると、焦り方が変わるよ✨\n\nいま一番動かしやすいの、どれ？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-laputa-crystal",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "パスワード忘れて、ヒントもわからん時の祈り",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/laputa010.jpg",
+        "film": "laputa"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-retire-age",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "引退年齢、何歳に置いてる？ここ1つでギャップ変わる🥹\n\n積立だけがレバーじゃない。動かして見えるもの↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "年数を動かしてから、必要額を見直すのもあり✨\n\n動かして見る入口はここ🙌\n\nhttps://www.nisa-simulation.com"
+        ]
+      }
+    }
   }
 }
