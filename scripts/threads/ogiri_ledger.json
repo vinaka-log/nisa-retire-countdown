@@ -58,7 +58,8 @@
     "ogiri-ponyo-ham",
     "ogiri-ponyo-sea",
     "ogiri-laputa-sky",
-    "ogiri-laputa-robot"
+    "ogiri-laputa-robot",
+    "ogiri-laputa-crystal"
   ],
   "history": [
     {
@@ -335,6 +336,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-19"
+    },
+    {
+      "id": "ogiri-laputa-crystal",
       "date": "2026-08-19"
     }
   ]
