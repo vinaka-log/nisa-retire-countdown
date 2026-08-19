@@ -57,7 +57,8 @@
     "ogiri-ponyo-run",
     "ogiri-ponyo-ham",
     "ogiri-ponyo-sea",
-    "ogiri-laputa-sky"
+    "ogiri-laputa-sky",
+    "ogiri-laputa-robot"
   ],
   "history": [
     {
@@ -326,6 +327,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-19"
+    },
+    {
+      "id": "ogiri-laputa-robot",
       "date": "2026-08-19"
     }
   ]
