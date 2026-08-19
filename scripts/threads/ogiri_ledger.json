@@ -59,7 +59,8 @@
     "ogiri-ponyo-sea",
     "ogiri-laputa-sky",
     "ogiri-laputa-robot",
-    "ogiri-laputa-crystal"
+    "ogiri-laputa-crystal",
+    "ogiri-laputa-fly"
   ],
   "history": [
     {
@@ -345,6 +346,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-19"
+    },
+    {
+      "id": "ogiri-laputa-fly",
+      "date": "2026-08-20"
     }
   ]
 }

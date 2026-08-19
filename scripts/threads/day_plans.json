@@ -3243,5 +3243,189 @@
         ]
       }
     }
+  },
+  "2026-08-20": {
+    "date": "2026-08-20",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-laputa-fly",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "電車の扉閉まる直前に滑り込んだ達成感",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/laputa015.jpg",
+        "film": "laputa"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-fail-nisa-binbo",
+        "kind": "value",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "失敗談なんだけど、\nSNSの「枠埋めた」見て生活まで削りかけたことある🥹💦\n\nあのとき混同してたもの、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「枠の上限」と「自分の続けられる額」です💭\n\n手元の現金が薄くなると、\nちょっと下がっただけで胃が痛くなるんだよね…💦\n\n続けられる額に戻してから、やっと息ができた🙌\n\n枠埋め焦りで、生活キツくなったことある？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-porco-beach",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "休日出勤の電話鳴ってるのに、雑誌で顔隠して無視",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/porco001.jpg",
+        "film": "porco"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-anxiety-chain",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "積立続いてるのに不安が消えない人、\nだいたい足りない額を出してない🥹\n\n銘柄比較より先に効くことが多い順番↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "ギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n全部いっぺんに変えなくて大丈夫✨\n\n不安の正体、いま何だと思ってる？",
+          "距離の確認、無料でできるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-praise-life-first",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "生活守りながら積立してる人、\nいちばん地味でいちばん強い🥹\n\n枠埋めのために削りすぎてる人より、\nあなたの方が長く走れると思う↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "手元が薄すぎると、下落のたびに心が折れるから💭\n\n続けられる額で積んで、\n余白がある人の方が結果的に止まりにくい✨\n\n今日も生活と積立、両立できてたら十分えらいよ🙌\n\nいま、続けやすさ何点くらい？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-porco-bar",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "一人居酒屋、最初の一杯が一番うまい",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/porco005.jpg",
+        "film": "porco"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-4pct-guide",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「いくら持つか」だけ見てると、\n月いくら使えそうかがぼやける🥹\n\n総額→月の感覚にする粗い見方↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "取り崩しのイメージとして\n年4%÷12 みたいな見方があるよ✨\n\n保証じゃない。でも感覚のたたき台にはなる✨\n\n目標、いま総額と月の使い方どっちで見てる？",
+          "考え方の整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/4-percent-rule"
+        ]
+      }
+    }
   }
 }
