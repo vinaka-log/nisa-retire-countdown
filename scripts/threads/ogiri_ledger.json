@@ -61,7 +61,8 @@
     "ogiri-laputa-robot",
     "ogiri-laputa-crystal",
     "ogiri-laputa-fly",
-    "ogiri-porco-beach"
+    "ogiri-porco-beach",
+    "ogiri-porco-bar"
   ],
   "history": [
     {
@@ -362,6 +363,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-20"
+    },
+    {
+      "id": "ogiri-porco-bar",
       "date": "2026-08-20"
     }
   ]
