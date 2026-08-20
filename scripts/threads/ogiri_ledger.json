@@ -62,7 +62,8 @@
     "ogiri-laputa-crystal",
     "ogiri-laputa-fly",
     "ogiri-porco-beach",
-    "ogiri-porco-bar"
+    "ogiri-porco-bar",
+    "ogiri-porco-cool"
   ],
   "history": [
     {
@@ -372,6 +373,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-20"
+    },
+    {
+      "id": "ogiri-porco-cool",
+      "date": "2026-08-21"
     }
   ]
 }

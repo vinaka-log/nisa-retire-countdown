@@ -3427,5 +3427,189 @@
         ]
       }
     }
+  },
+  "2026-08-21": {
+    "date": "2026-08-21",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-porco-cool",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "サングラス外したら、ただの眠い人だった",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/porco008.jpg",
+        "film": "porco"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-years-left",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "同じ目標額なのに、人によって必要な毎月積立が全然違うのなんでなん？\n\n答えは1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「残り年数」です💭\n\n引退まで25年の人と10年の人じゃ、\n同じ目標でも毎月の必要額は別世界✨\n\nだから他人の積立額を真似するより、\n自分の残り年数で逆算した方が迷わないよ🙌\n\n引退まで、いま何年で置いてる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-baron-street",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "友達の話聞いてるフリで、完全に別のこと考えてる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/baron001.jpg",
+        "film": "baron"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-retirement-funds",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "老後資金いくら必要？万人共通の正解を探すと迷子🥹\n\nたたき台はシンプルでいい。いちばん短い式↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\n完璧な表より、一度出した数字の方が動けるよ✨\n\n生活費と年金見込み、ざっくり置いたことある？",
+          "目安の考え方はここから🙌\n\nhttps://www.nisa-simulation.com/guides/retirement-funds"
+        ]
+      },
+      "6": {
+        "id": "val-fail-sns-full",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "タイムラインが「今年の枠もう埋めた」だらけに見えて、\n自分だけ遅れてる気がしてた時期の話🥹↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "あとから気づいたけど、\n見えてるのは「発信してる人」だけなんだよね💦\n\n焦りの正体、だいたい他人の家計💭\n\n比較相手を「昨日の自分のギャップ」に変えてから、\nだいぶ楽になったよ✨\n\n満額報告見て、一度でも沈んだことある？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-baron-pose",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "証明写真、いい顔できたと思って見返すと別人が写ってる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/baron005.jpg",
+        "film": "baron"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-nisa-basics",
+        "kind": "cta",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "つみたて／成長で迷うとき、\n先に枠の地図だけ持っておくと楽🥹\n\n枠とギャップ、混ぜると迷子になる理由↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "枠は上限の話。\n目標に届くかは別計算✨\n\n制度の基本と距離確認を分けて見ると迷いにくいよ\n\n枠埋めとギャップ確認、どっち先にしてる？",
+          "枠の基本はここ🙌\n\nhttps://www.nisa-simulation.com/guides/new-nisa-basics"
+        ]
+      }
+    }
   }
 }
