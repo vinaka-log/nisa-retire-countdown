@@ -65,7 +65,8 @@
     "ogiri-porco-bar",
     "ogiri-porco-cool",
     "ogiri-baron-street",
-    "ogiri-baron-pose"
+    "ogiri-baron-pose",
+    "ogiri-baron-hat"
   ],
   "history": [
     {
@@ -399,6 +400,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-21"
+    },
+    {
+      "id": "ogiri-baron-hat",
+      "date": "2026-08-22"
     }
   ]
 }
