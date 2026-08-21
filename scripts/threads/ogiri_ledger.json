@@ -64,7 +64,8 @@
     "ogiri-porco-beach",
     "ogiri-porco-bar",
     "ogiri-porco-cool",
-    "ogiri-baron-street"
+    "ogiri-baron-street",
+    "ogiri-baron-pose"
   ],
   "history": [
     {
@@ -389,6 +390,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-21"
+    },
+    {
+      "id": "ogiri-baron-pose",
       "date": "2026-08-21"
     }
   ]
