@@ -63,7 +63,8 @@
     "ogiri-laputa-fly",
     "ogiri-porco-beach",
     "ogiri-porco-bar",
-    "ogiri-porco-cool"
+    "ogiri-porco-cool",
+    "ogiri-baron-street"
   ],
   "history": [
     {
@@ -380,6 +381,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-21"
+    },
+    {
+      "id": "ogiri-baron-street",
       "date": "2026-08-21"
     }
   ]
