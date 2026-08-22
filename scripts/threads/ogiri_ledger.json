@@ -67,7 +67,8 @@
     "ogiri-baron-street",
     "ogiri-baron-pose",
     "ogiri-baron-hat",
-    "ogiri-marnie-look"
+    "ogiri-marnie-look",
+    "ogiri-marnie-window"
   ],
   "history": [
     {
@@ -416,6 +417,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-22"
+    },
+    {
+      "id": "ogiri-marnie-window",
       "date": "2026-08-22"
     }
   ]
