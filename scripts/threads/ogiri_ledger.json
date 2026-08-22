@@ -66,7 +66,8 @@
     "ogiri-porco-cool",
     "ogiri-baron-street",
     "ogiri-baron-pose",
-    "ogiri-baron-hat"
+    "ogiri-baron-hat",
+    "ogiri-marnie-look"
   ],
   "history": [
     {
@@ -407,6 +408,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-22"
+    },
+    {
+      "id": "ogiri-marnie-look",
       "date": "2026-08-22"
     }
   ]
