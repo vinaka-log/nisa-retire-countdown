@@ -68,7 +68,8 @@
     "ogiri-baron-pose",
     "ogiri-baron-hat",
     "ogiri-marnie-look",
-    "ogiri-marnie-window"
+    "ogiri-marnie-window",
+    "ogiri-marnie-alone"
   ],
   "history": [
     {
@@ -426,6 +427,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-22"
+    },
+    {
+      "id": "ogiri-marnie-alone",
+      "date": "2026-08-23"
     }
   ]
 }
