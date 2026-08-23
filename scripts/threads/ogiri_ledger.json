@@ -71,7 +71,8 @@
     "ogiri-marnie-window",
     "ogiri-marnie-alone",
     "ogiri-kaguya-moon",
-    "ogiri-kaguya-run"
+    "ogiri-kaguya-run",
+    "ogiri-kaguya-dress"
   ],
   "history": [
     {
@@ -453,6 +454,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-23"
+    },
+    {
+      "id": "ogiri-kaguya-dress",
+      "date": "2026-08-24"
     }
   ]
 }
