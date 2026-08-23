@@ -70,7 +70,8 @@
     "ogiri-marnie-look",
     "ogiri-marnie-window",
     "ogiri-marnie-alone",
-    "ogiri-kaguya-moon"
+    "ogiri-kaguya-moon",
+    "ogiri-kaguya-run"
   ],
   "history": [
     {
@@ -443,6 +444,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-23"
+    },
+    {
+      "id": "ogiri-kaguya-run",
       "date": "2026-08-23"
     }
   ]
