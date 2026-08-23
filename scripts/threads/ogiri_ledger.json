@@ -69,7 +69,8 @@
     "ogiri-baron-hat",
     "ogiri-marnie-look",
     "ogiri-marnie-window",
-    "ogiri-marnie-alone"
+    "ogiri-marnie-alone",
+    "ogiri-kaguya-moon"
   ],
   "history": [
     {
@@ -434,6 +435,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-23"
+    },
+    {
+      "id": "ogiri-kaguya-moon",
       "date": "2026-08-23"
     }
   ]
