@@ -73,7 +73,8 @@
     "ogiri-kaguya-moon",
     "ogiri-kaguya-run",
     "ogiri-kaguya-dress",
-    "ogiri-kaze-plane"
+    "ogiri-kaze-plane",
+    "ogiri-kaze-smoke"
   ],
   "history": [
     {
@@ -470,6 +471,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-24"
+    },
+    {
+      "id": "ogiri-kaze-smoke",
       "date": "2026-08-24"
     }
   ]
