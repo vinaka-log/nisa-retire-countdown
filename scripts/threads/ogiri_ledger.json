@@ -72,7 +72,8 @@
     "ogiri-marnie-alone",
     "ogiri-kaguya-moon",
     "ogiri-kaguya-run",
-    "ogiri-kaguya-dress"
+    "ogiri-kaguya-dress",
+    "ogiri-kaze-plane"
   ],
   "history": [
     {
@@ -461,6 +462,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-24"
+    },
+    {
+      "id": "ogiri-kaze-plane",
       "date": "2026-08-24"
     }
   ]
