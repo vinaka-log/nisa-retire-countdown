@@ -74,7 +74,8 @@
     "ogiri-kaguya-run",
     "ogiri-kaguya-dress",
     "ogiri-kaze-plane",
-    "ogiri-kaze-smoke"
+    "ogiri-kaze-smoke",
+    "ogiri-kaze-desk"
   ],
   "history": [
     {
@@ -480,6 +481,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-24"
+    },
+    {
+      "id": "ogiri-kaze-desk",
+      "date": "2026-08-25"
     }
   ]
 }

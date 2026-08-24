@@ -4157,5 +4157,186 @@
         ]
       }
     }
+  },
+  "2026-08-25": {
+    "date": "2026-08-25",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-kaze-desk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "デスク周りだけは整ってるのに、中身ぐちゃぐちゃ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/kazetachinu010.jpg",
+        "film": "kazetachinu"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-not-full",
+        "kind": "value",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "NISA枠、満額埋められてなくても大丈夫🥹\n\n枠は上限の話で、\nあなたの家計の正解とは別物💭\n\nそう言える理由↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "目標までの距離と、続けられる額は別計算だから✨\n\n満額できてない自分を責めるより、\n「今のペースでどう見えるか」を見た方が前に進むよ🙌\n\n枠埋めより先に、自分を一回認めていい🥹\n\nいま、枠に対して何割くらい入れてる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-kari-small",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "一人暮らし、冷蔵庫の中が常にスカスカ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/karigurashi001.jpg",
+        "film": "karigurashi"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-points-gap",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "ギャップを縮めるの、積立アップだけじゃないよ💭\n\nただし順番を間違えると疲れやすい。正しい順は↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "① まず不足額を数字で見る\n② 増額・年数・支出の取りこぼしを並べる\n③ 合うものだけ選ぶ\n\n先に選択肢を探すと、疲れやすいよ💭\n\nいま最初に触ってるレバー、どれ？",
+          "整理はここから✨\n数字のあとに選択肢もそっと置いてるよ（広告含む）\n\nhttps://www.nisa-simulation.com/guides/points-and-gap"
+        ]
+      },
+      "6": {
+        "id": "val-continue-first",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "1年目に効くのは満額より「勝手に続く状態」🥹\n\n止まってる理由が怖さなら、\nまず少額でも設定完了の方が先✨\n\n続けたあとに、ギャップを見て調整すればいい✨\n\nいま止まってるとしたら、何が引っかかってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "ogiri-kari-sugar",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "砂糖の袋、持ち上げた瞬間に破れるあるある",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/karigurashi008.jpg",
+        "film": "karigurashi"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-rogo",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n見出しじゃなく、自分の式に落とすと動きやすい。式はこれ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\nざっくりでいい。一度出すと焦り方が変わるよ✨\n\n自分の「毎月の不足」、出したことある？",
+          "くわしくはここ🙌\n\nhttps://www.nisa-simulation.com/guides/rogo-2000man"
+        ]
+      }
+    }
   }
 }
