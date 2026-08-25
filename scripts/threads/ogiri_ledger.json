@@ -76,7 +76,8 @@
     "ogiri-kaze-plane",
     "ogiri-kaze-smoke",
     "ogiri-kaze-desk",
-    "ogiri-kari-small"
+    "ogiri-kari-small",
+    "ogiri-kari-sugar"
   ],
   "history": [
     {
@@ -497,6 +498,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-25"
+    },
+    {
+      "id": "ogiri-kari-sugar",
       "date": "2026-08-25"
     }
   ]
