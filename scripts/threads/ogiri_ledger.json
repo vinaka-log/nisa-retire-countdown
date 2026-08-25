@@ -75,7 +75,8 @@
     "ogiri-kaguya-dress",
     "ogiri-kaze-plane",
     "ogiri-kaze-smoke",
-    "ogiri-kaze-desk"
+    "ogiri-kaze-desk",
+    "ogiri-kari-small"
   ],
   "history": [
     {
@@ -488,6 +489,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-25"
+    },
+    {
+      "id": "ogiri-kari-small",
       "date": "2026-08-25"
     }
   ]
