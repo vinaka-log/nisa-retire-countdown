@@ -4338,5 +4338,187 @@
         ]
       }
     }
+  },
+  "2026-08-26": {
+    "date": "2026-08-26",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-omoide-school",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "学生時代の写真出てきた時のタイムスリップ",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/omoide001.jpg",
+        "film": "omoide"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-fail-2000man",
+        "kind": "value",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万」で頭真っ白になって、\nしばらく何も動けなかった話🥹↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "あれ、平均モデルのたたき台なのに\n自分の生活費も年金も置かずに固まってた💦\n\n抜けたのはこの式に落としたとき↓\n生活費 − 年金見込み = 毎月の不足 → ×年数✨\n\n見出しじゃなく、自分用の数字1回で景色変わるよ✨\n\n2000万で固まったこと、ある人いる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-omoide-train",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "帰省の新幹線、ホームに着いた瞬間ちょっと泣きそう",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/omoide005.jpg",
+        "film": "omoide"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-sim-soft",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "足りるかの確認、占いじゃなくていい🥹\n\n年齢・積立・利回り・目標を並べるだけで\n感覚はかなりはっきりする↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "まず距離を知る。口座やカードはそのあとで十分🙌\n\n不足額の概算、会員なしで試せるよ✨\n投資助言じゃないよ🥹\n\n距離、一度でも数字で見たことある？\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-praise-checked-gap",
+        "kind": "value",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「足りるか」を一度でも数字で出した人、\nもう普通より一歩先にいる🥹\n\n感覚の不安と、距離の確認は別物↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "出した数字が仮でもいい。\n見えた瞬間に、焦り方が変わる人が多いよ✨\n\nまだなら、完璧な表よりざっくり1回で十分🙌\n\n不足額、出したことある？まだなら一緒に考えよ💭"
+        ]
+      },
+      "7": {
+        "id": "ogiri-tanuki-crowd",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "セール会場、人と人のあいだをすり抜ける技術",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/tanuki001.jpg",
+        "film": "tanuki"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-retire-age",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "引退年齢、何歳に置いてる？ここ1つでギャップ変わる🥹\n\n積立だけがレバーじゃない。動かして見えるもの↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "年数を動かしてから、必要額を見直すのもあり✨\n\n動かして見る入口はここ🙌\n\nhttps://www.nisa-simulation.com"
+        ]
+      }
+    }
   }
 }

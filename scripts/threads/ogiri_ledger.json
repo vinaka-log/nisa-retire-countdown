@@ -77,7 +77,8 @@
     "ogiri-kaze-smoke",
     "ogiri-kaze-desk",
     "ogiri-kari-small",
-    "ogiri-kari-sugar"
+    "ogiri-kari-sugar",
+    "ogiri-omoide-school"
   ],
   "history": [
     {
@@ -507,6 +508,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-25"
+    },
+    {
+      "id": "ogiri-omoide-school",
+      "date": "2026-08-26"
     }
   ]
 }
