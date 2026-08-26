@@ -78,7 +78,8 @@
     "ogiri-kaze-desk",
     "ogiri-kari-small",
     "ogiri-kari-sugar",
-    "ogiri-omoide-school"
+    "ogiri-omoide-school",
+    "ogiri-omoide-train"
   ],
   "history": [
     {
@@ -515,6 +516,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-26"
+    },
+    {
+      "id": "ogiri-omoide-train",
       "date": "2026-08-26"
     }
   ]
