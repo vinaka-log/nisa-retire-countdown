@@ -79,7 +79,8 @@
     "ogiri-kari-small",
     "ogiri-kari-sugar",
     "ogiri-omoide-school",
-    "ogiri-omoide-train"
+    "ogiri-omoide-train",
+    "ogiri-tanuki-crowd"
   ],
   "history": [
     {
@@ -524,6 +525,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-26"
+    },
+    {
+      "id": "ogiri-tanuki-crowd",
       "date": "2026-08-26"
     }
   ]
