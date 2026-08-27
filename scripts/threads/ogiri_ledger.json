@@ -80,7 +80,8 @@
     "ogiri-kari-sugar",
     "ogiri-omoide-school",
     "ogiri-omoide-train",
-    "ogiri-tanuki-crowd"
+    "ogiri-tanuki-crowd",
+    "ogiri-tanuki-transform"
   ],
   "history": [
     {
@@ -534,6 +535,10 @@
     {
       "id": "ogiri-fin-chihiro-noface",
       "date": "2026-08-26"
+    },
+    {
+      "id": "ogiri-tanuki-transform",
+      "date": "2026-08-27"
     }
   ]
 }

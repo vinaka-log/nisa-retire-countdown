@@ -4520,5 +4520,189 @@
         ]
       }
     }
+  },
+  "2026-08-27": {
+    "date": "2026-08-27",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-tanuki-transform",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "会社では大人、家では床に転がる生き物",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/tanuki005.jpg",
+        "film": "tanuki"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-return-myth",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "想定年利、けっきょく何%で置けばいいん？って迷ってたけど\n\nシミュ運営してて分かった、\n危ない置き方と迷わない置き方の違い、1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "危ない置き方＝帳尻が合うまで%を上げる💦\n迷わない置き方＝3%と5%みたいに幅で見る\n\n不安なときほど「いい数字」に寄るの、ホントあるある🥹\n\n幅で見ると、届く／届かないを一点で決めずに\n積立や年数のレバーも冷静に選べるよ✨\n\nいま何%で置いてる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-yamada-family",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "親戚集まり、話題が自分に振られるまでの緊張",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/yamada001.jpg",
+        "film": "yamada"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-anxiety-chain",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "積立続いてるのに不安が消えない人、\nだいたい足りない額を出してない🥹\n\n銘柄比較より先に効くことが多い順番↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "ギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n全部いっぺんに変えなくて大丈夫✨\n\n不安の正体、いま何だと思ってる？",
+          "距離の確認、無料でできるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-fail-no-number",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "いちばん恥ずかしい失敗談🥹\n\n積立は続いてたのに、\n「足りない額」を一度も出してなかった話↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "情報は見る。口座もある。\nなのに不安だけ残る、って状態だった💦\n\n変わったのは正解探しをやめて、\nざっくりでも数字を1回並べたあと✨\n\n「漠然と不安」と「毎月あと○円」って、\n同じ状況でも心の重さが全然違う💭\n\n積立してるのに不安が消えない人、同じことある？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-yamada-dinner",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "「今日何食べる？」で毎日夫婦喧嘩しそうになる",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/yamada005.jpg",
+        "film": "yamada"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-4pct-guide",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「いくら持つか」だけ見てると、\n月いくら使えそうかがぼやける🥹\n\n総額→月の感覚にする粗い見方↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "取り崩しのイメージとして\n年4%÷12 みたいな見方があるよ✨\n\n保証じゃない。でも感覚のたたき台にはなる✨\n\n目標、いま総額と月の使い方どっちで見てる？",
+          "考え方の整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/4-percent-rule"
+        ]
+      }
+    }
   }
 }
