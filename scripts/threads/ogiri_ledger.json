@@ -81,7 +81,8 @@
     "ogiri-omoide-school",
     "ogiri-omoide-train",
     "ogiri-tanuki-crowd",
-    "ogiri-tanuki-transform"
+    "ogiri-tanuki-transform",
+    "ogiri-yamada-family"
   ],
   "history": [
     {
@@ -542,6 +543,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-08-27"
+    },
+    {
+      "id": "ogiri-yamada-family",
       "date": "2026-08-27"
     }
   ]
