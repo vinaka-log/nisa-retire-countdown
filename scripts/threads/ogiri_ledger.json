@@ -82,7 +82,8 @@
     "ogiri-omoide-train",
     "ogiri-tanuki-crowd",
     "ogiri-tanuki-transform",
-    "ogiri-yamada-family"
+    "ogiri-yamada-family",
+    "ogiri-mimi-listen"
   ],
   "history": [
     {
@@ -551,6 +552,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-28"
+    },
+    {
+      "id": "ogiri-mimi-listen",
       "date": "2026-08-28"
     }
   ]
