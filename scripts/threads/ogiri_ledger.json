@@ -84,7 +84,8 @@
     "ogiri-tanuki-transform",
     "ogiri-yamada-family",
     "ogiri-mimi-listen",
-    "ogiri-nausicaa-wind"
+    "ogiri-nausicaa-wind",
+    "ogiri-kokuriko-bike"
   ],
   "history": [
     {
@@ -570,6 +571,10 @@
     {
       "id": "ogiri-fin-chihiro-bill",
       "date": "2026-08-28"
+    },
+    {
+      "id": "ogiri-kokuriko-bike",
+      "date": "2026-08-29"
     }
   ]
 }

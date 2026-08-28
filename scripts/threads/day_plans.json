@@ -4888,5 +4888,189 @@
         ]
       }
     }
+  },
+  "2026-08-29": {
+    "date": "2026-08-29",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-mimi-cat",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "猫カフェ行くより、家の猫に無視される方が好き",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/mimi008.jpg",
+        "film": "mimi"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-fail-optimistic-sim",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "シミュで想定年利を上げて、\n安心したフリしてた話🥹\n\nこれのタチが悪いとこ、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「確認した気」になれちゃうこと💦\n\n実際は確認じゃなくて自己暗示なんだよね💭\n\n今は3%と5%みたいに幅で見る✨\n一点で決めない方が、積立や年数のレバーも冷静に選べる✨\n\nいい数字に寄せちゃった経験、ある人いる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-kokuriko-bike",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "坂道の途中で足つりそうになりながら笑顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/kokurikozaka001.jpg",
+        "film": "kokurikozaka"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-nisa-ideco",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "NISAとiDeCo、どっちがいい？より「使い方に合うか」🥹\n\n儲かる比較より先に見る切り分け↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "途中で使うかも → 流動性も意識\n老後まで触らない → 置き方が変わる✨\n\nいまの優先、流動性寄り？老後固定寄り？",
+          "違いの整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/nisa-vs-ideco"
+        ]
+      },
+      "6": {
+        "id": "val-praise-future-self",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "今の自分より、未来の自分のために\nお金を分けてる人、地味にすごい🥹\n\n「老後はまだ先」って流せるのに、\n止まらず積んでる時点で↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "先延ばしが一番高いコストになりやすいから💭\n\n額が大きくなくても、\n「老後用」に口座や積立を分けてるだけで十分えらい✨\n\n未来の自分に仕送りできてる月、ちゃんと積み上がってるよ🙌\n\n老後用って意識して分けてる？まだなら何から始めた？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-kokuriko-flag",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "朝から気合い入れてるのに、中身は眠い",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/kokurikozaka008.jpg",
+        "film": "kokurikozaka"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-faq",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "シミュの数字、どこまで信じていい？って質問、けっこう来る🥹\n\n答えはシンプル。概算・比較用。投資助言じゃない↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "精度・4%・想定年利の置き方など\nよくある疑問はまとめてあるよ✨\n\n数字の精度、いまどこまで気にしてる？",
+          "FAQはここから🙌\n\nhttps://www.nisa-simulation.com/faq"
+        ]
+      }
+    }
   }
 }
