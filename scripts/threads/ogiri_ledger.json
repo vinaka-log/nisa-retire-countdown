@@ -83,7 +83,8 @@
     "ogiri-tanuki-crowd",
     "ogiri-tanuki-transform",
     "ogiri-yamada-family",
-    "ogiri-mimi-listen"
+    "ogiri-mimi-listen",
+    "ogiri-nausicaa-wind"
   ],
   "history": [
     {
@@ -560,6 +561,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-noface",
+      "date": "2026-08-28"
+    },
+    {
+      "id": "ogiri-nausicaa-wind",
       "date": "2026-08-28"
     }
   ]
