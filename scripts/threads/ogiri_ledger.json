@@ -85,7 +85,8 @@
     "ogiri-yamada-family",
     "ogiri-mimi-listen",
     "ogiri-nausicaa-wind",
-    "ogiri-kokuriko-bike"
+    "ogiri-kokuriko-bike",
+    "ogiri-kokuriko-flag"
   ],
   "history": [
     {
@@ -578,6 +579,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-coupon",
+      "date": "2026-08-29"
+    },
+    {
+      "id": "ogiri-kokuriko-flag",
       "date": "2026-08-29"
     }
   ]
