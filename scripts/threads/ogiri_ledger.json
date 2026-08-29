@@ -86,7 +86,8 @@
     "ogiri-mimi-listen",
     "ogiri-nausicaa-wind",
     "ogiri-kokuriko-bike",
-    "ogiri-kokuriko-flag"
+    "ogiri-kokuriko-flag",
+    "ogiri-mimi-cat"
   ],
   "history": [
     {
@@ -587,6 +588,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-noface",
+      "date": "2026-08-29"
+    },
+    {
+      "id": "ogiri-mimi-cat",
       "date": "2026-08-29"
     }
   ]
