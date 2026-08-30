@@ -88,7 +88,8 @@
     "ogiri-kokuriko-bike",
     "ogiri-kokuriko-flag",
     "ogiri-mimi-cat",
-    "ogiri-umi-wave"
+    "ogiri-umi-wave",
+    "ogiri-ged-dragon"
   ],
   "history": [
     {
@@ -605,6 +606,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-noface",
+      "date": "2026-08-30"
+    },
+    {
+      "id": "ogiri-ged-dragon",
       "date": "2026-08-30"
     }
   ]
