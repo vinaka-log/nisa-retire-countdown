@@ -90,7 +90,8 @@
     "ogiri-mimi-cat",
     "ogiri-umi-wave",
     "ogiri-ged-dragon",
-    "ogiri-ged-shadow"
+    "ogiri-ged-shadow",
+    "ogiri-umi-call"
   ],
   "history": [
     {
@@ -627,6 +628,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-noface",
+      "date": "2026-08-31"
+    },
+    {
+      "id": "ogiri-umi-call",
       "date": "2026-08-31"
     }
   ]
