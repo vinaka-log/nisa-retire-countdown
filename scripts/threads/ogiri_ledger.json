@@ -91,7 +91,8 @@
     "ogiri-umi-wave",
     "ogiri-ged-dragon",
     "ogiri-ged-shadow",
-    "ogiri-umi-call"
+    "ogiri-umi-call",
+    "ogiri-chihiro-haku-blow"
   ],
   "history": [
     {
@@ -660,6 +661,10 @@
     },
     {
       "id": "ogiri-fin-chihiro-bill",
+      "date": "2026-09-01"
+    },
+    {
+      "id": "ogiri-chihiro-haku-blow",
       "date": "2026-09-01"
     }
   ]
