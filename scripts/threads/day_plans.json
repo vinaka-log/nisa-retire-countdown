@@ -6349,5 +6349,189 @@
         ]
       }
     }
+  },
+  "2026-09-06": {
+    "date": "2026-09-06",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-car-sulk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "帰省の車、後ろの席で不機嫌アピールしてる時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro001.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-life-first",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "生活守りながら積立してる人、\nいちばん地味でいちばん強い🥹\n\n枠埋めのために削りすぎてる人より、\nあなたの方が長く走れると思う↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "手元が薄すぎると、下落のたびに心が折れるから💭\n\n続けられる額で積んで、\n余白がある人の方が結果的に止まりにくい✨\n\n今日も生活と積立、両立できてたら十分えらいよ🙌\n\nいま、続けやすさ何点くらい？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-chihiro-haku-blow",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "期限切れクーポン、成仏させる儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-gap-check",
+        "kind": "cta",
+        "topic": "つみたてNISA",
+        "theme": "",
+        "text": "「引退まであとどれくらい足りない？」即答できる人、意外と少ない🥹\n\nつみたて続けてても不安が残るとき、\nだいたい足りないのはこの1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "「足りない額」を一度も数字で出してないこと💭\n\n見るのはこのくらいで十分↓\n・いまの年齢\n・引退したい年齢\n・毎月の積立\n・想定利回り（幅でOK）\n・目標の取り崩しイメージ\n\nいま、足りない額って数字で言える？",
+          "並べると感覚が距離になるよ✨\n会員なし・概算・投資助言じゃないよ🥹\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-age-40",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "40代からじゃもう遅いん？って不安、よく見るけど\n\n見るべきは年齢じゃなくて、この3つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "① 毎月の積立\n② 引退年齢\n③ 目標額そのもの\n\n利回りだけ上げて帳尻合わせるのはNG💦\n\nレバーは複数ある。\n数字で並べると、焦り方が変わるよ✨\n\nいま一番動かしやすいの、どれ？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-chihiro-stop-frog",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "エレベーターで隣の人の匂いに耐えてる時のチームワーク",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro012.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-distance-first",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "口座比較のタブ開きすぎて疲れる人へ🥹\n\n比較表より先に見た方がいいもの、1つだけ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "足りない距離（ギャップ）です💭\n\nおすすめの順番は\nギャップ確認 → レバー1つ動かす → 必要なら選択肢✨\n\n全部いっぺんに変えなくて大丈夫\n\nいま調べてるの、数字？口座条件？",
+          "距離の確認、無料で試せるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      }
+    }
   }
 }
