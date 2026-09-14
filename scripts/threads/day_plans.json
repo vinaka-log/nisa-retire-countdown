@@ -7994,5 +7994,189 @@
         ]
       }
     }
+  },
+  "2026-09-15": {
+    "date": "2026-09-15",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-car-sulk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "帰省の車、後ろの席で不機嫌アピールしてる時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro001.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-future-self",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "今の自分より、未来の自分のために\nお金を分けてる人、地味にすごい🥹\n\n「老後はまだ先」って流せるのに、\n止まらず積んでる時点で↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "先延ばしが一番高いコストになりやすいから💭\n\n額が大きくなくても、\n「老後用」に口座や積立を分けてるだけで十分えらい✨\n\n未来の自分に仕送りできてる月、ちゃんと積み上がってるよ🙌\n\n老後用って意識して分けてる？まだなら何から始めた？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-chihiro-haku-blow",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "期限切れクーポン、成仏させる儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-points-gap",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "ギャップを縮めるの、積立アップだけじゃないよ💭\n\nただし順番を間違えると疲れやすい。正しい順は↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "① まず不足額を数字で見る\n② 増額・年数・支出の取りこぼしを並べる\n③ 合うものだけ選ぶ\n\n先に選択肢を探すと、疲れやすいよ💭\n\nいま最初に触ってるレバー、どれ？",
+          "整理はここから✨\n数字のあとに選択肢もそっと置いてるよ（広告含む）\n\nhttps://www.nisa-simulation.com/guides/points-and-gap"
+        ]
+      },
+      "6": {
+        "id": "val-age-40",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "40代からじゃもう遅いん？って不安、よく見るけど\n\n見るべきは年齢じゃなくて、この3つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "① 毎月の積立\n② 引退年齢\n③ 目標額そのもの\n\n利回りだけ上げて帳尻合わせるのはNG💦\n\nレバーは複数ある。\n数字で並べると、焦り方が変わるよ✨\n\nいま一番動かしやすいの、どれ？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-chihiro-stop-frog",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "エレベーターで隣の人の匂いに耐えてる時のチームワーク",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro012.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-rogo",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「老後2000万円」で止まると、次の一手が見えにくい🥹\n\n見出しじゃなく、自分の式に落とすと動きやすい。式はこれ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\nざっくりでいい。一度出すと焦り方が変わるよ✨\n\n自分の「毎月の不足」、出したことある？",
+          "くわしくはここ🙌\n\nhttps://www.nisa-simulation.com/guides/rogo-2000man"
+        ]
+      }
+    }
   }
 }
