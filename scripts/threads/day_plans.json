@@ -9637,5 +9637,189 @@
         ]
       }
     }
+  },
+  "2026-09-24": {
+    "date": "2026-09-24",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-car-sulk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "帰省の車、後ろの席で不機嫌アピールしてる時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro001.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-praise-auto",
+        "kind": "value",
+        "topic": "積立投資",
+        "theme": "",
+        "text": "給料日に自動で積立されてる人、\nもう半分勝ってると思っていい🥹✨\n\n意志の強さより、仕組みの勝ち↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "毎月「今月どうする？」が消えるだけで、\n不安の回数も減るんだよね💭\n\nあとは距離（足りるか）をたまに見るだけで十分✨\n\n自動積立、もう組めてる？まだならどこで止まってる？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-chihiro-haku-blow",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "期限切れクーポン、成仏させる儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-anxiety-chain",
+        "kind": "cta",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "積立続いてるのに不安が消えない人、\nだいたい足りない額を出してない🥹\n\n銘柄比較より先に効くことが多い順番↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "ギャップ確認 → レバー1つ動かす → 必要なら選択肢\n\n全部いっぺんに変えなくて大丈夫✨\n\n不安の正体、いま何だと思ってる？",
+          "距離の確認、無料でできるよ🙌\n概算・会員なし（投資助言じゃない）\n\nhttps://www.nisa-simulation.com"
+        ]
+      },
+      "6": {
+        "id": "val-age-40",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "40代からじゃもう遅いん？って不安、よく見るけど\n\n見るべきは年齢じゃなくて、この3つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "① 毎月の積立\n② 引退年齢\n③ 目標額そのもの\n\n利回りだけ上げて帳尻合わせるのはNG💦\n\nレバーは複数ある。\n数字で並べると、焦り方が変わるよ✨\n\nいま一番動かしやすいの、どれ？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-chihiro-stop-frog",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "エレベーターで隣の人の匂いに耐えてる時のチームワーク",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro012.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-4pct-guide",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "「いくら持つか」だけ見てると、\n月いくら使えそうかがぼやける🥹\n\n総額→月の感覚にする粗い見方↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "取り崩しのイメージとして\n年4%÷12 みたいな見方があるよ✨\n\n保証じゃない。でも感覚のたたき台にはなる✨\n\n目標、いま総額と月の使い方どっちで見てる？",
+          "考え方の整理はここ🙌\n\nhttps://www.nisa-simulation.com/guides/4-percent-rule"
+        ]
+      }
+    }
   }
 }
