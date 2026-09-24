@@ -9821,5 +9821,189 @@
         ]
       }
     }
+  },
+  "2026-09-25": {
+    "date": "2026-09-25",
+    "schedule": "D-ogiri10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "ogiri-chihiro-car-sulk",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "帰省の車、後ろの席で不機嫌アピールしてる時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro001.jpg",
+        "film": "chihiro"
+      },
+      "1": {
+        "id": "ogiri-fin-chihiro-bill",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "クレカ明細、予想の3倍だった時の顔",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro016.jpg",
+        "film": "chihiro"
+      },
+      "2": {
+        "id": "val-fail-nisa-binbo",
+        "kind": "value",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "失敗談なんだけど、\nSNSの「枠埋めた」見て生活まで削りかけたことある🥹💦\n\nあのとき混同してたもの、1つ↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2,
+        "replies": [
+          "「枠の上限」と「自分の続けられる額」です💭\n\n手元の現金が薄くなると、\nちょっと下がっただけで胃が痛くなるんだよね…💦\n\n続けられる額に戻してから、やっと息ができた🙌\n\n枠埋め焦りで、生活キツくなったことある？"
+        ]
+      },
+      "3": {
+        "id": "ogiri-chihiro-haku-blow",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "期限切れクーポン、成仏させる儀式",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "4": {
+        "id": "ogiri-fin-chihiro-coupon",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "NISA枠、まだ空いてるのに見ないふりしてる自分",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro005.jpg",
+        "film": "chihiro"
+      },
+      "5": {
+        "id": "cta-retirement-funds",
+        "kind": "cta",
+        "topic": "老後資金",
+        "theme": "",
+        "text": "老後資金いくら必要？万人共通の正解を探すと迷子🥹\n\nたたき台はシンプルでいい。いちばん短い式↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5,
+        "replies": [
+          "生活費 − 年金見込み = 毎月の不足\n→ × 想定年数\n\n完璧な表より、一度出した数字の方が動けるよ✨\n\n生活費と年金見込み、ざっくり置いたことある？",
+          "目安の考え方はここから🙌\n\nhttps://www.nisa-simulation.com/guides/retirement-funds"
+        ]
+      },
+      "6": {
+        "id": "val-praise-anxiety-ok",
+        "kind": "value",
+        "topic": "資産形成",
+        "theme": "",
+        "text": "不安なまま積立続けてる人、\nそれだけで十分がんばってる🥹\n\n不安ゼロになってから動こう、だと\nだいたい動けないんだよね↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6,
+        "replies": [
+          "不安の正体は、だいたい金額が見えてないこと💭\n\n続けてる上に、不足額を一度出せたら\nさらに気持ちが軽くなることが多いよ✨\n\n不安あっても止めなかった自分、まずはえらい🙌\n\n不安、いま何点くらい？"
+        ]
+      },
+      "7": {
+        "id": "ogiri-chihiro-stop-frog",
+        "kind": "ogiri",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "エレベーターで隣の人の匂いに耐えてる時のチームワーク",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro012.jpg",
+        "film": "chihiro"
+      },
+      "8": {
+        "id": "ogiri-fin-chihiro-noface",
+        "kind": "ogiri_fin",
+        "topic": "大喜利",
+        "theme": "",
+        "text": "物価上がりすぎて、同じカゴなのに会計だけ別人",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8,
+        "image_url": "https://www.ghibli.jp/gallery/chihiro020.jpg",
+        "film": "chihiro"
+      },
+      "9": {
+        "id": "cta-nisa-basics",
+        "kind": "cta",
+        "topic": "新NISA",
+        "theme": "",
+        "text": "つみたて／成長で迷うとき、\n先に枠の地図だけ持っておくと楽🥹\n\n枠とギャップ、混ぜると迷子になる理由↓",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9,
+        "replies": [
+          "枠は上限の話。\n目標に届くかは別計算✨\n\n制度の基本と距離確認を分けて見ると迷いにくいよ\n\n枠埋めとギャップ確認、どっち先にしてる？",
+          "枠の基本はここ🙌\n\nhttps://www.nisa-simulation.com/guides/new-nisa-basics"
+        ]
+      }
+    }
   }
 }
