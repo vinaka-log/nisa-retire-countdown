@@ -1,11 +1,12 @@
 """Threads 投稿文プール（みつき｜NISA「足りるか」確認係）.
 
 1日の枠（JST）10本:
-  ジブリ大喜利（生活）3 / ジブリ大喜利（金融・NISA・物価）3 / 雑談2 / 誘導2
+  雑談6 / ホットな金融トピック4
+サイトURL・誘導は投稿に入れない（リンクはプロフィールのみ）。
 
-画像はスタジオジブリ公式ギャラリーを参照（常識の範囲で自由利用可）。
-大喜利は ogiri_ledger.json で一度きり（枯渇時のみ再利用）。
-雑談は casual_ledger.json で一度きり。誘導は CTA_POSTS をローテ。
+雑談は casual_ledger.json で一度きり。
+金融トピックは hot_posts.py（見出しへの反応。助言・銘柄推奨なし）。
+大喜利・誘導プールは --id 用に残置。スケジュールでは使わない。
 絵文字はハート／✨系を使わない。
 投資助言・銘柄推奨・誇大表現・実績捏造は禁止。
 """
@@ -24,33 +25,33 @@ _THREADS_DIR = Path(__file__).resolve().parent
 CASUAL_LEDGER_PATH = _THREADS_DIR / "casual_ledger.json"
 CASUAL_GENERATED_PATH = _THREADS_DIR / "casual_generated.json"
 
-# 日内枠（JST）: ogiri=生活大喜利 / ogiri_fin=金融大喜利 / casual=雑談 / cta=誘導
+# 日内枠（JST）: casual=雑談 / hot=金融ニュースへの反応（URLなし）
 # schedule を変えたら SCHEDULE_ID も更新 → day_plans.json が自動で作り直される
-SCHEDULE_ID = "D-ogiri10"
+SCHEDULE_ID = "E-chat-hot10"
 POSTS_PER_DAY = 10
 SLOT_KINDS = (
-    "ogiri",      # 0: 08:00 生活大喜利
-    "ogiri_fin",  # 1: 09:30 金融大喜利
-    "casual",     # 2: 11:00 雑談
-    "ogiri",      # 3: 12:30 生活大喜利
-    "ogiri_fin",  # 4: 14:00 金融大喜利
-    "cta",        # 5: 16:00 誘導
-    "casual",     # 6: 18:00 雑談
-    "ogiri",      # 7: 19:30 生活大喜利
-    "ogiri_fin",  # 8: 21:00 金融大喜利
-    "cta",        # 9: 22:00 誘導
+    "hot",     # 0: 08:00 金融トピック
+    "casual",  # 1: 09:30 雑談
+    "casual",  # 2: 11:00 雑談
+    "hot",     # 3: 12:30 金融トピック
+    "casual",  # 4: 14:00 雑談
+    "hot",     # 5: 16:00 金融トピック
+    "casual",  # 6: 18:00 雑談
+    "casual",  # 7: 19:30 雑談
+    "hot",     # 8: 21:00 金融トピック
+    "casual",  # 9: 22:00 雑談
 )
 SLOT_LABELS = (
-    "08ogiri",
-    "0930ogiri-fin",
+    "08hot",
+    "0930casual",
     "11casual",
-    "1230ogiri",
-    "14ogiri-fin",
-    "16cta",
+    "1230hot",
+    "14casual",
+    "16hot",
     "18casual",
-    "1930ogiri",
-    "21ogiri-fin",
-    "22cta",
+    "1930casual",
+    "21hot",
+    "22casual",
 )
 
 # --- 雑談（URLなし・リプなし。フォロワー少期の主力） ---
@@ -58,7 +59,102 @@ SLOT_LABELS = (
 # 手書き + casual_generated.json（chitchat_gen.py / Actions 補充）。
 # 実行時は build_casual_posts() で結合。台帳で一度きり。
 CASUAL_HAND_POSTS: List[dict] = [
-    # テーマを混ぜて並べる（同日に同系統が連続しにくくする）
+    # --- バズ寄り（会話余白。ハート／✨なし） ---
+    {
+        "id": "cas-buzz-dinner-braindead",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "work",
+        "consistency": {"time": "evening", "sets": [], "forbids": []},
+        "text": (
+            "退勤後ごはん、考えた時点で脳死\n"
+            "でもスーパー行くとまた同じもの買う\n\n"
+            "節約できない女の完成形って感じ\n"
+            "今夜なに食べる人いる？"
+        ),
+    },
+    {
+        "id": "cas-buzz-salary-vanish",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "work",
+        "text": (
+            "給料日なのに家賃と積立で手元ゼロ\n"
+            "入ってきた瞬間消えるのなんで\n\n"
+            "同じ現象起きてる人いる？"
+        ),
+    },
+    {
+        "id": "cas-buzz-gym-skip",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "gym",
+        "consistency": {
+            "time": "any",
+            "sets": ["gym_skipped_today"],
+            "forbids": ["gym_done_today"],
+        },
+        "text": (
+            "ジム行くのダルいから今日サボった\n"
+            "明日行けばいいって何回目のセリフ\n\n"
+            "今日行けた人、すご"
+        ),
+    },
+    {
+        "id": "cas-buzz-nail-money",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "gal",
+        "text": (
+            "ネイル代と美容代、合計見ると毎回笑う\n"
+            "笑うしかない金額\n\n"
+            "今月いちばん高い自己投資なに？"
+        ),
+    },
+    {
+        "id": "cas-buzz-convenience",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "nonsense",
+        "text": (
+            "節約する日に限ってコンビニ寄るのなんで\n"
+            "「今日だけ」が一番高い買い物になる\n\n"
+            "わかる人、手挙げて"
+        ),
+    },
+    {
+        "id": "cas-buzz-read-guilt",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "gal",
+        "text": (
+            "既読つけたのに返信できない日ある\n"
+            "悪いのは分かってる、気力がないだけ\n\n"
+            "同じことしてる人どれくらいいる？"
+        ),
+    },
+    {
+        "id": "cas-buzz-fc-tokyo",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "nonsense",
+        "text": (
+            "FC東京の試合日、仕事の集中力ゼロ\n"
+            "頭の中ずっとキックオフ\n\n"
+            "試合日仕事の人、どう耐えてる？"
+        ),
+    },
+    {
+        "id": "cas-buzz-nisa-app",
+        "topic": "雑談",
+        "kind": "casual",
+        "theme": "work",
+        "text": (
+            "つみたてアプリ、開くの怖い日ある\n"
+            "見てないのに不安だけ増えるの何\n\n"
+            "開ける派？放置派？"
+        ),
+    },    # テーマを混ぜて並べる（同日に同系統が連続しにくくする）
     {
         "id": "cas-gal-nail-book",
         "topic": "雑談",
@@ -379,6 +475,7 @@ CASUAL_HAND_POSTS: List[dict] = [
             "全部閉じる勇気もない"
         ),
     },
+
 ]
 
 # --- 価値発信（発見用・10:00 / 17:00） ---
@@ -1068,11 +1165,148 @@ FAIL_STORY_POSTS: List[dict] = [
     },
 ]
 
-# --- 誘導枠（本投稿は価値と同型・URLなし、自分リプで教育、最終リプにURL） ---
-# 禁止: 「続きはリプ👇」等の宣伝合図。見た目は崖っぷち／問いの教育投稿。
+# --- 旧・誘導（スケジュール未使用。本文にサイトURLがあるため post.py は公開を拒否） ---
 # replies 優先 / reply は後方互換
 CTA_POSTS: List[dict] = [
+    # --- バズ寄り（結論→理由3つ／会話余白。宣伝合図「続きはリプ」は使わない） ---
     {
+        "id": "cta-buzz-three-reasons",
+        "topic": "資産形成",
+        "kind": "cta",
+        "text": (
+            "「足りるか」を感覚で決めてない？🥹\n\n"
+            "私はこうしてる↓\n"
+            "①想定利回りを幅で見る\n"
+            "②毎月の積立を一点決めしない\n"
+            "③届く／届かないを並べて確認"
+        ),
+        "replies": [
+            (
+                "一点の正解探しより、幅で見ると焦り方が変わるよ💭\n\n"
+                "いまいちばん曖昧なの、利回り？積立額？引退年齢？"
+            ),
+            (
+                "並べると感覚が距離になるよ✨\n"
+                "会員なし・概算・投資助言じゃないよ🥹\n\n"
+                f"{SITE_URL}"
+            ),
+        ],
+    },
+    {
+        "id": "cta-buzz-hand-raise",
+        "topic": "つみたてNISA",
+        "kind": "cta",
+        "text": (
+            "つみたて続いてるのに不安が消えない人、手挙げて🥹\n\n"
+            "だいたい足りないのは情報じゃなくて\n"
+            "「足りない額」を一度も出してないこと↓"
+        ),
+        "replies": [
+            (
+                "見るのはこのくらいで十分💭\n"
+                "・いまの年齢\n"
+                "・引退したい年齢\n"
+                "・毎月の積立\n"
+                "・想定利回り（幅でOK）\n\n"
+                "いま、足りない額って数字で言える？"
+            ),
+            (
+                "距離の確認、無料で試せるよ🙌\n"
+                "概算・会員なし（投資助言じゃない）\n\n"
+                f"{SITE_URL}"
+            ),
+        ],
+    },
+    {
+        "id": "cta-buzz-compare-trap",
+        "topic": "資産形成",
+        "kind": "cta",
+        "text": (
+            "口座比較のタブ、開きすぎてない？🥹\n\n"
+            "なぜなら\n"
+            "①比較は増える\n"
+            "②不安は減らない\n"
+            "③先に見るべきはギャップだから\n\n"
+            "いま調べてるの、数字？口座条件？"
+        ),
+        "replies": [
+            (
+                "おすすめの順番は\n"
+                "ギャップ確認 → レバー1つ動かす → 必要なら選択肢✨\n\n"
+                "全部いっぺんに変えなくて大丈夫💭"
+            ),
+            (
+                "距離の確認、無料で試せるよ🙌\n"
+                "概算・会員なし（投資助言じゃない）\n\n"
+                f"{SITE_URL}"
+            ),
+        ],
+    },
+    {
+        "id": "cta-buzz-return-width",
+        "topic": "資産形成",
+        "kind": "cta",
+        "text": (
+            "想定年利、いい数字に寄せてない？🥹\n\n"
+            "危ない置き方と迷わない置き方、違いは1つ↓\n"
+            "危ない＝帳尻が合うまで%を上げる\n"
+            "迷わない＝3%と5%みたいに幅で見る"
+        ),
+        "replies": [
+            (
+                "届く／届かないを一点で決めないと、\n"
+                "積立や年数のレバーも冷静に選べるよ💭\n\n"
+                "いま何%で置いてる？"
+            ),
+            (
+                "置き方の整理はここ✨\n\n"
+                f"{SITE_URL}/guides/assumed-return"
+            ),
+        ],
+    },
+    {
+        "id": "cta-buzz-monthly-mix",
+        "topic": "つみたてNISA",
+        "kind": "cta",
+        "text": (
+            "「毎月いくらが正解？」で苦しくなる人へ🥹\n\n"
+            "混ぜちゃいけない2つがある↓\n"
+            "①必要額＝目標から逆算した目安\n"
+            "②続けられる額＝家計で無理なく続く額"
+        ),
+        "replies": [
+            (
+                "満額できない＝失敗、でもない✨\n"
+                "続けられる額で始めて、ギャップを見ながら調整が現実的💭\n\n"
+                "いま、どっちで決めてる？"
+            ),
+            (
+                "逆算の見方はここ✨\n\n"
+                f"{SITE_URL}/guides/monthly-contribution"
+            ),
+        ],
+    },
+    {
+        "id": "cta-buzz-rogo-formula",
+        "topic": "老後資金",
+        "kind": "cta",
+        "text": (
+            "「老後2000万円」で止まると次の一手が見えにくい🥹\n\n"
+            "見出しじゃなく、自分の式に落とす↓\n"
+            "生活費 − 年金見込み = 毎月の不足\n"
+            "→ × 想定年数"
+        ),
+        "replies": [
+            (
+                "ざっくりでいい。一度出すと焦り方が変わるよ✨\n\n"
+                "自分の「毎月の不足」、出したことある？"
+            ),
+            (
+                "くわしくはここ🙌\n\n"
+                f"{SITE_URL}/guides/rogo-2000man"
+            ),
+        ],
+    },    {
         "id": "cta-gap-check",
         "topic": "つみたてNISA",
         "kind": "cta",
@@ -1373,6 +1607,7 @@ CTA_POSTS: List[dict] = [
             ),
         ],
     },
+
 ]
 
 # 価値枠ローテ: 教育 / 褒め / 失敗談 を均等寄り（emit % 3）
@@ -1471,7 +1706,7 @@ def _post_replies(post: dict) -> List[str]:
 
 
 def thread_texts(post: dict) -> List[str]:
-    """本投稿→自分リプ連鎖。ogiri/ogiri_fin/casual/value/num=URL禁止 / cta=URLは最終リプのみ。"""
+    """本投稿→自分リプ連鎖。投稿本文にサイトURLは入れない。"""
     main = _truncate(str(post.get("text") or ""))
     texts = [t for t in (main, *_post_replies(post)) if t]
     if not texts:
@@ -1480,12 +1715,14 @@ def thread_texts(post: dict) -> List[str]:
 
 
 def all_posts() -> Sequence[dict]:
+    from hot_posts import FALLBACK_HOT_POSTS
     from ogiri_posts import OGIRI_FIN_POSTS, OGIRI_POSTS
 
     return [
+        *build_casual_posts(),
+        *FALLBACK_HOT_POSTS,
         *OGIRI_POSTS,
         *OGIRI_FIN_POSTS,
-        *build_casual_posts(),
         *VALUE_POSTS,
         *PRAISE_POSTS,
         *FAIL_STORY_POSTS,
@@ -1710,15 +1947,6 @@ def mark_casual_used(post_id: str, *, day: date | None = None) -> bool:
     return True
 
 
-def _pick_value_fallback(day: date, kind_index: int, per_day_kind: int, slot: int) -> dict:
-    emit = day.toordinal() * max(per_day_kind, 1) + kind_index
-    pool, index = _select_value_pool(emit)
-    out = _hydrate(pool[index], index=index, slot=slot)
-    out["kind"] = "value"
-    out["casual_exhausted"] = True
-    return out
-
-
 def pick_post_for_slot(
     day: date | None = None,
     slot: int = 0,
@@ -1770,11 +1998,19 @@ def pick_post_for_slot(
         unused = unused_casual_posts(session_used)
         if not unused:
             print(
-                "WARNING: 雑談プール枯渇。再利用せず value にフォールバック。"
+                "WARNING: 雑談プール枯渇。再利用せず金融トピックにフォールバック。"
                 " python scripts/threads/chitchat_gen.py で補充してください。",
                 file=sys.stderr,
             )
-            return _pick_value_fallback(day, kind_index, per_day_kind, slot)
+            from hot_posts import pick_hot
+
+            post = pick_hot(session_used=session_used, day=day, slot=slot)
+            pid = str(post.get("id") or "")
+            if session_used is not None and pid:
+                session_used.add(pid)
+            out = _hydrate(post, slot=slot)
+            out["casual_exhausted"] = True
+            return out
         post = _pick_casual_for_day(
             unused, session_used=session_used, pool=pool, day=day, slot=slot
         )
@@ -1787,11 +2023,14 @@ def pick_post_for_slot(
         )
         return _hydrate(post, index=index, slot=slot)
 
-    if kind == "cta":
-        pool = CTA_POSTS
-        index = emit % len(pool)
-        out = _hydrate(pool[index], index=index, slot=slot)
-        return out
+    if kind == "hot":
+        from hot_posts import pick_hot
+
+        post = pick_hot(session_used=session_used, day=day, slot=slot)
+        pid = str(post.get("id") or "")
+        if session_used is not None and pid:
+            session_used.add(pid)
+        return _hydrate(post, slot=slot)
 
     pool, index = _select_value_pool(emit)
     out = _hydrate(pool[index], index=index, slot=slot)

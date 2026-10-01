@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from client import ThreadsApiError, ThreadsClient  # noqa: E402
+from hot_posts import contains_site_promo, mark_hot_used  # noqa: E402
 from ogiri_posts import mark_ogiri_used  # noqa: E402
 from posts import (  # noqa: E402
     POSTS_PER_DAY,
@@ -91,6 +92,13 @@ async def main_async(args: argparse.Namespace) -> int:
         print(part)
     print("-----")
 
+    if contains_site_promo(texts):
+        print(
+            "ERROR: サイト誘導は停止しています（本文に nisa-simulation.com）",
+            file=sys.stderr,
+        )
+        return 1
+
     if dry_run:
         print("DRY-RUN: not published")
         return 0
@@ -155,6 +163,11 @@ async def main_async(args: argparse.Namespace) -> int:
             print(f"LEDGER: marked casual used id={post['id']}")
         else:
             print(f"LEDGER: already used id={post['id']}")
+    elif post.get("kind") == "hot" or str(post.get("id") or "").startswith("hot-"):
+        if mark_hot_used(str(post["id"]), day=day):
+            print(f"LEDGER: marked hot used id={post['id']}")
+        else:
+            print(f"LEDGER: already used id={post['id']}")
     if result.warnings:
         for w in result.warnings:
             print(f"WARNING: {w}", file=sys.stderr)
@@ -169,7 +182,7 @@ async def main_async(args: argparse.Namespace) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Threads へ集客投稿（みつきリタイア）")
+    parser = argparse.ArgumentParser(description="Threads へ投稿（みつき・雑談と金融トピック）")
     parser.add_argument(
         "--date",
         default="",
@@ -180,7 +193,7 @@ def main() -> None:
         type=int,
         choices=tuple(range(POSTS_PER_DAY)),
         default=None,
-        help="日内枠 0..9（08ogiri / 0930ogiri-fin / 11casual / … / 22cta）",
+        help="日内枠 0..9（08hot / 0930casual / 11casual / … / 22casual）",
     )
     parser.add_argument("--id", default="", help="投稿IDを直接指定（posts.py の id）")
     parser.add_argument("--topic-tag", default="", help="トピックタグ（#なし・省略可）")

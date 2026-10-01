@@ -5,10 +5,11 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 - スクリプト: [`post.py`](./post.py) / [`ogiri_posts.py`](./ogiri_posts.py) / [`client.py`](./client.py)
 - ワークフロー: [`.github/workflows/threads-daily.yml`](../../.github/workflows/threads-daily.yml)
 - スケジュール: **毎日10回 JST**（repo は public のため Actions 枠は消費しない）
-  - 生活大喜利 3 / 金融・NISA・物価大喜利 3 / 雑談 2 / 誘導 2
+  - 雑談 6 / ホットな金融トピック 4（サイトURLなし）
 - 画像: [スタジオジブリ公式ギャラリー](https://www.ghibli.jp/)（「常識の範囲でご自由にお使いください」）
-- 台帳: [`ogiri_ledger.json`](./ogiri_ledger.json)（大喜利一度きり。枯渇時のみ再利用）
-  / [`casual_ledger.json`](./casual_ledger.json)（雑談一度きり）
+- 台帳: [`casual_ledger.json`](./casual_ledger.json)（雑談一度きり）
+  / [`hot_ledger.json`](./hot_ledger.json)（金融トピック一度きり）
+  / [`ogiri_ledger.json`](./ogiri_ledger.json)（旧・大喜利。スケジュールでは未使用）
 - `SCHEDULE_ID` 変更で [`day_plans.json`](./day_plans.json) は自動再生成
 - 雑談プール補充は [threads-casual-refill.yml](../../.github/workflows/threads-casual-refill.yml) を手動実行
 
@@ -18,22 +19,24 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 2. **自動投稿に任せる** … 1日10本
 3. **来た通知だけ返す** … 自分の投稿へのコメントが来たら返信（任意）
 
-生活大喜利・雑談にシミュURLは入れない。誘導枠だけ最終リプにサイトURL。
-金融大喜利は NISA・物価・貯蓄あるあるのみ（銘柄推奨・投資助言禁止）。
+投稿本文にサイトURLは入れない。発見導線はプロフィールのリンクだけ。
+金融トピックは直近見出しへの反応（銘柄推奨・投資助言禁止）。見出しが取れない日は定番の反応文。
 
 ## プロフィール文言（推奨）
 
+NISA系Threadsの定番（＼見出し／・実績数字・FP肩書き・▶︎箇条書き・DM相談・公式LINE）は使わない。
+人のプロフィールに見える長さにする（Threads / Instagram は 150字）。リンク欄にサイトがあるので、本文でシミュを売らない。
+スタジアム観戦回数などは投稿ネタ用。プロフィールには書かない。
+
 | 項目 | 推奨 |
 |------|------|
-| 表示名 | みつき｜NISA「足りるか」確認係 |
+| 表示名 | みつき |
 | リンク | `https://www.nisa-simulation.com` |
 
 ```
-＼つみたての「足りるか不安」を数字に／
-▶︎ 引退までの不足額が1分でわかる無料シミュ運営
-▶︎ 銘柄おすすめはしない・投資助言ではないよ
-▶︎ 毎日、ジブリ場面写真で大喜利してます
-枠埋めより先に、距離を知ろう👇
+20代後半、都内IT会社員
+ジムと美容とFC東京が好き
+つみたてNISAは2025年からオルカン
 ```
 
 ## One-time setup
@@ -59,16 +62,16 @@ keiba-ev-app と同じく **GitHub Actions + Meta Threads Graph API** で投稿�
 
 | slot | 時刻(JST) | 種類 |
 |------|-----------|------|
-| 0 | 08:00 | ogiri（生活大喜利） |
-| 1 | 09:30 | ogiri_fin（金融・NISA・物価大喜利） |
-| 2 | 11:00 | casual（雑談） |
-| 3 | 12:30 | ogiri |
-| 4 | 14:00 | ogiri_fin |
-| 5 | 16:00 | cta（誘導） |
+| 0 | 08:00 | hot（金融トピック） |
+| 1 | 09:30 | casual（雑談） |
+| 2 | 11:00 | casual |
+| 3 | 12:30 | hot |
+| 4 | 14:00 | casual |
+| 5 | 16:00 | hot |
 | 6 | 18:00 | casual |
-| 7 | 19:30 | ogiri |
-| 8 | 21:00 | ogiri_fin |
-| 9 | 22:00 | cta |
+| 7 | 19:30 | casual |
+| 8 | 21:00 | hot |
+| 9 | 22:00 | casual |
 
 ## ローカル
 
@@ -94,7 +97,7 @@ PYTHONPATH=scripts/threads python scripts/threads/post.py --id ogiri-chihiro-yub
 - `image_url` … `https://www.ghibli.jp/gallery/{slug}{nnn}.jpg`
 - 投稿成功後に [`ogiri_ledger.json`](./ogiri_ledger.json) へ記録
 
-雑談は `CASUAL_HAND_POSTS` / `casual_generated.json`。誘導は `CTA_POSTS`。
+雑談は `CASUAL_HAND_POSTS` / `casual_generated.json`。金融トピックは [`hot_posts.py`](./hot_posts.py)（使用済みは `hot_ledger.json`）。
 
 ## 失敗時の切り分け（GitHub Actions）
 

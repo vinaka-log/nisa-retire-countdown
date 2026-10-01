@@ -89,14 +89,11 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
     """その日の全枠を確定して返す。未作成なら整合性を見て新規作成。"""
     from ogiri_posts import load_ogiri_used_ids, pick_ogiri
     from posts import (
-        CTA_POSTS,
         POSTS_PER_DAY,
         SCHEDULE_ID,
         SLOT_KINDS,
         _hydrate,
         _pick_casual_for_day,
-        _pick_value_fallback,
-        _select_value_pool,
         build_casual_posts,
         load_casual_used_ids,
         unused_casual_posts,
@@ -159,9 +156,20 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
             extra = set(planned_ids) | day_session
             unused = unused_casual_posts(extra)
             if not unused:
-                post = _pick_value_fallback(day, kind_index, per_day_kind, slot)
+                from hot_posts import pick_hot
+
+                post = pick_hot(
+                    session_used=day_session,
+                    planned_ids=planned_ids,
+                    day=day,
+                    slot=slot,
+                )
+                pid = str(post.get("id") or "")
+                if pid:
+                    day_session.add(pid)
+                    planned_ids.add(pid)
                 print(
-                    f"WARNING: day_plan {key} slot={slot} casual枯渇 → value fallback",
+                    f"WARNING: day_plan {key} slot={slot} casual枯渇 → hot fallback",
                     file=sys.stderr,
                 )
             else:
@@ -178,10 +186,20 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
                     day_session.add(pid)
                     planned_ids.add(pid)
             hydrated = _hydrate(post, slot=slot)
-        elif kind == "cta":
-            pool = CTA_POSTS
-            index = emit % len(pool)
-            hydrated = _hydrate(pool[index], index=index, slot=slot)
+        elif kind == "hot":
+            from hot_posts import pick_hot
+
+            post = pick_hot(
+                session_used=day_session,
+                planned_ids=planned_ids,
+                day=day,
+                slot=slot,
+            )
+            pid = str(post.get("id") or "")
+            if pid:
+                day_session.add(pid)
+                planned_ids.add(pid)
+            hydrated = _hydrate(post, slot=slot)
         elif kind == "num":
             from num_posts import generate_num_post
 
@@ -189,7 +207,8 @@ def ensure_day_plan(day: date | None = None, *, persist: bool = True) -> Dict[st
                 generate_num_post(day, kind_index, per_day_kind), slot=slot
             )
         else:
-            # value（教育 / 褒め / 失敗談）
+            from posts import _select_value_pool
+
             pool, index = _select_value_pool(emit)
             hydrated = _hydrate(pool[index], index=index, slot=slot)
             hydrated["kind"] = "value"

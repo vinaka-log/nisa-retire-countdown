@@ -2,29 +2,29 @@ name: Threads daily post
 
 # GitHub Actions + Meta Threads API
 # 毎日10回 JST:
-#   生活大喜利3 / 金融・NISA・物価大喜利3 / 雑談2 / 誘導2
+#   雑談6 / ホットな金融トピック4（サイトURLなし）
 
 on:
   schedule:
-    # 08:00 JST = 23:00 UTC (previous day) : slot 0 生活大喜利
+    # 08:00 JST = 23:00 UTC (previous day) : slot 0 金融トピック
     - cron: "0 23 * * *"
-    # 09:30 JST = 00:30 UTC : slot 1 金融大喜利
+    # 09:30 JST = 00:30 UTC : slot 1 雑談
     - cron: "30 0 * * *"
     # 11:00 JST = 02:00 UTC : slot 2 雑談
     - cron: "0 2 * * *"
-    # 12:30 JST = 03:30 UTC : slot 3 生活大喜利
+    # 12:30 JST = 03:30 UTC : slot 3 金融トピック
     - cron: "30 3 * * *"
-    # 14:00 JST = 05:00 UTC : slot 4 金融大喜利
+    # 14:00 JST = 05:00 UTC : slot 4 雑談
     - cron: "0 5 * * *"
-    # 16:00 JST = 07:00 UTC : slot 5 誘導
+    # 16:00 JST = 07:00 UTC : slot 5 金融トピック
     - cron: "0 7 * * *"
     # 18:00 JST = 09:00 UTC : slot 6 雑談
     - cron: "0 9 * * *"
-    # 19:30 JST = 10:30 UTC : slot 7 生活大喜利
+    # 19:30 JST = 10:30 UTC : slot 7 雑談
     - cron: "30 10 * * *"
-    # 21:00 JST = 12:00 UTC : slot 8 金融大喜利
+    # 21:00 JST = 12:00 UTC : slot 8 金融トピック
     - cron: "0 12 * * *"
-    # 22:00 JST = 13:00 UTC : slot 9 誘導
+    # 22:00 JST = 13:00 UTC : slot 9 雑談
     - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
@@ -37,7 +37,7 @@ on:
         required: false
         default: ""
       slot:
-        description: "0=08ogiri 1=0930fin 2=11casual 3=1230ogiri 4=14fin 5=16cta 6=18casual 7=1930ogiri 8=21fin 9=22cta"
+        description: "0=08hot 1=0930casual 2=11casual 3=1230hot 4=14casual 5=16hot 6=18casual 7=1930casual 8=21hot 9=22casual"
         required: false
         default: ""
 
@@ -123,16 +123,22 @@ jobs:
           fi
           python scripts/threads/post.py "${ARGS[@]}"
 
-      - name: Commit ogiri/casual ledger and day plan
+      - name: Commit casual/hot ledger and day plan
         if: ${{ success() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
         run: |
-          if git diff --quiet -- scripts/threads/ogiri_ledger.json scripts/threads/casual_ledger.json scripts/threads/day_plans.json; then
+          FILES=()
+          for f in scripts/threads/ogiri_ledger.json scripts/threads/casual_ledger.json scripts/threads/hot_ledger.json scripts/threads/day_plans.json; do
+            if [ -f "$f" ]; then
+              FILES+=("$f")
+            fi
+          done
+          git add -- "${FILES[@]}"
+          if git diff --cached --quiet; then
             echo "No ledger/day-plan changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/threads/ogiri_ledger.json scripts/threads/casual_ledger.json scripts/threads/day_plans.json
-          git commit -m "chore(threads): update ogiri/casual ledger and day plan"
+          git commit -m "chore(threads): update casual/hot ledger and day plan"
           git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
