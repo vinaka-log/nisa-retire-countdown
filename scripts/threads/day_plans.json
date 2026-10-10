@@ -10370,5 +10370,169 @@
         ]
       }
     }
+  },
+  "2026-10-10": {
+    "date": "2026-10-10",
+    "schedule": "E-chat-hot10",
+    "flags": [
+      "gym_skipped_today"
+    ],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-119752fe10",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、金融機関のオペ依存にメス 市場調節の運用能力には一抹の不安\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-buzz-salary-vanish",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "給料日なのに家賃と積立で手元ゼロ\n入ってきた瞬間消えるのなんで\n\n同じ現象起きてる人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-buzz-gym-skip",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gym",
+        "text": "ジム行くのダルいから今日サボった\n明日行けばいいって何回目のセリフ\n\n今日行けた人、すご",
+        "consistency": {
+          "sets": [
+            "gym_skipped_today"
+          ],
+          "forbids": [
+            "gym_done_today"
+          ],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-434a45812e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、再利上げ観測も円安基調 １ドル１５０円台後半、「後手に回る」懸念払拭できず\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "cas-buzz-nail-money",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "ネイル代と美容代、合計見ると毎回笑う\n笑うしかない金額\n\n今月いちばん高い自己投資なに？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-cbcfd4b76f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米国株式市場＝上昇、来週の決算・物価統計に関心 小型株は週間で下落\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "cas-buzz-convenience",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "節約する日に限ってコンビニ寄るのなんで\n「今日だけ」が一番高い買い物になる\n\nわかる人、手挙げて",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "cas-buzz-dinner-braindead",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "退勤後ごはん、考えた時点で脳死\nでもスーパー行くとまた同じもの買う\n\n節約できない女の完成形って感じ\n今夜なに食べる人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "evening",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-c19f20800f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "シカゴ日経平均先物 大取終値比 385円安 （10月9日）\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "cas-buzz-read-guilt",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "gal",
+        "text": "既読つけたのに返信できない日ある\n悪いのは分かってる、気力がないだけ\n\n同じことしてる人どれくらいいる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
