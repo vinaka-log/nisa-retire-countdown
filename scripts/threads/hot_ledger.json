@@ -2,7 +2,8 @@
   "used_ids": [
     "hot-cbcfd4b76f",
     "hot-434a45812e",
-    "hot-390fcf8c16"
+    "hot-390fcf8c16",
+    "hot-3043df8717"
   ],
   "history": [
     {
@@ -15,6 +16,10 @@
     },
     {
       "id": "hot-390fcf8c16",
+      "date": "2026-10-11"
+    },
+    {
+      "id": "hot-3043df8717",
       "date": "2026-10-11"
     }
   ]
