@@ -10534,5 +10534,165 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-11": {
+    "date": "2026-10-11",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [
+      "gym_skipped_yesterday"
+    ],
+    "slots": {
+      "0": {
+        "id": "hot-af0ef5f0b3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均株価の指数情報・推移\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "cas-buzz-fc-tokyo",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "nonsense",
+        "text": "FC東京の試合日、仕事の集中力ゼロ\n頭の中ずっとキックオフ\n\n試合日仕事の人、どう耐えてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "cas-buzz-nisa-app",
+        "kind": "casual",
+        "topic": "雑談",
+        "theme": "work",
+        "text": "つみたてアプリ、開くの怖い日ある\n見てないのに不安だけ増えるの何\n\n開ける派？放置派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-28ef5e2c8e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "インド、ルピー防衛へドル需要抑制 為替ヘッジ規制を強化\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-786fb1cbdb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "消費者物価指数（令和8年（2026年）8月分）\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-981a1c3626",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の注目材料】今後の金融政策動向をにらみ、米物価統計に注目=米CPI\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-eb19eeceb8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "「高市相場」１年 日経平均１．５倍、長期金利３％超 円安の構造要因を探る\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-390fcf8c16",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本より物価が安いアジアの国TOP15！アジアで一番物価が安い国はどこ？（LIMO）\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-3043df8717",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円建てCME先物は9日の225先物比385円安の69085円で推移(フィスコ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-220f4577ae",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀「9月利上げ」後も進む円安は市場の“先走り”、日米当局の口先介入は今後も続く!?\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
