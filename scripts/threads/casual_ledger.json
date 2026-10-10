@@ -48,7 +48,8 @@
     "cas-gen-gym-509ce5b15a",
     "cas-gen-nonsense-6237dc6570",
     "cas-work-monday-stomach",
-    "cas-buzz-nail-money"
+    "cas-buzz-nail-money",
+    "cas-buzz-convenience"
   ],
   "history": [
     {
@@ -245,6 +246,10 @@
     },
     {
       "id": "cas-buzz-nail-money",
+      "date": "2026-10-10"
+    },
+    {
+      "id": "cas-buzz-convenience",
       "date": "2026-10-10"
     }
   ]
