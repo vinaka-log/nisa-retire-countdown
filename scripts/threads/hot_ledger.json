@@ -1,10 +1,15 @@
 {
   "used_ids": [
-    "hot-cbcfd4b76f"
+    "hot-cbcfd4b76f",
+    "hot-434a45812e"
   ],
   "history": [
     {
       "id": "hot-cbcfd4b76f",
+      "date": "2026-10-10"
+    },
+    {
+      "id": "hot-434a45812e",
       "date": "2026-10-10"
     }
   ]
