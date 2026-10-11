@@ -49,7 +49,8 @@
     "cas-gen-nonsense-6237dc6570",
     "cas-work-monday-stomach",
     "cas-buzz-nail-money",
-    "cas-buzz-convenience"
+    "cas-buzz-convenience",
+    "cas-buzz-fc-tokyo"
   ],
   "history": [
     {
@@ -251,6 +252,10 @@
     {
       "id": "cas-buzz-convenience",
       "date": "2026-10-10"
+    },
+    {
+      "id": "cas-buzz-fc-tokyo",
+      "date": "2026-10-11"
     }
   ]
 }
