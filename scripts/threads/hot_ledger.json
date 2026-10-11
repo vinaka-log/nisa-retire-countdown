@@ -11,7 +11,8 @@
     "hot-981a1c3626",
     "hot-1a10748dcc",
     "hot-1c2a1a031b",
-    "hot-fb8cc8ea1a"
+    "hot-fb8cc8ea1a",
+    "hot-c8996a3290"
   ],
   "history": [
     {
@@ -60,6 +61,10 @@
     },
     {
       "id": "hot-fb8cc8ea1a",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "hot-c8996a3290",
       "date": "2026-10-12"
     }
   ]
