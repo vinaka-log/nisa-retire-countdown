@@ -50,7 +50,8 @@
     "cas-work-monday-stomach",
     "cas-buzz-nail-money",
     "cas-buzz-convenience",
-    "cas-buzz-fc-tokyo"
+    "cas-buzz-fc-tokyo",
+    "cas-buzz-nisa-app"
   ],
   "history": [
     {
@@ -255,6 +256,10 @@
     },
     {
       "id": "cas-buzz-fc-tokyo",
+      "date": "2026-10-11"
+    },
+    {
+      "id": "cas-buzz-nisa-app",
       "date": "2026-10-11"
     }
   ]
