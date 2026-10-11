@@ -6,7 +6,8 @@
     "hot-3043df8717",
     "hot-220f4577ae",
     "hot-af0ef5f0b3",
-    "hot-28ef5e2c8e"
+    "hot-28ef5e2c8e",
+    "hot-786fb1cbdb"
   ],
   "history": [
     {
@@ -35,6 +36,10 @@
     },
     {
       "id": "hot-28ef5e2c8e",
+      "date": "2026-10-11"
+    },
+    {
+      "id": "hot-786fb1cbdb",
       "date": "2026-10-11"
     }
   ]
