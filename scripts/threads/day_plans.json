@@ -10852,5 +10852,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-13": {
+    "date": "2026-10-13",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-c8868ca5a3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外為市場＝ドル1年半ぶり高値圏、中東情勢と米物価指標に警戒\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-1b99097fd6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "今後数カ月のドル円、現行付近で推移との見方も\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-f3b241e224",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場 13日（日本時間 0時）\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-f0ceadb36b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "FRBとECB、政策金利高め維持で2027年へ－インフレ圧力なお根強く\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-1aa6b7b339",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "明日の経済スケジュール ─ 国内企業物価など(株探ニュース)\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-efd346aeb9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "再送：印経済指標【消費者物価指数（CPI）\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-5b17d9e51d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ニューヨーク外国為替市場概況・24時 ユーロドル、下げ渋り(トレーダーズ・ウェブ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-28807fa238",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、２００日線を上回る展開 維持できるか注目\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-8a295e4314",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ユーロドル 上値が重い(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-4b6fd880fc",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル高が進行、ドル円一時１５８．６１レベル\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
