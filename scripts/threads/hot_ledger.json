@@ -19,7 +19,8 @@
     "hot-b0979f9f7a",
     "hot-e9c0e037f6",
     "hot-efd346aeb9",
-    "hot-5b17d9e51d"
+    "hot-5b17d9e51d",
+    "hot-28807fa238"
   ],
   "history": [
     {
@@ -100,6 +101,10 @@
     },
     {
       "id": "hot-5b17d9e51d",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "hot-28807fa238",
       "date": "2026-10-13"
     }
   ]
