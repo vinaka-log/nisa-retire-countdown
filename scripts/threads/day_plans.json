@@ -11326,5 +11326,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-16": {
+    "date": "2026-10-16",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-9527bda3d9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀利上げ継続を強調、小枝審議委員「過度に慎重になることはない」\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-d458143dec",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "金融調節は日銀に委ねるべき、リフレ政策採る状況ではない\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-00aeaba65c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "「利上げ、過度に慎重になることはない」日銀・小枝審議委員が講演\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-c0a076a31f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円相場 値上がり 日銀委員の発言など受け\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-6aeba004b9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本株揺らす「新興クラウド」の信用不安 日経平均株価3318円安\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-d2f66b901b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は6日続落、一時5％超安 ＡＩ投資懸念で関連株急落\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-615cad0c64",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は小動き、ドル買い一服(フィスコ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-088b3ca42c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は上値が重い、ドルに買戻し(フィスコ)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-b97240d2e6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京為替：ドル・円は下げ渋り、戻りは鈍い(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-6db014a834",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は戻りが鈍い、ドル売り継続(フィスコ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
