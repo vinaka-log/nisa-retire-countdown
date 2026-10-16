@@ -11484,5 +11484,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-17": {
+    "date": "2026-10-17",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-f73ce379d4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "植田日銀総裁、物価上昇｢これ以上の上げ容認できず｣ 利上げ継続強調\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-4d0afb612e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "植田・日銀総裁「引き続き政策金利を引き上げる」あいさつ文で強調\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-dc903867eb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀・植田総裁 基調物価「これ以上上がること容認できない」 利上げを継続する姿勢強調\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-c9584c3dcb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "市川レポート】 日経平均株価は歴代3位の下げ幅を記録～下値目途と反発材料を探る\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-3b34647a8d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "コアウィーブ・ショック 日経平均急落後の展開は？\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-b394f28bd4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米9月輸入物価、前年比8.1％上昇 4年超ぶりの大幅な伸び\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-5edaf8dc1d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "速報】ドル・円157.93円、ドル軟調、米・9月輸入物価指数は加速(フィスコ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-4425e702dc",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀総裁、基調的な物価「2%に近づく」 内田副総裁が代読\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-bacb88e235",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は大幅安を回避、クロス円は一段高(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-de8ef2d3aa",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "利上げ継続方針、基調物価2％に近づく中で金融環境は緩和的\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
