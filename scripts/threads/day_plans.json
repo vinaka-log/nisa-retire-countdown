@@ -11642,5 +11642,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-18": {
+    "date": "2026-10-18",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-624e81c432",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の注目材料】英物価統計に注目、伸び加速の見込み\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-c8631a6385",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "9月企業物価は6.8％に伸び鈍化 コメ下落の一方で続く輸入物価の高止まり\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-c6f04b9cf6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "進む物価高と円安 海外進学の今\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-280becee40",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は戻り試す、原油は上値探る展開か\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-7d73771766",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "シカゴ日経平均先物 大取終値比 1595円安 （10月16日）(株探ニュース)\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-d3ca02353e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "NY為替：10月連邦公開市場委員会（FOMC）での追加利上げ確率が低下(フィスコ)\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-785294075d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀植田総裁“物価2％超の上昇容認せず” 今後も利上げ進める\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-95e4e6b5aa",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "50年住宅ローン、金利リスク高く 利息1000万円増えるケースも\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-ab3656c370",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "長期インフレ時代が到来！「外国株式・外国REIT」保有が強い対策になる理由\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-b86582f07f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場まとめ１０月１２日から１０月１６日の週\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
