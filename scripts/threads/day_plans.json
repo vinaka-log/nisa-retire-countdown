@@ -11800,5 +11800,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-19": {
+    "date": "2026-10-19",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-4e090a5f5b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は戻り試す展開か、原油は上値探る 今週の市場・予定\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-e3d07ec336",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週のドル円相場はどうなる？10/19週のイベント予定 2026年10月18日\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-1adddcbeca",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "今週の注目材料】日本全国消費者物価指数\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-3716321f08",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "荒れた日経平均株価はいったん下げ止まるのか\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-9f67016a73",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "住宅ローンの繰り上げ返済援助は贈与税非課税特例の対象外\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-0e0f0b014c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "「こどもNISA」は親の枠より優先？ 主要5社の比較と出金制限の注意点\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-2a2dd6882b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "REVIC、北海道の孝仁会へ再生支援決定 借入金の増加や物価・人件費高騰が原因\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-7413a46283",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "アジア経済「強靱な域内貿易が支え」 IMF副局長、日銀に利上げ余地\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-9a2fe8df66",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "auAM トリプル・NASDAQ100 為替ヘッジ無し【AY31226A\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-b8865de952",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本の名目ＧＤＰ、６位転落へ 印英が逆転、円安影響で\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
