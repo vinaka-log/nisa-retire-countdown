@@ -11958,5 +11958,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-20": {
+    "date": "2026-10-20",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-f4aa0c69ab",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "中国人民銀、翌日物リバースレポ金利を主要政策金利に検討中\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-6ecc4e1173",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀の2%物価目標、「到達より安定」に重心 政府との足並みに苦慮\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-e013bcd16d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替】金融政策ウィークを控えて動きにくい週に\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-c4a676400e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５８円を挟んで膠着\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-8dd48c4a55",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "速報】カナダ・9月消費者物価指数は前年比＋3.1％／指標フラッシュ(フィスコ)\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-55a7dd7111",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "2%の物価目標とは 日銀がデフレ脱却を目指し導入\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-045f460df9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は反落、米コアウィーブ警戒が継続 下値では押し目買いも\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-ad6a9094d6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、利上げゴールはどこに？ 元理事とスピード解説\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-4d3db28dfe",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "中国人民銀行、翌日物短期金利を政策金利に 潘総裁が方針\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-a385ab6249",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ドル円、強含み(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
