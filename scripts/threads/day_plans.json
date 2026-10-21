@@ -12274,5 +12274,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-22": {
+    "date": "2026-10-22",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-00c815a0cc",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安修正の条件は整うか？～マーケット・カルテ11月号\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-1cc7dad599",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "適切な金融政策による物価目標実現、持続的な成長に資する\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-f7920c2cd6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀政策金利は来春1.75%へ、次の利上げは12月の可能性－前田元理事\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-342b9589a9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "iDeCoの新制度で得する人としない人\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-16335ad1ee",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "高市政権が紡ぐ円安の「ナラティブ」\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-eb5b7ce5de",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "（まとめ）日経平均は一時1,300円超上昇も最終的に545円高の64,621円で反発\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-419c92d2f8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "速報】日銀、物価2％到達判断へ\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-5cc641bded",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、物価上昇率2％到達判断へ 10月会合、14年かけ実現か（共同通信）\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-9b196816d4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は安値圏、原油相場の失速で(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-2ff5ff3d0c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は小動き、ポンドは堅調(フィスコ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
