@@ -12432,5 +12432,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-23": {
+    "date": "2026-10-23",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-f086af231f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀10月会合、連続利上げ見送りへ 2%物価目標は事実上到達\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-24a9aab23e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "スイス中銀、為替介入の必要性低下と判断\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-8283e42666",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本の日経平均株価、AI関連投資の慎重さで半導体株が下落\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-d31f3ad98f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "浮かぶ「棚ぼた」円高 米中間選挙と仏不安でドル安・ユーロ安観測\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-f3607273be",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京為替：ドル・円は大幅安、円買い主導で下落(フィスコ)\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-28e783004a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は一段安、円買い優勢(フィスコ)\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-89fbf265a9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は下げ一服、ユーロ売り圧力は継続(フィスコ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-801472fbf3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "22日外国為替市況（日銀公表分）(トレーダーズ・ウェブ)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-05e5b8a219",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京外国為替市場概況・17時 ドル円、売り一服(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-da276c7da1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "明日の経済スケジュール ─ ★全国消費者物価指数に注目(株探ニュース)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
