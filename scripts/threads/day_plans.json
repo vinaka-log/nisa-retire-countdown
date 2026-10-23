@@ -12590,5 +12590,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-24": {
+    "date": "2026-10-24",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-940eec16a1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "～財を中心に物価上昇圧力強まる。＋３％台も視野～\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-ce99b8c477",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "9月の消費者物価2.1%上昇、9カ月ぶり2%超 食品や日用品が押し上げ\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-f929878b29",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は安値もみ合い、米ダウ先物は下げ幅拡大(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-08aff3110d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ロシア中銀、政策金利14%に据え置き 物価上昇圧力高く2会合連続\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-6a0e295857",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価上昇2%到達判断の公算大 日銀\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-339b143545",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀静岡支店長の佐々木仁氏、積極的な情報発信に意欲\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-ee28fdbe51",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は軟調、円買い再開(フィスコ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-a6087895fa",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は持ち直し、円買い後退で(フィスコ)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-3672555ee0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、物価上昇率「2%到達」と判断の公算大 追加利上げは見送りも（朝日新聞）\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-589a2d65ed",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ドル円、弱含み(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
