@@ -12748,5 +12748,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-25": {
+    "date": "2026-10-25",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-67dd3a2b5b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の注目材料】米FOMCは政策金利を据え置く見込み\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b61409ec7f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "こどもNISA、道内金融も受付開始 総額600万円非課税 子どもの資産形成後押し\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-c47b18b0e8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "NISA・iDeCoのある離婚、財産分与はどうなる？(トウシル)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-cb179a4c6e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "シカゴ日経平均先物 大取終値比 270円安 （10月23日）(株探ニュース)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-cd311f59c0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "９月の仙台市の消費者物価指数 食料品高騰など前年同月より２％上昇\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-893d18279c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は反転上昇､円は弱含む展開 キオクシアなど半導体関連決算\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-e2ebbab16e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀 利上げ見送り公算 「物価２％到達」示す方向\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-2e263483c3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場まとめ１０月１９日から１０月２３日の週\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-83c196b6b5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "基調的物価上昇率２％到達後の金融政策\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-01b2f50110",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "シカゴ日本株先物概況・23日 日経平均先物は40円安の6万2640円\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
