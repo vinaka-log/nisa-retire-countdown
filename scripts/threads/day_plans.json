@@ -12906,5 +12906,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-26": {
+    "date": "2026-10-26",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-a98dc2d1b6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週のドル円相場はどうなる？10/26週のイベント予定 2026年10月25日\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-1b834f7cb0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は戻り試す､円は弱含む展開 今週の市場・予定\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-ec3d3c41a2",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "視る日経！ニュースNEXT▼働き方改革・企業はどう向き合う？／日経平均AIの懸念は\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-fb9d60da41",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円買い戻しの賞味期限は 脱・円安時代への長き道のり\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-fc529c0725",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "｢下ヒゲ陽線｣を形成した日経平均株価で確認したいこと\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-512f44720b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "９月消費者物価上昇率2.2％、３カ月連続２％超\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-3d4d99936c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "崩れぬ実質金利差と“158円膠着” 米・中間選挙後に迎える相場の分岐点\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-05910ddf0d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東証大幅反落、終値１７１３円安 半導体関連株が値下がり\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-0fce683a34",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価上昇２％到達】悲願目前、賃上げ伴わず 経済に冷え込みリスクも\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-da5ceff197",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安で得した人、損した人の違いとは？家計と企業の「勝ち負け」を数字で分ける\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
