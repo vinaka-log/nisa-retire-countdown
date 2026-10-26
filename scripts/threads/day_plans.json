@@ -13064,5 +13064,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-27": {
+    "date": "2026-10-27",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-7ca7604070",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "インタビュー：27年春闘は目線上げる、物価上昇を上回る賃上げから一歩先へ\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-36c4110c79",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均26日大引け＝3日続落、503円安の6万2189円\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-7de65fad99",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替】金融政策の現状維持を織り込み済み、米中間選挙に向けての思惑が材料に\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-ce6c2af5b7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円はドル高円安が優勢\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-e0c7b142ff",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本株】日経平均との連動性が低く、増収増益が期待される国内株\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-95439738a8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ニューヨーク外国為替市場概況・24時 ドル円、底堅い(トレーダーズ・ウェブ)\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-641d4c8a1e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "（まとめ）日経平均は503円安の62,189円で3日続落 今週は主力銘柄の決算に注目\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-d4710f560d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ドル円、買い一服(トレーダーズ・ウェブ)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-89793858a7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "26日外国為替市況（日銀公表分）(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-779e086c4b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・20時 ドル円、しっかり(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
