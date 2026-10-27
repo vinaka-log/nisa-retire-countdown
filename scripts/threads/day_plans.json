@@ -13222,5 +13222,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-28": {
+    "date": "2026-10-28",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-a30801ebfa",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ユーロ圏の住宅ローン需要、金利上昇で第3四半期に急減\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-7760da142a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円、動き始めた有事の買い 日銀「植田会見後」の下落に終止符か\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-a5f3f0e035",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "消費減税「極めてコスパ悪い」 物価抑制効果に疑問―衆院参考人質疑\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-b07f6e295b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５７円台後半 日米の金融政策待ち\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-f1f7266751",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価動向を注視、タイミング逸さず必要な対応検討\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-3bf2489844",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ドル円、底堅い(トレーダーズ・ウェブ)\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-33b1fe3961",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均株価の64,000円超の水準は重い\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-ccb7cd6d1c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "特殊要因除くＣＰＩ、9月は伸び急加速 日銀の基調2％判断後押しか | ロイター\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-8e965cd119",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は底堅い、クロス円にらみ(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-12a4f0f37c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京外国為替市場概況・17時 ドル円、底堅い(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
