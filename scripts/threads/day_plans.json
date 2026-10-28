@@ -13380,5 +13380,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-29": {
+    "date": "2026-10-29",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-c3e610de4a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "タイ中銀、政策金利4会合連続で据え置き AI投資の恩恵は限定的\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b841cb8398",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "28日の日経平均は続伸､AI投資に対する懸念が後退\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-9b8561c00e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本維新の会・中東危機の長期化を踏まえたエネルギー・物価高騰対策に関する提言申入れ\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-8d11dcd8b9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "28日外国為替市況（日銀公表分）(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-1ebdc2c29b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "明日の経済スケジュール ─ ★日銀金融政策決定会合に注目(株探ニュース)\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-588b4a5717",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州為替：ドル・円は底堅い、米金利にらみ(フィスコ)\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-1624eccc88",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・20時 ドル円、一進一退(トレーダーズ・ウェブ)\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-f2906e5ec1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京為替：ドル・円は下落、夕方はドル売り(フィスコ)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-5c9b7d45a9",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ユーロドル、小高い(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-10552a967d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "台湾中銀、来年利上げも 物価大幅上振れなら\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
