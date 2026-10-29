@@ -13538,5 +13538,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-30": {
+    "date": "2026-10-30",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-7ec729a6ee",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州中銀が政策金利を据え置き 経済・物価への影響を見極め\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-90a2e6c63b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "初級- ニュースが分かる！利上げ・利下げとは？政策金利と身近なお金のつながり\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-ec250da537",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米物価、前年比３．６％上昇 原油高受け伸び加速―９月\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-35afdfbc54",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "城内経財相、30日の日銀会合を欠席 国会日程を優先\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-63c8e2c6ec",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米消費支出物価指数、9月上昇率は3.6%に拡大 インフレ圧力に広がり\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-cedcb20134",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ECB、政策金利据え置きを決定 インフレ圧力は継続\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-9dcc61425a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀 金融政策決定会合 物価上昇率“2％到達”判断か（ABEMA TIMES）\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-b85e1c85ad",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米9月物価3.6％上昇 前月から伸び率拡大（共同通信）\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-9b38b25d92",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５８円付近 明日は日銀決定会合\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-3c34461690",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "小樽市農業者物価高騰対応支援金を給付します\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
