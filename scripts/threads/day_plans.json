@@ -13696,5 +13696,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-10-31": {
+    "date": "2026-10-31",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-f38481b52b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、基調物価2％到達と表明 ＥＴＦの売却加速も決定\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-299764fa05",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "住宅ローン固定金利、3メガ平均が下落 過去最高の更新がストップ\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-81fd6b8f5d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀 政策金利据え置き 物価2％「ひとつの節目」 利上げは継続\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-31a4aee750",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、物価目標2％「事実上到達」 追加利上げは見送り\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-bd9bf9d3be",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、高揚感なき｢2%到達｣ 植田総裁｢勝利宣言には至らず｣\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-41feaf292e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、物価2%到達を表明「目標と整合的な水準」 金利は据え置き決定\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-b147e41f5e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、物価上昇率「2%到達」の見解 13年の目標導入以降で初めて\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-919f041033",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀政策金利据え置き「引き続き金融環境は緩和的」 市場参加者に聞く\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-2f47cb092b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価2%到達は「一つの節目だ」 日銀・植田総裁が示す利上げの道筋\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-273813aa07",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ＥＣＢ当局者、追加利上げの可能性指摘 物価・賃金上昇を警戒\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
