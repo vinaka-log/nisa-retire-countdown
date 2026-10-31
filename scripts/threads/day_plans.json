@@ -13854,5 +13854,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-01": {
+    "date": "2026-11-01",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-434268ef3a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀利上げ見送りも、住宅ローン影響これから 総利息1500万円増の例\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-6052dde4de",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀の物価目標「到達」にどんな意味がある？ 専門家2人が読み解く\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-4c9a171457",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "iDeCoが12月大幅拡充、利用拡大へ「企業年金弱者」加入が焦点\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-89e897f24d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "住宅ローン金利は7%超「家が買えない」 アメリカンドリームの異変 [アメリカ中間選挙\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-890f812230",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、利上げ継続「未知の世界」へ 近づく引き締め領域\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-05bfdf009c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "基調物価とは 一時的な要因を除いたインフレ率\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-49e9de2c14",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、基調物価2％到達と表明 ＥＴＦの売却加速も決定 | ロイター\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-8f8963ea43",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀会合、2%物価目標に到達と表明へ 政策金利は据え置きの公算\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-590e9d95a6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀のETF売り「倍速でも吸収可能」 株式市場、次の焦点は再加速\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-767ac76e82",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、１２月利上げを視野 物価上振れ、中立金利目指す\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
