@@ -14012,5 +14012,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-02": {
+    "date": "2026-11-02",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-b31315d1ec",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週のドル円相場はどうなる？11/2週のイベント予定 2026年11月1日\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-99ca53d4dc",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均上値重く、米中間選「青い波」で円高進行も 今週の市場・予定\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-8194560c7d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "Ｎｅｗｓモーニングサテライト【日銀・利上げのペースとターミナルレート\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-6745086eaf",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀短観 香川県内２期ぶりに悪化 物価高に懸念\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-bfde6a015f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀「普通の中銀」道半ば 残る異次元緩和のツケ\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-89063041d5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ピクテ・ゴールド(為替ヘッジなし)【42312199\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-486ea46757",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "中国人民銀、翌日物を主要政策金利に－1.25%と初公表、7日物下回る\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-32a6d34441",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均株価は\"3カ月ぶり\"下落､モメンタム低下が続くのか\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-10b4da5952",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "10月の十勝管内景況「持ち直し」継続 日銀帯広\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-e3d09a1b35",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "〈青空〉物価高騰と消費税減税\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
