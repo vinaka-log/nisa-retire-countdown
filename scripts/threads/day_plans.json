@@ -14486,5 +14486,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-05": {
+    "date": "2026-11-05",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-48ae53a469",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "10月のユーロ圏消費者物価、4.0%上昇 4カ月連続で加速\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-c49ad6e6cd",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替】米中間選挙の為替への影響を考える\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-e687ca4533",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均、一時6万円割れ目前に 乱高下に中間選挙二つのサプライズ\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-ad6752aab8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ユーロ圏 10月の消費者物価指数は4％上昇に 約3年ぶり高水準\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-6db55f92f6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米中間選で民主優勢の報道、日経4％安・ドル1円安 ＡＩ規制や財政拡張後退を意識\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-200d56875a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "市場ムードが安ど感に変化、株高とともに円安に ドル円１５８円台半ば\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-e5b4dc6aaa",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米３０年固定金利は７．３０％、住宅ローン申請指数は－１．２％\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-2f0c31f958",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京円、３３銭円安・ドル高の１ドル\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-7ed4ca577c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "FX/為替「昨日急騰したドルペソは高値圏\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-82ad36927d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ロンドン勢は株高でリスク選好の円安とドル安に\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
