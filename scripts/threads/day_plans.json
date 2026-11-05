@@ -14644,5 +14644,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-06": {
+    "date": "2026-11-06",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-4031780843",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "速いペースでの利上げ継続意識した意見が複数\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b31be33990",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "英中銀、約3年ぶり利上げ インフレリスク警戒で政策金利4%に\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-5dafd032c1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "利上げはどこまで続く? 日銀が最終到達点を議論 9月会合議事要旨\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-a6e83e1882",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円相場 小幅な値動き 原油先物下落で一時円高ドル安も\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-21aad79436",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京株、１１１０円安 米ＡＩ規制を警戒\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-400339d7ac",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、政策金利「早めにゴールに近づけるべき」 9月議事要旨\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-4be96ead96",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "Tracers 日経平均高配当株50インデックス(奇数月分配型)【02313241\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-efc9e4498b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米中間選「青い波」が呼ぶ円高シナリオ AI投資ブレーキ警戒\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-81a71573a6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "欧州外国為替市場概況・22時 ドル円、小高い(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-ea195ca28d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "指標発表予定】22:30 チェコ中銀、政策金利(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
