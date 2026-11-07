@@ -14960,5 +14960,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-08": {
+    "date": "2026-11-08",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-a9c4f379e3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、ハト派も賛同した物価2%到達 総裁こだわる「ランチ懇談」\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "daytime",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-df0d2dd9ac",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀・植田和男総裁、物価上振れ警戒 2％の物価上昇率到達でも「残された課題は多い」\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-c07d919f07",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "9月の実質賃金2.2％増、9か月連続プラス 夏の賞与は平均44万8,765円\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-f5e7390ab0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "岸田氏 国債NISAは慎重な検討必要\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-0f5c572f86",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "シカゴ日本株先物概況・6日 日経平均先物は885円高の5万8235円\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-0c96a9b04a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "植田日銀総裁、物価2％定着に意欲\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-52e1c603b5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均底入れで反発か、原油価格は高止まりに\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-5a2f04758b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "基調インフレに上振れリスク、2％定着目指す\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-2295aa688d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "FPが解説！2026年12月に変わるiDeCoと老後のお金の備え方\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-da71c158b6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場まとめ１１月２日から１１月６日の週\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
