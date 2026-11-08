@@ -15118,5 +15118,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-09": {
+    "date": "2026-11-09",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-66f76491d3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、ETF売却加速の深謀 政権との協調狙ったカードか\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-8766d78ee7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週のドル円相場はどうなる？11/9週のイベント予定 2026年11月8日\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-8327d587d4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "銀行か証券会社か、ネットか対面型か NISA口座開設先どうする？\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-00bca51b77",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均6万円回復なるか？【明日への投資戦略 11/9～11/13\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-132959ef5c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均底入れで反発か、原油価格は高止まりに 今週の市場・予定\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-e753c5f64e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "狙われた日銀ETF売却益、果実は官民投資へ 「年1兆円」長期想定の打算\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-9236866619",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "auAM レバレッジNASDAQ100為替ヘッジ無し【AY311247\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-aed563911d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "投機筋はなぜ円高を信じない？CFTCで読む円相場の本音(トウシル)\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-f3543e25c0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "滑落した日経平均株価､｢反転の兆し｣を見極める2つのポイント\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-bc96a7077a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "最近の秋田県内の景気は「緩やかに回復」 日銀秋田支店が24カ月連続で判断据え置き\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
