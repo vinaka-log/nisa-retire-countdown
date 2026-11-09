@@ -15276,5 +15276,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-10": {
+    "date": "2026-11-10",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-b3feeeca6b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀短観の賃金調査、27年6月から開始\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b7e5716059",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "政府・日銀の為替介入7.9兆円、7月30日過去最大 円安の構造的要因は払拭できず\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-907998d65e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米中間選挙後の為替 米ドル円下落圧力は強まるか？ 野村證券・後藤祐二朗\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-4d994809ab",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "今後数カ月間で円高が進む可能性 １５５円への下落も\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-120dc73918",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均株価 一時2000円超上昇\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-87e90848ab",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "マツダが黒字転換 「輸出2位」で円安追い風、下期はSUV巻き返し\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-c6816fa8ef",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５８円ちょうど付近\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-02d4849981",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "中国物価、10月0.7%上昇に鈍化 旅行需要が底上げも食品下落\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-4abdb0c201",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "9日外国為替市況（日銀公表分）(トレーダーズ・ウェブ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-1ed9f2d0e3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ニューヨーク外国為替市場概況・24時 ユーロドル、伸び悩み(トレーダーズ・ウェブ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
