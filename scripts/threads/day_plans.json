@@ -15592,5 +15592,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-12": {
+    "date": "2026-11-12",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-6331134fe7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価そのもの到達点とせず、好循環定着を\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-43ff339b88",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１６０円をうかがう展開に 介入の話題が再び聞こえてきそうな気配も\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-6253d63887",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "自動車5社が黒字に、9月中間決算 北米HV好調・円安も追い風\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-7c9e1aceba",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "データと収益がAI楽観に火をつけ、日経平均は3日連続で上昇\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-82723f69b2",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "高市早苗首相「物価2%目標の安定的実現を」 日銀の金融政策めぐり\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-14e53e10c8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経225先物：12日0時\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-a7eeebfc24",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は6万円割れで市場心理悪化、戻りの鈍い展開か\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-6e396d2b61",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安、迫る1ドル=159円台 再び広がる日米金利差\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-49c0e031b4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５９円台半ばまで上昇 ２００日線を突破する動き\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-ad11de3b62",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "物価上昇、とっくに2%超では? 日銀はなぜ今さら「到達」を判断?\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
