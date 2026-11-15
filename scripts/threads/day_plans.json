@@ -16224,5 +16224,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-16": {
+    "date": "2026-11-16",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-d5ecb3864b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "iDeCo加入率1割に満たず NISAより仕組み難解、金融機関も敬遠\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-17c1a753f5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "よい意味での物価上昇になるよう持っていく必要\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-eef67e58db",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "企業物価指数10月、飲食料品は前年比4.8％上昇 食品値上げの品目数との違い\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-aaa3154f47",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "（慢性円安）ちぐはぐ政策、不信の連鎖\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-d28bdfaf79",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "金利の上がる世界「バブル抑制を」 日銀やIMFの元幹部が警鐘\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-44ea2ad70b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "大東建託が国産木材使用倍増へ 住友林業系から調達、円安で日本産回帰\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-a844fef5da",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "チャート解説】日経平均\"つるべ落とし\"を回避､年末に向けた本格上昇はあるか\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-05fbc66f86",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "10月の輸入物価指数、13.5％上昇\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-f44e2c2b02",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米金利上昇 進む円安 今後の行方は？【明日への投資戦略 11/16～11/20\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-67770f9847",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "マーケット情報】商品市況・為替・株式（2026年11月13日時点）\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
