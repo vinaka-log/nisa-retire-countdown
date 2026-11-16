@@ -16382,5 +16382,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-17": {
+    "date": "2026-11-17",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-9db44014de",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀 高田審議委員「グッドポジションへ 機動的利上げを」\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-0a04436d30",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "中立金利へ早期利上げを、推計レンジの中央が「グッドポジション」\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-371b29bd30",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "高田・日銀審議委員「利上げペース速める新局面」物価上昇リスク強調\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-963b8945d7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "こどもNISA 来年１月スタート\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-59047f4390",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "まもなく加消費者物価指数CPIの発表\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-c7023fa3b5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "「賃金と物価の好循環」を目指す官民労街頭行動を実施しました（令和8年11月10日）\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-bdd0ea0453",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円のピボットは１５９．６０円付近\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-d1d78f5cb5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円相場値上がり 市場介入警戒感や日銀早期利上げ意識も\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-54985960e7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "賃金、かなり強く物価2％持続と整合的―日銀総裁\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-5ecef12906",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀・高田委員、利上げの累積効果発生「タイミングはまだ先」\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
