@@ -16540,5 +16540,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-18": {
+    "date": "2026-11-18",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-bf646fce03",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米経済指標【輸出物価指数\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-47f981a364",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円１５９．２０近辺、ユーロドル１．０９９０近辺\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-70c07280e7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円高の動き優勢、ドル円一時１５８円台 ドル買いは一服\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-72558bd890",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、一時１５８円台に下落も１５９円台に戻す エヌビディアとアンソロピック待ち\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-3be5770e0e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "上野厚労大臣に経済・物価動向を踏まえた診療報酬の更なる増点を要望\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-5a496d5586",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経225先物：18日0時\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-1ed20e10cb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ハンガリー経済指標【ハンガリー中銀政策金利\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-b70104d99b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "FX/為替「ドル人民元は6.6650前後\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-ba42df81be",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "１０月の米輸入物価指数、前月比１．１％上昇\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-cd41d93abb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ロンドン午前、ドル円１５９円台回復、ユーロドル１．０９９０付近\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
