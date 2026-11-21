@@ -17172,5 +17172,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-22": {
+    "date": "2026-11-22",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-bebd34dc19",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米国株急落で強まるリスク回避 日経平均「年内5万円接近」の声\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-9360657f63",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の注目材料】米物価統計は伸びが強まる見込み\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-512687b21f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀利上げの「残弾」はあと何発？最タカ派と最ハト派のはざまで読む利上げの行方\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-c0ee7f84e1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "インフレ打撃は高齢者に、話題の日銀リポート ｢処方箋は利上げ｣主張\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-20dfd72019",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場まとめ１１月１６日から１１月２０日の週\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-4de860798a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "25日の米PCE、FRBの利上げ占う 円安に傾けば再び介入の議論も\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-e240440cb8",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "iDeCo、受給時の節税・手取り増の心得 非課税枠を最大活用\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-3429d833f0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安圧力が再燃？アメリカ｢積極的な利上げモード｣の行方\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-916b114204",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "２０日の為替市場の四本値（ポンド円・豪ドル円・カナダ円）\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-4f38c2de8e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "国内外の注目経済指標：景気・物価指標に注目、各国の金融政策の行方を探る(フィスコ)\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
