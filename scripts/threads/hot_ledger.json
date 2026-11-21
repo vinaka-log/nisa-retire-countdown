@@ -401,7 +401,8 @@
     "hot-55b295b94f",
     "hot-fb1df489c8",
     "hot-c862a2574f",
-    "hot-74e8dcabd8"
+    "hot-74e8dcabd8",
+    "hot-f89c69475e"
   ],
   "history": [
     {
@@ -2010,6 +2011,10 @@
     },
     {
       "id": "hot-74e8dcabd8",
+      "date": "2026-11-21"
+    },
+    {
+      "id": "hot-f89c69475e",
       "date": "2026-11-21"
     }
   ]
