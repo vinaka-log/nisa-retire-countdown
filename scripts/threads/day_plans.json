@@ -17330,5 +17330,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-23": {
+    "date": "2026-11-23",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-892ab38a89",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "今週の注目材料】東京都区部消費者物価指数はしっかりとした伸びを期待\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-8b62b4abe1",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安見透かすFX投資家「もう円高はないだろう」視線は高金利の外貨\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-44f959a4ac",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は下値探る展開か、AI半導体株の期待揺らぐ 今週の市場・予定\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-2105a8ae2b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "iDeCo(イデコ)、掛け金枠が12月引き上げ NISAと違いは\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-733359c44d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "住宅価格と金利の同時上昇にどう応えるか 住宅ローン減税の軽減効果と課題\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-9e9df9791b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安の本当の構造的要因とは？【モヤモヤサテライト】｜SPECIALコンテンツ\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-2590154175",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "スイス国立銀行、二次的インフレリスクを指摘 12月の政策決定を前に物価上昇加速\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-645076640a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "クイズ】東証プライム・スタンダード・グロース・日経平均、割安な出遅れ市場はどれ？\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-b343758699",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "株安・円安・金利高 今後の相場の行方は？【明日への投資戦略 11/24～11/27\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-0afb446002",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "仙台市の消費者物価指数 去年の同じ時期と比べて１・９％上昇（khb東日本放送）\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
