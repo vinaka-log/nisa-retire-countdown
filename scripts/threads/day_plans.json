@@ -17488,5 +17488,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-24": {
+    "date": "2026-11-24",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-f974ad6673",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、１５９円台に戻す 米株上昇でリスク回避の円高一服\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-c65ab0a07c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円売りが一服、ドル円は１５９．１０台で伸び悩む\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-21df948ac4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円は159円台を回復\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-3793bd502a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "「ゴルディロックス」な円安、日本の輸出株に好環境 ＜伊賀大記のクロマなマクロ展望＞\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-de73b70e1b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場 ２４日（日本時間 ０時）\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-1aca40afba",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京為替、ドル円159円台で上昇一服 株価失速で方向感欠く\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-88217371a0",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場 24日（日本時間 0時）\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-38838af154",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京外国為替市場概況・17時 ドル円、上昇一服\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-2563fb4cc2",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京為替：ドル・円は伸び悩み、クロス円は続伸(フィスコ)\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-380befe1b6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場 ２３日（日本時間１８時）\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
