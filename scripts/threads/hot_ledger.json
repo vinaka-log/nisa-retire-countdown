@@ -429,7 +429,8 @@
     "hot-1aca40afba",
     "hot-88217371a0",
     "hot-38838af154",
-    "hot-2563fb4cc2"
+    "hot-2563fb4cc2",
+    "hot-380befe1b6"
   ],
   "history": [
     {
@@ -2150,6 +2151,10 @@
     },
     {
       "id": "hot-2563fb4cc2",
+      "date": "2026-11-24"
+    },
+    {
+      "id": "hot-380befe1b6",
       "date": "2026-11-24"
     }
   ]
