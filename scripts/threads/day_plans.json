@@ -17646,5 +17646,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-25": {
+    "date": "2026-11-25",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-ebb8f7d74f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "インタビュー：日銀は来年2％まで利上げか、経済・株価絡み判断難しく\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b72ab9bd39",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円安なら輸出はバラ色？ 現地価格に見えた傾向、企業の合理性の帰結\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-9a65f5e00a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル安と円安が交錯、株式動向をにらんで調整圧力 ドル円１５９円台で振幅\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-4b875e2e08",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は戻り高値から2割下落で値ごろ感、AI関連株から反発か\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-28152e6303",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均は大幅反発、エヌビディアＣＥＯ復帰受けた米株高が支え\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-c650080731",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円のピボットは１５９．１５円付近\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-424d32432e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "FX/為替「ドル人民元はドル安強まる\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-f40c8a0368",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "円高ユーロ安が減益要因に？日経平均・読売333・TOPIXの比較から読み解く\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-d941041781",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日本株】日経平均株価のダブルトップ形成後の下値めど\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-95946df9c4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "米株が再び不安定になる中、ドル安がドル円を圧迫\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
