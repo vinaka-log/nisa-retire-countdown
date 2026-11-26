@@ -17962,5 +17962,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-27": {
+    "date": "2026-11-27",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-ae4b085077",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀は12 月の利上げを見送りへ | 藤代 宏一 | 第一ライフ資産運用経済研究所\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-a6ab3dac1a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀・田村委員、12月利上げ「判断がつく場合は十分ある」\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-b3e2f93a8a",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "まもなくブラジル拡大消費者物価指数IPCAの発表\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-4a8ea4846d",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀・田村委員、利上げ「悠々として急ぐ」 物価上振れを警戒\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-8aaf071a2b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円、クロス円がやや円安方向に傾斜\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-6f83ee8cbe",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替変動と企業の行動（5）企業が直面する3つのリスク\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-e9c5266afb",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀の田村委員、利上げペース「悠々と急ぐ」 株安もタカ派は不変\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-9acf18517b",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀のETF保有113兆円、半年で18兆円増 売却開始後も株高で膨張\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-5a395f1cc6",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東証大引け 日経平均は反発 AI・半導体に買い、戻り待ちの売りも\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-aad125aa2c",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀為替市況 午後５時時点、１５９円１６～１８銭のドル安・円高\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
