@@ -450,7 +450,8 @@
     "hot-55ffd78d69",
     "hot-dcbd549a85",
     "hot-99a990e9d2",
-    "hot-a1100bb2b7"
+    "hot-a1100bb2b7",
+    "hot-dc6413ef23"
   ],
   "history": [
     {
@@ -2255,6 +2256,10 @@
     },
     {
       "id": "hot-a1100bb2b7",
+      "date": "2026-11-26"
+    },
+    {
+      "id": "hot-dc6413ef23",
       "date": "2026-11-26"
     }
   ]
