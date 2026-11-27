@@ -18120,5 +18120,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-28": {
+    "date": "2026-11-28",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-261170c8ef",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "三菱UFJFGなど銀行株が高い 12月の日銀利上げ観測で見直し買い\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-88850c58f7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル高優勢＝ＮＹ為替序盤\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-bcc9b2cd99",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀、デジタルマネーとAIリスクへの対策を呼びかけ\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-4e5f9b03c7",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "東京23区の消費者物価、11月2.9%上昇 電気･ガス補助終了で押し上げ\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-9a65f30234",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円は今日の高値圏からやや調整\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-e6e8b0031e",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "ドル円１５９．５０近辺、ユーロドル１．０９６５近辺\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-af7f6fde44",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "12月から大幅拡充！ iDeCo最大活用法、60歳から資産1000万円も\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-030ee0a642",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "2027年1月スタート こどもNISAクイズでわかる新ルール\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-663f122b29",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "AI株に揺れる市場、植田日銀総裁は利上げを予告するか／米期待インフレ率に注目\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-74549dd715",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "異性化糖の流通価格4%上昇 原料高と円安で\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
