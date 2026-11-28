@@ -18278,5 +18278,163 @@
         "slot": 9
       }
     }
+  },
+  "2026-11-29": {
+    "date": "2026-11-29",
+    "schedule": "E-chat-hot10",
+    "flags": [],
+    "yesterday_flags_carried": [],
+    "slots": {
+      "0": {
+        "id": "hot-b4e0d23384",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "株価下落で日銀は12月利上げを見送りへ 注目は植田総裁の名古屋講演\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 0
+      },
+      "1": {
+        "id": "hot-b0d146cefc",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "植田日銀、グリーンでパターを握れるか 利上げ加速の副作用に苦悩\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 1
+      },
+      "2": {
+        "id": "hot-87c68a32b5",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "為替相場まとめ１１月２３日から１１月２７日の週\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 2
+      },
+      "3": {
+        "id": "hot-4a60f101a3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均6万円台へ攻防、来週は植田日銀会見・フアンCEO証言・米雇用統計の三重奏\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 3
+      },
+      "4": {
+        "id": "hot-8f7c396e57",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の主な予定 米雇用統計に植田日銀総裁 エヌビディアCEO議会証言\n\nタイムラインで見て、証券アプリは閉じた\n開いた人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 4
+      },
+      "5": {
+        "id": "hot-b50441b5f4",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "２７日の為替市場の四本値（ポンド円・豪ドル円・カナダ円）\n\n生活がすぐ変わる気がしないのに、目は止まる\n気にしてる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 5
+      },
+      "6": {
+        "id": "hot-14143b918f",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日銀「タカ派度」占う植田総裁講演 株安懸念示せば円売り加速の声\n\n積立の画面は開かなかった\nこういうニュース、見る派？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 6
+      },
+      "7": {
+        "id": "hot-c398542bd3",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "上野陽一日銀前橋支店長を会長に互選 群馬県消費生活問題審議会\n\nで、毎月の積立額は何も変えてない\n動かす人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 7
+      },
+      "8": {
+        "id": "hot-63743856ef",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "日経平均6万円回復試す 円の下値余地は限定的\n\n見出しだけ見て、中身は読んでない\n同じ人いる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 8
+      },
+      "9": {
+        "id": "hot-541bd0e388",
+        "kind": "hot",
+        "topic": "金融",
+        "theme": "news",
+        "text": "来週の注目材料】底堅い雇用環境が維持され、利上げ観測と160円台試しの展開が続くか\n\n不安にはなるけど、今日やること増えない\nどう受け取ってる？",
+        "consistency": {
+          "sets": [],
+          "forbids": [],
+          "requires": [],
+          "time": "any",
+          "weekdays": null
+        },
+        "slot": 9
+      }
+    }
   }
 }
